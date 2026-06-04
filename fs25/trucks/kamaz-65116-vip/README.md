@@ -9,7 +9,14 @@
 | **Preço** | 56.490€ |
 | **Potência** | 210 hp |
 
+## 📥 Download
+
+**FS25 Kamaz 65116 Vip v1.1.0**
+
+[⬇ Baixar / Download](https://github.com/eusouanderson/fs25-mods/releases/tag/kamaz-65116-vip-v1.1.0)
+
 ---
+
 
 ## 🇧🇷 Sobre
 
