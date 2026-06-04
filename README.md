@@ -32,7 +32,7 @@ Aqui você encontra scripts e ferramentas que criei para resolver os problemas m
 ### 📁 Estrutura / Structure
 
 ```
-fd25-mods/
+fs25-mods/
 ├── mods/              ← Mods convertidos para FS25 (por categoria)
 │   ├── trucks/        ←   Caminhões
 │   ├── tractors/      ←   Tratores

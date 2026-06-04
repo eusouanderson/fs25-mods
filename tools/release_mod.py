@@ -27,7 +27,7 @@ import zipfile
 from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
-REPO = "eusouanderson/fd25-mods"
+REPO = "eusouanderson/fs25-mods"
 CATEGORIES = ("trucks", "tractors", "trailers", "maps", "cars", "other")
 
 EXCLUDE_PATTERNS = (
