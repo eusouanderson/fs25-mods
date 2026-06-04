@@ -96,6 +96,23 @@ def create_zip(source_dir: Path, output_path: Path) -> Path:
     return output_path
 
 
+def read_version_from_moddesc(mod_dir: Path) -> str | None:
+    """Read the <version> tag from modDesc.xml inside the mod folder."""
+    moddesc = mod_dir / "modDesc.xml"
+    if not moddesc.exists():
+        return None
+    try:
+        content = moddesc.read_text(encoding="utf-8")
+        m = re.search(r'<version>([^<]+)</version>', content)
+        if m:
+            ver = m.group(1).strip()
+            ver = re.sub(r'\.0$', '', ver)
+            return ver
+    except Exception:
+        pass
+    return None
+
+
 def get_next_version(slug: str) -> str:
     try:
         result = subprocess.run(
@@ -251,9 +268,10 @@ def main():
     parser.add_argument("mod_dir", help="Path to the mod directory (in repo or external)")
     parser.add_argument("--name", help="Mod slug/name (auto-detected from folder)")
     parser.add_argument("--category", choices=CATEGORIES, help="Mod category (auto-detected if path is inside repo)")
-    parser.add_argument("--version", "-v", help="Version tag (auto: 1.0.0 or next patch)")
+    parser.add_argument("--version", "-v", help="Version tag (auto: from modDesc.xml or next patch)")
     parser.add_argument("--dry-run", "-n", action="store_true", help="Preview only")
     parser.add_argument("--no-readme", action="store_true", help="Skip README update")
+    parser.add_argument("--overwrite", action="store_true", help="Delete existing release and recreate")
 
     args = parser.parse_args()
 
@@ -263,10 +281,21 @@ def main():
         sys.exit(1)
 
     mod_name, mod_slug, category = get_mod_info(mod_path, args.name, args.category)
-    version = args.version or get_next_version(mod_slug)
+
+    # Version detection priority: --version flag > modDesc.xml > auto from previous releases
+    if args.version:
+        version = args.version
+    else:
+        moddesc_ver = read_version_from_moddesc(mod_path)
+        if moddesc_ver:
+            version = moddesc_ver
+            print(f"  ℹ   Version from modDesc.xml: {version}")
+        else:
+            version = get_next_version(mod_slug)
+            print(f"  ℹ   Auto-detected version: {version}")
+
     tag = f"{mod_slug}-v{version}"
 
-    # FS25 expects the zip name to match the original mod folder name
     zip_basename = mod_path.name
 
     print(f"\n{'='*60}")
@@ -278,10 +307,18 @@ def main():
     print(f"  📁  Source:      {mod_path}")
     print(f"{'='*60}")
 
-    if not args.dry_run and release_exists(tag):
-        print(f"  ✖  Release '{tag}' already exists!")
-        print(f"     Use --version to bump.")
-        sys.exit(1)
+    release_already_exists = not args.dry_run and release_exists(tag)
+    if release_already_exists:
+        if args.overwrite:
+            print(f"  ⚠   Release '{tag}' exists. Deleting and recreating...")
+            run_gh(["release", "delete", tag])
+        else:
+            print(f"  ✖  Release '{tag}' already exists!")
+            print(f"     Tips:")
+            print(f"       • Update the version in modDesc.xml and run again")
+            print(f"       • Use --overwrite to replace this release")
+            print(f"       • Use --version X.Y.Z to override")
+            sys.exit(1)
 
     estimated_mb = estimate_dir_size(mod_path) / (1024 * 1024)
     if estimated_mb > 1900:
