@@ -5,14 +5,14 @@ FS22/FS25 Mod Release Tool — B.O.B's FS25 Mod Tool
 Zips a mod directory, creates a GitHub Release, uploads the zip,
 and updates the mod's README.
 
-The mod directory can be inside the repo (mods/<category>/<mod>/)
+The mod directory can be inside the repo (fs25/<category>/<mod>/)
 or an external path (e.g. your FS25 mods folder on Windows).
 
 Usage:
     python release_mod.py <mod-dir> [--version X.Y.Z] [--category trucks]
-    python release_mod.py mods/trucks/kamaz-65116 --version 1.0.0
+    python release_mod.py fs25/trucks/kamaz-65116 --version 1.0.0
     python release_mod.py /path/to/FS25Kamaz65116 --name kamaz-65116 --category trucks
-    python release_mod.py mods/trucks/kamaz-65116 --dry-run
+    python release_mod.py fs25/trucks/kamaz-65116 --dry-run
 """
 
 import argparse
@@ -203,14 +203,14 @@ def commit_and_push_readme(readme_rel: str, mod_name: str, version: str, dry_run
 def find_readme_in_repo(mod_slug: str, category: str | None) -> Path | None:
     """Search for the mod's README within the repo."""
     if category:
-        candidate = BASE_DIR / "mods" / category / mod_slug / "README.md"
+        candidate = BASE_DIR / "fs25" / category / mod_slug / "README.md"
         if candidate.exists():
             return candidate
         candidate = BASE_DIR / "fs22" / category / mod_slug / "README.md"
         if candidate.exists():
             return candidate
     for cat in CATEGORIES:
-        for base in ("mods", "fs22"):
+        for base in ("fs25", "fs22"):
             candidate = BASE_DIR / base / cat / mod_slug / "README.md"
             if candidate.exists():
                 return candidate
@@ -228,7 +228,7 @@ def get_mod_info(mod_path: Path, name: str | None, category: str | None) -> tupl
         try:
             rel = mod_path.relative_to(BASE_DIR)
             parts = rel.parts
-            if len(parts) >= 2 and parts[0] in ("mods", "fs22") and parts[1] in CATEGORIES:
+            if len(parts) >= 2 and parts[0] in ("fs25", "fs22") and parts[1] in CATEGORIES:
                 detected_cat = parts[1]
         except ValueError:
             pass
@@ -242,10 +242,10 @@ def main():
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog=(
             "Examples:\n"
-            "  python release_mod.py mods/trucks/kamaz-65116\n"
-            "  python release_mod.py mods/trucks/kamaz-65116 --version 1.0.0\n"
+            "  python release_mod.py fs25/trucks/kamaz-65116\n"
+            "  python release_mod.py fs25/trucks/kamaz-65116 --version 1.0.0\n"
             "  python release_mod.py /path/to/FS25Kamaz65116 --name kamaz-65116 --category trucks\n"
-            "  python release_mod.py mods/trucks/kamaz-65116 --dry-run\n"
+            "  python release_mod.py fs25/trucks/kamaz-65116 --dry-run\n"
         ),
     )
     parser.add_argument("mod_dir", help="Path to the mod directory (in repo or external)")
@@ -302,7 +302,7 @@ def main():
             f"Categoria: {category or 'other'}\n\n"
             f"### Instalação / Installation\n\n"
             f"1. Baixe o arquivo `{zip_path.name}` abaixo\n"
-            f"2. Extraia para `~Documents/My Games/FarmingSimulator2025/mods/`\n"
+            f"2. Extraia para `~Documents/My Games/FarmingSimulator2025/fs25/`\n"
             f"3. Pronto!\n"
         )
 

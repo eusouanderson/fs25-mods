@@ -32,8 +32,8 @@ Aqui você encontra scripts e ferramentas que criei para resolver os problemas m
 ### 📁 Estrutura / Structure
 
 ```
-fs25-mods/
-├── mods/              ← Mods convertidos para FS25 (por categoria)
+fs25-fs25/
+├── fs25/              ← Mods convertidos para FS25 (por categoria)
 │   ├── trucks/        ←   Caminhões
 │   ├── tractors/      ←   Tratores
 │   ├── trailers/      ←   Reboques
@@ -54,7 +54,7 @@ fs25-mods/
 
 | Categoria | Mod | Download |
 |-----------|-----|----------|
-| 🚚 Caminhões | [Kamaz 65116](mods/trucks/kamaz-65116/) | — |
+| 🚚 Caminhões | [Kamaz 65116](fs25/trucks/kamaz-65116/) | — |
 
 ### 📦 Mods Originais (FS22)
 
@@ -69,7 +69,7 @@ Baixados automaticamente da [fs22.com](https://fs22.com) com a ferramenta abaixo
 | Ferramenta | Descrição | Como usar |
 |------------|-----------|-----------|
 | [`download_mod.py`](tools/download_mod.py) | Baixa mods do fs22.com | `python tools/download_mod.py --category trucks` |
-| [`release_mod.py`](tools/release_mod.py) | Zipa e publica como GitHub Release | `python tools/release_mod.py mods/trucks/kamaz-65116` |
+| [`release_mod.py`](tools/release_mod.py) | Zipa e publica como GitHub Release | `python tools/release_mod.py fs25/trucks/kamaz-65116` |
 
 ### ⬇ Baixar Todos os Caminhões FS22
 
@@ -92,13 +92,13 @@ python tools/download_mod.py --category maps
 
 ```bash
 # Preview
-python tools/release_mod.py mods/trucks/kamaz-65116 --dry-run
+python tools/release_mod.py fs25/trucks/kamaz-65116 --dry-run
 
 # Publicar (zipa + cria release + atualiza README)
-python tools/release_mod.py mods/trucks/kamaz-65116 --version 1.0.0
+python tools/release_mod.py fs25/trucks/kamaz-65116 --version 1.0.0
 
 # Mod vindo direto da sua pasta FS25 do Windows
-python tools/release_mod.py "G:/Users/Administrador/Documents/My Games/FarmingSimulator2025/mods/FS25Kamaz65116" --name kamaz-65116 --category trucks
+python tools/release_mod.py "G:/Users/Administrador/Documents/My Games/FarmingSimulator2025/fs25/FS25Kamaz65116" --name kamaz-65116 --category trucks
 ```
 
 ### ❤️ Apoie o trabalho
@@ -130,7 +130,7 @@ Here you'll find scripts and tools I created to fix the most common issues when 
 
 | Category | Mod | Download |
 |----------|-----|----------|
-| 🚚 Trucks | [Kamaz 65116](mods/trucks/kamaz-65116/) | — |
+| 🚚 Trucks | [Kamaz 65116](fs25/trucks/kamaz-65116/) | — |
 
 ### 📦 Original Mods (FS22)
 
@@ -145,7 +145,7 @@ Automatically downloaded from [fs22.com](https://fs22.com).
 | Tool | Description | Usage |
 |------|-------------|-------|
 | [`download_mod.py`](tools/download_mod.py) | Download mods from fs22.com | `python tools/download_mod.py --category trucks` |
-| [`release_mod.py`](tools/release_mod.py) | Zip & publish as GitHub Release | `python tools/release_mod.py mods/trucks/kamaz-65116` |
+| [`release_mod.py`](tools/release_mod.py) | Zip & publish as GitHub Release | `python tools/release_mod.py fs25/trucks/kamaz-65116` |
 
 ### ⬇ Download All FS22 Trucks
 
@@ -164,13 +164,13 @@ python tools/download_mod.py --category trucks
 
 ```bash
 # Preview
-python tools/release_mod.py mods/trucks/kamaz-65116 --dry-run
+python tools/release_mod.py fs25/trucks/kamaz-65116 --dry-run
 
 # Publish (zip + release + README update)
-python tools/release_mod.py mods/trucks/kamaz-65116 --version 1.0.0
+python tools/release_mod.py fs25/trucks/kamaz-65116 --version 1.0.0
 
 # Mod from your local Windows FS25 folder
-python tools/release_mod.py "G:/Users/Administrador/Documents/My Games/FarmingSimulator2025/mods/FS25Kamaz65116" --name kamaz-65116 --category trucks
+python tools/release_mod.py "G:/Users/Administrador/Documents/My Games/FarmingSimulator2025/fs25/FS25Kamaz65116" --name kamaz-65116 --category trucks
 ```
 
 ### ❤️ Support the Work
