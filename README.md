@@ -35,6 +35,25 @@ Aqui você encontra scripts e ferramentas que criei para resolver os problemas m
 |-----|--------|-----------|
 | [Kamaz 65116](mods/kamaz-65116/) | ✅ Convertido | Caminhão soviético 6×6 |
 
+### Mods FS22 originais (base para conversão)
+
+A pasta [`fs22/`](fs22/) contém os mods originais do FS22 baixados automaticamente via ferramenta própria.
+
+| Mod | Arquivo |
+|-----|---------|
+| [Renault K480](fs22/renault-k480-v1-0/) | `FS22_RenaultK480_6x4.zip` |
+
+### Ferramentas
+
+| Ferramenta | Descrição |
+|------------|-----------|
+| [`tools/download_mod.py`](tools/download_mod.py) | Baixa mods do fs22.com automaticamente para a pasta `fs22/` |
+
+```bash
+# Exemplo de uso:
+python tools/download_mod.py "https://fs22.com/farming-simulator-22-mods/trucks/renault-k480-v1-0/"
+```
+
 ### Apoie o trabalho
 
 Se meus mods e ferramentas te ajudaram, considere fazer uma doação. Isso me ajuda a continuar convertendo e criando conteúdo gratuitamente.
@@ -65,6 +84,25 @@ Here you'll find scripts and tools I created to fix the most common issues when 
 | Mod | Status | Description |
 |-----|--------|-------------|
 | [Kamaz 65116](mods/kamaz-65116/) | ✅ Converted | Soviet 6×6 truck |
+
+### Original FS22 Mods (conversion source)
+
+The [`fs22/`](fs22/) folder holds original FS22 mods automatically downloaded via the built-in tool.
+
+| Mod | File |
+|-----|------|
+| [Renault K480](fs22/renault-k480-v1-0/) | `FS22_RenaultK480_6x4.zip` |
+
+### Tools
+
+| Tool | Description |
+|------|-------------|
+| [`tools/download_mod.py`](tools/download_mod.py) | Download FS22 mods from fs22.com into `fs22/` |
+
+```bash
+# Usage example:
+python tools/download_mod.py "https://fs22.com/farming-simulator-22-mods/trucks/renault-k480-v1-0/"
+```
 
 ### Support the Work
 
