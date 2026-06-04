@@ -32,7 +32,7 @@ Aqui você encontra scripts e ferramentas que criei para resolver os problemas m
 ### 📁 Estrutura / Structure
 
 ```
-fs25-fs25/
+fs25-mods/
 ├── fs25/              ← Mods convertidos para FS25 (por categoria)
 │   ├── trucks/        ←   Caminhões
 │   ├── tractors/      ←   Tratores
@@ -54,7 +54,8 @@ fs25-fs25/
 
 | Categoria | Mod | Download |
 |-----------|-----|----------|
-| 🚚 Caminhões | [Kamaz 65116](fs25/trucks/kamaz-65116/) | — |
+| 🚚 Caminhões | [Kamaz 65116](fs25/trucks/kamaz-65116/) | Ferramenta de fix |
+| 🚚 Caminhões | [Kamaz 65116 VIP](fs25/trucks/kamaz-65116-vip/) | [⬇ Download](https://github.com/eusouanderson/fs25-mods/releases/tag/kamaz-65116-vip-v1.0.0) |
 
 ### 📦 Mods Originais (FS22)
 
@@ -130,7 +131,8 @@ Here you'll find scripts and tools I created to fix the most common issues when 
 
 | Category | Mod | Download |
 |----------|-----|----------|
-| 🚚 Trucks | [Kamaz 65116](fs25/trucks/kamaz-65116/) | — |
+| 🚚 Trucks | [Kamaz 65116](fs25/trucks/kamaz-65116/) | Fix tool |
+| 🚚 Trucks | [Kamaz 65116 VIP](fs25/trucks/kamaz-65116-vip/) | [⬇ Download](https://github.com/eusouanderson/fs25-mods/releases/tag/kamaz-65116-vip-v1.0.0) |
 
 ### 📦 Original Mods (FS22)
 
