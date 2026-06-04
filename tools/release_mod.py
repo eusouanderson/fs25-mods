@@ -266,10 +266,14 @@ def main():
     version = args.version or get_next_version(mod_slug)
     tag = f"{mod_slug}-v{version}"
 
+    # FS25 expects the zip name to match the original mod folder name
+    zip_basename = mod_path.name
+
     print(f"\n{'='*60}")
     emoji = category_emoji(category or "other")
     print(f"  {emoji}  Publishing: {mod_name}")
     print(f"  🏷   Tag:        {tag}")
+    print(f"  📦  Zip:        {zip_basename}.zip")
     print(f"  📂  Category:   {category or 'auto-detect'}")
     print(f"  📁  Source:      {mod_path}")
     print(f"{'='*60}")
@@ -280,14 +284,14 @@ def main():
         sys.exit(1)
 
     estimated_mb = estimate_dir_size(mod_path) / (1024 * 1024)
-    if estimated_mb > 95:
-        print(f"  ⚠   WARNING: {estimated_mb:.0f} MB is near GitHub's 100 MB limit!")
-        if estimated_mb > 100:
-            print(f"  ✖  Exceeds 100 MB. Use Git LFS or split the mod.")
-            sys.exit(1)
+    if estimated_mb > 1900:
+        print(f"  ✖  {estimated_mb:.0f} MB exceeds GitHub Release 2 GB limit!")
+        sys.exit(1)
+    if estimated_mb > 100:
+        print(f"  ⚠   Large mod: {estimated_mb:.0f} MB (GitHub Release limit is 2 GB, this is fine)")
 
     with tempfile.TemporaryDirectory(prefix="bob-release-") as tmp_dir:
-        zip_path = Path(tmp_dir) / f"{mod_slug}.zip"
+        zip_path = Path(tmp_dir) / f"{zip_basename}.zip"
         create_zip(mod_path, zip_path)
 
         if args.dry_run:
@@ -295,14 +299,15 @@ def main():
             print(f"       Tag:    {tag}")
             print(f"       Title:  {mod_slug} v{version}")
             print(f"       Asset:  {zip_path.name} ({zip_path.stat().st_size / 1024 / 1024:.1f} MB)")
+            print(f"  ℹ   FS25 ready: zip name matches original folder ({zip_basename}.zip)")
             sys.exit(0)
 
         release_notes = (
             f"## {mod_name} v{version}\n\n"
             f"Categoria: {category or 'other'}\n\n"
             f"### Instalação / Installation\n\n"
-            f"1. Baixe o arquivo `{zip_path.name}` abaixo\n"
-            f"2. Extraia para `~Documents/My Games/FarmingSimulator2025/fs25/`\n"
+            f"1. Baixe o arquivo `{zip_basename}.zip` abaixo\n"
+            f"2. Extraia para `~Documents/My Games/FarmingSimulator2025/mods/`\n"
             f"3. Pronto!\n"
         )
 
