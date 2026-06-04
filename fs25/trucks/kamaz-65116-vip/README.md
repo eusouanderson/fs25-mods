@@ -11,6 +11,11 @@
 
 ## 📥 Download
 
+**FS25 Kamaz 65116 Vip v1.2.0**
+
+[⬇ Baixar / Download](https://github.com/eusouanderson/fs25-mods/releases/tag/kamaz-65116-vip-v1.2.0)
+
+---
 **FS25 Kamaz 65116 Vip v1.1.0**
 
 [⬇ Baixar / Download](https://github.com/eusouanderson/fs25-mods/releases/tag/kamaz-65116-vip-v1.1.0)
