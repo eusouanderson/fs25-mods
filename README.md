@@ -29,32 +29,79 @@ Aqui você encontra scripts e ferramentas que criei para resolver os problemas m
 - ✅ Ajustes de encoding (`iso-8859-1` → `utf-8`)
 - ✅ E mais ferramentas à medida que novos problemas aparecerem
 
-### Mods disponíveis
+### 📁 Estrutura / Structure
 
-| Mod | Status | Descrição |
-|-----|--------|-----------|
-| [Kamaz 65116](mods/kamaz-65116/) | ✅ Convertido | Caminhão soviético 6×6 |
-
-### Mods FS22 originais (base para conversão)
-
-A pasta [`fs22/`](fs22/) contém os mods originais do FS22 baixados automaticamente via ferramenta própria.
-
-| Mod | Arquivo |
-|-----|---------|
-| [Renault K480](fs22/renault-k480-v1-0/) | `FS22_RenaultK480_6x4.zip` |
-
-### Ferramentas
-
-| Ferramenta | Descrição |
-|------------|-----------|
-| [`tools/download_mod.py`](tools/download_mod.py) | Baixa mods do fs22.com automaticamente para a pasta `fs22/` |
-
-```bash
-# Exemplo de uso:
-python tools/download_mod.py "https://fs22.com/farming-simulator-22-mods/trucks/renault-k480-v1-0/"
+```
+fd25-mods/
+├── mods/              ← Mods convertidos para FS25 (por categoria)
+│   ├── trucks/        ←   Caminhões
+│   ├── tractors/      ←   Tratores
+│   ├── trailers/      ←   Reboques
+│   ├── maps/          ←   Mapas
+│   ├── cars/          ←   Carros
+│   └── other/         ←   Outros
+├── fs22/              ← Mods ORIGINAIS do FS22 (base para conversão)
+│   ├── trucks/
+│   ├── tractors/
+│   ├── trailers/
+│   ├── maps/
+│   ├── cars/
+│   └── other/
+└── tools/             ← Ferramentas de automação
 ```
 
-### Apoie o trabalho
+### 🚚 Mods Convertidos (FS25)
+
+| Categoria | Mod | Download |
+|-----------|-----|----------|
+| 🚚 Caminhões | [Kamaz 65116](mods/trucks/kamaz-65116/) | — |
+
+### 📦 Mods Originais (FS22)
+
+Baixados automaticamente da [fs22.com](https://fs22.com) com a ferramenta abaixo.
+
+| Categoria | Mod |
+|-----------|-----|
+| 🚚 Caminhões | [Renault K480](fs22/trucks/renault-k480-v1-0/) |
+
+### 🛠️ Ferramentas / Tools
+
+| Ferramenta | Descrição | Como usar |
+|------------|-----------|-----------|
+| [`download_mod.py`](tools/download_mod.py) | Baixa mods do fs22.com | `python tools/download_mod.py --category trucks` |
+| [`release_mod.py`](tools/release_mod.py) | Zipa e publica como GitHub Release | `python tools/release_mod.py mods/trucks/kamaz-65116` |
+
+### ⬇ Baixar Todos os Caminhões FS22
+
+```bash
+# Preview (só mostra o que vai baixar)
+python tools/download_mod.py --category trucks --dry-run
+
+# Baixar os 10 primeiros
+python tools/download_mod.py --category trucks --limit 10
+
+# Baixar TODOS (60+ páginas!)
+python tools/download_mod.py --category trucks
+
+# Baixar outra categoria
+python tools/download_mod.py --category tractors
+python tools/download_mod.py --category maps
+```
+
+### 📤 Publicar um Mod Convertido
+
+```bash
+# Preview
+python tools/release_mod.py mods/trucks/kamaz-65116 --dry-run
+
+# Publicar (zipa + cria release + atualiza README)
+python tools/release_mod.py mods/trucks/kamaz-65116 --version 1.0.0
+
+# Mod vindo direto da sua pasta FS25 do Windows
+python tools/release_mod.py "G:/Users/Administrador/Documents/My Games/FarmingSimulator2025/mods/FS25Kamaz65116" --name kamaz-65116 --category trucks
+```
+
+### ❤️ Apoie o trabalho
 
 Se meus mods e ferramentas te ajudaram, considere fazer uma doação. Isso me ajuda a continuar convertendo e criando conteúdo gratuitamente.
 
@@ -79,32 +126,54 @@ Here you'll find scripts and tools I created to fix the most common issues when 
 - ✅ Encoding fixes (`iso-8859-1` → `utf-8`)
 - ✅ More tools as new issues come up
 
-### Available Mods
+### 🚚 Converted Mods (FS25)
 
-| Mod | Status | Description |
-|-----|--------|-------------|
-| [Kamaz 65116](mods/kamaz-65116/) | ✅ Converted | Soviet 6×6 truck |
+| Category | Mod | Download |
+|----------|-----|----------|
+| 🚚 Trucks | [Kamaz 65116](mods/trucks/kamaz-65116/) | — |
 
-### Original FS22 Mods (conversion source)
+### 📦 Original Mods (FS22)
 
-The [`fs22/`](fs22/) folder holds original FS22 mods automatically downloaded via the built-in tool.
+Automatically downloaded from [fs22.com](https://fs22.com).
 
-| Mod | File |
-|-----|------|
-| [Renault K480](fs22/renault-k480-v1-0/) | `FS22_RenaultK480_6x4.zip` |
+| Category | Mod |
+|----------|-----|
+| 🚚 Trucks | [Renault K480](fs22/trucks/renault-k480-v1-0/) |
 
-### Tools
+### 🛠️ Tools
 
-| Tool | Description |
-|------|-------------|
-| [`tools/download_mod.py`](tools/download_mod.py) | Download FS22 mods from fs22.com into `fs22/` |
+| Tool | Description | Usage |
+|------|-------------|-------|
+| [`download_mod.py`](tools/download_mod.py) | Download mods from fs22.com | `python tools/download_mod.py --category trucks` |
+| [`release_mod.py`](tools/release_mod.py) | Zip & publish as GitHub Release | `python tools/release_mod.py mods/trucks/kamaz-65116` |
+
+### ⬇ Download All FS22 Trucks
 
 ```bash
-# Usage example:
-python tools/download_mod.py "https://fs22.com/farming-simulator-22-mods/trucks/renault-k480-v1-0/"
+# Preview only
+python tools/download_mod.py --category trucks --dry-run
+
+# First 10
+python tools/download_mod.py --category trucks --limit 10
+
+# ALL trucks (60+ pages!)
+python tools/download_mod.py --category trucks
 ```
 
-### Support the Work
+### 📤 Publish a Converted Mod
+
+```bash
+# Preview
+python tools/release_mod.py mods/trucks/kamaz-65116 --dry-run
+
+# Publish (zip + release + README update)
+python tools/release_mod.py mods/trucks/kamaz-65116 --version 1.0.0
+
+# Mod from your local Windows FS25 folder
+python tools/release_mod.py "G:/Users/Administrador/Documents/My Games/FarmingSimulator2025/mods/FS25Kamaz65116" --name kamaz-65116 --category trucks
+```
+
+### ❤️ Support the Work
 
 If my mods and tools helped you, consider making a donation. It helps me keep converting and creating content for free.
 

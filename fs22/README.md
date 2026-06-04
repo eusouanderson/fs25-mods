@@ -4,11 +4,11 @@ Mods originais do **Farming Simulator 22** baixados como base para conversão ao
 
 ---
 
-## 📦 Mods Disponíveis
+## 🚚 Caminhões / Trucks
 
 | Mod | Arquivo | Tamanho |
 |---|--------|--------|
-| renault-k480-v1-0 | `renault-k480-v1-0/FS22_RenaultK480_6x4.zip` | 75.9 MB |
+| [renault-k480-v1-0](trucks/renault-k480-v1-0/) | `trucks/renault-k480-v1-0/FS22_RenaultK480_6x4.zip` | 75.9 MB |
 
 ---
 
