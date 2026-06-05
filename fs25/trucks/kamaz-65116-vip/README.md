@@ -2,7 +2,7 @@
 
 | | |
 |---|---|
-| **Versão** | 1.2.2 |
+| **Versão** | 1.4.0 |
 | **Autor original** | R.Mihail |
 | **Conversão** | B.O.B |
 | **Categoria** | 🚚 Caminhões / Trucks |
@@ -11,6 +11,11 @@
 
 ## 📥 Download
 
+**FS25 Kamaz 65116 Vip v1.4.0**
+
+[⬇ Baixar / Download](https://github.com/eusouanderson/fs25-mods/releases/tag/fs25-kamaz-65116-vip-v1.4.0)
+
+---
 **FS25 Kamaz 65116 Vip v1.2.2**
 
 [⬇ Baixar / Download](https://github.com/eusouanderson/fs25-mods/releases/tag/fs25-kamaz-65116-vip-v1.2.2)
