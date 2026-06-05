@@ -2,18 +2,37 @@
 
 | | |
 |---|---|
-| **Versão** | 2.1.0 |
+| **Versão** | 2.2.0 |
 | **Autor original** | R.Mihail |
 | **Conversão** | B.O.B |
 | **Categoria** | 🚚 Caminhões / Trucks |
 | **Preço** | 56.490€ |
 | **Potência** | 210 hp |
 
+
+## 📸 Screenshots
+
+<p align="center">
+  <img src="images/Screenshot_1.png" width="45%" />
+  <img src="images/Screenshot_2.png" width="45%" />
+</p>
+<p align="center">
+  <img src="images/Screenshot_3.png" width="45%" />
+  <img src="images/Screenshot_4.png" width="45%" />
+</p>
+<p align="center">
+  <img src="images/Screenshot_5.png" width="45%" />
+  <img src="images/Screenshot_6.png" width="45%" />
+</p>
+<p align="center">
+  <img src="images/Screenshot_7.png" width="90%" />
+</p>
+
 ## 📥 Download
 
-**FS25 Kamaz 65116 Vip v1.6.1**
+**FS25 Kamaz 65116 Vip v2.2.0**
 
-[⬇ Baixar / Download](https://github.com/eusouanderson/fs25-mods/releases/tag/fs25-kamaz-65116-vip-v1.6.1)
+[⬇ Baixar / Download](https://github.com/eusouanderson/fs25-mods/releases/tag/fs25-kamaz-65116-vip-v2.2.0)
 
 ---
 **FS25 Kamaz 65116 Vip v1.2.2**
