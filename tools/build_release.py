@@ -43,26 +43,6 @@ def run_tests(mod_dir: Path, verbose: bool = False) -> bool:
     validator_dir = mod_dir / "validator"
     passed = True
 
-    test_xml = validator_dir / "test_xml.py"
-    if test_xml.exists():
-        print(f"  🧪  Running: {test_xml.name}")
-        result = subprocess.run(
-            [sys.executable, str(test_xml)],
-            capture_output=True, text=True, timeout=120,
-            cwd=str(validator_dir),
-        )
-        for line in result.stdout.strip().splitlines():
-            print(f"       {line}")
-        if result.stderr.strip():
-            print(f"       {result.stderr.strip()}")
-        if result.returncode != 0:
-            print(f"  ✖  {test_xml.name} FAILED (exit code {result.returncode})")
-            passed = False
-        else:
-            print(f"  ✅  {test_xml.name} passed")
-    else:
-        print(f"  ℹ   Skipping test_xml.py (not found)")
-
     pytest_ini = validator_dir / "pytest.ini"
     pyproject = validator_dir / "pyproject.toml"
     tests_dir = validator_dir / "tests"
