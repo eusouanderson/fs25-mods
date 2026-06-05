@@ -1,77 +1,68 @@
 # Kamaz 65116 VIP — FS25
 
-| | |
+<p align="center">
+  <img src="images/Screenshot_1.png" width="90%" />
+</p>
+
+<p align="center">
+  <a href="https://liberapay.com/eusouanderson/donate">
+    <img src="https://img.shields.io/badge/Liberapay-Donate-F6C915?style=flat-square&logo=liberapay&logoColor=black" alt="Donate">
+  </a>
+</p>
+
+---
+
+## 📋 Informações / Information
+
+| 🇧🇷 | 🇺🇸 |
 |---|---|
 | **Versão** | 2.2.0 |
 | **Autor original** | R.Mihail |
 | **Conversão** | B.O.B |
 | **Categoria** | 🚚 Caminhões / Trucks |
 | **Preço** | 56.490€ |
-| **Potência** | 210 hp |
-
+| **Potência** | 210 hp (360 hp padrão / 500 hp turbo) |
 
 ## 📸 Screenshots
 
 <p align="center">
-  <img src="images/Screenshot_1.png" width="45%" />
   <img src="images/Screenshot_2.png" width="45%" />
-</p>
-<p align="center">
   <img src="images/Screenshot_3.png" width="45%" />
+</p>
+<p align="center">
   <img src="images/Screenshot_4.png" width="45%" />
-</p>
-<p align="center">
   <img src="images/Screenshot_5.png" width="45%" />
-  <img src="images/Screenshot_6.png" width="45%" />
 </p>
 <p align="center">
-  <img src="images/Screenshot_7.png" width="90%" />
+  <img src="images/Screenshot_6.png" width="45%" />
+  <img src="images/Screenshot_7.png" width="45%" />
+</p>
+<p align="center">
+  <img src="images/Screenshot_8.png" width="45%" />
+  <img src="images/Screenshot_9.png" width="45%" />
 </p>
 
-## 📥 Download
-
-**FS25 Kamaz 65116 Vip v2.2.0**
-
-[⬇ Baixar / Download](https://github.com/eusouanderson/fs25-mods/releases/tag/fs25-kamaz-65116-vip-v2.2.0)
-
 ---
-**FS25 Kamaz 65116 Vip v1.2.2**
-
-[⬇ Baixar / Download](https://github.com/eusouanderson/fs25-mods/releases/tag/fs25-kamaz-65116-vip-v1.2.2)
-
----
-**FS25 Kamaz 65116 Vip v1.2.0**
-
-[⬇ Baixar / Download](https://github.com/eusouanderson/fs25-mods/releases/tag/kamaz-65116-vip-v1.2.0)
-
----
-**FS25 Kamaz 65116 Vip v1.1.0**
-
-[⬇ Baixar / Download](https://github.com/eusouanderson/fs25-mods/releases/tag/kamaz-65116-vip-v1.1.0)
-
----
-
 
 ## 🇧🇷 Sobre
 
 Caminhão **Kamaz 65116 VIP** convertido do FS22 para o **Farming Simulator 25**.
 
+### Características
 - ✅ Conversão completa do FS22 para o FS25
 - ✅ Colisões e shaders funcionando
-- ✅ Configuração de cores na cabine e caçamba
+- ✅ Diversas opções de para-choques, spoilers e vidros
+- ✅ Rodas KAMA, OMSKSHINA, FORWARD e BATON
+- ✅ Interior personalizável
+- ✅ Opção **Turbo** — 500 hp, 150 km/h, som Mack Anthem
 - ✅ Engate traseiro para reboques
 - ✅ Capacidade: 20.000 L
 - ✅ Rodas por Danilenkov
 
 ### Instalação
-
-1. Baixe o arquivo abaixo
+1. Baixe o arquivo ZIP abaixo
 2. Extraia para `Documentos/My Games/FarmingSimulator2025/mods/`
 3. Pronto! O mod aparece no jogo.
-
-### Download
-
-[⬇ Baixar Kamaz 65116 VIP v1.0.0](https://github.com/eusouanderson/fs25-mods/releases/tag/kamaz-65116-vip-v1.0.0)
 
 ---
 
@@ -79,22 +70,29 @@ Caminhão **Kamaz 65116 VIP** convertido do FS22 para o **Farming Simulator 25**
 
 **Kamaz 65116 VIP** truck converted from FS22 to **Farming Simulator 25**.
 
+### Features
 - ✅ Full FS22 → FS25 conversion
 - ✅ Working collisions and shaders
-- ✅ Color configuration on cabin and bed
+- ✅ Multiple bumper, spoiler, and glass options
+- ✅ KAMA, OMSKSHINA, FORWARD, and BATON wheels
+- ✅ Customizable interior
+- ✅ **Turbo** option — 500 hp, 150 km/h, Mack Anthem engine sound
 - ✅ Rear hitch for trailers
 - ✅ Capacity: 20,000 L
 - ✅ Wheels by Danilenkov
 
 ### Installation
-
-1. Download the file below
+1. Download the ZIP file below
 2. Extract to `Documents/My Games/FarmingSimulator2025/mods/`
 3. Done! The mod appears in the game.
 
-### Download
+---
 
-[⬇ Download Kamaz 65116 VIP v1.0.0](https://github.com/eusouanderson/fs25-mods/releases/tag/kamaz-65116-vip-v1.0.0)
+## 📥 Download
+
+**Kamaz 65116 VIP v2.2.0**
+
+[⬇ Baixar / Download](https://github.com/eusouanderson/fs25-mods/releases/tag/fs25-kamaz-65116-vip-v2.2.0)
 
 ---
 
