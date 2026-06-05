@@ -35,6 +35,13 @@ EXCLUDE_PATTERNS = (
     "*.bak", "Thumbs.db", "desktop.ini",
 )
 
+# Directories to exclude from the ZIP (dev-only, not needed for the game)
+EXCLUDE_DIRS = {
+    "backups",
+    "validator",
+    ".sisyphus",
+}
+
 
 def run_gh(args: list[str], capture: bool = True) -> str:
     cmd = ["gh", "-R", REPO] + args
@@ -70,8 +77,14 @@ def mod_display_name(path: Path) -> str:
 def estimate_dir_size(path: Path) -> int:
     total = 0
     for f in path.rglob("*"):
-        if f.is_file() and not any(f.match(p) for p in EXCLUDE_PATTERNS):
-            total += f.stat().st_size
+        if not f.is_file():
+            continue
+        if any(f.match(p) for p in EXCLUDE_PATTERNS):
+            continue
+        rel = f.relative_to(path)
+        if EXCLUDE_DIRS & set(rel.parts):
+            continue
+        total += f.stat().st_size
     return total
 
 
@@ -87,7 +100,7 @@ def create_zip(source_dir: Path, output_path: Path) -> Path:
             rel = file_path.relative_to(source_dir)
             if any(file_path.match(p) for p in EXCLUDE_PATTERNS):
                 continue
-            if ".git" in rel.parts:
+            if ".git" in rel.parts or EXCLUDE_DIRS & set(rel.parts):
                 continue
             zf.write(file_path, arcname=rel)
 
