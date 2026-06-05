@@ -2,7 +2,7 @@
 
 | | |
 |---|---|
-| **Versão** | 1.6.1 |
+| **Versão** | 1.9.0 |
 | **Autor original** | R.Mihail |
 | **Conversão** | B.O.B |
 | **Categoria** | 🚚 Caminhões / Trucks |
