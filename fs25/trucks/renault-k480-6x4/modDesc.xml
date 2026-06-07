@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<modDesc descVersion="100"> 
+    <author>JM / SebFS / Cédric C / Ronan LAR TP | FS25 Convert by B.O.B (github.com/eusouanderson)</author>
+    <version>1.0.0.0</version>
+	
+    <title>
+        <en>Renault k480 6x4 Meilleur kipper</en>
+    </title>
+	
+    <description>
+        <en>
+			<![CDATA[Renault K480 6x4 Meilleur Kipper - Dump Truck
+
+Original mod for FS22 by JM / SebFS / Cédric C / Ronan LAR TP. Converted to FS25 by B.O.B.
+
+Specifications:
+- Price: $130,000
+- Power: 480 HP (500 HP motor)
+- Max Speed: 90 km/h
+- Mass: 7,250 kg
+- Transmission: 8 forward / 4 reverse gears
+- Drivetrain: 6x4 (tandem rear axles)
+- Fuel tank: 400L diesel / 60L DEF
+- Air tank: 4,000L
+- Load capacity: 20,000L bulk
+- Tires: Trelleborg
+- Configurable chassis color and body color
+- Tipping: Back, Right, Left
+- Interactive controls: Ladder, side doors, anti-roll bar
+- Tension belts included
+- Hook lift trailer compatible
+- Onboard air brake system]]>
+        </en>
+    </description>
+	
+	<iconFilename>Stores/icon_Renault_6x4.dds</iconFilename>
+    <multiplayer supported="true"/>
+	
+	 <vehicleTypes>
+		<type name="hookLiftTruckSisu" parent="baseDrivable" className="Vehicle" filename="$dataS/scripts/vehicles/Vehicle.lua">
+			<specialization name="tensionBelts" />
+            <specialization name="foldable"/>
+            <specialization name="hookLiftTrailer" />
+            <specialization name="cover" />
+            <specialization name="fillVolume" />
+        </type>
+		<type name="Pallet_connector" parent="implement" filename="$dataS/scripts/vehicles/Vehicle.lua">
+            <specialization name="ikChains" />
+	    <specialization name="tensionBelts" />
+	    <specialization name="dynamicMountAttacher" />
+        </type>
+		<type name="godetBP2" parent="baseFillable" className="Vehicle" filename="$dataS/scripts/vehicles/Vehicle.lua">
+			<specialization name="dischargeable" />
+			<specialization name="bunkerSiloInteractor" />
+			<specialization name="tensionBeltObject" />
+			<specialization name="shovel" />
+			<specialization name="coloutil" />
+		</type>
+    </vehicleTypes>
+	
+    <storeItems>
+        <storeItem xmlFilename="Renault_6x4.xml" rootNode="vehicle"/>
+        </storeItems>
+  
+    <brands>
+        <brand name="RENAULT" title="Renault" image="brand.dds"/>
+    </brands>
+	
+	<extraSourceFiles>
+        <sourceFile filename="Scripts/AddStoreCategory.lua"/>
+    </extraSourceFiles>
+</modDesc>

@@ -18,7 +18,7 @@
 |---|---|
 | **Versão** | 1.0.0 |
 | **Autor original** | JM / SebFS / Cédric C / Ronan LAR TP |
-| **Conversão** | B.O.B |
+| **Conversão** | B.O.B ([github.com/eusouanderson](https://github.com/eusouanderson)) |
 | **Categoria** | 🚚 Caminhões / Trucks |
 | **Preço** | 130.000€ |
 | **Potência** | 480 hp |
