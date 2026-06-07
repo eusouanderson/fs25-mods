@@ -858,6 +858,25 @@ def tool_validate_mod(params: dict) -> dict:
         if not re.search(rf"<{tag}[>\s]", content):
             issues.append({"severity": "warning", "message": f"Missing <{tag}> tag"})
 
+    fs22_patterns = [
+        (r"specialization.*fillUnit", "fillUnit specialization — FS25 uses fillUnit directly"),
+        (r"specialization.*attachable", "attachable specialization — check if FS25 compatible"),
+        (r"specialization.*baleWrapper", "baleWrapper specialization — verify FS25 compatibility"),
+        (r"specialization.*concreteMixer", "concreteMixer specialization — verify FS25 compatibility"),
+        (r"specialization.*logistics", "logistics specialization — may need FS25 update"),
+    ]
+    for pattern, desc in fs22_patterns:
+        if re.search(pattern, content):
+            issues.append({"severity": "info", "message": f"FS22 pattern found: {desc}"})
+
+    i3d_matches = list(mod_dir.rglob("*.i3d"))
+    if i3d_matches:
+        issues.append({"severity": "info", "message": f"Found {len(i3d_matches)} .i3d file(s)"})
+
+    shapes = list(mod_dir.rglob("*.i3d.shapes"))
+    if not shapes:
+        issues.append({"severity": "warning", "message": "No .i3d.shapes files found (may cause collision issues)"})
+
     return {
         "mod_name": mod_dir.name,
         "issues": issues,
