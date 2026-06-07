@@ -3,3 +3,6 @@ __pycache__/
 .pyo
 *.bak
 .DS_Store
+*.zip
+*.7z
+*.rar
