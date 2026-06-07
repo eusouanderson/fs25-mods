@@ -86,6 +86,11 @@ Caminhão basculante **Renault K480 6x4** convertido do FS22 para o **Farming Si
 
 ## 📥 Download
 
+**FS25 Renaultk480 6X4 v1.0.0**
+
+[⬇ Baixar / Download](https://github.com/eusouanderson/fs25-mods/releases/tag/renault-k480-6x4-v1.0.0)
+
+---
 **Renault K480 6x4 v1.0.0**
 
 [⬇ Baixar / Download](https://github.com/eusouanderson/fs25-mods/releases/tag/fs25-renault-k480-6x4-v1.0.0)
