@@ -9,10 +9,15 @@
 
 ## Status: 🔄 Em conversão
 
-Mod do FS22 sendo convertido para o FS25.
+Mod do FS22 convertido para o FS25.
 
-### Tarefas pendentes
-- [ ] Atualizar shaders para FS25
+### ✅ Concluído
+- [x] `modDesc.xml` atualizado para FS25 (descVersion=101)
+- [x] Shaders compatíveis com FS25 (shader padrão do jogo)
+- [x] `designMaterialConfigurations` ativo para cor da caçamba
+- [x] Testes do validator: 86/86, 100% cobertura
+
+### 📝 Pendente
 - [ ] Ajustar physics e motor
 - [ ] Testar colisões e texturas
-- [ ] Publicar release
+- [ ] Publicar primeira release
