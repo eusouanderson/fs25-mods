@@ -1,0 +1,36 @@
+{
+  "mods": [
+    {
+      "name": "Renault K480 6x4 Meilleur Kipper",
+      "slug": "renault-k480-6x4",
+      "category": "trucks",
+      "manufacturer": "Renault",
+      "converted": true,
+      "converted_by": "B.O.B",
+      "version": "1.0.0",
+      "release_url": "https://github.com/eusouanderson/fs25-mods/releases/tag/renault-k480-6x4-v1.0.0",
+      "original_author": "JM / SebFS / Cédric C / Ronan LAR TP",
+      "original_game": "FS22",
+      "type": "truck",
+      "description": "Caminhão basculante 6x4 com caçamba, 480 HP, 20.000L",
+      "search_terms": ["renault", "k480", "6x4", "kipper", "basculante", "dump truck"],
+      "added": "2026-06-07"
+    },
+    {
+      "name": "Kamaz 65116 VIP",
+      "slug": "fs25-kamaz-65116-vip",
+      "category": "trucks",
+      "manufacturer": "Kamaz",
+      "converted": true,
+      "converted_by": "B.O.B",
+      "version": "2.2.0",
+      "release_url": "https://github.com/eusouanderson/fs25-mods/releases/tag/fs25-kamaz-65116-vip-v2.2.0",
+      "original_author": "MAP83H",
+      "original_game": "FS22",
+      "type": "truck",
+      "description": "Caminhão Kamaz 65116 VIP convertido para FS25",
+      "search_terms": ["kamaz", "65116", "vip", "caminhão", "truck"],
+      "added": "2026-06-07"
+    }
+  ]
+}
