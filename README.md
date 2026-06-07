@@ -72,6 +72,7 @@ Baixados automaticamente da [fs22.com](https://fs22.com) com a ferramenta abaixo
 |------------|-----------|-----------|
 | [`download_mod.py`](tools/download_mod.py) | Baixa mods do fs22.com | `python tools/download_mod.py --category trucks` |
 | [`release_mod.py`](tools/release_mod.py) | Zipa e publica como GitHub Release | `python tools/release_mod.py fs25/trucks/kamaz-65116` |
+| [`mcp_server.py`](tools/mcp_server.py) | MCP Server para buscar mods no opencode | Veja abaixo |
 
 ### ⬇ Baixar Todos os Caminhões FS22
 
@@ -102,6 +103,19 @@ python tools/release_mod.py fs25/trucks/kamaz-65116 --version 1.0.0
 # Mod vindo direto da sua pasta FS25 do Windows
 python tools/release_mod.py "G:/Users/Administrador/Documents/My Games/FarmingSimulator2025/fs25/FS25Kamaz65116" --name kamaz-65116 --category trucks
 ```
+
+### 🤖 MCP Server (opencode)
+
+O [`mcp_server.py`](tools/mcp_server.py) expõe as funcionalidades de busca como ferramentas MCP para uso dentro do **opencode**:
+
+| Ferramenta | Descrição |
+|------------|-----------|
+| `search_mods` | Busca mods por nome, fabricante ou palavra-chave |
+| `list_mods` | Lista todos os mods convertidos |
+| `list_categories` | Lista categorias com contagem |
+| `sync_mods` | Sincroniza banco com GitHub releases |
+
+O MCP server é registrado no `opencode.json` — o opencode carrega automaticamente.
 
 ### ❤️ Apoie o trabalho
 
@@ -150,6 +164,7 @@ Automatically downloaded from [fs22.com](https://fs22.com).
 |------|-------------|-------|
 | [`download_mod.py`](tools/download_mod.py) | Download mods from fs22.com | `python tools/download_mod.py --category trucks` |
 | [`release_mod.py`](tools/release_mod.py) | Zip & publish as GitHub Release | `python tools/release_mod.py fs25/trucks/kamaz-65116` |
+| [`mcp_server.py`](tools/mcp_server.py) | MCP Server for mod search within opencode | See below |
 
 ### ⬇ Download All FS22 Trucks
 
@@ -176,6 +191,19 @@ python tools/release_mod.py fs25/trucks/kamaz-65116 --version 1.0.0
 # Mod from your local Windows FS25 folder
 python tools/release_mod.py "G:/Users/Administrador/Documents/My Games/FarmingSimulator2025/fs25/FS25Kamaz65116" --name kamaz-65116 --category trucks
 ```
+
+### 🤖 MCP Server (opencode)
+
+[`mcp_server.py`](tools/mcp_server.py) exposes the mod search as MCP tools for use within **opencode**:
+
+| Tool | Description |
+|------|-------------|
+| `search_mods` | Search mods by name, manufacturer, or keyword |
+| `list_mods` | List all converted mods |
+| `list_categories` | List categories with counts |
+| `sync_mods` | Sync database from GitHub releases |
+
+The MCP server is registered in `opencode.json` — opencode loads it automatically.
 
 ### ❤️ Support the Work
 
