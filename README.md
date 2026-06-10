@@ -58,6 +58,12 @@ fs25-mods/
 | 🚚 Caminhões | [Renault K480 6x4](fs25/trucks/renault-k480-6x4/) | [⬇ Download](https://github.com/eusouanderson/fs25-mods/releases/tag/renault-k480-6x4-v1.0.0) |
 | 🚚 Caminhões | [Kamaz 65116 VIP](fs25/trucks/kamaz-65116-vip/) | [⬇ Download](https://github.com/eusouanderson/fs25-mods/releases/tag/fs25-kamaz-65116-vip-v2.2.0) |
 
+### 🧩 Mods Originais (FS25)
+
+| Categoria | Mod | Download |
+|-----------|-----|----------|
+| 📦 Outros | [Server Journal](fs25/other/server-journal/) | [⬇ Download](https://github.com/eusouanderson/fs25-mods/releases/tag/server-journal-v1.0.6) |
+
 ### 📦 Mods Originais (FS22)
 
 Baixados automaticamente da [fs22.com](https://fs22.com) com a ferramenta abaixo.
@@ -149,6 +155,12 @@ Here you'll find scripts and tools I created to fix the most common issues when 
 | 🚚 Trucks | [Kamaz 65116](fs25/trucks/kamaz-65116/) | Fix tool |
 | 🚚 Trucks | [Renault K480 6x4](fs25/trucks/renault-k480-6x4/) | [⬇ Download](https://github.com/eusouanderson/fs25-mods/releases/tag/renault-k480-6x4-v1.0.0) |
 | 🚚 Trucks | [Kamaz 65116 VIP](fs25/trucks/kamaz-65116-vip/) | [⬇ Download](https://github.com/eusouanderson/fs25-mods/releases/tag/fs25-kamaz-65116-vip-v2.2.0) |
+
+### 🧩 Original Mods (FS25)
+
+| Category | Mod | Download |
+|----------|-----|----------|
+| 📦 Other | [Server Journal](fs25/other/server-journal/) | [⬇ Download](https://github.com/eusouanderson/fs25-mods/releases/tag/server-journal-v1.0.6) |
 
 ### 📦 Original Mods (FS22)
 
