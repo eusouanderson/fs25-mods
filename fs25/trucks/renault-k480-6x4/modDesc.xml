@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <modDesc descVersion="100"> 
-    <author>JM / SebFS / Cédric C / Ronan LAR TP | FS25 Convert by B.O.B (github.com/eusouanderson)</author>
-    <version>1.0.0.0</version>
+    <author>JM / SebFS / Cédric C / Ronan LAR TP</author>
+    <version>1.0.1.0</version>
+    <annotation>FS25 Convert by B.O.B (github.com/eusouanderson) | v1.0.1.0: Updated modDesc description format</annotation>
 	
     <title>
         <en>Renault k480 6x4 Meilleur kipper</en>
@@ -9,9 +10,7 @@
 	
     <description>
         <en>
-			<![CDATA[Renault K480 6x4 Meilleur Kipper - Dump Truck
-
-Original mod for FS22 by JM / SebFS / Cédric C / Ronan LAR TP. Converted to FS25 by B.O.B.
+			<![CDATA[Renault K480 6x4 Meilleur Kipper - Dump Truck converted from FS22 to FS25.
 
 Specifications:
 - Price: $130,000
@@ -22,14 +21,20 @@ Specifications:
 - Drivetrain: 6x4 (tandem rear axles)
 - Fuel tank: 400L diesel / 60L DEF
 - Air tank: 4,000L
-- Load capacity: 20,000L bulk
+- Load capacity: 25,000L bulk
 - Tires: Trelleborg
-- Configurable chassis color and body color
+
+Features:
+- Configurable chassis and body color
 - Tipping: Back, Right, Left
 - Interactive controls: Ladder, side doors, anti-roll bar
 - Tension belts included
 - Hook lift trailer compatible
-- Onboard air brake system]]>
+- Onboard air brake system
+
+Original FS22 mod by JM / SebFS / Cédric C / Ronan LAR TP
+Converted to FS25 by B.O.B (github.com/eusouanderson)
+]]>
         </en>
     </description>
 	
