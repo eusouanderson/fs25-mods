@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<l10n>
+    <elements>
+        <e k="ah_title" v="SERVER AUCTION HOUSE" />
+        <e k="ah_createAuction" v="Create Auction" />
+        <e k="ah_cancelAuction" v="Cancel Auction" />
+        <e k="ah_close" v="Close" />
+        <e k="ah_filterAll" v="All" />
+        <e k="ah_filterMine" v="Mine" />
+        <e k="ah_colItem" v="Item" />
+        <e k="ah_colCurrentBid" v="Current Bid" />
+        <e k="ah_colTimeLeft" v="Time Left" />
+        <e k="ah_colSeller" v="Seller" />
+        <e k="ah_empty" v="No auctions yet" />
+        <e k="ah_placeBid" v="Place Bid" />
+        <e k="ah_detailNoSelection" v="Select an auction to view details" />
+        <e k="ah_seller" v="Seller:" />
+        <e k="ah_startingBid" v="Starting Bid:" />
+        <e k="ah_currentBid" v="Current Bid:" />
+        <e k="ah_highestBidder" v="Highest Bidder:" />
+        <e k="ah_noBidsYet" v="No bids yet" />
+        <e k="ah_timeLeft" v="Time Left:" />
+        <e k="ah_statusActive" v="Active" />
+        <e k="ah_statusEnded" v="Ended" />
+        <e k="ah_auctionRequested" v="Auction request sent to server" />
+        <e k="ah_cancelRequested" v="Cancel request sent to server" />
+        <e k="ah_bidRequested" v="Bid sent to server" />
+        <e k="ah_error_invalidAmount" v="Error: Invalid bid amount" />
+        <e k="ah_error_noVehicle" v="Error: No available vehicle of your property to auction." />
+        <e k="ah_error_vehicleInAuction" v="Error: This vehicle is already in an auction." />
+        <e k="ah_error_noAuction" v="Error: No active auction at the moment." />
+        <e k="ah_error_selfBid" v="Error: You cannot bid on your own auction." />
+        <e k="ah_error_minBid" v="Error: Minimum bid must be at least $" />
+        <e k="ah_error_noFunds" v="Error: Insufficient funds in farm account." />
+        <e k="ah_error_notOwner" v="Error: Only the seller can cancel this auction." />
+        <e k="ah_global_auctionStarted" v="[Auction] %s started an auction of %s for $%s" />
+        <e k="ah_global_newBid" v="[Auction] New highest bid by %s of $%s on %s" />
+        <e k="ah_global_cancelled" v="[Auction] Auction of %s was cancelled by seller." />
+        <e k="ah_global_ended" v="[Auction] Auction ended! %s won %s for $%s" />
+        <e k="ah_global_vehicleNotFound" v="[Auction] Error: Vehicle not found. Sale cancelled." />
+        <e k="ah_global_noBids" v="[Auction] Auction of %s ended with no bids." />
+        <e k="ah_dialogSelectVehicle" v="Please select a vehicle" />
+        <e k="ah_dialogTitle" v="Create New Auction" />
+        <e k="ah_dialogVehicleLabel" v="Select Vehicle:" />
+        <e k="ah_dialogNoVehicles" v="No available vehicles to auction" />
+        <e k="ah_dialogStartingBidLabel" v="Starting Bid ($):" />
+        <e k="ah_dialogDurationLabel" v="Duration (minutes):" />
+        <e k="ah_dialogCreateBtn" v="Create" />
+        <e k="input_AUCTION_OPEN" v="Open Auction House" />
+    </elements>
+</l10n>

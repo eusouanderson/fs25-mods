@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<GUIProfiles>
+
+    <!-- ===================== FILTER TABS ===================== -->
+    <Profile name="auctionFilterBtn" extends="fs25_subCategorySelectorTabbedTab" with="anchorTopLeft">
+        <size value="140px 28px"/>
+    </Profile>
+
+    <!-- ===================== LIST PANEL (LEFT) ===================== -->
+    <Profile name="auctionListPanel" extends="emptyPanel" with="anchorTopLeft">
+        <size value="1050px 620px"/>
+    </Profile>
+
+    <Profile name="auctionColHeader" extends="baseReference" with="anchorTopLeft">
+        <textSize value="14px"/>
+        <textBold value="true"/>
+        <textUpperCase value="true"/>
+        <textColor value="$preset_colorWhite_50"/>
+        <textAlignment value="left"/>
+        <textVerticalAlignment value="middle"/>
+    </Profile>
+
+    <Profile name="auctionColHeaderCenter" extends="auctionColHeader">
+        <textAlignment value="center"/>
+    </Profile>
+
+    <Profile name="auctionList" extends="emptyPanel" with="anchorTopLeft">
+        <size value="1050px 560px"/>
+    </Profile>
+
+    <Profile name="auctionSliderBox" extends="fs25_listSliderBox" with="anchorTopLeft">
+        <size value="6px 560px"/>
+    </Profile>
+
+    <Profile name="auctionListItem" extends="fs25_calendarListItem">
+        <height value="36px"/>
+        <imageColor value="$preset_fs25_colorGrey"/>
+        <imageSelectedColor value="$preset_fs25_colorMainHighlight"/>
+        <alternateBackgroundColor value="$preset_fs25_colorGreyDark_50"/>
+    </Profile>
+
+    <Profile name="auctionItemGradient" extends="fs25_calendarListItemBg">
+        <imageSelectedColor value="$preset_fs25_colorMainHighlight"/>
+        <startImageSelectedColor value="$preset_fs25_colorMainHighlight"/>
+        <endImageSelectedColor value="$preset_fs25_colorMainHighlight"/>
+    </Profile>
+
+    <Profile name="auctionCellTitle" extends="baseReference" with="anchorStretchingYLeft">
+        <textSize value="15px"/>
+        <textBold value="true"/>
+        <textColor value="$preset_fs25_colorMainLight"/>
+        <textSelectedColor value="$preset_fs25_colorMainDark"/>
+        <textAlignment value="left"/>
+        <textVerticalAlignment value="middle"/>
+        <textLayoutMode value="scrolling"/>
+        <textClipArea value="true"/>
+    </Profile>
+
+    <Profile name="auctionCellValue" extends="baseReference" with="anchorStretchingYLeft">
+        <textSize value="14px"/>
+        <textBold value="true"/>
+        <textColor value="0.5 0.76 0.24 1"/>
+        <textSelectedColor value="$preset_fs25_colorMainDark"/>
+        <textAlignment value="center"/>
+        <textVerticalAlignment value="middle"/>
+    </Profile>
+
+    <Profile name="auctionCellTime" extends="baseReference" with="anchorStretchingYLeft">
+        <textSize value="14px"/>
+        <textBold value="true"/>
+        <textColor value="0.9 0.3 0.3 1"/>
+        <textSelectedColor value="$preset_fs25_colorMainDark"/>
+        <textAlignment value="center"/>
+        <textVerticalAlignment value="middle"/>
+    </Profile>
+
+    <Profile name="auctionCellSeller" extends="baseReference" with="anchorStretchingYLeft">
+        <textSize value="13px"/>
+        <textColor value="$preset_colorWhite_50"/>
+        <textSelectedColor value="$preset_fs25_colorMainDark"/>
+        <textAlignment value="center"/>
+        <textVerticalAlignment value="middle"/>
+    </Profile>
+
+    <Profile name="auctionEmptyText" extends="baseReference" with="anchorTopLeft">
+        <size value="500px 40px"/>
+        <textSize value="16px"/>
+        <textColor value="$preset_colorWhite_50"/>
+        <textAlignment value="center"/>
+        <textVerticalAlignment value="middle"/>
+    </Profile>
+
+    <!-- ===================== DETAIL PANEL (RIGHT) ===================== -->
+    <Profile name="auctionDetailPanel" extends="emptyPanel" with="anchorTopLeft">
+        <size value="560px 620px"/>
+        <color value="0.05 0.05 0.05 0.85"/>
+    </Profile>
+
+    <Profile name="auctionDetailVBox" extends="emptyPanel" with="anchorTopLeft">
+        <position value="16px -16px"/>
+        <size value="528px 588px"/>
+        <flowDirection value="vertical"/>
+        <useFullVisibility value="false"/>
+        <alignmentX value="left"/>
+        <elementSpacing value="8px"/>
+    </Profile>
+
+    <Profile name="auctionDetailTitle" extends="baseReference" with="anchorTopLeft">
+        <size value="528px 32px"/>
+        <textSize value="20px"/>
+        <textBold value="true"/>
+        <textUpperCase value="true"/>
+        <textColor value="$preset_fs25_colorMainHighlight"/>
+        <textAlignment value="left"/>
+        <textVerticalAlignment value="middle"/>
+    </Profile>
+
+    <Profile name="auctionDetailSep" extends="fs25_lineSeparatorTopHighlighted" with="anchorTopLeft">
+        <size value="528px 2dp"/>
+    </Profile>
+
+    <Profile name="auctionDetailInfo" extends="baseReference" with="anchorTopLeft">
+        <size value="528px 24px"/>
+        <textSize value="14px"/>
+        <textColor value="$preset_colorWhite_50"/>
+        <textAlignment value="left"/>
+        <textVerticalAlignment value="middle"/>
+    </Profile>
+
+    <Profile name="auctionDetailHighlight" extends="baseReference" with="anchorTopLeft">
+        <size value="528px 36px"/>
+        <textSize value="22px"/>
+        <textBold value="true"/>
+        <textColor value="0.5 0.76 0.24 1"/>
+        <textAlignment value="left"/>
+        <textVerticalAlignment value="middle"/>
+    </Profile>
+
+    <!-- Bid row -->
+    <Profile name="auctionBidRow" extends="emptyPanel" with="anchorTopLeft">
+        <size value="528px 60px"/>
+        <flowDirection value="horizontal"/>
+        <useFullVisibility value="false"/>
+        <alignmentX value="left"/>
+        <elementSpacing value="12px"/>
+    </Profile>
+
+    <Profile name="auctionBidInput" extends="fs25_textInput" with="anchorTopLeft">
+        <size value="280px 50px"/>
+        <maxCharacters value="12"/>
+    </Profile>
+
+    <Profile name="auctionBidButton" extends="buttonOK" with="anchorTopLeft">
+        <size value="236px 50px"/>
+    </Profile>
+
+    <!-- ===================== CREATE AUCTION DIALOG ===================== -->
+    <Profile name="auctionDialogVBox" extends="emptyPanel" with="anchorTopCenter">
+        <size value="560px 600px"/>
+        <flowDirection value="vertical"/>
+        <useFullVisibility value="false"/>
+        <alignmentX value="left"/>
+        <alignmentY value="top"/>
+        <elementSpacing value="8px"/>
+    </Profile>
+
+    <Profile name="auctionDialogTitle" extends="baseReference" with="anchorTopCenter">
+        <size value="560px 40px"/>
+        <margin value="0px 4px 0px 0px"/>
+        <textSize value="18px"/>
+        <textBold value="true"/>
+        <textUpperCase value="true"/>
+        <textColor value="$preset_fs25_colorMainLight"/>
+        <textAlignment value="center"/>
+        <textVerticalAlignment value="middle"/>
+    </Profile>
+
+    <Profile name="auctionDialogTitleSepWrapper" extends="emptyPanel" with="anchorTopCenter">
+        <size value="560px 2dp"/>
+    </Profile>
+
+    <Profile name="auctionDialogTitleSep" extends="fs25_lineSeparatorTopHighlighted" with="anchorTopCenter">
+        <size value="200px 2dp"/>
+    </Profile>
+
+    <Profile name="auctionDialogTitleSpacer" extends="emptyPanel" with="anchorTopCenter">
+        <size value="560px 16px"/>
+    </Profile>
+
+    <Profile name="auctionDialogLabel" extends="baseReference" with="anchorTopLeft">
+        <size value="560px 20px"/>
+        <textSize value="14px"/>
+        <textColor value="$preset_colorWhite_50"/>
+        <textWrapWidth value="560px"/>
+    </Profile>
+
+    <Profile name="auctionDialogInput" extends="fs25_textInput" with="anchorTopLeft">
+        <size value="560px 36px"/>
+        <maxCharacters value="12"/>
+    </Profile>
+
+    <!-- Vehicle picker list -->
+    <Profile name="auctionDialogVehicleListWrapper" extends="emptyPanel" with="anchorTopLeft">
+        <size value="560px 220px"/>
+    </Profile>
+
+    <Profile name="auctionDialogVehicleList" extends="emptyPanel" with="anchorTopLeft">
+        <size value="554px 220px"/>
+    </Profile>
+
+    <Profile name="auctionDialogVehicleItem" extends="fs25_calendarListItem">
+        <height value="32px"/>
+        <imageColor value="$preset_fs25_colorGrey"/>
+        <imageSelectedColor value="$preset_fs25_colorMainHighlight"/>
+        <alternateBackgroundColor value="$preset_fs25_colorGreyDark_50"/>
+    </Profile>
+
+    <Profile name="auctionDialogVehicleItemGradient" extends="fs25_calendarListItemBg">
+        <imageSelectedColor value="$preset_fs25_colorMainHighlight"/>
+        <startImageSelectedColor value="$preset_fs25_colorMainHighlight"/>
+        <endImageSelectedColor value="$preset_fs25_colorMainHighlight"/>
+    </Profile>
+
+    <Profile name="auctionDialogVehicleCellName" extends="baseReference" with="anchorStretchingYLeft">
+        <textSize value="15px"/>
+        <textBold value="true"/>
+        <textColor value="$preset_fs25_colorMainLight"/>
+        <textSelectedColor value="$preset_fs25_colorMainDark"/>
+        <textAlignment value="left"/>
+        <textVerticalAlignment value="middle"/>
+        <textLayoutMode value="scrolling"/>
+        <textClipArea value="true"/>
+    </Profile>
+
+    <Profile name="auctionDialogEmptyText" extends="baseReference" with="anchorTopLeft">
+        <size value="554px 220px"/>
+        <textSize value="15px"/>
+        <textColor value="$preset_colorWhite_50"/>
+        <textAlignment value="center"/>
+        <textVerticalAlignment value="middle"/>
+    </Profile>
+
+</GUIProfiles>

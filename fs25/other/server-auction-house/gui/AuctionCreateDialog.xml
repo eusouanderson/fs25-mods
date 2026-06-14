@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<GUI onOpen="onOpen" onClose="onClose" onCreate="onCreate">
+    <GuiElement profile="newLayer" />
+    <Bitmap profile="dialogFullscreenBg" />
+
+    <GuiElement profile="fs25_dialogBg" id="dialogElement" size="640px 700px">
+        <ThreePartBitmap profile="fs25_dialogBgMiddle"/>
+        <ThreePartBitmap profile="fs25_dialogBgTop"/>
+        <ThreePartBitmap profile="fs25_dialogBgBottom"/>
+
+        <GuiElement profile="fs25_dialogContentContainer">
+            <BoxLayout profile="auctionDialogVBox" id="dialogVBox">
+
+                <Text profile="auctionDialogTitle" text="$l10n_ah_dialogTitle" id="dialogTitle"/>
+
+                <GuiElement profile="auctionDialogTitleSepWrapper">
+                    <ThreePartBitmap profile="auctionDialogTitleSep" id="titleSep"/>
+                </GuiElement>
+
+                <GuiElement profile="auctionDialogTitleSpacer"/>
+
+                <Text profile="auctionDialogLabel" text="$l10n_ah_dialogVehicleLabel"/>
+
+                <GuiElement profile="auctionDialogVehicleListWrapper" id="vehicleListWrapper">
+                    <SmoothList id="vehicleList" profile="auctionDialogVehicleList" position="0px 0px" size="554px 220px">
+                        <ListItem profile="auctionDialogVehicleItem" height="32px">
+                            <ThreePartBitmap profile="auctionDialogVehicleItemGradient" name="alternating"/>
+                            <Text profile="auctionDialogVehicleCellName" position="12px 0px" size="530px 32px" name="cellVehicleName"/>
+                        </ListItem>
+                    </SmoothList>
+                    <Text profile="auctionDialogEmptyText" id="emptyVehiclesText" position="0px 0px" text="$l10n_ah_dialogNoVehicles"/>
+                </GuiElement>
+
+                <Text profile="auctionDialogLabel" text="$l10n_ah_dialogStartingBidLabel"/>
+                <TextInput profile="auctionDialogInput" id="startingBidInput" onEnterPressed="onEnterPressed" onTextChanged="onTextChanged" enterWhenClickOutside="false">
+                    <ThreePartBitmap profile="fs25_textInputBg" absoluteSizeOffset="0px 0px"/>
+                    <Bitmap profile="fs25_textInputIconBox" position="0px 0px">
+                        <Bitmap profile="fs25_textInputIcon" />
+                    </Bitmap>
+                </TextInput>
+
+                <Text profile="auctionDialogLabel" text="$l10n_ah_dialogDurationLabel"/>
+                <TextInput profile="auctionDialogInput" id="durationInput" onEnterPressed="onEnterPressed" onTextChanged="onTextChanged" enterWhenClickOutside="false">
+                    <ThreePartBitmap profile="fs25_textInputBg" absoluteSizeOffset="0px 0px"/>
+                    <Bitmap profile="fs25_textInputIconBox" position="0px 0px">
+                        <Bitmap profile="fs25_textInputIcon" />
+                    </Bitmap>
+                </TextInput>
+
+            </BoxLayout>
+        </GuiElement>
+
+        <BoxLayout profile="fs25_dialogButtonBox" id="buttonsPC" size="480px 60px">
+            <Button profile="buttonOK" text="$l10n_ah_dialogCreateBtn" onClick="onClickOk" id="yesButton" />
+            <Bitmap profile="fs25_dialogButtonBoxSeparator" />
+            <Button profile="buttonBack" text="$l10n_button_back" onClick="onClickCancel" id="backButton" />
+        </BoxLayout>
+    </GuiElement>
+</GUI>

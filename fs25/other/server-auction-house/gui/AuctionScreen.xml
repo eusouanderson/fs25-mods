@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<GUI name="AuctionScreen">
+    <GuiElement profile="fs25_menuContainer">
+
+        <!-- Header -->
+        <GuiElement profile="fs25_menuHeaderPanel" position="-62px 92px">
+            <Bitmap profile="fs25_menuHeaderIconBg">
+                <Bitmap profile="fs25_menuHeaderIcon" id="headerIcon"/>
+            </Bitmap>
+            <Text profile="fs25_menuHeaderTitle" id="headerTitleText" text="$l10n_ah_title"/>
+        </GuiElement>
+
+        <!-- Filter tabs -->
+        <BoxLayout profile="fs25_subCategorySelectorTabbedBox" id="filterBox">
+            <Button profile="auctionFilterBtn" id="filterBtns[1]" text="$l10n_ah_filterAll" onClick="onClickFilterAll">
+                <ThreePartBitmap profile="fs25_subCategorySelectorTabbedTabBg" name="background"/>
+            </Button>
+            <Button profile="auctionFilterBtn" id="filterBtns[2]" text="$l10n_ah_filterMine" onClick="onClickFilterMine">
+                <ThreePartBitmap profile="fs25_subCategorySelectorTabbedTabBg" name="background"/>
+            </Button>
+        </BoxLayout>
+
+        <ThreePartBitmap profile="fs25_lineSeparatorTopHighlighted" position="-63px -57px" size="100% 2dp"/>
+
+        <MultiTextOption profile="fs25_subCategorySelectorTabbed" id="filterPaging" position="0px -10px" onClick="onClickFilterPaging"/>
+
+        <!-- Main content -->
+        <GuiElement profile="fs25_subCategorySelectorTabbedContainer" id="contentArea">
+
+            <!-- LEFT PANEL: auctions list -->
+            <GuiElement profile="auctionListPanel" id="listPanel" position="0px 0px">
+
+                <!-- Column headers -->
+                <GuiElement profile="fs25_statisticsHeaderBox" position="-60px 0px">
+                    <Text profile="auctionColHeader" position="15px -20px" size="400px 28px" text="$l10n_ah_colItem"/>
+                    <Text profile="auctionColHeaderCenter" position="415px -20px" size="200px 28px" text="$l10n_ah_colCurrentBid"/>
+                    <Text profile="auctionColHeaderCenter" position="615px -20px" size="150px 28px" text="$l10n_ah_colTimeLeft"/>
+                    <Text profile="auctionColHeaderCenter" position="765px -20px" size="280px 28px" text="$l10n_ah_colSeller"/>
+                </GuiElement>
+
+                <!-- Auctions list -->
+                <SmoothList id="listAuctions" profile="auctionList" position="-60px -50px" size="1050px 560px">
+                    <ListItem profile="auctionListItem" height="36px">
+                        <ThreePartBitmap profile="auctionItemGradient" name="alternating"/>
+                        <Text profile="auctionCellTitle" position="15px 0px" size="400px 36px" name="cellTitle"/>
+                        <Text profile="auctionCellValue" position="415px 0px" size="200px 36px" name="cellBid"/>
+                        <Text profile="auctionCellTime" position="615px 0px" size="150px 36px" name="cellTime"/>
+                        <Text profile="auctionCellSeller" position="765px 0px" size="280px 36px" name="cellSeller"/>
+                    </ListItem>
+                </SmoothList>
+
+                <ThreePartBitmap profile="auctionSliderBox" position="-63px -50px" id="listSliderBox">
+                    <Slider profile="fs25_listSlider" dataElementId="listAuctions"/>
+                </ThreePartBitmap>
+
+                <Text profile="auctionEmptyText" id="emptyListText" position="200px -300px" text="$l10n_ah_empty"/>
+
+            </GuiElement>
+
+            <!-- RIGHT PANEL: auction detail -->
+            <GuiElement profile="auctionDetailPanel" id="detailPanel" position="1070px 0px" clipChildren="false">
+
+                <BoxLayout profile="auctionDetailVBox" id="detailVBox">
+                    <Text profile="auctionDetailTitle" id="detailTitle" text="$l10n_ah_detailNoSelection"/>
+
+                    <ThreePartBitmap profile="auctionDetailSep" id="detailSep1"/>
+
+                    <Text profile="auctionDetailInfo" id="detailSeller"/>
+                    <Text profile="auctionDetailInfo" id="detailStarting"/>
+                    <Text profile="auctionDetailHighlight" id="detailCurrent"/>
+                    <Text profile="auctionDetailInfo" id="detailBidder"/>
+                    <Text profile="auctionDetailInfo" id="detailTime"/>
+
+                    <ThreePartBitmap profile="auctionDetailSep" id="detailSep2"/>
+
+                    <BoxLayout profile="auctionBidRow" id="bidRow" visible="false">
+                        <TextInput profile="auctionBidInput" id="bidInput" text="0" onEnterPressed="onClickPlaceBid">
+                            <ThreePartBitmap profile="fs25_textInputBg" absoluteSizeOffset="0px 0px"/>
+                            <Bitmap profile="fs25_textInputIconBox" position="0px 0px">
+                                <Bitmap profile="fs25_textInputIcon" />
+                            </Bitmap>
+                        </TextInput>
+                        <Button profile="auctionBidButton" id="bidButton" text="$l10n_ah_placeBid" onClick="onClickPlaceBid"/>
+                    </BoxLayout>
+                </BoxLayout>
+
+            </GuiElement>
+
+        </GuiElement>
+
+    </GuiElement>
+</GUI>

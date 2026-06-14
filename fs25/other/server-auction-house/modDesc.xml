@@ -1,24 +1,99 @@
 <?xml version="1.0" encoding="utf-8" standalone="no" ?>
-<modDesc descVersion="93">
+<modDesc descVersion="107">
     <author>Antigravity</author>
-    <version>1.0.0.0</version>
-    
+    <version>1.1.0.0</version>
+
     <title>
         <en>Server Auction House</en>
         <pt>Server Auction House (Leilão do Servidor)</pt>
+        <br>Server Auction House (Leilão do Servidor)</br>
     </title>
-    
+
     <description>
-        <en><![CDATA[Dynamic, real-time multiplayer auction house for Farming Simulator 25. Sell vehicles, tools, and farm resources to the highest bidder in the server. Fully integrated with Server Journal architecture!]]></en>
-        <pt><![CDATA[Casa de leilões multiplayer dinâmica e em tempo real para o Farming Simulator 25. Venda veículos, ferramentas e recursos do jogo para quem der o maior lance no servidor. Totalmente integrado com a arquitetura do Server Journal!]]></pt>
+        <en><![CDATA[
+Server Auction House is a real-time multiplayer auction system for Farming Simulator 25.
+Players can put their own vehicles up for auction and bid on items listed by others.
+All data is server-authoritative and persists in the savegame.
+
+Features:
+- Auction your own vehicles to other players
+- Real-time bidding with automatic resolution
+- Full multiplayer synchronization
+- Savegame persistence
+- Native GIANTS Engine UI, integrated into the in-game menu
+
+Author: B.O.B
+Version: 1.1.0.0
+Category: Gameplay / HUD
+        ]]>        </en>
+        <pt><![CDATA[
+Server Auction House é um sistema de leilões multiplayer em tempo real para o Farming Simulator 25.
+Jogadores podem colocar seus próprios veículos em leilão e dar lances em itens anunciados por outros.
+Todos os dados são autoritativos do servidor e persistem no savegame.
+
+Funcionalidades:
+- Leiloe seus próprios veículos para outros jogadores
+- Lances em tempo real com resolução automática
+- Sincronização completa em multiplayer
+- Persistência no savegame
+- Interface nativa do GIANTS Engine, integrada ao menu do jogo
+
+Autor: Antigravity
+Versão: 1.1.0.0
+Categoria: Gameplay / HUD
+        ]]>        </pt>
+        <br><![CDATA[
+Server Auction House é um sistema de leilões multiplayer em tempo real para o Farming Simulator 25.
+Jogadores podem colocar seus próprios veículos em leilão e dar lances em itens anunciados por outros.
+Todos os dados são autoritativos do servidor e persistem no savegame.
+
+Funcionalidades:
+- Leiloe seus próprios veículos para outros jogadores
+- Lances em tempo real com resolução automática
+- Sincronização completa em multiplayer
+- Persistência no savegame
+- Interface nativa do GIANTS Engine, integrada ao menu do jogo
+
+Autor: B.O.B
+Versão: 1.1.0.0
+Categoria: Gameplay / HUD
+        ]]>        </br>
     </description>
-    
-    
-    <multiplayer supported="true"/>
-    
+
+    <l10n filenamePrefix="translations/lang" defaultLanguage="en" supportedLanguages="en,pt,br">
+        <text name="input_AUCTION_OPEN">
+            <en>Open Auction House</en>
+            <pt>Abrir Leilão do Servidor</pt>
+            <br>Abrir Leilão do Servidor</br>
+        </text>
+    </l10n>
+
+    <multiplayer supported="true" />
+
+    <store>
+        <categories>
+            <category>gameplay</category>
+            <category>hud</category>
+        </categories>
+    </store>
+
     <extraSourceFiles>
-        <sourceFile filename="scripts/ServerAuctionHouse.lua" />
+        <sourceFile filename="scripts/AuctionLogger.lua" />
+        <sourceFile filename="scripts/AuctionStorage.lua" />
+        <sourceFile filename="scripts/AuctionEvent.lua" />
+        <sourceFile filename="scripts/AuctionManager.lua" />
+        <sourceFile filename="scripts/AuctionUI.lua" />
+        <sourceFile filename="scripts/AuctionCreateDialog.lua" />
+        <sourceFile filename="scripts/AuctionScreen.lua" />
+        <sourceFile filename="scripts/main.lua" />
     </extraSourceFiles>
-    
-    <l10n filenamePrefix="translations/l10n" defaultLanguage="en" supportedLanguages="en,pt,br" />
+
+    <inputBinding>
+        <actionBinding action="AUCTION_OPEN">
+            <binding device="KB_MOUSE_DEFAULT" input="KEY_k" />
+        </actionBinding>
+    </inputBinding>
+    <actions>
+        <action name="AUCTION_OPEN" axisType="HALF" />
+    </actions>
 </modDesc>

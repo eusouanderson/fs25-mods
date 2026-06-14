@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<l10n>
+    <elements>
+        <e k="ah_title" v="LEILÃO DO SERVIDOR" />
+        <e k="ah_createAuction" v="Criar Leilão" />
+        <e k="ah_cancelAuction" v="Cancelar Leilão" />
+        <e k="ah_close" v="Fechar" />
+        <e k="ah_filterAll" v="Todos" />
+        <e k="ah_filterMine" v="Meus" />
+        <e k="ah_colItem" v="Item" />
+        <e k="ah_colCurrentBid" v="Lance Atual" />
+        <e k="ah_colTimeLeft" v="Tempo Restante" />
+        <e k="ah_colSeller" v="Vendedor" />
+        <e k="ah_empty" v="Nenhum leilão ainda" />
+        <e k="ah_placeBid" v="Dar Lance" />
+        <e k="ah_detailNoSelection" v="Selecione um leilão para ver detalhes" />
+        <e k="ah_seller" v="Vendedor:" />
+        <e k="ah_startingBid" v="Lance Inicial:" />
+        <e k="ah_currentBid" v="Lance Atual:" />
+        <e k="ah_highestBidder" v="Maior Lance:" />
+        <e k="ah_noBidsYet" v="Nenhum lance ainda" />
+        <e k="ah_timeLeft" v="Tempo Restante:" />
+        <e k="ah_statusActive" v="Ativo" />
+        <e k="ah_statusEnded" v="Encerrado" />
+        <e k="ah_auctionRequested" v="Pedido de leilão enviado ao servidor" />
+        <e k="ah_cancelRequested" v="Pedido de cancelamento enviado ao servidor" />
+        <e k="ah_bidRequested" v="Lance enviado ao servidor" />
+        <e k="ah_error_invalidAmount" v="Erro: Valor de lance inválido" />
+        <e k="ah_error_noVehicle" v="Erro: Nenhum veículo disponível da sua propriedade para leiloar." />
+        <e k="ah_error_vehicleInAuction" v="Erro: Este veículo já está em leilão." />
+        <e k="ah_error_noAuction" v="Erro: Nenhum leilão ativo no momento." />
+        <e k="ah_error_selfBid" v="Erro: Você não pode dar lance no seu próprio leilão." />
+        <e k="ah_error_minBid" v="Erro: O lance mínimo deve ser pelo menos $" />
+        <e k="ah_error_noFunds" v="Erro: Saldo insuficiente na conta da fazenda." />
+        <e k="ah_error_notOwner" v="Erro: Somente o vendedor pode cancelar este leilão." />
+        <e k="ah_global_auctionStarted" v="[Leilão] %s iniciou um leilão de %s por $%s" />
+        <e k="ah_global_newBid" v="[Leilão] Novo maior lance de %s no valor de $%s em %s" />
+        <e k="ah_global_cancelled" v="[Leilão] O leilão de %s foi cancelado pelo vendedor." />
+        <e k="ah_global_ended" v="[Leilão] Leilão encerrado! %s arrematou %s por $%s" />
+        <e k="ah_global_vehicleNotFound" v="[Leilão] Erro: Veículo não encontrado. Venda cancelada." />
+        <e k="ah_global_noBids" v="[Leilão] O leilão de %s terminou sem lances." />
+        <e k="ah_dialogSelectVehicle" v="Selecione um veículo" />
+        <e k="ah_dialogTitle" v="Criar Novo Leilão" />
+        <e k="ah_dialogVehicleLabel" v="Selecione o Veículo:" />
+        <e k="ah_dialogNoVehicles" v="Nenhum veículo disponível para leiloar" />
+        <e k="ah_dialogStartingBidLabel" v="Lance Inicial ($):" />
+        <e k="ah_dialogDurationLabel" v="Duração (minutos):" />
+        <e k="ah_dialogCreateBtn" v="Criar" />
+        <e k="input_AUCTION_OPEN" v="Abrir Leilão do Servidor" />
+    </elements>
+</l10n>
