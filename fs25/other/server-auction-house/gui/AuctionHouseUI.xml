@@ -88,7 +88,7 @@
             <GuiElement profile="emptyPanel" position="0px 0px" size="1320px 80px" flowDirection="vertical" elementSpacing="6px" useFullVisibility="false">
                 <Text profile="baseReference" text="Selecionar Veículo:" textSize="15px" textColor="0.6 0.6 0.6 1"
                       textAlignment="left" textVerticalAlignment="middle" size="1320px 24px"/>
-                <TextList profile="fs25_dropDown" id="vehicleList" position="0px 0px" size="800px 50px"/>
+                <MultiTextOption profile="fs25_dropDown" id="vehicleList" position="0px 0px" size="800px 50px"/>
             </GuiElement>
 
             <!-- Start price -->

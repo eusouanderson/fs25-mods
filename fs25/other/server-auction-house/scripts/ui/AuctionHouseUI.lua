@@ -185,7 +185,7 @@ end
 function AuctionHouseUI:onConfirmCreateClick()
     if self.vehicleList == nil or self.priceInput == nil or self.durationInput == nil or self.mod == nil then return end
 
-    local selectedIdx = self.vehicleList:getSelectedIdx()
+    local selectedIdx = self.vehicleList:getState()
     if selectedIdx == nil or selectedIdx < 1 then return end
 
     local vehicleData = self.availableVehicles[selectedIdx]

@@ -12,6 +12,7 @@ source(ServerAuctionHouse.MOD_DIR .. "scripts/ui/AuctionHouseUI.lua")
 
 function ServerAuctionHouse:new(mission, i18n, gui)
     local self = {}
+    setmetatable(self, {__index = ServerAuctionHouse})
     self.mission = mission
     self.i18n = i18n
     self.gui = gui
@@ -33,8 +34,6 @@ function ServerAuctionHouse.loadMapFinished()
 
     self.ui = AuctionHouseUI:new(self)
     g_gui:loadGui(ServerAuctionHouse.MOD_DIR .. "gui/AuctionHouseUI.xml", "AuctionHouseUI", self.ui, false)
-
-    g_messageCenter:subscribe(MessageType.CHAT_MESSAGE_RECEIVED, self.onChatMessageReceived, self)
 
     self:loadFromSavegame()
 
