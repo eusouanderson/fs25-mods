@@ -120,7 +120,7 @@ function AuctionManager:createAuction(sellerId, sellerName, vehicleId, startingB
     durationMins = math.floor(durationMins or AuctionManager.MIN_DURATION_MINUTES)
     durationMins = math.max(AuctionManager.MIN_DURATION_MINUTES, math.min(AuctionManager.MAX_DURATION_MINUTES, durationMins))
 
-    local missionTime = g_currentMission.missionInfo.time
+    local missionTime = g_currentMission.time
     local auction = {
         id = self.nextId,
         vehicleId = vehicleId,
@@ -253,11 +253,11 @@ function AuctionManager:update(dt)
     if g_server == nil then
         return
     end
-    if g_currentMission == nil or g_currentMission.missionInfo == nil then
+    if g_currentMission == nil then
         return
     end
 
-    local serverTime = g_currentMission.missionInfo.time
+    local serverTime = g_currentMission.time
     local hasChanges = false
     local toRemove = {}
 

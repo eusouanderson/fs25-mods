@@ -312,8 +312,8 @@ end
 function AuctionScreen:updateDetailTime(auction)
     if self.detailTime == nil or auction == nil then return end
     local missionTime = 0
-    if g_currentMission ~= nil and g_currentMission.missionInfo ~= nil then
-        missionTime = g_currentMission.missionInfo.time
+    if g_currentMission ~= nil then
+        missionTime = g_currentMission.time or 0
     end
     local timeLeft = AuctionUI.formatTimeLeft(auction.endTime, missionTime)
     self.detailTime:setText(self.i18n:getText("ah_timeLeft", AuctionHouse.modName) .. " " .. timeLeft)
@@ -403,8 +403,8 @@ function AuctionScreen:populateCellForItemInSection(list, section, index, cell)
     local cellTime = cell:getDescendantByName("cellTime")
     if cellTime then
         local missionTime = 0
-        if g_currentMission ~= nil and g_currentMission.missionInfo ~= nil then
-            missionTime = g_currentMission.missionInfo.time
+        if g_currentMission ~= nil then
+            missionTime = g_currentMission.time or 0
         end
         cellTime:setText(AuctionUI.formatTimeLeft(auction.endTime, missionTime))
     end
