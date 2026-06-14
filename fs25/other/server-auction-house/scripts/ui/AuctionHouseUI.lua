@@ -101,7 +101,7 @@ function AuctionHouseUI:updateDetailPanel(auction)
         self.itemCurrent:setText("$" .. tostring(auction.currentBid or 0))
     end
     if self.itemBidder then
-        local bidder = auction.highestBidder or "Nenhum"
+        local bidder = auction.highestBidder or self.mod.i18n:getText("ah_none", ServerAuctionHouse.MOD_NAME)
         self.itemBidder:setText(bidder)
     end
     if self.bidInput then

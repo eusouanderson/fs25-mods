@@ -62,7 +62,8 @@ fs25-mods/
 
 | Categoria | Mod | Download |
 |-----------|-----|----------|
-| 📦 Outros | [Server Journal](fs25/other/server-journal/) | [⬇ Download](https://github.com/eusouanderson/fs25-mods/releases/tag/server-journal-v1.0.6) |
+| 📦 Outros | [Server Journal](fs25/other/server-journal/) | [⬇ Download](https://github.com/eusouanderson/fs25-mods/releases/tag/server-journal-v1.0.7) |
+| 📦 Outros | [Server Auction House](fs25/other/server-auction-house/) | [⬇ Download](https://github.com/eusouanderson/fs25-mods/releases/tag/server-auction-house-v1.0.0) |
 
 ### 📦 Mods Originais (FS22)
 
@@ -160,7 +161,8 @@ Here you'll find scripts and tools I created to fix the most common issues when 
 
 | Category | Mod | Download |
 |----------|-----|----------|
-| 📦 Other | [Server Journal](fs25/other/server-journal/) | [⬇ Download](https://github.com/eusouanderson/fs25-mods/releases/tag/server-journal-v1.0.6) |
+| 📦 Other | [Server Journal](fs25/other/server-journal/) | [⬇ Download](https://github.com/eusouanderson/fs25-mods/releases/tag/server-journal-v1.0.7) |
+| 📦 Other | [Server Auction House](fs25/other/server-auction-house/) | [⬇ Download](https://github.com/eusouanderson/fs25-mods/releases/tag/server-auction-house-v1.0.0) |
 
 ### 📦 Original Mods (FS22)
 

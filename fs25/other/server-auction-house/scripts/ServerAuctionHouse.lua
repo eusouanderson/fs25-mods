@@ -136,7 +136,7 @@ function ServerAuctionHouse:createAuctionServer(player, vehicleId, startPrice, d
     end
 
     if foundVehicle == nil then
-        self:sendServerChatMessage(player, "Erro: Nenhum veiculo disponivel ou de sua propriedade para leiloar.")
+        self:sendServerChatMessage(player, self.i18n:getText("ah_error_noVehicle", ServerAuctionHouse.MOD_NAME))
         return
     end
 
@@ -158,31 +158,31 @@ function ServerAuctionHouse:createAuctionServer(player, vehicleId, startPrice, d
     self.auctions[auctionId] = newAuction
 
     g_server:broadcastEvent(SyncAuctionsEvent:new(self.auctions))
-    self:sendGlobalChatMessage("[Auction] " .. player .. " iniciou leilao de " .. vehicleName .. " por $" .. tostring(startPrice))
+    self:sendGlobalChatMessage(string.format(self.i18n:getText("ah_global_auctionStarted", ServerAuctionHouse.MOD_NAME), player, vehicleName, tostring(startPrice)))
 end
 
 function ServerAuctionHouse:placeBidServer(bidder, amount)
     local activeAuction = self:getActiveAuction()
     if activeAuction == nil then
-        self:sendServerChatMessage(bidder, "Erro: Nenhum leilao ativo no momento.")
+        self:sendServerChatMessage(bidder, self.i18n:getText("ah_error_noAuction", ServerAuctionHouse.MOD_NAME))
         return
     end
 
     if bidder == activeAuction.seller then
-        self:sendServerChatMessage(bidder, "Erro: Voce nao pode dar lances no seu proprio leilao.")
+        self:sendServerChatMessage(bidder, self.i18n:getText("ah_error_selfBid", ServerAuctionHouse.MOD_NAME))
         return
     end
 
     local minRequired = activeAuction.currentBid + 1000
     if amount < minRequired then
-        self:sendServerChatMessage(bidder, "Erro: O lance minimo deve ser $" .. tostring(minRequired))
+        self:sendServerChatMessage(bidder, self.i18n:getText("ah_error_minBid", ServerAuctionHouse.MOD_NAME) .. tostring(minRequired))
         return
     end
 
     local farmId = self.mission.playerManager:getPlayerFarmId(bidder)
     local farm = self.mission.farmManager:getFarmById(farmId)
     if farm == nil or farm.money < amount then
-        self:sendServerChatMessage(bidder, "Erro: Fundos insuficientes na conta da fazenda.")
+        self:sendServerChatMessage(bidder, self.i18n:getText("ah_error_noFunds", ServerAuctionHouse.MOD_NAME))
         return
     end
 
@@ -190,7 +190,7 @@ function ServerAuctionHouse:placeBidServer(bidder, amount)
     activeAuction.highestBidder = bidder
 
     g_server:broadcastEvent(SyncAuctionsEvent:new(self.auctions))
-    self:sendGlobalChatMessage("[Leilao] Novo maior lance de " .. bidder .. " de $" .. tostring(amount) .. " em " .. activeAuction.itemName)
+    self:sendGlobalChatMessage(string.format(self.i18n:getText("ah_global_newBid", ServerAuctionHouse.MOD_NAME), bidder, tostring(amount), activeAuction.itemName))
 end
 
 function ServerAuctionHouse:resolveAuction(auctionId)
@@ -215,12 +215,12 @@ function ServerAuctionHouse:resolveAuction(auctionId)
                 sellerFarm:changeBalance(auction.currentBid, "vehicle_sale")
             end
 
-            self:sendGlobalChatMessage("[Leilao] Leilao encerrado! " .. auction.highestBidder .. " arrematou " .. auction.itemName .. " por $" .. tostring(auction.currentBid))
+            self:sendGlobalChatMessage(string.format(self.i18n:getText("ah_global_ended", ServerAuctionHouse.MOD_NAME), auction.highestBidder, auction.itemName, tostring(auction.currentBid)))
         else
-            self:sendGlobalChatMessage("[Leilao] Erro: Veiculo nao localizado. Venda cancelada.")
+            self:sendGlobalChatMessage(self.i18n:getText("ah_global_vehicleNotFound", ServerAuctionHouse.MOD_NAME))
         end
     else
-        self:sendGlobalChatMessage("[Leilao] Leilao de " .. auction.itemName .. " encerrado sem ofertas.")
+        self:sendGlobalChatMessage(string.format(self.i18n:getText("ah_global_noBids", ServerAuctionHouse.MOD_NAME), auction.itemName))
     end
 
     self.auctions[auctionId] = nil
@@ -233,7 +233,7 @@ function ServerAuctionHouse:cancelAuctionServer(player)
     if activeAuction.seller == player or player == "System" then
         self.auctions[activeAuction.id] = nil
         g_server:broadcastEvent(SyncAuctionsEvent:new(self.auctions))
-        self:sendGlobalChatMessage("[Leilao] Leilao de " .. activeAuction.itemName .. " foi cancelado pelo vendedor.")
+        self:sendGlobalChatMessage(string.format(self.i18n:getText("ah_global_cancelled", ServerAuctionHouse.MOD_NAME), activeAuction.itemName))
     end
 end
 
