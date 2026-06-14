@@ -12,8 +12,8 @@
 
 | 🇧🇷 | 🇺🇸 |
 |---|---|
-| **Versão** | 1.0.0 |
-| **Autor** | Antigravity + B.O.B ([github.com/eusouanderson](https://github.com/eusouanderson)) |
+| **Versão** | 1.1.0 |
+| **Autor** | B.O.B ([github.com/eusouanderson](https://github.com/eusouanderson)) |
 | **Categoria** | 📦 Outros / Other (Gameplay) |
 | **Multiplayer** | ✅ Sincronização completa / Full sync |
 | **Persistência** | Savegame |
@@ -114,5 +114,5 @@ is synchronized across clients and persisted in the savegame.
     <img src="https://liberapay.com/assets/widgets/donate.svg" alt="Donate using Liberapay" width="180">
   </a>
   <br>
-  <sub>Criado por Antigravity &amp; B.O.B — <a href="https://github.com/eusouanderson/fs25-mods">github.com/eusouanderson/fs25-mods</a></sub>
+  <sub>Criado por B.O.B — <a href="https://github.com/eusouanderson/fs25-mods">github.com/eusouanderson/fs25-mods</a></sub>
 </p>
