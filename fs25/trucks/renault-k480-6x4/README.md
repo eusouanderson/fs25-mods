@@ -17,12 +17,11 @@
 | 🇧🇷 | 🇺🇸 |
 |---|---|
 | **Versão** | 1.0.1 |
-| **Autor original** | JM / SebFS / Cédric C / Ronan LAR TP |
-| **Conversão** | B.O.B ([github.com/eusouanderson](https://github.com/eusouanderson)) |
+| **Autor** | B.O.B ([github.com/eusouanderson](https://github.com/eusouanderson)) |
 | **Categoria** | 🚚 Caminhões / Trucks |
 | **Preço** | 130.000€ |
 | **Potência** | 480 hp |
-| **Capacidade** | 20.000 L |
+| **Capacidade** | 25.000 L |
 
 ## 📸 Screenshots
 
@@ -42,7 +41,7 @@
 
 ## 🇧🇷 Sobre
 
-Caminhão basculante **Renault K480 6x4** convertido do FS22 para o **Farming Simulator 25**.
+Caminhão basculante **Renault K480 6x4** para o **Farming Simulator 25**.
 
 ### Características
 - ✅ Conversão completa do FS22 para o FS25
@@ -52,7 +51,7 @@ Caminhão basculante **Renault K480 6x4** convertido do FS22 para o **Farming Si
 - ✅ Eixo 6x4 com 3 diferenciais
 - ✅ Motor C480 de 500 hp
 - ✅ Sistema de amarração (tension belts)
-- ✅ Capacidade: 20.000 L
+- ✅ Capacidade: 25.000 L
 - ✅ Engate para reboques
 
 ### Instalação
@@ -64,7 +63,7 @@ Caminhão basculante **Renault K480 6x4** convertido do FS22 para o **Farming Si
 
 ## 🇺🇸 About
 
-**Renault K480 6x4** tipper truck converted from FS22 to **Farming Simulator 25**.
+**Renault K480 6x4** tipper truck for **Farming Simulator 25**.
 
 ### Features
 - ✅ Full FS22 → FS25 conversion
@@ -74,7 +73,7 @@ Caminhão basculante **Renault K480 6x4** convertido do FS22 para o **Farming Si
 - ✅ 6x4 axle with 3 differentials
 - ✅ C480 500 hp engine
 - ✅ Tension belts system
-- ✅ Capacity: 20,000 L
+- ✅ Capacity: 25,000 L
 - ✅ Rear hitch for trailers
 
 ### Installation
@@ -86,9 +85,9 @@ Caminhão basculante **Renault K480 6x4** convertido do FS22 para o **Farming Si
 
 ## 📥 Download
 
-**Renault K480 6X4 v1.0.1**
+**Renault K480 6X4 v1.0.2**
 
-[⬇ Baixar / Download](https://github.com/eusouanderson/fs25-mods/releases/tag/renault-k480-6x4-v1.0.1)
+[⬇ Baixar / Download](https://github.com/eusouanderson/fs25-mods/releases/tag/renault-k480-6x4-v1.0.2)
 
 ---
 **Renault K480 6X4 v1.0.1**
@@ -107,5 +106,5 @@ Caminhão basculante **Renault K480 6x4** convertido do FS22 para o **Farming Si
     <img src="https://img.shields.io/badge/Liberapay-Donate-F6C915?style=flat-square&logo=liberapay&logoColor=black" alt="Donate">
   </a>
   <br>
-  <sub>Convertido por B.O.B — <a href="https://github.com/eusouanderson/fs25-mods">github.com/eusouanderson/fs25-mods</a></sub>
+  <sub>Mod por B.O.B — <a href="https://github.com/eusouanderson/fs25-mods">github.com/eusouanderson/fs25-mods</a></sub>
 </p>
