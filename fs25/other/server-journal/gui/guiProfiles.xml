@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<GUIProfiles>
+
+    <!-- ===================== FILTER TABS ===================== -->
+    <Profile name="journalFilterBtn" extends="fs25_subCategorySelectorTabbedTab" with="anchorTopLeft">
+        <size value="140px 28px"/>
+    </Profile>
+
+    <!-- ===================== LIST PANEL (LEFT) ===================== -->
+    <Profile name="journalListPanel" extends="emptyPanel" with="anchorTopLeft">
+        <size value="1050px 620px"/>
+    </Profile>
+
+    <Profile name="journalColHeader" extends="baseReference" with="anchorTopLeft">
+        <textSize value="14px"/>
+        <textBold value="true"/>
+        <textUpperCase value="true"/>
+        <textColor value="$preset_colorWhite_50"/>
+        <textAlignment value="left"/>
+        <textVerticalAlignment value="middle"/>
+    </Profile>
+
+    <Profile name="journalColHeaderCenter" extends="journalColHeader">
+        <textAlignment value="center"/>
+    </Profile>
+
+    <Profile name="journalPostList" extends="emptyPanel" with="anchorTopLeft">
+        <size value="1050px 560px"/>
+    </Profile>
+
+    <Profile name="journalSliderBox" extends="fs25_listSliderBox" with="anchorTopLeft">
+        <size value="6px 560px"/>
+    </Profile>
+
+    <Profile name="journalPostListItem" extends="fs25_calendarListItem">
+        <height value="36px"/>
+        <imageColor value="$preset_fs25_colorGrey"/>
+        <imageSelectedColor value="$preset_fs25_colorMainHighlight"/>
+        <alternateBackgroundColor value="$preset_fs25_colorGreyDark_50"/>
+    </Profile>
+
+    <Profile name="journalItemGradient" extends="fs25_calendarListItemBg">
+        <imageSelectedColor value="$preset_fs25_colorMainHighlight"/>
+        <startImageSelectedColor value="$preset_fs25_colorMainHighlight"/>
+        <endImageSelectedColor value="$preset_fs25_colorMainHighlight"/>
+    </Profile>
+
+    <Profile name="journalCellTitle" extends="baseReference" with="anchorStretchingYLeft">
+        <textSize value="15px"/>
+        <textBold value="true"/>
+        <textColor value="$preset_fs25_colorMainLight"/>
+        <textSelectedColor value="$preset_fs25_colorMainDark"/>
+        <textAlignment value="left"/>
+        <textVerticalAlignment value="middle"/>
+        <textLayoutMode value="scrolling"/>
+        <textClipArea value="true"/>
+    </Profile>
+
+    <Profile name="journalCellCategory" extends="baseReference" with="anchorStretchingYLeft">
+        <textSize value="13px"/>
+        <textBold value="true"/>
+        <textUpperCase value="true"/>
+        <textColor value="$preset_fs25_colorMainHighlight"/>
+        <textSelectedColor value="$preset_fs25_colorMainDark"/>
+        <textAlignment value="center"/>
+        <textVerticalAlignment value="middle"/>
+    </Profile>
+
+    <Profile name="journalCellAuthor" extends="baseReference" with="anchorStretchingYLeft">
+        <textSize value="13px"/>
+        <textColor value="$preset_colorWhite_50"/>
+        <textSelectedColor value="$preset_fs25_colorMainDark"/>
+        <textAlignment value="center"/>
+        <textVerticalAlignment value="middle"/>
+    </Profile>
+
+    <Profile name="journalEmptyText" extends="baseReference" with="anchorTopLeft">
+        <size value="500px 40px"/>
+        <textSize value="16px"/>
+        <textColor value="$preset_colorWhite_50"/>
+        <textAlignment value="center"/>
+        <textVerticalAlignment value="middle"/>
+    </Profile>
+
+    <!-- ===================== DETAIL PANEL (RIGHT) ===================== -->
+    <Profile name="journalDetailPanel" extends="emptyPanel" with="anchorTopLeft">
+        <size value="560px 620px"/>
+        <color value="0.05 0.05 0.05 0.85"/>
+    </Profile>
+
+    <Profile name="journalDetailVBox" extends="emptyPanel" with="anchorTopLeft">
+        <position value="16px -16px"/>
+        <size value="528px 588px"/>
+        <flowDirection value="vertical"/>
+        <useFullVisibility value="false"/>
+        <alignmentX value="left"/>
+        <elementSpacing value="8px"/>
+    </Profile>
+
+    <Profile name="journalDetailTitle" extends="baseReference" with="anchorTopLeft">
+        <size value="528px 32px"/>
+        <textSize value="20px"/>
+        <textBold value="true"/>
+        <textUpperCase value="true"/>
+        <textColor value="$preset_fs25_colorMainHighlight"/>
+        <textAlignment value="left"/>
+        <textVerticalAlignment value="middle"/>
+    </Profile>
+
+    <Profile name="journalDetailSep" extends="fs25_lineSeparatorTopHighlighted" with="anchorTopLeft">
+        <size value="528px 2dp"/>
+    </Profile>
+
+    <Profile name="journalDetailInfo" extends="baseReference" with="anchorTopLeft">
+        <size value="528px 24px"/>
+        <textSize value="14px"/>
+        <textColor value="$preset_colorWhite_50"/>
+        <textAlignment value="left"/>
+        <textVerticalAlignment value="middle"/>
+    </Profile>
+
+    <Profile name="journalDetailDescLabel" extends="baseReference" with="anchorTopLeft">
+        <size value="528px 24px"/>
+        <textSize value="13px"/>
+        <textBold value="true"/>
+        <textUpperCase value="true"/>
+        <textColor value="$preset_fs25_colorMainHighlight"/>
+        <textAlignment value="left"/>
+        <textVerticalAlignment value="middle"/>
+    </Profile>
+
+    <Profile name="journalDetailDesc" extends="baseReference" with="anchorTopLeft">
+        <size value="528px 350px"/>
+        <textSize value="14px"/>
+        <textColor value="0.85 0.85 0.85 1"/>
+        <textAlignment value="left"/>
+        <textVerticalAlignment value="top"/>
+        <textWrapWidth value="528px"/>
+        <textLineHeightScale value="1.3"/>
+    </Profile>
+
+    <!-- ===================== CREATE POST DIALOG ===================== -->
+    <Profile name="journalDialogVBox" extends="emptyPanel" with="anchorTopCenter">
+        <size value="480px 480px"/>
+        <flowDirection value="vertical"/>
+        <useFullVisibility value="false"/>
+        <alignmentX value="left"/>
+        <alignmentY value="top"/>
+        <elementSpacing value="8px"/>
+    </Profile>
+
+    <Profile name="journalDialogTitle" extends="baseReference" with="anchorTopCenter">
+        <size value="480px 40px"/>
+        <margin value="0px 4px 0px 0px"/>
+        <textSize value="18px"/>
+        <textBold value="true"/>
+        <textUpperCase value="true"/>
+        <textColor value="$preset_fs25_colorMainLight"/>
+        <textAlignment value="center"/>
+        <textVerticalAlignment value="middle"/>
+    </Profile>
+
+    <Profile name="journalDialogTitleSepWrapper" extends="emptyPanel" with="anchorTopCenter">
+        <size value="480px 2dp"/>
+    </Profile>
+
+    <Profile name="journalDialogTitleSep" extends="fs25_lineSeparatorTopHighlighted" with="anchorTopCenter">
+        <size value="200px 2dp"/>
+    </Profile>
+
+    <Profile name="journalDialogTitleSpacer" extends="emptyPanel" with="anchorTopCenter">
+        <size value="480px 16px"/>
+    </Profile>
+
+    <Profile name="journalDialogLabel" extends="baseReference" with="anchorTopLeft">
+        <size value="480px 20px"/>
+        <textSize value="14px"/>
+        <textColor value="$preset_colorWhite_50"/>
+        <textWrapWidth value="480px"/>
+    </Profile>
+
+    <Profile name="journalDialogInput" extends="fs25_textInput" with="anchorTopLeft">
+        <size value="480px 36px"/>
+        <maxCharacters value="100"/>
+    </Profile>
+
+    <Profile name="journalDialogInputDesc" extends="fs25_textInput" with="anchorTopLeft">
+        <size value="480px 70px"/>
+        <maxCharacters value="500"/>
+    </Profile>
+
+    <Profile name="journalDialogCategoryBox" extends="emptyPanel" with="anchorTopLeft">
+        <size value="480px 36px"/>
+        <flowDirection value="horizontal"/>
+        <useFullVisibility value="false"/>
+        <alignmentX value="left"/>
+        <elementSpacing value="8px"/>
+    </Profile>
+
+    <Profile name="journalDialogCatBtn" extends="fs25_subCategorySelectorTabbedTab" with="anchorTopLeft">
+        <size value="113px 32px"/>
+        <textSize value="11px"/>
+    </Profile>
+
+</GUIProfiles>

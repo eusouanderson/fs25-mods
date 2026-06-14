@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<GUI onOpen="onOpen" onClose="onClose" onCreate="onCreate">
+    <GuiElement profile="newLayer" />
+    <Bitmap profile="dialogFullscreenBg" />
+
+    <GuiElement profile="fs25_dialogBg" id="dialogElement" size="560px 580px">
+        <ThreePartBitmap profile="fs25_dialogBgMiddle"/>
+        <ThreePartBitmap profile="fs25_dialogBgTop"/>
+        <ThreePartBitmap profile="fs25_dialogBgBottom"/>
+
+        <GuiElement profile="fs25_dialogContentContainer">
+            <BoxLayout profile="journalDialogVBox" id="dialogVBox">
+
+                <Text profile="journalDialogTitle" text="$l10n_journal_dialogTitle" id="dialogTitle"/>
+
+                <GuiElement profile="journalDialogTitleSepWrapper">
+                    <ThreePartBitmap profile="journalDialogTitleSep" id="titleSep"/>
+                </GuiElement>
+
+                <GuiElement profile="journalDialogTitleSpacer"/>
+
+                <Text profile="journalDialogLabel" text="$l10n_journal_dialogTitleLabel"/>
+                <TextInput profile="journalDialogInput" id="titleInput" onEnterPressed="onEnterPressed" onTextChanged="onTextChanged" enterWhenClickOutside="false">
+                    <ThreePartBitmap profile="fs25_textInputBg" absoluteSizeOffset="0px 0px"/>
+                    <Bitmap profile="fs25_textInputIconBox" position="0px 0px">
+                        <Bitmap profile="fs25_textInputIcon" />
+                    </Bitmap>
+                </TextInput>
+
+                <Text profile="journalDialogLabel" text="$l10n_journal_dialogDescLabel"/>
+                <TextInput profile="journalDialogInputDesc" id="descriptionInput" onEnterPressed="onEnterPressed" onTextChanged="onTextChanged" enterWhenClickOutside="false">
+                    <ThreePartBitmap profile="fs25_textInputBg" absoluteSizeOffset="0px 0px"/>
+                    <Bitmap profile="fs25_textInputIconBox" position="0px 0px">
+                        <Bitmap profile="fs25_textInputIcon" />
+                    </Bitmap>
+                </TextInput>
+
+                <Text profile="journalDialogLabel" text="$l10n_journal_dialogCatLabel"/>
+                <BoxLayout profile="journalDialogCategoryBox" id="categoryBox">
+                    <Button profile="journalDialogCatBtn" text="$l10n_journal_filterJob" onClick="onClickJob" id="catJob">
+                        <ThreePartBitmap profile="fs25_subCategorySelectorTabbedTabBg" name="background"/>
+                    </Button>
+                    <Button profile="journalDialogCatBtn" text="$l10n_journal_filterSale" onClick="onClickSale" id="catSale">
+                        <ThreePartBitmap profile="fs25_subCategorySelectorTabbedTabBg" name="background"/>
+                    </Button>
+                    <Button profile="journalDialogCatBtn" text="$l10n_journal_filterFreight" onClick="onClickFreight" id="catFreight">
+                        <ThreePartBitmap profile="fs25_subCategorySelectorTabbedTabBg" name="background"/>
+                    </Button>
+                    <Button profile="journalDialogCatBtn" text="$l10n_journal_filterRP" onClick="onClickRP" id="catRP">
+                        <ThreePartBitmap profile="fs25_subCategorySelectorTabbedTabBg" name="background"/>
+                    </Button>
+                </BoxLayout>
+
+                <Text profile="journalDialogLabel" text="$l10n_journal_dialogPayLabel"/>
+                <TextInput profile="journalDialogInput" id="paymentInput" onEnterPressed="onEnterPressed" onTextChanged="onTextChanged" enterWhenClickOutside="false">
+                    <ThreePartBitmap profile="fs25_textInputBg" absoluteSizeOffset="0px 0px"/>
+                    <Bitmap profile="fs25_textInputIconBox" position="0px 0px">
+                        <Bitmap profile="fs25_textInputIcon" />
+                    </Bitmap>
+                </TextInput>
+
+            </BoxLayout>
+        </GuiElement>
+
+        <BoxLayout profile="fs25_dialogButtonBox" id="buttonsPC" size="480px 60px">
+            <Button profile="buttonOK" text="$l10n_journal_dialogCreateBtn" onClick="onClickOk" id="yesButton" />
+            <Bitmap profile="fs25_dialogButtonBoxSeparator" />
+            <Button profile="buttonBack" text="$l10n_button_back" onClick="onClickCancel" id="backButton" />
+        </BoxLayout>
+    </GuiElement>
+</GUI>

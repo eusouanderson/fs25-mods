@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<l10n>
+    <elements>
+        <e k="journal_title" v="SERVER JOURNAL" />
+        <e k="journal_createPost" v="Create Post" />
+        <e k="journal_close" v="Close" />
+        <e k="journal_filterAll" v="All" />
+        <e k="journal_filterJob" v="Jobs" />
+        <e k="journal_filterSale" v="Sales" />
+        <e k="journal_filterFreight" v="Freight" />
+        <e k="journal_filterRP" v="RP" />
+        <e k="journal_postCreated" v="Post created!" />
+        <e k="journal_postRequested" v="Post request sent to server" />
+        <e k="journal_by" v="By:" />
+        <e k="journal_category" v="Category:" />
+        <e k="journal_payment" v="Payment:" />
+        <e k="journal_posted" v="Posted:" />
+        <e k="journal_description" v="Description:" />
+        <e k="journal_author" v="Author:" />
+        <e k="journal_newTitle" v="New Post Title" />
+        <e k="journal_newDesc" v="Post description..." />
+        <e k="input_JOURNAL_OPEN" v="Open Server Journal" />
+        <e k="journal_dialogTitle" v="Create Post" />
+        <e k="journal_dialogTitleLabel" v="Title" />
+        <e k="journal_dialogDescLabel" v="Description" />
+        <e k="journal_dialogCatLabel" v="Category" />
+        <e k="journal_dialogPayLabel" v="Payment" />
+        <e k="journal_dialogCreateBtn" v="Create" />
+        <e k="journal_dialogRequired" v="Title and description are required" />
+        <e k="journal_dialogNotLoaded" v="Create post dialog not loaded" />
+        <e k="journal_postDelete" v="Delete Post" />
+        <e k="journal_detailNoSelection" v="Select a post to view details" />
+        <e k="journal_deleted" v="Post deleted!" />
+        <e k="journal_colPost" v="Post" />
+        <e k="journal_empty" v="No posts yet" />
+    </elements>
+</l10n>

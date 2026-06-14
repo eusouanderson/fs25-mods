@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<GUI name="JournalScreen">
+    <GuiElement profile="fs25_menuContainer">
+
+        <!-- Header -->
+        <GuiElement profile="fs25_menuHeaderPanel" position="-62px 92px">
+            <Bitmap profile="fs25_menuHeaderIconBg">
+                <Bitmap profile="fs25_menuHeaderIcon" id="headerIcon"/>
+            </Bitmap>
+            <Text profile="fs25_menuHeaderTitle" id="headerTitleText" text="$l10n_journal_title"/>
+        </GuiElement>
+
+        <!-- Filter tabs -->
+        <BoxLayout profile="fs25_subCategorySelectorTabbedBox" id="filterBox">
+            <Button profile="journalFilterBtn" id="filterBtns[1]" text="$l10n_journal_filterAll" onClick="onClickFilterAll">
+                <ThreePartBitmap profile="fs25_subCategorySelectorTabbedTabBg" name="background"/>
+            </Button>
+            <Button profile="journalFilterBtn" id="filterBtns[2]" text="$l10n_journal_filterJob" onClick="onClickFilterJob">
+                <ThreePartBitmap profile="fs25_subCategorySelectorTabbedTabBg" name="background"/>
+            </Button>
+            <Button profile="journalFilterBtn" id="filterBtns[3]" text="$l10n_journal_filterSale" onClick="onClickFilterSale">
+                <ThreePartBitmap profile="fs25_subCategorySelectorTabbedTabBg" name="background"/>
+            </Button>
+            <Button profile="journalFilterBtn" id="filterBtns[4]" text="$l10n_journal_filterFreight" onClick="onClickFilterFreight">
+                <ThreePartBitmap profile="fs25_subCategorySelectorTabbedTabBg" name="background"/>
+            </Button>
+            <Button profile="journalFilterBtn" id="filterBtns[5]" text="$l10n_journal_filterRP" onClick="onClickFilterRP">
+                <ThreePartBitmap profile="fs25_subCategorySelectorTabbedTabBg" name="background"/>
+            </Button>
+        </BoxLayout>
+
+        <ThreePartBitmap profile="fs25_lineSeparatorTopHighlighted" position="-63px -57px" size="100% 2dp"/>
+
+        <MultiTextOption profile="fs25_subCategorySelectorTabbed" id="filterPaging" position="0px -10px" onClick="onClickFilterPaging"/>
+
+        <!-- Conteúdo principal -->
+        <GuiElement profile="fs25_subCategorySelectorTabbedContainer" id="contentArea">
+
+            <!-- PAINEL ESQUERDO: lista de posts -->
+            <GuiElement profile="journalListPanel" id="listPanel" position="0px 0px">
+
+                <!-- Cabeçalhos das colunas -->
+                <GuiElement profile="fs25_statisticsHeaderBox" position="-60px 0px">
+                    <Text profile="journalColHeader" position="15px -20px" size="660px 28px" text="$l10n_journal_title"/>
+                    <Text profile="journalColHeaderCenter" position="685px -20px" size="165px 28px" text="$l10n_journal_category"/>
+                    <Text profile="journalColHeaderCenter" position="860px -20px" size="130px 28px" text="$l10n_journal_author"/>
+                </GuiElement>
+
+                <!-- Lista de posts -->
+                <SmoothList id="listPosts" profile="journalPostList" position="-60px -50px" size="1050px 560px">
+                    <ListItem profile="journalPostListItem" height="36px">
+                        <ThreePartBitmap profile="journalItemGradient" name="alternating"/>
+                        <Text profile="journalCellTitle" position="15px 0px" size="660px 36px" name="cellTitle"/>
+                        <Text profile="journalCellCategory" position="685px 0px" size="165px 36px" name="cellCategory"/>
+                        <Text profile="journalCellAuthor" position="860px 0px" size="130px 36px" name="cellAuthor"/>
+                    </ListItem>
+                </SmoothList>
+
+                <ThreePartBitmap profile="journalSliderBox" position="-63px -50px" id="listSliderBox">
+                    <Slider profile="fs25_listSlider" dataElementId="listPosts"/>
+                </ThreePartBitmap>
+
+                <Text profile="journalEmptyText" id="emptyListText" position="200px -300px" text="$l10n_journal_empty"/>
+
+            </GuiElement>
+
+            <!-- PAINEL DIREITO: detalhe do post -->
+            <GuiElement profile="journalDetailPanel" id="detailPanel" position="1070px 0px" clipChildren="false">
+
+                <BoxLayout profile="journalDetailVBox" id="detailVBox">
+                    <Text profile="journalDetailTitle" id="detailTitle" text="$l10n_journal_detailNoSelection"/>
+
+                    <ThreePartBitmap profile="journalDetailSep" id="detailSep1"/>
+
+                    <Text profile="journalDetailInfo" id="detailAuthor"/>
+                    <Text profile="journalDetailInfo" id="detailCategory"/>
+                    <Text profile="journalDetailInfo" id="detailPayment"/>
+                    <Text profile="journalDetailInfo" id="detailDate"/>
+
+                    <ThreePartBitmap profile="journalDetailSep" id="detailSep2"/>
+
+                    <Text profile="journalDetailDescLabel" id="detailDescLabel" text="$l10n_journal_description"/>
+                    <Text profile="journalDetailDesc" id="detailDescription"/>
+                </BoxLayout>
+
+            </GuiElement>
+
+        </GuiElement>
+
+    </GuiElement>
+</GUI>

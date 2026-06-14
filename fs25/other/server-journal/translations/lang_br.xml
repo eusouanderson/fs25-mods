@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<l10n>
+    <elements>
+        <e k="journal_title" v="JORNAL DO SERVIDOR" />
+        <e k="journal_createPost" v="Criar Anúncio" />
+        <e k="journal_close" v="Fechar" />
+        <e k="journal_filterAll" v="Todos" />
+        <e k="journal_filterJob" v="Trabalhos" />
+        <e k="journal_filterSale" v="Vendas" />
+        <e k="journal_filterFreight" v="Fretes" />
+        <e k="journal_filterRP" v="RP" />
+        <e k="journal_postCreated" v="Anúncio criado!" />
+        <e k="journal_postRequested" v="Pedido enviado ao servidor" />
+        <e k="journal_by" v="Por:" />
+        <e k="journal_category" v="Categoria:" />
+        <e k="journal_payment" v="Pagamento:" />
+        <e k="journal_posted" v="Publicado:" />
+        <e k="journal_description" v="Descrição:" />
+        <e k="journal_author" v="Autor:" />
+        <e k="journal_newTitle" v="Título do Anúncio" />
+        <e k="journal_newDesc" v="Descrição do anúncio..." />
+        <e k="input_JOURNAL_OPEN" v="Abrir Jornal do Servidor" />
+        <e k="journal_dialogTitle" v="Criar Anúncio" />
+        <e k="journal_dialogTitleLabel" v="Título" />
+        <e k="journal_dialogDescLabel" v="Descrição" />
+        <e k="journal_dialogCatLabel" v="Categoria" />
+        <e k="journal_dialogPayLabel" v="Pagamento" />
+        <e k="journal_dialogCreateBtn" v="Criar" />
+        <e k="journal_dialogRequired" v="Título e descrição são obrigatórios" />
+        <e k="journal_dialogNotLoaded" v="Diálogo de criação não carregado" />
+        <e k="journal_postDelete" v="Excluir Anúncio" />
+        <e k="journal_detailNoSelection" v="Selecione um anúncio para ver detalhes" />
+        <e k="journal_deleted" v="Anúncio excluído!" />
+        <e k="journal_colPost" v="Anúncio" />
+        <e k="journal_empty" v="Nenhum anúncio ainda" />
+    </elements>
+</l10n>
