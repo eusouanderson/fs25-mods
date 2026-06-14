@@ -187,7 +187,7 @@ function AuctionManager:placeBid(auctionId, bidderId, bidderName, amount)
     self:broadcastChat(string.format(g_i18n:getText("ah_global_newBid", AuctionHouse.modName), bidderName, tostring(amount), auction.itemName))
 end
 
--- Server-authoritative: cancel an auction (seller or system only)
+-- Server-authoritative: cancel an auction (seller only)
 function AuctionManager:cancelAuction(auctionId, requesterId, requesterName)
     if g_server == nil then
         return
@@ -207,8 +207,9 @@ function AuctionManager:cancelAuction(auctionId, requesterId, requesterName)
         return
     end
 
-    if auction.sellerId ~= requesterId and requesterId ~= 0 then
+    if auction.sellerId ~= requesterId then
         self:broadcastChat(g_i18n:getText("ah_error_notOwner", AuctionHouse.modName))
+        AuctionLogger.warning("AuctionManager", "cancelAuction: requester " .. tostring(requesterId) .. " is not the seller (" .. tostring(auction.sellerId) .. ")")
         return
     end
 

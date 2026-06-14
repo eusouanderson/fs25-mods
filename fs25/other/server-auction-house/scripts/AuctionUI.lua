@@ -58,10 +58,20 @@ function AuctionUI.getLocalFarmInfo()
     local playerName = ""
     if g_currentMission ~= nil then
         farmId = g_currentMission:getFarmId() or 0
-        if g_currentMission.player ~= nil then
-            playerName = g_currentMission.player:getName() or ""
+
+        if g_currentMission.playerSystem ~= nil and g_currentMission.playerUserId ~= nil then
+            local player = g_currentMission.playerSystem:getPlayerByUserId(g_currentMission.playerUserId)
+            if player ~= nil then
+                playerName = player:getNickname() or ""
+            end
         end
     end
+
+    if playerName == "" then
+        local farm = g_farmManager ~= nil and g_farmManager:getFarmById(farmId) or nil
+        playerName = (farm ~= nil and farm.name) or ("Farm " .. tostring(farmId))
+    end
+
     return farmId, playerName
 end
 
