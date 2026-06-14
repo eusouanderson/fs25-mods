@@ -349,6 +349,6 @@ FSBaseMission.keyEvent = Utils.appendedFunction(FSBaseMission.keyEvent, function
 end)
 
 Mission00.load = Utils.prependedFunction(Mission00.load, ServerAuctionHouse.load)
-Mission00.loadMapFinished = Utils.appendedFunction(Mission00.loadMapFinished, ServerAuctionHouse.loadMapFinished)
+Mission00.loadMission00Finished = Utils.appendedFunction(Mission00.loadMission00Finished, ServerAuctionHouse.loadMapFinished)
 Mission00.update = Utils.appendedFunction(Mission00.update, ServerAuctionHouse.update)
 FSBaseMission.saveSavegame = Utils.appendedFunction(FSBaseMission.saveSavegame, ServerAuctionHouse.onSaveSavegame)
