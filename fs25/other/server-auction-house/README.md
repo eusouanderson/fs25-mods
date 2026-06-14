@@ -91,11 +91,8 @@ is synchronized across clients and persisted in the savegame.
 [⬇ Baixar / Download](https://github.com/eusouanderson/fs25-mods/releases/tag/server-auction-house-v1.0.0)
 
 ---
-**Server Auction House v1.0.0**
 
-[⬇ Baixar / Download](https://github.com/eusouanderson/fs25-mods/releases/tag/server-auction-house-v1.0.0)
 
----
 <p align="center">
   <i>Em breve — aguardando testes finais / Coming soon — awaiting final testing</i>
 </p>
