@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<l10n>
+    <texts>
+        <text name="function_truck" text="Caminhão"/>
+        <text name="typeDesc_truck" text="Renault K480 6x4"/>
+        <text name="configuration_valueDefault" text="Padrão"/>
+        <text name="configuration_tensionBelts" text="Cintas de tensão"/>
+        <text name="BackHoldSystem" text="Sistema de retenção traseiro"/>
+        <text name="info_transmission_manual" text="Transmissão manual"/>
+        <text name="unit_literShort" text="L"/>
+        <text name="info_tipSideBack" text="Descarga traseira"/>
+        <text name="info_tipSideLeft" text="Descarga lateral esquerda"/>
+        <text name="info_tipSideRight" text="Descarga lateral direita"/>
+    </texts>
+</l10n>

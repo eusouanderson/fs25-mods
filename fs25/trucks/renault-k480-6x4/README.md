@@ -89,17 +89,7 @@ Caminhão basculante **Renault K480 6x4** para o **Farming Simulator 25**.
 
 [⬇ Baixar / Download](https://github.com/eusouanderson/fs25-mods/releases/tag/renault-k480-6x4-v1.0.2)
 
----
-**Renault K480 6X4 v1.0.1**
 
-[⬇ Baixar / Download](https://github.com/eusouanderson/fs25-mods/releases/tag/renault-k480-6x4-v1.0.1)
-
----
-**Renault K480 6x4 v1.0.1**
-
-[⬇ Baixar / Download](https://github.com/eusouanderson/fs25-mods/releases/tag/renault-k480-6x4-v1.0.1)
-
----
 
 <p align="center">
   <a href="https://liberapay.com/eusouanderson/donate">

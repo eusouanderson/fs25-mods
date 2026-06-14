@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <modDesc descVersion="100"> 
-    <author>JM / SebFS / Cédric C / Ronan LAR TP</author>
-    <version>1.0.1</version>
-    <annotation>FS25 Convert by B.O.B (github.com/eusouanderson) | v1.0.1.0: Updated modDesc description format</annotation>
+    <author>B.O.B (github.com/eusouanderson)</author>
+    <version>1.0.2</version>
+    <annotation>v1.0.2: FS2025 compatibility fixes and optimization</annotation>
 	
     <title>
         <en>Renault k480 6x4 Meilleur kipper</en>
@@ -32,8 +32,7 @@ Features:
 - Hook lift trailer compatible
 - Onboard air brake system
 
-Original FS22 mod by JM / SebFS / Cédric C / Ronan LAR TP
-Converted to FS25 by B.O.B (github.com/eusouanderson)
+Mod by B.O.B (github.com/eusouanderson)
 ]]>
         </en>
     </description>

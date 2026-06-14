@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<l10n>
+    <texts>
+        <text name="function_truck" text="Truck"/>
+        <text name="typeDesc_truck" text="Renault K480 6x4"/>
+        <text name="configuration_valueDefault" text="Standard"/>
+        <text name="configuration_tensionBelts" text="Tension Belts"/>
+        <text name="BackHoldSystem" text="Back Hold System"/>
+        <text name="info_transmission_manual" text="Manual transmission"/>
+        <text name="unit_literShort" text="L"/>
+        <text name="info_tipSideBack" text="Tip back"/>
+        <text name="info_tipSideLeft" text="Tip left"/>
+        <text name="info_tipSideRight" text="Tip right"/>
+    </texts>
+</l10n>

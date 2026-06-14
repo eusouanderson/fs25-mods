@@ -1,0 +1,1460 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<i3D name="Renault_6x4.i3d" version="1.6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://i3d.giants.ch/schema/i3d-1.6.xsd">
+  <Asset>
+    <Export program="GIANTS Editor 64bit" version="10.0.11"/>
+  </Asset>
+
+  <Files>
+    <File fileId="65" filename="Textures/Blanc.png"/>
+    <File fileId="14" filename="Textures/Textures/carbon.dds"/>
+    <File fileId="17" filename="Textures/Textures/cross_sew.dds"/>
+    <File fileId="28" filename="Textures/Textures/curtain.dds"/>
+    <File fileId="19" filename="Textures/Textures/dashboard.dds"/>
+    <File fileId="24" filename="Textures/Textures/details.dds"/>
+    <File fileId="44" filename="Textures/Textures/door_floor_alu_trim.dds"/>
+    <File fileId="25" filename="Textures/Textures/ground.dds"/>
+    <File fileId="16" filename="Textures/Textures/leather_fine_c.dds"/>
+    <File fileId="43" filename="Textures/Textures/panel_pattern.dds"/>
+    <File fileId="21" filename="Textures/Textures/plastic_hard.dds"/>
+    <File fileId="39" filename="Textures/Textures/plastic_hexa_in.dds"/>
+    <File fileId="27" filename="Textures/Textures/plastic_hexa_out.dds"/>
+    <File fileId="30" filename="Textures/Textures/plastic_polished.dds"/>
+    <File fileId="20" filename="Textures/Textures/plastic_rough.dds"/>
+    <File fileId="51" filename="Textures/Textures/renault_trucks_logo.dds"/>
+    <File fileId="48" filename="Textures/Textures/renault_trucks_sign.dds"/>
+    <File fileId="37" filename="Textures/Textures/seat_belt.dds"/>
+    <File fileId="45" filename="Textures/Textures/seat_fabric_picrite_bump.dds"/>
+    <File fileId="41" filename="Textures/Textures/seat_side_fabric.dds"/>
+    <File fileId="46" filename="Textures/Textures/serenite_sign.dds"/>
+    <File fileId="42" filename="Textures/Textures/sews_2.dds"/>
+    <File fileId="33" filename="Textures/Textures/shared_carpet_0.dds"/>
+    <File fileId="34" filename="Textures/Textures/shared_carpet_4_edge.dds"/>
+    <File fileId="47" filename="Textures/Textures/tephrite_seam.dds"/>
+    <File fileId="35" filename="Textures/Textures/upper_walls.dds"/>
+    <File fileId="40" filename="Textures/Textures/walls.dds"/>
+    <File fileId="29" filename="Textures/Textures/window_shade.dds"/>
+    <File fileId="69" filename="Textures/Tipper_textures.dds"/>
+    <File fileId="13" filename="Textures/gen_wear_dirt_2.dds"/>
+    <File fileId="64" filename="Textures/numbers_diffuse.png"/>
+    <File fileId="71" filename="Textures/renault_textures.dds"/>
+    <File fileId="66" filename="UV/dashboardSymbols_diffuse.dds"/>
+    <File fileId="4" filename="vehicleShader.xml"/>
+    <File fileId="68" filename="$data/shaders/glowShader.xml"/>
+    <File fileId="63" filename="$data/shaders/mirrorShader.xml"/>
+    <File fileId="52" filename="$data/shaders/vehicleShader.xml"/>
+    <File fileId="2" filename="$data/shared/default_normal.dds"/>
+    <File fileId="3" filename="$data/shared/default_specular.dds"/>
+    <File fileId="67" filename="$data/shared/default_vmask.dds"/>
+    <File fileId="22" filename="$data/shared/window_diffuse.dds"/>
+    <File fileId="23" filename="$data/shared/window_vmask.dds"/>
+  </Files>
+
+
+  <Materials>
+    <Material name="benne" materialId="5" diffuseColor="0.494118 0.494118 0.494118 1" customShaderId="4" customShaderVariation="colorMask">
+      <Normalmap fileId="2"/>
+      <Glossmap fileId="13"/>
+      <CustomParameter name="colorMat0" value="0.8 0.55 0.05 0"/>
+      <CustomParameter name="colorMat1" value="1 1 0.1 1"/>
+    </Material>
+    <Material name="benne" materialId="6" diffuseColor="1 1 1 1" customShaderId="52">
+      <Normalmap fileId="2"/>
+      <Glossmap fileId="13"/>
+    </Material>
+    <Material name="cabine" materialId="7" diffuseColor="0.494118 0.494118 0.494118 1" customShaderId="4" customShaderVariation="colorMask">
+      <Glossmap fileId="13"/>
+      <CustomParameter name="colorMat0" value="1 0.25 0 0"/>
+      <CustomParameter name="colorMat1" value="1 0 0 0"/>
+      <CustomParameter name="colorMat2" value="0.8 0.8 0.8 1"/>
+    </Material>
+    <Material name="chassis" materialId="9" diffuseColor="0.494118 0.494118 0.494118 1" customShaderId="4" customShaderVariation="colorMask">
+      <Normalmap fileId="2"/>
+      <Glossmap fileId="13"/>
+      <CustomParameter name="colorMat1" value="0 0.2 0.4 1"/>
+      <CustomParameter name="colorMat2" value="1 0 0 1"/>
+    </Material>
+    <Material name="chassis" materialId="8" diffuseColor="0.494118 0.494118 0.494118 1" customShaderId="4" customShaderVariation="colorMask">
+      <Normalmap fileId="2"/>
+      <Glossmap fileId="3"/>
+      <CustomParameter name="colorMat1" value="0 0.2 0.4 1"/>
+      <CustomParameter name="colorMat2" value="1 0 0 1"/>
+    </Material>
+    <Material name="dashboardSymbols_mat" materialId="10" customShaderId="68" customShaderVariation="staticLight">
+      <Texture fileId="66"/>
+      <Normalmap fileId="2"/>
+      <Glossmap fileId="67"/>
+      <CustomParameter name="lightControl" value="0"/>
+      <CustomParameter name="baseColor" value="0.01 0.01 0.1 0"/>
+    </Material>
+    <Material name="decalsBenne" materialId="11" specularColor="0.494118 1 0.494118">
+      <Texture fileId="69"/>
+    </Material>
+    <Material name="decalsChassis" materialId="12" specularColor="0.494118 1 0.494118">
+      <Texture fileId="71"/>
+    </Material>
+    <Material name="default_mat" materialId="13" diffuseColor="0.494118 0.494118 0.494118 1">
+      <Normalmap fileId="2"/>
+    </Material>
+    <Material name="feux" materialId="14" diffuseColor="0.494118 0.494118 0.494118 1" customShaderId="4" customShaderVariation="staticLight">
+      <Glossmap fileId="3"/>
+      <CustomParameter name="colorMat0" value="1 1 1 2"/>
+      <CustomParameter name="colorMat1" value="1 1 1 2"/>
+    </Material>
+    <Material name="glass" materialId="15" customShaderId="4">
+      <Texture fileId="22"/>
+      <Glossmap fileId="23"/>
+    </Material>
+    <Material name="gps4" materialId="16" diffuseColor="0.0627451 0.0627451 0.0627451 1">
+    </Material>
+    <Material name="hub" materialId="17" diffuseColor="0.972549 0.972549 0.972549 1" customShaderId="4" customShaderVariation="colorMask">
+      <Normalmap fileId="2"/>
+      <Glossmap fileId="3"/>
+      <CustomParameter name="colorMat0" value="0.05 0.05 0.05 1"/>
+    </Material>
+    <Material name="lambert1" materialId="18" diffuseColor="0 0 0 1" specularColor="0.0941177 1 0.0941177">
+    </Material>
+    <Material name="lambert1" materialId="19" diffuseColor="0.494118 0.494118 0.494118 1">
+    </Material>
+    <Material name="lambert1" materialId="20" diffuseColor="0.494118 0.494118 0.494118 1" customShaderId="4" customShaderVariation="colorMask">
+      <Normalmap fileId="2"/>
+      <Glossmap fileId="3"/>
+      <CustomParameter name="colorMat2" value="0.1 0.1 0.1 1"/>
+      <CustomParameter name="colorMat3" value="0.1 0.1 0.1 1"/>
+      <CustomParameter name="colorMat4" value="1 0.1 0.1 1"/>
+    </Material>
+    <Material name="lambert1" materialId="21" diffuseColor="0.592157 0.592157 0.592157 1">
+    </Material>
+    <Material name="lambert436" materialId="22" diffuseColor="0.0666667 0.0666667 0.0666667 1">
+    </Material>
+    <Material name="lambert438" materialId="23" diffuseColor="0.027451 0.027451 0.027451 1">
+    </Material>
+    <Material name="lambert6" materialId="24" diffuseColor="0.0431373 0.0431373 0.0431373 1">
+    </Material>
+    <Material name="lambert68" materialId="25" diffuseColor="0.0313726 0.0313726 0.0313726 1">
+    </Material>
+    <Material name="mat_0000_carbon5" materialId="26" specularColor="0.2 1 0.2">
+      <Texture fileId="14"/>
+    </Material>
+    <Material name="mat_0001_details6" materialId="27" specularColor="0.2 1 0.2">
+      <Texture fileId="24"/>
+    </Material>
+    <Material name="mat_0003_cross_sew5" materialId="28" specularColor="0.2 1 0.2">
+      <Texture fileId="17"/>
+    </Material>
+    <Material name="mat_0007_plastic_hard10" materialId="29" specularColor="0.2 1 0.2">
+      <Texture fileId="21"/>
+    </Material>
+    <Material name="mat_0011_seat_belt4" materialId="30" specularColor="0.2 1 0.2">
+      <Texture fileId="37"/>
+    </Material>
+    <Material name="mat_0014_ground4" materialId="31" specularColor="0.2 1 0.2">
+      <Texture fileId="25"/>
+    </Material>
+    <Material name="mat_0016_seat_side_fabric4" materialId="32" specularColor="0.2 1 0.2">
+      <Texture fileId="41"/>
+    </Material>
+    <Material name="mat_0017_dashboard4" materialId="33" specularColor="0.2 1 0.2">
+      <Texture fileId="19"/>
+    </Material>
+    <Material name="mat_0017_renault_trucks_logo5" materialId="34" specularColor="0.2 1 0.2">
+      <Texture fileId="51"/>
+    </Material>
+    <Material name="mat_0018_door_floor_alu_trim4" materialId="35" specularColor="0.2 1 0.2">
+      <Texture fileId="44"/>
+    </Material>
+    <Material name="mat_0020_serenite_sign4" materialId="36" specularColor="0.2 1 0.2">
+      <Texture fileId="46"/>
+    </Material>
+    <Material name="mat_0021_white_4" materialId="37" diffuseColor="0.8 0.8 0.8 1" specularColor="0.2 1 0.2" customShaderId="68" customShaderVariation="staticLight">
+      <CustomParameter name="lightControl" value="0"/>
+    </Material>
+    <Material name="mat_0022_plastic_hexa_out4" materialId="38" specularColor="0.2 1 0.2">
+      <Texture fileId="27"/>
+    </Material>
+    <Material name="mat_0024_rubber4" materialId="39" diffuseColor="0.0156863 0.0156863 0.0156863 1" specularColor="0.2 1 0.2">
+    </Material>
+    <Material name="mat_0025_glass_int4" materialId="40" diffuseColor="0.8 0.8 0.8 0.329412" specularColor="0.2 1 0.2">
+      <Normalmap fileId="2"/>
+    </Material>
+    <Material name="mat_0026_sews4" materialId="41" specularColor="0.2 1 0.2">
+      <Texture fileId="42"/>
+    </Material>
+    <Material name="mat_0027_leather_seam4" materialId="42" specularColor="0.2 1 0.2">
+      <Texture fileId="47"/>
+    </Material>
+    <Material name="mat_0028_seat_pattern4" materialId="43" specularColor="0.2 1 0.2">
+      <Texture fileId="45"/>
+    </Material>
+    <Material name="mat_0030_fabric_11" materialId="44" specularColor="0.2 1 0.2">
+    </Material>
+    <Material name="mat_0031_curtain4" materialId="45" specularColor="0.2 1 0.2">
+      <Texture fileId="28"/>
+    </Material>
+    <Material name="mat_0033_renault_trucks_sign4" materialId="46" specularColor="0.2 1 0.2">
+      <Texture fileId="48"/>
+    </Material>
+    <Material name="mat_0034_window_shade4" materialId="47" specularColor="0.2 1 0.2">
+      <Texture fileId="29"/>
+    </Material>
+    <Material name="mat_0035_leather_fine_c4" materialId="48" specularColor="0.2 1 0.2">
+      <Texture fileId="16"/>
+    </Material>
+    <Material name="mat_0036_plastic_rough4" materialId="49" specularColor="0.2 1 0.2">
+      <Texture fileId="20"/>
+    </Material>
+    <Material name="mat_0037_plastic_polished4" materialId="50" specularColor="0.2 1 0.2">
+      <Texture fileId="30"/>
+    </Material>
+    <Material name="mat_0041_shared_carpet_4" materialId="51" specularColor="0.2 1 0.2">
+      <Texture fileId="33"/>
+    </Material>
+    <Material name="mat_0042_carpet_4_edge4" materialId="52" specularColor="0.2 1 0.2">
+      <Texture fileId="34"/>
+    </Material>
+    <Material name="mat_0045_upper_walls4" materialId="53" specularColor="0.2 1 0.2">
+      <Texture fileId="35"/>
+    </Material>
+    <Material name="mat_0048_plastic_hexa_in4" materialId="54" specularColor="0.2 1 0.2">
+      <Texture fileId="39"/>
+    </Material>
+    <Material name="mat_0049_panel_pattern4" materialId="55" specularColor="0.2 1 0.2">
+      <Texture fileId="43"/>
+    </Material>
+    <Material name="mat_0050_walls7" materialId="56" specularColor="0.2 1 0.2">
+      <Texture fileId="40"/>
+    </Material>
+    <Material name="Material2" materialId="57">
+      <Texture fileId="65"/>
+    </Material>
+    <Material name="miror" materialId="58" diffuseColor="0 0 0 1" specularColor="0 1 1" alphaBlending="true" customShaderId="63">
+      <Reflectionmap lodDistanceScaling="0.5" viewDistanceScaling="0.5" type="planar" scaling="1" refractiveIndex="10" bumpScale="0.1" shapesObjectMask="4294967295" lightsObjectMask="4294967295"/>
+    </Material>
+    <Material name="noir" materialId="59" diffuseColor="0.00784314 0.00784314 0.00784314 1">
+    </Material>
+    <Material name="numbers_mat" materialId="60" alphaBlending="true" customShaderId="68" customShaderVariation="staticLight">
+      <Texture fileId="64"/>
+      <CustomParameter name="lightControl" value="0"/>
+    </Material>
+    <Material name="phong245" materialId="61" diffuseColor="0.494118 0.494118 0.494118 0.309804" specularColor="0.494118 1 0.494118">
+    </Material>
+    <Material name="phong65" materialId="62" diffuseColor="0.494118 0.494118 0.494118 1" specularColor="0.494118 1 0.494118">
+    </Material>
+    <Material name="phong7" materialId="63" diffuseColor="0.0941177 0.0941177 0.0941177 0.74902" specularColor="0.494118 1 0.494118" alphaBlending="true">
+    </Material>
+    <Material name="rim" materialId="64" diffuseColor="1 1 1 1" specularColor="0.8 1 1">
+    </Material>
+    <Material name="UnnamedMaterial" materialId="65" diffuseColor="1 1 1 1">
+    </Material>
+    <Material name="UnnamedMaterial" materialId="872" diffuseColor="1 1 1 1" customShaderId="52">
+      <Glossmap fileId="13"/>
+    </Material>
+    <Material name="vitre1" materialId="67" specularColor="0.2 1 0.2" alphaBlending="true">
+      <Texture fileId="22"/>
+    </Material>
+  </Materials>
+
+
+  <Shapes externalShapesFile="Renault_6x4.i3d.shapes">
+  </Shapes>
+
+  <Scene>
+    <Shape name="RenaultC_6x4" shapeId="1" dynamic="true" compound="true" collisionFilterGroup="0x10004" collisionFilterMask="0xfe3ffb83" density="0.7" clipDistance="300" nodeId="356" castsShadows="true" receiveShadows="true" nonRenderable="true" materialIds="20">
+      <TransformGroup name="transform" nodeId="357">
+        <TransformGroup name="wheels" translation="0 0.0222018 -0.194596" nodeId="358">
+          <Shape name="MoyeuxG" translation="0.889 0.494798 2.68861" shapeId="2" nodeId="359" castsShadows="true" receiveShadows="true" materialIds="8">
+            <Shape name="polySurface2115" translation="0.187 0.019419 -0.00405002" shapeId="3" nodeId="360" castsShadows="true" receiveShadows="true" materialIds="25,24">
+              <Shape name="polySurface2116" translation="0.15298 -6.69956e-05 2.00272e-05" shapeId="4" nodeId="361" castsShadows="true" receiveShadows="true" materialIds="64">
+                <Shape name="polySurface2117" translation="0.00530994 9.80496e-05 0.000349998" shapeId="5" nodeId="362" castsShadows="true" receiveShadows="true" materialIds="17"/>
+              </Shape>
+            </Shape>
+            <Shape name="BarreDirection" translation="-0.074 -0.120973 -0.261858" rotation="-0 -90 0" shapeId="6" visibility="false" nodeId="363" castsShadows="true" receiveShadows="true" materialIds="8"/>
+            <Shape name="polySurface1776" translation="-0.245 0.114196 -0.00162292" shapeId="7" visibility="false" nodeId="364" castsShadows="true" receiveShadows="true" materialIds="8"/>
+          </Shape>
+          <Shape name="MoyeuxD" translation="-0.889 0.494798 2.68861" shapeId="8" nodeId="365" castsShadows="true" receiveShadows="true" materialIds="8">
+            <Shape name="polySurface1958" translation="-0.161 0.020236 -0.00405002" shapeId="9" nodeId="366" castsShadows="true" receiveShadows="true" materialIds="25,24">
+              <Shape name="polySurface1483" translation="-0.14884 -6.69956e-05 -1.97887e-05" rotation="180 -5.00896e-06 180" shapeId="4" nodeId="367" castsShadows="true" receiveShadows="true" materialIds="64">
+                <Shape name="polySurface1930" translation="0.00530994 9.80496e-05 0.000349998" shapeId="5" nodeId="368" castsShadows="true" receiveShadows="true" materialIds="17"/>
+              </Shape>
+            </Shape>
+          </Shape>
+          <Shape name="polySurface2702" translation="0.94018 0.512765 -0.746325" shapeId="10" nodeId="369" castsShadows="true" receiveShadows="true" materialIds="25,24">
+            <Shape name="polySurface1466" translation="0.1605 -1.01328e-06 -3.79682e-05" shapeId="11" nodeId="370" castsShadows="true" receiveShadows="true" materialIds="64">
+              <Shape name="polySurface1931" translation="-0.09003 2.02656e-06 3.60012e-05" shapeId="12" nodeId="371" castsShadows="true" receiveShadows="true" materialIds="17"/>
+            </Shape>
+          </Shape>
+          <Shape name="polySurface2156" translation="-0.94018 0.512765 -0.746325" shapeId="13" nodeId="372" castsShadows="true" receiveShadows="true" materialIds="25,24">
+            <Shape name="polySurface2120" translation="-0.15961 -1.01328e-06 3.80278e-05" rotation="180 -5.00896e-06 180" shapeId="11" nodeId="373" castsShadows="true" receiveShadows="true" materialIds="64">
+              <Shape name="polySurface2121" translation="-0.09003 2.02656e-06 3.59416e-05" shapeId="12" nodeId="374" castsShadows="true" receiveShadows="true" materialIds="17"/>
+            </Shape>
+          </Shape>
+          <Shape name="polySurface3281" translation="0.94018 0.512765 -2.11086" shapeId="10" nodeId="375" castsShadows="true" receiveShadows="true" materialIds="25,24">
+            <Shape name="polySurface2118" translation="0.1605 -1.01328e-06 -4.00543e-05" shapeId="11" nodeId="376" castsShadows="true" receiveShadows="true" materialIds="64">
+              <Shape name="polySurface2119" translation="-0.09003 2.02656e-06 4.00543e-05" shapeId="12" nodeId="377" castsShadows="true" receiveShadows="true" materialIds="17"/>
+            </Shape>
+          </Shape>
+          <Shape name="polySurface3280" translation="-0.94018 0.512765 -2.11086" shapeId="14" nodeId="378" castsShadows="true" receiveShadows="true" materialIds="24,25">
+            <Shape name="polySurface2122" translation="-0.15961 -1.01328e-06 4.00543e-05" rotation="180 -5.00896e-06 180" shapeId="11" nodeId="379" castsShadows="true" receiveShadows="true" materialIds="64">
+              <Shape name="polySurface2123" translation="-0.09003 2.02656e-06 4.00543e-05" shapeId="12" nodeId="380" castsShadows="true" receiveShadows="true" materialIds="17"/>
+            </Shape>
+          </Shape>
+        </TransformGroup>
+        <TransformGroup name="cameras" nodeId="381">
+          <TransformGroup name="outdoorCameraTarget" translation="-2.30441e-16 1.8894 -0.00770869" rotation="-24 180 0" nodeId="382">
+            <Camera name="outdoorCamera1" translation="0.302674 3.83473 9.03249" rotation="-12.1381 -0.579459 -0.301341" nodeId="383" fov="54.4322" nearClip="0.3" farClip="5000" orthographicHeight="1"/>
+          </TransformGroup>
+          <Camera name="indoorCamera1" translation="0.716 2.67917 2.71974" rotation="-18 180 0" nodeId="384" fov="60" nearClip="0.1" farClip="5000" orthographicHeight="1"/>
+          <TransformGroup name="cameraRaycastNode1" translation="0 2.08324 3.902" nodeId="385"/>
+          <TransformGroup name="cameraRaycastNode2" translation="0 3.43655 1.77289" nodeId="386"/>
+          <TransformGroup name="cameraRaycastNode3" translation="0 1.48434 -3.82736" nodeId="387"/>
+          <Shape name="shadowFocusBox" translation="0 2.37209 2.79949" shapeId="15" visibility="false" clipDistance="150" nodeId="388" castsShadows="true" receiveShadows="true" nonRenderable="true" materialIds="20"/>
+        </TransformGroup>
+        <TransformGroup name="lights" nodeId="389">
+          <TransformGroup name="sharedLights" nodeId="390">
+            <TransformGroup name="rear5ChamberLight_01Left" translation="0.928 0.755754 -3.0661" rotation="-90 -0 0" scale="1.2 0.75 1" nodeId="391"/>
+            <TransformGroup name="rear5ChamberLight_01Right" translation="-0.928 0.755754 -3.0661" rotation="-90 -0 0" scale="1.2 0.75 1" nodeId="392"/>
+            <TransformGroup name="sideMarker_04Orange" translation="1.2342 0.709907 1.729" rotation="90 90 0" nodeId="393"/>
+            <TransformGroup name="sideMarker_04Orange" translation="1.14876 1.1669 -0.380789" rotation="0 -0 -90" nodeId="394"/>
+            <TransformGroup name="sideMarker_04Orange" translation="-1.23823 0.775722 1.65523" rotation="90 -87.5 0" nodeId="395"/>
+            <TransformGroup name="sideMarker_04Orange" translation="-1.14784 1.1669 -0.380789" rotation="0 -0 90" nodeId="396"/>
+          </TransformGroup>
+          <TransformGroup name="defaultLights" nodeId="397">
+            <Light name="frontLightLow" translation="0 1.07332 3.9" rotation="-15 180 0" clipDistance="75" nodeId="398" type="spot" color="0.85 0.85 1" emitDiffuse="true" emitSpecular="true" range="20" coneAngle="80" dropOff="3"/>
+            <Light name="highBeamLow" translation="0.0050058 1.25357 3.8376" rotation="170 -5.00896e-06 180" clipDistance="75" nodeId="399" type="spot" color="0.85 0.85 1" emitDiffuse="true" emitSpecular="true" range="30" coneAngle="70" dropOff="2"/>
+            <Light name="frontLightHigh" translation="-0.839 1.13148 3.84142" rotation="165 8 -180" clipDistance="75" nodeId="400" type="spot" color="0.85 0.85 1" emitDiffuse="true" emitSpecular="true" range="25" coneAngle="70" dropOff="3">
+              <Light name="frontLightHigh1" translation="-1.66167 -0.0604429 0.225575" rotation="1.77636e-06 16 2.88659e-06" clipDistance="75" nodeId="401" type="spot" color="0.85 0.85 1" emitDiffuse="true" emitSpecular="true" range="25" coneAngle="70" dropOff="3"/>
+            </Light>
+            <Light name="highBeamHigh" translation="-1.008 1.09615 3.80229" rotation="170 5 -180" clipDistance="75" nodeId="402" type="spot" color="0.85 0.85 1" emitDiffuse="true" emitSpecular="true" range="35" coneAngle="50" dropOff="2.5">
+              <Light name="highBeamHigh1" translation="-2.00833 -0.0305114 0.173037" rotation="-8.66944e-07 10 4.0638e-06" clipDistance="75" nodeId="403" type="spot" color="0.85 0.85 1" emitDiffuse="true" emitSpecular="true" range="35" coneAngle="50" dropOff="2.5"/>
+            </Light>
+          </TransformGroup>
+          <TransformGroup name="backLights" nodeId="404">
+            <Light name="backLightsHigh1" translation="1.084 0.774102 -3.14203" rotation="-15 20 0" clipDistance="75" nodeId="405" type="spot" color="0.5 0 0" emitDiffuse="true" emitSpecular="true" range="2.5" coneAngle="130" dropOff="2">
+              <Light name="backLightsHigh2" translation="-2.03725 0.191915 -0.716235" rotation="0 -40 5.57261e-07" clipDistance="75" nodeId="406" type="spot" color="0.5 0 0" emitDiffuse="true" emitSpecular="true" range="2.5" coneAngle="130" dropOff="2"/>
+            </Light>
+          </TransformGroup>
+          <TransformGroup name="turnLights" nodeId="407">
+            <Light name="turnLightLeftFront" translation="1.039 0.967204 3.77441" rotation="180 -5 180" clipDistance="75" nodeId="408" type="spot" color="0.31 0.14 0" emitDiffuse="true" emitSpecular="true" range="4" coneAngle="120" dropOff="3">
+              <Light name="turnLightLeftBack" translation="-0.71 -0.189562 6.90532" rotation="172 15 -180" clipDistance="75" nodeId="409" type="spot" color="0.31 0.14 0" emitDiffuse="true" emitSpecular="true" range="4" coneAngle="120" dropOff="3"/>
+            </Light>
+            <Light name="turnLightRightFront" translation="-1.039 0.967204 3.77441" rotation="0 175 0" clipDistance="75" nodeId="410" type="spot" color="0.31 0.14 0" emitDiffuse="true" emitSpecular="true" range="4" coneAngle="120" dropOff="3">
+              <Light name="turnLightRightBack" translation="0.71 -0.189562 6.90532" rotation="-8 195 0" clipDistance="75" nodeId="411" type="spot" color="0.31 0.14 0" emitDiffuse="true" emitSpecular="true" range="4" coneAngle="120" dropOff="3"/>
+            </Light>
+          </TransformGroup>
+          <TransformGroup name="reverseLights" nodeId="412">
+            <Light name="reverseLight" translation="0.726309 0.782447 -3.19534" rotation="-15 -0 0" clipDistance="75" nodeId="413" type="spot" color="0.9 0.9 1" emitDiffuse="true" emitSpecular="true" range="5" coneAngle="150" dropOff="3">
+              <Light name="reverseLight" translation="-1.452 0 0" clipDistance="75" nodeId="414" type="spot" color="0.9 0.9 1" emitDiffuse="true" emitSpecular="true" range="5" coneAngle="150" dropOff="3"/>
+            </Light>
+          </TransformGroup>
+        </TransformGroup>
+        <TransformGroup name="exitPoint" translation="2.06139 0.677957 2.78338" nodeId="415"/>
+        <TransformGroup name="attacherJoints" translation="0 0.0222018 -0.194596" nodeId="416">
+          <Shape name="Attelage" translation="0 0.985238 -2.94409" shapeId="16" nodeId="417" castsShadows="true" receiveShadows="true" materialIds="8">
+            <Shape name="polySurface1819" translation="-0.064284 0.0744101 -0.06089" shapeId="17" nodeId="418" castsShadows="true" receiveShadows="true" materialIds="8"/>
+            <Shape name="polySurface1818" translation="0.004 0.00205004 -0.06299" shapeId="18" nodeId="419" castsShadows="true" receiveShadows="true" materialIds="8"/>
+            <TransformGroup name="trailerAttacherJointBack" translation="0.004 -0.0259277 -0.06299" rotation="0 90 0" nodeId="420"/>
+          </Shape>
+        </TransformGroup>
+        <TransformGroup name="cabinRoot" nodeId="421">
+          <Shape name="Cabine" translation="3.66211e-07 0.984 2.85057" shapeId="19" nodeId="422" castsShadows="true" receiveShadows="true" materialIds="7">
+            <TransformGroup name="siege" translation="0.688 1.37 -0.213728" nodeId="423">
+              <TransformGroup name="playerSkin" translation="0.0170389 -0.287601 0.0364523" rotation="3.5269 -0 0" nodeId="424"/>
+            </TransformGroup>
+            <TransformGroup name="playerTargets" translation="0.633 1.00959 -0.918541" nodeId="425">
+              <TransformGroup name="playerRightFootTargetGas" translation="-0.187027 -0.405757 0.566822" rotation="-21.2837 -6.15659 0" nodeId="426"/>
+              <TransformGroup name="playerRightFootTargetBrake" translation="-0.130988 -0.406838 0.57368" rotation="-22.289 4.87207 0" nodeId="427"/>
+              <TransformGroup name="playerLeftFootTarget" translation="0.287494 -0.374432 1.2559" rotation="-1.90144e-13 10 -9.28516e-15" nodeId="428"/>
+              <TransformGroup name="playerRightFootTarget" translation="-0.114258 -0.362534 1.31343" rotation="-5.93948e-14 -10.0002 -1.21111e-15" nodeId="429"/>
+            </TransformGroup>
+            <TransformGroup name="steeringWheelRot" translation="0.707 1.31414 0.334639" rotation="-35.4 -0 0" nodeId="430">
+              <TransformGroup name="volant" translation="-3.57628e-07 0 -1.19209e-07" nodeId="431">
+                <TransformGroup name="playerRightHandTarget" translation="-0.187575 0.00251639 -0.125866" rotation="-30.278 24.49 130.983" nodeId="432"/>
+                <TransformGroup name="playerLeftHandTarget" translation="0.174857 -0.00973952 -0.124436" rotation="-9.07004 -28.0022 -129.061" nodeId="433"/>
+                <Shape name="piece_0FBXASC046001a" shapeId="20" nodeId="434" castsShadows="true" receiveShadows="true" materialIds="26"/>
+                <Shape name="piece_1FBXASC046001a" shapeId="21" nodeId="435" castsShadows="true" receiveShadows="true" materialIds="48"/>
+                <Shape name="piece_2FBXASC046001a" shapeId="22" nodeId="436" castsShadows="true" receiveShadows="true" materialIds="48"/>
+                <Shape name="piece_3FBXASC046001a" shapeId="23" nodeId="437" castsShadows="true" receiveShadows="true" materialIds="28"/>
+                <Shape name="piece_4FBXASC046001a" shapeId="24" nodeId="438" castsShadows="true" receiveShadows="true" materialIds="62"/>
+                <Shape name="piece_5FBXASC046001a" shapeId="25" nodeId="439" castsShadows="true" receiveShadows="true" materialIds="33"/>
+                <Shape name="piece_6FBXASC046001a" shapeId="26" nodeId="440" castsShadows="true" receiveShadows="true" materialIds="49"/>
+                <Shape name="piece_7FBXASC046001a" shapeId="27" nodeId="441" castsShadows="true" receiveShadows="true" materialIds="29"/>
+                <Shape name="piece_8FBXASC046001a" shapeId="28" nodeId="442" castsShadows="true" receiveShadows="true" materialIds="62"/>
+              </TransformGroup>
+            </TransformGroup>
+            <TransformGroup name="wipers" translation="0 -0.984193 -2.85057" nodeId="443"/>
+            <TransformGroup name="lights" translation="-3.66211e-07 -0.984 -2.85057" nodeId="444">
+              <TransformGroup name="staticLights" nodeId="445">
+                <Shape name="frontLights" translation="-4.44089e-16 1.123 3.68994" shapeId="29" nodeId="446" castsShadows="true" receiveShadows="true" materialIds="14"/>
+                <Shape name="frontLights2" translation="-4.44089e-16 1.09393 3.68909" shapeId="30" nodeId="447" castsShadows="true" receiveShadows="true" materialIds="14"/>
+                <Shape name="turnLightsLeft" translation="1.04947 1.19928 3.6676" shapeId="31" nodeId="448" castsShadows="true" receiveShadows="true" materialIds="14"/>
+                <Shape name="turnLightsRight" translation="-1.04947 1.199 3.6676" shapeId="32" nodeId="449" castsShadows="true" receiveShadows="true" materialIds="14"/>
+              </TransformGroup>
+              <TransformGroup name="visuals" nodeId="450"/>
+              <TransformGroup name="beaconLights" nodeId="451">
+                <TransformGroup name="GroupName" translation="0.591 3.21562 3.22286" nodeId="452"/>
+                <TransformGroup name="GroupName" translation="-0.591 3.21562 3.22286" nodeId="453"/>
+              </TransformGroup>
+            </TransformGroup>
+            <Shape name="polySurface3552" translation="1.136 1.58509 0.11422" shapeId="33" nodeId="454" castsShadows="true" receiveShadows="true" materialIds="15"/>
+            <Shape name="polySurface3551" translation="-1.135 1.58502 0.11415" shapeId="34" nodeId="455" castsShadows="true" receiveShadows="true" materialIds="15"/>
+            <TransformGroup name="visuals" translation="-2.47002e-07 -0.984 -2.85057" nodeId="456">
+              <TransformGroup name="interieur" translation="0.266035 1.91094 2.24308" scale="0.96 0.951 0.95" nodeId="457">
+                <Shape name="piece_1" translation="-0.253107 0.479267 0.556026" shapeId="35" nodeId="458" castsShadows="true" receiveShadows="true" materialIds="27"/>
+                <Shape name="piece_2" translation="-0.262518 0.46904 0.787816" shapeId="36" nodeId="459" castsShadows="true" receiveShadows="true" materialIds="29"/>
+                <Shape name="piece_3" translation="-0.262518 -0.0302202 0.767817" shapeId="37" nodeId="460" castsShadows="true" receiveShadows="true" materialIds="31"/>
+                <Shape name="piece_4" translation="-0.262518 0.374711 0.789305" shapeId="38" nodeId="461" castsShadows="true" receiveShadows="true" materialIds="37"/>
+                <Shape name="piece_5" translation="-0.262518 0.0359059 0.975011" shapeId="39" nodeId="462" castsShadows="true" receiveShadows="true" materialIds="38"/>
+                <Shape name="piece_6" translation="-0.266234 0.856742 0.523199" shapeId="40" nodeId="463" castsShadows="true" receiveShadows="true" materialIds="45"/>
+                <Shape name="piece_7" translation="-0.262518 0.351021 0.714356" shapeId="41" nodeId="464" castsShadows="true" receiveShadows="true" materialIds="62"/>
+                <Shape name="piece_8" translation="-0.243637 0.361303 0.691513" shapeId="42" nodeId="465" castsShadows="true" receiveShadows="true" materialIds="29"/>
+                <Shape name="piece_9" translation="-0.262518 0.659708 0.832312" shapeId="43" nodeId="466" castsShadows="true" receiveShadows="true" materialIds="29"/>
+                <Shape name="piece_10" translation="-0.262518 1.32074 0.578938" shapeId="44" nodeId="467" castsShadows="true" receiveShadows="true" materialIds="47"/>
+                <Shape name="piece_11" translation="-0.262518 0.693712 0.730362" shapeId="45" nodeId="468" castsShadows="true" receiveShadows="true" materialIds="62"/>
+                <Shape name="piece_12" translation="-0.262518 0.264661 0.619123" shapeId="46" nodeId="469" castsShadows="true" receiveShadows="true" materialIds="48"/>
+                <Shape name="piece_13" translation="-0.262518 0.0455713 0.826811" shapeId="47" nodeId="470" castsShadows="true" receiveShadows="true" materialIds="49"/>
+                <Shape name="piece_14" translation="-0.262518 1.20934 0.994397" shapeId="48" nodeId="471" castsShadows="true" receiveShadows="true" materialIds="50"/>
+                <Shape name="piece_15" translation="-0.262518 -0.101365 1.04195" shapeId="49" nodeId="472" castsShadows="true" receiveShadows="true" materialIds="38"/>
+                <Shape name="piece_16" translation="-0.262518 0.0128402 0.90617" shapeId="50" nodeId="473" castsShadows="true" receiveShadows="true" materialIds="49"/>
+                <Shape name="piece_17" translation="-0.262518 1.11181 0.997772" shapeId="51" nodeId="474" castsShadows="true" receiveShadows="true" materialIds="40"/>
+                <Shape name="piece_18" translation="-0.259031 0.599016 1.07571" shapeId="52" nodeId="475" castsShadows="true" receiveShadows="true" materialIds="33"/>
+                <Shape name="piece_19" translation="-0.889348 1.1783 0.919653" shapeId="53" nodeId="476" castsShadows="true" receiveShadows="true" materialIds="37"/>
+                <Shape name="piece_20" translation="-0.442916 0.351425 1.19866" shapeId="54" nodeId="477" castsShadows="true" receiveShadows="true" materialIds="22"/>
+                <Shape name="piece_21" translation="-0.272137 -0.3608 1.13599" shapeId="55" nodeId="478" castsShadows="true" receiveShadows="true" materialIds="51"/>
+                <Shape name="piece_22" translation="-0.272315 -0.361058 1.13497" shapeId="56" nodeId="479" castsShadows="true" receiveShadows="true" materialIds="52"/>
+                <Shape name="piece_24" translation="0.360891 0.271758 1.11942" shapeId="57" visibility="false" nodeId="480" castsShadows="true" receiveShadows="true" materialIds="33"/>
+                <Shape name="piece_25" translation="-0.262518 1.29043 0.584142" shapeId="58" nodeId="481" castsShadows="true" receiveShadows="true" materialIds="53"/>
+                <Shape name="piece_26" translation="0.458978 0.32876 1.30697" shapeId="59" nodeId="482" castsShadows="true" receiveShadows="true" materialIds="61"/>
+                <Shape name="piece_27" translation="0.458751 0.325252 1.31504" shapeId="60" nodeId="483" castsShadows="true" receiveShadows="true" materialIds="29"/>
+                <Shape name="piece_29" translation="-0.262518 0.286098 0.246113" shapeId="61" nodeId="484" castsShadows="true" receiveShadows="true" materialIds="30"/>
+                <Shape name="piece_30" translation="-0.262518 -0.192025 0.484821" shapeId="62" nodeId="485" castsShadows="true" receiveShadows="true" materialIds="39"/>
+                <Shape name="piece_31" translation="-0.262518 0.814436 0.66643" shapeId="63" nodeId="486" castsShadows="true" receiveShadows="true" materialIds="54"/>
+                <Shape name="piece_32" translation="-0.262518 -0.122708 0.655208" shapeId="64" nodeId="487" castsShadows="true" receiveShadows="true" materialIds="38"/>
+                <TransformGroup name="piece_33" translation="0.458615 0.996781 0.357514" nodeId="488">
+                  <Shape name="polySurface16992" translation="0.252615 0.32353 -0.225351" shapeId="65" nodeId="489" castsShadows="true" receiveShadows="true" materialIds="56"/>
+                  <Shape name="polySurface16993" translation="0.252348 0.320718 -0.225437" shapeId="66" nodeId="490" castsShadows="true" receiveShadows="true" materialIds="56"/>
+                  <Shape name="polySurface16994" translation="0.262435 0.321322 -0.225369" shapeId="67" nodeId="491" castsShadows="true" receiveShadows="true" materialIds="56"/>
+                  <Shape name="polySurface16995" translation="0.252552 0.322412 -0.234907" shapeId="68" nodeId="492" castsShadows="true" receiveShadows="true" materialIds="56"/>
+                  <Shape name="polySurface16996" translation="0.25243 0.321838 -0.215898" shapeId="69" nodeId="493" castsShadows="true" receiveShadows="true" materialIds="56"/>
+                  <Shape name="polySurface16997" translation="0.242546 0.322928 -0.225436" shapeId="70" nodeId="494" castsShadows="true" receiveShadows="true" materialIds="56"/>
+                  <Shape name="polySurface16998" translation="-1.69488 0.32353 -0.225351" shapeId="71" nodeId="495" castsShadows="true" receiveShadows="true" materialIds="56"/>
+                  <Shape name="polySurface16999" translation="-1.69461 0.320718 -0.225437" shapeId="72" nodeId="496" castsShadows="true" receiveShadows="true" materialIds="56"/>
+                  <Shape name="polySurface17000" translation="-1.7047 0.321322 -0.225369" shapeId="73" nodeId="497" castsShadows="true" receiveShadows="true" materialIds="56"/>
+                  <Shape name="polySurface17001" translation="-1.69482 0.322412 -0.234907" shapeId="74" nodeId="498" castsShadows="true" receiveShadows="true" materialIds="56"/>
+                  <Shape name="polySurface17002" translation="-1.6947 0.321838 -0.215898" shapeId="75" nodeId="499" castsShadows="true" receiveShadows="true" materialIds="56"/>
+                  <Shape name="polySurface17003" translation="-1.68481 0.322928 -0.225436" shapeId="76" nodeId="500" castsShadows="true" receiveShadows="true" materialIds="56"/>
+                  <Shape name="polySurface17004" translation="0.41162 -0.566142 0.27722" shapeId="77" nodeId="501" castsShadows="true" receiveShadows="true" materialIds="56"/>
+                  <Shape name="polySurface17005" translation="-1.82316 -0.566142 0.279327" shapeId="78" nodeId="502" castsShadows="true" receiveShadows="true" materialIds="56"/>
+                  <Shape name="polySurface17006" translation="-0.721133 -0.230613 -0.427719" shapeId="79" nodeId="503" castsShadows="true" receiveShadows="true" materialIds="56"/>
+                </TransformGroup>
+                <Shape name="piece_34" translation="-0.262518 0.370672 0.413677" shapeId="80" nodeId="504" castsShadows="true" receiveShadows="true" materialIds="48"/>
+                <Shape name="piece_35" translation="-0.262518 -0.0544641 0.493104" shapeId="81" nodeId="505" castsShadows="true" receiveShadows="true" materialIds="48"/>
+                <Shape name="piece_36" translation="-0.262518 -0.0518046 0.527314" shapeId="82" nodeId="506" castsShadows="true" receiveShadows="true" materialIds="32"/>
+                <Shape name="piece_37" translation="-0.262518 0.236008 0.363104" shapeId="83" nodeId="507" castsShadows="true" receiveShadows="true" materialIds="41"/>
+                <Shape name="piece_40" translation="-0.262518 0.696378 0.0684322" shapeId="84" nodeId="508" castsShadows="true" receiveShadows="true" materialIds="37"/>
+                <Shape name="piece_41" translation="-0.262518 0.184788 0.424285" shapeId="85" nodeId="509" castsShadows="true" receiveShadows="true" materialIds="44"/>
+                <Shape name="piece_42" translation="-0.263781 1.10786 1.45418" shapeId="86" nodeId="510" castsShadows="true" receiveShadows="true" materialIds="29"/>
+                <Shape name="piece_43" translation="-0.262518 -0.012166 0.431564" shapeId="87" nodeId="511" castsShadows="true" receiveShadows="true" materialIds="38"/>
+                <Shape name="piece_44" translation="-0.262518 0.0232894 0.563191" shapeId="88" nodeId="512" castsShadows="true" receiveShadows="true" materialIds="37"/>
+                <Shape name="piece_45" translation="-0.262518 -0.0210397 0.968685" shapeId="89" nodeId="513" castsShadows="true" receiveShadows="true" materialIds="55"/>
+                <Shape name="piece_46" translation="-0.262518 0.709326 1.4439" shapeId="90" nodeId="514" castsShadows="true" receiveShadows="true" materialIds="40"/>
+                <Shape name="piece_47" translation="0.105632 0.139394 1.14912" shapeId="91" nodeId="515" castsShadows="true" receiveShadows="true" materialIds="49"/>
+                <Shape name="piece_48" translation="-0.0201031 0.126562 1.13669" shapeId="92" nodeId="516" castsShadows="true" receiveShadows="true" materialIds="29"/>
+                <Shape name="piece_49" translation="-0.0638506 0.0674207 0.932537" shapeId="93" nodeId="517" castsShadows="true" receiveShadows="true" materialIds="33"/>
+                <Shape name="piece_50" translation="0.305058 0.161733 1.21613" shapeId="94" nodeId="518" castsShadows="true" receiveShadows="true" materialIds="27"/>
+                <Shape name="piece_51" translation="0.303711 0.16635 1.20851" shapeId="95" nodeId="519" castsShadows="true" receiveShadows="true" materialIds="33"/>
+                <Shape name="piece_53" translation="-0.262518 0.161483 0.119002" shapeId="96" nodeId="520" castsShadows="true" receiveShadows="true" materialIds="29"/>
+                <Shape name="piece_54" translation="-0.262518 0.277988 0.631072" shapeId="97" nodeId="521" castsShadows="true" receiveShadows="true" materialIds="62"/>
+                <Shape name="piece_56" translation="-0.259662 0.271261 0.00701423" shapeId="98" nodeId="522" castsShadows="true" receiveShadows="true" materialIds="62"/>
+                <Shape name="piece_59" translation="0.12542 0.0344413 1.07721" shapeId="99" nodeId="523" castsShadows="true" receiveShadows="true" materialIds="30"/>
+                <Shape name="piece_61" translation="-0.230898 0.339934 0.983944" shapeId="100" nodeId="524" castsShadows="true" receiveShadows="true" materialIds="38"/>
+                <Shape name="piece_65" translation="0.12542 0.0344413 1.07721" shapeId="99" nodeId="525" castsShadows="true" receiveShadows="true" materialIds="30"/>
+                <Shape name="piece_68" translation="-0.230898 0.339934 0.983944" shapeId="100" nodeId="526" castsShadows="true" receiveShadows="true" materialIds="38"/>
+                <Shape name="piece_70" translation="-0.0597127 0.372818 1.06379" shapeId="101" nodeId="527" castsShadows="true" receiveShadows="true" materialIds="33"/>
+                <Shape name="piece_71" translation="-0.262518 -0.387379 0.870864" shapeId="102" nodeId="528" castsShadows="true" receiveShadows="true" materialIds="35"/>
+                <Shape name="piece_72" translation="-0.262518 0.166036 0.122924" shapeId="103" nodeId="529" castsShadows="true" receiveShadows="true" materialIds="43"/>
+                <Shape name="piece_73" translation="-0.262518 0.269235 0.00757917" shapeId="104" nodeId="530" castsShadows="true" receiveShadows="true" materialIds="48"/>
+                <Shape name="piece_74" translation="-0.262613 0.172644 0.198558" shapeId="105" nodeId="531" castsShadows="true" receiveShadows="true" materialIds="36"/>
+                <Shape name="piece_79" translation="-0.262518 0.438164 0.951454" shapeId="106" nodeId="532" castsShadows="true" receiveShadows="true" materialIds="29"/>
+                <Shape name="piece_80" translation="0.598507 -0.206345 1.34634" shapeId="107" nodeId="533" castsShadows="true" receiveShadows="true" materialIds="39"/>
+                <Shape name="piece_82" translation="0.46281 0.162251 1.21324" shapeId="108" nodeId="534" castsShadows="true" receiveShadows="true" materialIds="49"/>
+                <Shape name="piece_83" translation="-0.268675 1.05941 1.47105" shapeId="109" nodeId="535" castsShadows="true" receiveShadows="true" materialIds="29"/>
+                <Shape name="piece_85" translation="-0.262518 0.184781 0.424285" shapeId="110" nodeId="536" castsShadows="true" receiveShadows="true" materialIds="44"/>
+                <Shape name="piece_86" translation="-0.262518 -0.0544641 0.493104" shapeId="111" nodeId="537" castsShadows="true" receiveShadows="true" materialIds="48"/>
+                <Shape name="piece_87" translation="-0.262518 -0.0518046 0.527314" shapeId="82" nodeId="538" castsShadows="true" receiveShadows="true" materialIds="32"/>
+                <Shape name="piece_90" translation="-0.262518 0.294381 0.226921" shapeId="112" nodeId="539" castsShadows="true" receiveShadows="true" materialIds="41"/>
+                <Shape name="piece_92" translation="-0.262518 0.184788 0.424285" shapeId="113" nodeId="540" castsShadows="true" receiveShadows="true" materialIds="44"/>
+                <Shape name="piece_93" translation="-0.262518 0.19785 0.483415" shapeId="114" nodeId="541" castsShadows="true" receiveShadows="true" materialIds="48"/>
+                <Shape name="piece_94" translation="-0.262518 -0.0518046 0.527314" shapeId="115" nodeId="542" castsShadows="true" receiveShadows="true" materialIds="32"/>
+                <Shape name="piece_95" translation="-0.262518 0.696378 0.0684322" shapeId="84" nodeId="543" castsShadows="true" receiveShadows="true" materialIds="37"/>
+                <Shape name="piece_96" translation="-0.262518 0.404778 0.182003" shapeId="116" nodeId="544" castsShadows="true" receiveShadows="true" materialIds="42"/>
+                <Shape name="piece_97" translation="-0.262518 0.293758 0.225575" shapeId="117" nodeId="545" castsShadows="true" receiveShadows="true" materialIds="43"/>
+                <Shape name="piece_98" translation="-0.262518 0.576027 0.094945" shapeId="118" nodeId="546" castsShadows="true" receiveShadows="true" materialIds="43"/>
+                <Shape name="piece_99" translation="-0.262518 0.294381 0.172189" shapeId="119" nodeId="547" castsShadows="true" receiveShadows="true" materialIds="41"/>
+                <Shape name="piece_100" translation="-0.262518 0.562693 0.150883" shapeId="120" nodeId="548" castsShadows="true" receiveShadows="true" materialIds="46"/>
+                <Shape name="piece_101" translation="-0.262518 0.184788 0.424285" shapeId="85" nodeId="549" castsShadows="true" receiveShadows="true" materialIds="44"/>
+                <Shape name="piece_102" translation="-0.262518 0.370672 0.413677" shapeId="121" nodeId="550" castsShadows="true" receiveShadows="true" materialIds="48"/>
+                <Shape name="piece_103" translation="-0.262518 0.19785 0.483415" shapeId="114" nodeId="551" castsShadows="true" receiveShadows="true" materialIds="48"/>
+                <Shape name="piece_104" translation="-0.262518 -0.0518046 0.527314" shapeId="82" nodeId="552" castsShadows="true" receiveShadows="true" materialIds="32"/>
+                <Shape name="piece_105" translation="-0.262518 0.367962 0.411554" shapeId="122" nodeId="553" castsShadows="true" receiveShadows="true" materialIds="41"/>
+                <Shape name="piece_106" translation="-0.262518 0.234347 0.415942" shapeId="123" nodeId="554" castsShadows="true" receiveShadows="true" materialIds="43"/>
+                <Shape name="piece_108" translation="-0.262518 0.576027 0.094945" shapeId="118" nodeId="555" castsShadows="true" receiveShadows="true" materialIds="43"/>
+                <Shape name="piece_109" translation="-0.262518 0.562693 0.150883" shapeId="120" nodeId="556" castsShadows="true" receiveShadows="true" materialIds="46"/>
+                <Shape name="piece_110" translation="-0.262518 0.696378 0.0684322" shapeId="84" nodeId="557" castsShadows="true" receiveShadows="true" materialIds="37"/>
+                <Shape name="piece_111" translation="-0.26388 -0.26798 0.778805" shapeId="124" nodeId="558" castsShadows="true" receiveShadows="true" materialIds="31"/>
+                <Shape name="piece_112" translation="-0.445435 0.153241 0.946173" shapeId="125" nodeId="559" castsShadows="true" receiveShadows="true" materialIds="29"/>
+                <Shape name="piece_115" translation="-0.262787 1.21821 0.846998" shapeId="126" nodeId="560" castsShadows="true" receiveShadows="true" materialIds="29"/>
+                <Shape name="piece_119" translation="-0.262787 1.21821 0.846998" shapeId="126" nodeId="561" castsShadows="true" receiveShadows="true" materialIds="37"/>
+                <Shape name="piece_120" translation="-0.445435 0.153241 0.946173" shapeId="125" nodeId="562" castsShadows="true" receiveShadows="true" materialIds="50"/>
+                <Shape name="piece_121" translation="0.264337 0.731311 1.00482" shapeId="127" nodeId="563" castsShadows="true" receiveShadows="true" materialIds="29"/>
+                <Shape name="piece_122" translation="0.13399 0.274319 1.08809" shapeId="128" nodeId="564" castsShadows="true" receiveShadows="true" materialIds="37"/>
+                <Shape name="piece_123" translation="0.0328402 0.375069 1.10864" shapeId="129" nodeId="565" castsShadows="true" receiveShadows="true" materialIds="49"/>
+                <Shape name="piece_124" translation="0.201586 0.752936 0.990195" shapeId="130" nodeId="566" castsShadows="true" receiveShadows="true" materialIds="33"/>
+                <Shape name="piece_125" translation="0.205983 0.765692 0.991205" shapeId="131" nodeId="567" castsShadows="true" receiveShadows="true" materialIds="27"/>
+                <Shape name="piece_126" translation="0.0089326 0.373023 1.13237" shapeId="132" nodeId="568" castsShadows="true" receiveShadows="true" materialIds="37"/>
+                <Shape name="piece_127" translation="0.122512 0.263403 1.11124" shapeId="133" nodeId="569" castsShadows="true" receiveShadows="true" materialIds="29"/>
+                <Shape name="piece_128" translation="0.0337697 0.376575 1.10864" shapeId="134" nodeId="570" castsShadows="true" receiveShadows="true" materialIds="49"/>
+                <Shape name="piece_129" translation="-0.0597058 0.372505 1.06421" shapeId="135" nodeId="571" castsShadows="true" receiveShadows="true" materialIds="33"/>
+                <Shape name="piece_130" translation="-0.0600822 0.371912 1.0649" shapeId="136" nodeId="572" castsShadows="true" receiveShadows="true" materialIds="27"/>
+                <Shape name="piece_131" translation="0.0214049 0.371625 1.1254" shapeId="137" nodeId="573" castsShadows="true" receiveShadows="true" materialIds="16"/>
+                <TransformGroup name="anim" translation="0.461113 0.702538 0.668915" nodeId="574">
+                  <Shape name="piece_2q" translation="-0.445935 -0.450287 0.342683" shapeId="138" nodeId="575" castsShadows="true" receiveShadows="true" materialIds="37"/>
+                  <Shape name="piece_3q" translation="-0.000281907 -0.530376 0.456186" shapeId="139" nodeId="576" castsShadows="true" receiveShadows="true" materialIds="48"/>
+                  <Shape name="piece_4q" translation="-0.424573 -0.424993 0.359436" shapeId="140" nodeId="577" castsShadows="true" receiveShadows="true" materialIds="37"/>
+                  <Shape name="piece_5q" translation="-0.235292 -0.645318 0.488363" shapeId="141" nodeId="578" castsShadows="true" receiveShadows="true" materialIds="27"/>
+                  <Shape name="piece_7q" translation="-0.104018 -0.45402 0.276637" shapeId="142" nodeId="579" castsShadows="true" receiveShadows="true" materialIds="33"/>
+                  <Shape name="piece_9q" translation="-0.425698 -0.439084 0.361356" shapeId="143" nodeId="580" castsShadows="true" receiveShadows="true" materialIds="37"/>
+                  <Shape name="piece_12q" translation="0.239751 -0.354209 0.531434" shapeId="144" nodeId="581" castsShadows="true" receiveShadows="true" materialIds="62"/>
+                  <Shape name="piece_14q" translation="-0.00259373 -0.373766 0.655488" scale="1 1.66994 1" shapeId="145" nodeId="582" castsShadows="true" receiveShadows="true" materialIds="23"/>
+                  <Shape name="piece_16q" translation="-0.00242607 -0.388517 0.644131" shapeId="146" nodeId="583" castsShadows="true" receiveShadows="true" materialIds="34"/>
+                  <Shape name="piece_17q" translation="0.131161 -0.960717 0.705507" shapeId="147" nodeId="584" castsShadows="true" receiveShadows="true" materialIds="29"/>
+                  <Shape name="piece_6q1" translation="-0.573771 -0.314115 0.345957" shapeId="148" nodeId="585" castsShadows="true" receiveShadows="true" materialIds="33"/>
+                  <Shape name="piece_13q1" translation="-0.589337 -0.292931 0.367781" shapeId="149" nodeId="586" castsShadows="true" receiveShadows="true" materialIds="29"/>
+                  <Shape name="piece_19q" translation="0.131256 -0.976694 0.638372" shapeId="150" nodeId="587" castsShadows="true" receiveShadows="true" materialIds="27"/>
+                  <Shape name="piece_29q" translation="-0.327715 -0.434806 0.427377" shapeId="151" nodeId="588" castsShadows="true" receiveShadows="true" materialIds="27"/>
+                  <Shape name="piece_30q" translation="-0.323788 -0.431187 0.421137" shapeId="152" nodeId="589" castsShadows="true" receiveShadows="true" materialIds="33"/>
+                  <TransformGroup name="group8" translation="-3.22598e-09 -0.290144 0.307495" nodeId="590">
+                    <Shape name="piece_20q" translation="-0.00847263 -0.162378 0.104701" shapeId="153" nodeId="591" castsShadows="true" receiveShadows="true" materialIds="49"/>
+                    <Shape name="piece_31q" translation="-0.141488 -0.147811 0.160981" shapeId="154" nodeId="592" castsShadows="true" receiveShadows="true" materialIds="49"/>
+                    <Shape name="piece_27q" translation="-0.175408 -0.15343 0.155857" shapeId="155" nodeId="593" castsShadows="true" receiveShadows="true" materialIds="29"/>
+                    <Shape name="piece_13q" translation="0.0624074 -0.434094 0.263421" shapeId="156" nodeId="594" castsShadows="true" receiveShadows="true" materialIds="29"/>
+                    <Shape name="piece_22q" translation="-0.200439 -0.107628 0.0752066" shapeId="157" nodeId="595" castsShadows="true" receiveShadows="true" materialIds="29"/>
+                    <Shape name="piece_25q" translation="-0.18031 -0.162601 0.14685" shapeId="158" nodeId="596" castsShadows="true" receiveShadows="true" materialIds="62"/>
+                    <Shape name="piece_6q" translation="0.0325616 -0.0859026 0.0512869" shapeId="159" nodeId="597" castsShadows="true" receiveShadows="true" materialIds="33"/>
+                    <Shape name="piece_24q" translation="-0.222489 -0.0812076 0.0657428" shapeId="160" nodeId="598" castsShadows="true" receiveShadows="true" materialIds="33"/>
+                    <Shape name="piece_26q" translation="-0.170699 -0.147353 0.158013" shapeId="161" nodeId="599" castsShadows="true" receiveShadows="true" materialIds="27"/>
+                    <Shape name="piece_28q" translation="-0.190146 -0.156478 0.136639" shapeId="162" nodeId="600" castsShadows="true" receiveShadows="true" materialIds="33"/>
+                  </TransformGroup>
+                  <Shape name="piece_17q1" translation="-0.102246 -0.960717 0.705507" shapeId="163" nodeId="601" castsShadows="true" receiveShadows="true" materialIds="29"/>
+                  <Shape name="piece_17q2" translation="-0.230716 -0.960717 0.705507" shapeId="164" nodeId="602" castsShadows="true" receiveShadows="true" materialIds="29"/>
+                </TransformGroup>
+                <Shape name="cab_detail04" translation="-0.263252 0.864784 -0.077067" shapeId="165" nodeId="603" castsShadows="true" receiveShadows="true" materialIds="24"/>
+                <Shape name="polySurface17008g" translation="-0.265026 0.884115 -0.0678302" shapeId="166" nodeId="604" castsShadows="true" receiveShadows="true" materialIds="56"/>
+              </TransformGroup>
+              <TransformGroup name="Carrosserie" nodeId="605">
+                <Shape name="color" translation="-2.38418e-07 0 0" rotation="90 -0 0" shapeId="167" nodeId="606" castsShadows="false" receiveShadows="false" materialIds="872"/>
+              </TransformGroup>
+              <Shape name="polySurface3" translation="-1.19209e-07 2.21863 2.92615" shapeId="168" nodeId="607" castsShadows="true" receiveShadows="true" materialIds="7"/>
+              <Shape name="Renault_K_Series:Wipes" translation="-0.0694581 2.17419 3.74097" shapeId="169" nodeId="608" castsShadows="true" receiveShadows="true" materialIds="7"/>
+              <Shape name="Renault_K_Series:tow" translation="0.0753697 1.09247 3.89978" shapeId="170" nodeId="609" castsShadows="true" receiveShadows="true" materialIds="7"/>
+              <Shape name="Renault_K_Series:slip_bolts" translation="-0.00109875 1.87152 2.22449" shapeId="171" nodeId="610" castsShadows="true" receiveShadows="true" materialIds="7"/>
+              <Shape name="Renault_K_Series:roof_grab" translation="1.07275 3.265 2.46973" shapeId="172" nodeId="611" castsShadows="true" receiveShadows="true" materialIds="7"/>
+              <Shape name="Renault_K_Series:headlight_protection" translation="-1.19209e-07 1.1369 3.72266" shapeId="173" nodeId="612" castsShadows="true" receiveShadows="true" materialIds="7"/>
+              <Shape name="Renault_K_Series:LOGO_Renault" translation="3.69549e-06 1.259 3.84656" shapeId="174" nodeId="613" castsShadows="true" receiveShadows="true" materialIds="7"/>
+              <Shape name="polySurface10" translation="-1.19209e-07 2.613 3.31201" shapeId="175" nodeId="614" castsShadows="true" receiveShadows="true" materialIds="7"/>
+              <Shape name="Renault_K_Series:cabin_tread" translation="-3.6335e-07 0.924373 3.48458" shapeId="176" nodeId="615" castsShadows="true" receiveShadows="true" materialIds="7"/>
+              <Shape name="Renault_K_Series:visor_bracket" translation="-1.19209e-07 3.14539 3.60413" shapeId="177" nodeId="616" castsShadows="true" receiveShadows="true" materialIds="7"/>
+              <Shape name="Renault_K_Series:cab_detail14" translation="0.0279616 2.352 2.85789" shapeId="178" nodeId="617" castsShadows="true" receiveShadows="true" materialIds="7"/>
+              <Shape name="Renault_K_Series:roof_details" translation="-1.19209e-07 3.4198 2.72168" shapeId="179" nodeId="618" castsShadows="true" receiveShadows="true" materialIds="7"/>
+              <Shape name="Renault_K_Series:headlight00" translation="1.24932e-07 1.019 3.74562" shapeId="180" nodeId="619" castsShadows="true" receiveShadows="true" materialIds="7"/>
+              <Shape name="polySurface1" translation="1.13477 2.569 2.96472" shapeId="181" nodeId="620" castsShadows="true" receiveShadows="true" materialIds="67"/>
+              <Shape name="Renault_K_Series:cab_detail18" translation="-1.19209e-07 2.60388 3.5542" shapeId="182" nodeId="621" castsShadows="true" receiveShadows="true" materialIds="67"/>
+              <Shape name="Renault_K_Series:sun_visor" translation="-1.19209e-07 3.15344 3.61658" shapeId="183" nodeId="622" castsShadows="true" receiveShadows="true" materialIds="63"/>
+              <Shape name="polySurface2" translation="-1.13477 2.56921 2.96472" shapeId="184" nodeId="623" castsShadows="true" receiveShadows="true" materialIds="67"/>
+              <Shape name="Renault_K_Series:glass_lights003" translation="-1.19209e-07 1.151 3.67163" shapeId="185" nodeId="624" castsShadows="true" receiveShadows="true" materialIds="67"/>
+              <Shape name="Renault_K_Series:K_series_LOGO" translation="6.0916e-05 2.32349 2.29468" shapeId="186" nodeId="625" castsShadows="true" receiveShadows="true" materialIds="7"/>
+            </TransformGroup>
+            <TransformGroup name="mirrors" translation="-1.19209e-07 -0.962 -3.045" nodeId="626">
+              <Shape name="polySurface1812" translation="1.382 2.40188 3.50232" rotation="-94.7707 24.873 -1.8279" shapeId="187" nodeId="627" castsShadows="true" receiveShadows="true" materialIds="58"/>
+              <Shape name="polySurface1813" translation="1.373 2.79311 3.42084" rotation="-112.099 8.74498 -3.74279" shapeId="188" nodeId="628" castsShadows="true" receiveShadows="true" materialIds="58"/>
+              <Shape name="polySurface1814" translation="-1.373 2.79311 3.42084" rotation="-109.574 -9.168 3.59142" shapeId="189" nodeId="629" castsShadows="true" receiveShadows="true" materialIds="58"/>
+              <Shape name="polySurface1815" translation="-1.382 2.40188 3.50232" rotation="-94.583 -25.356 2.04678" shapeId="190" nodeId="630" castsShadows="true" receiveShadows="true" materialIds="58"/>
+              <Shape name="polySurface1816" translation="-1.275 2.90013 2.99895" rotation="-145 -90 0" shapeId="191" nodeId="631" castsShadows="true" receiveShadows="true" materialIds="58"/>
+              <Shape name="polySurface1817" translation="-0.47 2.88437 4.06466" rotation="-144.373 -10.721 14.552" shapeId="192" nodeId="632" castsShadows="true" receiveShadows="true" materialIds="58"/>
+            </TransformGroup>
+            <TransformGroup name="plaque avant" translation="0.453079 0.0288822 1.09804" rotation="1.58408 -0 0" scale="0.9 0.9 1" nodeId="633"/>
+            <TransformGroup name="logo" translation="-3.66211e-07 -0.984 -2.85057" nodeId="634"/>
+            <TransformGroup name="indoorHud" translation="0.704141 0.10567 -2.16536" rotation="150 0 -180" scale="0.95 0.95 0.95" clipDistance="50" nodeId="635">
+              <TransformGroup name="numbersSpeed" translation="0.0118097 2.56664 -1.94793" rotation="15.3781 -0 0" scale="1.3 1.27518 1.3" clipDistance="35" nodeId="636">
+                <Shape name="float1" translation="0.00224174 -2.84217e-16 0.000444178" shapeId="193" clipDistance="35" nodeId="637" castsShadows="true" receiveShadows="true" decalLayer="1" materialIds="60"/>
+                <Shape name="one" translation="-0.0151904 -2.84217e-16 0.000444178" shapeId="194" clipDistance="35" nodeId="638" castsShadows="true" receiveShadows="true" decalLayer="1" materialIds="60"/>
+                <Shape name="ten" translation="-0.0259338 0 0.000444178" shapeId="195" clipDistance="35" nodeId="639" castsShadows="true" receiveShadows="true" decalLayer="1" materialIds="60"/>
+              </TransformGroup>
+              <Shape name="dot" translation="0.00399981 2.55695 -1.94632" scale="1.07767 1.07767 1.07767" shapeId="196" clipDistance="35" nodeId="640" castsShadows="true" receiveShadows="true" decalLayer="1" materialIds="57"/>
+              <TransformGroup name="rpm" translation="0 -0.014 -0.00615383" nodeId="641">
+                <Shape name="s.001" translation="0.120304 2.53423 -1.94414" rotation="2.68707 -3.27102e-05 0" scale="1.05263 1.05263 1.05263" shapeId="197" nodeId="642" castsShadows="true" receiveShadows="true" materialIds="37"/>
+              </TransformGroup>
+              <TransformGroup name="fuel" translation="-0.182771 0.0182501 -0.0131869" nodeId="643">
+                <Shape name="s.002" translation="0.0754478 2.52097 -1.93801" rotation="8.70849e-05 3.11627e-05 0" scale="1.05263 1.05263 1.05263" shapeId="198" nodeId="644" castsShadows="true" receiveShadows="true" materialIds="37"/>
+              </TransformGroup>
+              <TransformGroup name="oil" translation="-0.141897 0.0197165 -0.0138003" rotation="0 -0 62" nodeId="645">
+                <Shape name="s" translation="2.18504 1.13039 -1.95679" scale="1.05263 1.05263 1.05263" shapeId="199" nodeId="646" castsShadows="true" receiveShadows="true" materialIds="37"/>
+              </TransformGroup>
+              <TransformGroup name="press" translation="-0.101728 0.0200399 -0.0128979" rotation="0 -0 80" nodeId="647">
+                <Shape name="s.003" translation="2.4402 0.469181 -1.94467" rotation="4.65307e-05 3.41509e-05 0" scale="1.05263 1.05263 1.05263" shapeId="200" nodeId="648" castsShadows="true" receiveShadows="true" materialIds="37"/>
+              </TransformGroup>
+              <Shape name="turnlightLeftDecal" translation="-0.0766183 2.56959 -1.94662" rotation="77.6585 -1.36075 -179.214" scale="1.02537 1.05263 0.752847" shapeId="201" clipDistance="30" nodeId="649" castsShadows="true" receiveShadows="true" decalLayer="1" materialIds="10"/>
+              <Shape name="turnlightRightDecal" translation="0.0688846 2.57055 -1.94535" rotation="102.305 1.8222 -0.820677" scale="1.02526 1.05263 0.752847" shapeId="202" clipDistance="30" nodeId="650" castsShadows="true" receiveShadows="true" decalLayer="1" materialIds="10"/>
+            </TransformGroup>
+          </Shape>
+        </TransformGroup>
+        <TransformGroup name="movingParts" nodeId="651">
+          <Shape name="ChassisBenne" translation="0.00100003 1.24072 -0.729" shapeId="203" nodeId="652" castsShadows="true" receiveShadows="true" materialIds="5">
+            <TransformGroup name="Gauche" translation="1.01 0.106557 -0.538" nodeId="653">
+              <TransformGroup name="Droite" translation="-2.02 0 0" nodeId="654">
+                <Shape name="Benne" translation="1.01 0 -1.751" shapeId="204" nodeId="655" castsShadows="true" receiveShadows="true" materialIds="6">
+                  <Shape name="RidelleAr" translation="0 1.42862 -0.574" shapeId="205" nodeId="656" castsShadows="true" receiveShadows="true" materialIds="6">
+                    <Shape name="decalAr" translation="-0.00297744 -0.60994 -0.21655" shapeId="206" nodeId="657" castsShadows="true" receiveShadows="true" materialIds="11"/>
+                    <Shape name="colPart" translation="0 -0.673492 -0.209" rotation="90 -0 0" shapeId="207" compoundChild="true" collisionFilterGroup="0x10004" collisionFilterMask="0xfe3ffb83" density="0.001" nodeId="658" castsShadows="false" receiveShadows="false" nonRenderable="true" distanceBlending="false" materialIds="65"/>
+                  </Shape>
+                  <TransformGroup name="transform" translation="1.198 1.21376 2.10676" nodeId="659">
+                    <Shape name="RidelleG" translation="-0.023 -0.97359 0" shapeId="208" nodeId="660" castsShadows="true" receiveShadows="true" materialIds="6">
+                      <Shape name="polySurface1873" translation="0.05792 0.0586536 -0.000860929" shapeId="209" nodeId="661" castsShadows="true" receiveShadows="true" materialIds="6">
+                        <TransformGroup name="RefVerin" translation="-0.010506 -0.1401 2.78354e-05" rotation="4.65 90 0" nodeId="662"/>
+                      </Shape>
+                      <Shape name="decalD" translation="0.06427 0.57438 -0.36624" shapeId="210" nodeId="663" castsShadows="true" receiveShadows="true" materialIds="11"/>
+                      <Shape name="colPart2" translation="0.0306641 0.525535 -0.366351" rotation="-90 -90 0" shapeId="211" compoundChild="true" collisionFilterGroup="0x10004" collisionFilterMask="0xfe3ffb83" density="0.001" nodeId="664" castsShadows="false" receiveShadows="false" nonRenderable="true" distanceBlending="false" materialIds="65"/>
+                      <TransformGroup name="SIC" translation="0.0650055 0.505718 2.08778" nodeId="665"/>
+                    </Shape>
+                  </TransformGroup>
+                  <TransformGroup name="transform" translation="-1.199 1.21419 1.75068" nodeId="666">
+                    <Shape name="RidelleD" translation="-0.049 -1.01964 0" shapeId="212" nodeId="667" castsShadows="true" receiveShadows="true" materialIds="6">
+                      <Shape name="decalG" translation="0.0352399 0.67933 -0.00311005" shapeId="213" nodeId="668" castsShadows="true" receiveShadows="true" materialIds="11"/>
+                      <Shape name="colPart3" translation="0.0408885 0.571154 -0.0102713" rotation="-90 -90 0" shapeId="211" compoundChild="true" collisionFilterGroup="0x10004" collisionFilterMask="0xfe3ffb83" density="0.001" nodeId="669" castsShadows="false" receiveShadows="false" nonRenderable="true" distanceBlending="false" materialIds="65"/>
+                      <TransformGroup name="SIC" translation="0.0107393 0.505718 2.43857" nodeId="670"/>
+                    </Shape>
+                  </TransformGroup>
+                  <TransformGroup name="RefVerin" translation="0 0.243362 1.69202" rotation="-90 -0 0" nodeId="671"/>
+                  <TransformGroup name="RefVerin" translation="-0.000570861 0.246093 1.08533" rotation="-90 0 0" nodeId="672"/>
+                  <Shape name="Verin" translation="0.59 0.210033 2.10564" rotation="4.65 90 0" shapeId="214" nodeId="673" castsShadows="true" receiveShadows="true" materialIds="5">
+                    <Shape name="TigeVerin" translation="-0.000287023 0.000128001 0.634492" shapeId="215" nodeId="674" castsShadows="true" receiveShadows="true" materialIds="6"/>
+                  </Shape>
+                  <Shape name="Echelle" translation="1.175 0.632033 4.49121" shapeId="216" nodeId="675" castsShadows="true" receiveShadows="true" materialIds="5">
+                    <Shape name="ladder04" translation="0.016 -0.122899 0.0177001" shapeId="217" nodeId="676" castsShadows="true" receiveShadows="true" materialIds="5">
+                      <Shape name="ladder01" translation="0 0.395286 -1.19209e-07" shapeId="218" nodeId="677" castsShadows="true" receiveShadows="true" materialIds="5">
+                        <TransformGroup name="SIC" translation="0.051603 -0.511986 0" nodeId="678"/>
+                      </Shape>
+                    </Shape>
+                    <Shape name="ladder00" translation="0.016 -0.407737 0.0177001" shapeId="219" nodeId="679" castsShadows="true" receiveShadows="true" materialIds="5"/>
+                    <Shape name="locket" translation="0.02 0.0681353 0.0177001" shapeId="220" nodeId="680" castsShadows="true" receiveShadows="true" materialIds="5"/>
+                  </Shape>
+                  <Shape name="Verrou" translation="-1.21261 1.13417 4.25574" shapeId="221" nodeId="681" castsShadows="true" receiveShadows="true" materialIds="6"/>
+                  <Shape name="polySurface1855" translation="-1.051 0.480233 4.27386" shapeId="222" nodeId="682" castsShadows="true" receiveShadows="true" materialIds="6">
+                    <Shape name="polySurface1845" translation="-0.0006001 0.12635 0.0266099" shapeId="223" nodeId="683" castsShadows="true" receiveShadows="true" materialIds="6"/>
+                  </Shape>
+                  <Shape name="polySurface1843" translation="-1.20919 0.187333 4.26727" shapeId="224" nodeId="684" castsShadows="true" receiveShadows="true" materialIds="6">
+                    <Shape name="polySurface1828" translation="0 5.99623e-05 -2.52283" shapeId="225" nodeId="685" castsShadows="true" receiveShadows="true" materialIds="6"/>
+                  </Shape>
+                  <Shape name="bloquageAr" translation="-0.0025564 0.246233 -0.86823" shapeId="226" nodeId="686" castsShadows="true" receiveShadows="true" materialIds="6"/>
+                  <Shape name="supportCalles" translation="-0.97129 0.0834427 3.02525" shapeId="227" nodeId="687" castsShadows="true" receiveShadows="true" materialIds="5">
+                    <Shape name="Calles" translation="0.05129 -0.0802499 0" shapeId="228" nodeId="688" castsShadows="true" receiveShadows="true" materialIds="5"/>
+                  </Shape>
+                  <TransformGroup name="fillVolumes" translation="0 -0.9933 3.0946" nodeId="689">
+                    <TransformGroup name="fillAutoAimTarget1" translation="0 2.31364 -0.744225" nodeId="690"/>
+                    <Shape name="fillVolume2" translation="0 1.26397 -1.37229" scale="1.04281 0.9 1.085" shapeId="229" clipDistance="300" nodeId="691" castsShadows="true" receiveShadows="true" nonRenderable="true" materialIds="19"/>
+                    <TransformGroup name="unloadInfo01" translation="0 2.99386 1.29198" nodeId="692"/>
+                    <TransformGroup name="unloadInfo02" translation="-1.12759 2.99386 -0.947053" nodeId="693"/>
+                    <TransformGroup name="unloadInfo03" translation="1.09498 2.99386 -0.947053" nodeId="694"/>
+                    <Shape name="exactFillRootNode1" translation="0 2.65657 -1.33482" shapeId="230" kinematic="true" compound="true" collisionFilterGroup="0x40000000" collisionFilterMask="0x20000000" nodeId="695" castsShadows="true" receiveShadows="true" nonRenderable="true" materialIds="19"/>
+                  </TransformGroup>
+                  <TransformGroup name="effects" translation="0 0.271074 2.14273" nodeId="696">
+                    <TransformGroup name="particleBack" translation="2.84217e-16 0 -2.96381" nodeId="697">
+                      <TransformGroup name="effectNodesBack" nodeId="698">
+                        <Shape name="effectGrainBack" translation="0 -5.68434e-16 -0.025241" scale="1.04 1 1" shapeId="231" visibility="false" clipDistance="300" nodeId="699" castsShadows="true" receiveShadows="true" materialIds="13"/>
+                        <Shape name="effectSmokeBack" shapeId="232" visibility="false" clipDistance="300" nodeId="700" castsShadows="true" receiveShadows="true" materialIds="13"/>
+                      </TransformGroup>
+                      <TransformGroup name="particleNodeBack" nodeId="701">
+                        <Shape name="effectParticleBack" translation="-6.17023e-18 0.0146347 0.0376876" rotation="40.1847 180 0" shapeId="233" clipDistance="300" nodeId="702" castsShadows="true" receiveShadows="true" nonRenderable="true" materialIds="19"/>
+                      </TransformGroup>
+                    </TransformGroup>
+                    <TransformGroup name="particleLeft" translation="1.181 -1.42109e-16 -0.408341" rotation="0 -90 0" nodeId="703">
+                      <TransformGroup name="effectNodesLeft" nodeId="704">
+                        <Shape name="effectGrainLeft" translation="0 -5.68434e-16 -0.025241" scale="1.1 1 1" shapeId="234" visibility="false" clipDistance="300" nodeId="705" castsShadows="true" receiveShadows="true" materialIds="13"/>
+                        <Shape name="effectSmokeLeft" shapeId="235" visibility="false" clipDistance="300" nodeId="706" castsShadows="true" receiveShadows="true" materialIds="13"/>
+                      </TransformGroup>
+                      <TransformGroup name="particleNodeLeft" nodeId="707">
+                        <Shape name="effectParticleLeft" translation="1.20147e-18 0.0297831 0.0181852" rotation="32.3966 180 0" shapeId="236" clipDistance="300" nodeId="708" castsShadows="true" receiveShadows="true" nonRenderable="true" materialIds="19"/>
+                      </TransformGroup>
+                    </TransformGroup>
+                    <TransformGroup name="particleRight" translation="-1.181 0 -0.408341" rotation="0 90 0" nodeId="709">
+                      <TransformGroup name="effectNodesRight" nodeId="710">
+                        <Shape name="effectGrainRight" translation="0 -5.68434e-16 -0.025241" scale="1.1 1 1" shapeId="234" visibility="false" clipDistance="300" nodeId="711" castsShadows="true" receiveShadows="true" materialIds="13"/>
+                        <Shape name="effectSmokeRight" shapeId="235" visibility="false" clipDistance="300" nodeId="712" castsShadows="true" receiveShadows="true" materialIds="13"/>
+                      </TransformGroup>
+                      <TransformGroup name="particleNodeRight" nodeId="713">
+                        <Shape name="effectParticleRight" translation="-1.40907e-16 -0.00293096 0.0181852" rotation="32.3966 180 0" shapeId="237" clipDistance="300" nodeId="714" castsShadows="true" receiveShadows="true" nonRenderable="true" materialIds="19"/>
+                      </TransformGroup>
+                    </TransformGroup>
+                  </TransformGroup>
+                  <TransformGroup name="collisions" nodeId="715">
+                    <Shape name="colPart4" translation="0 0.175484 1.701" shapeId="238" compoundChild="true" collisionFilterGroup="0x10004" collisionFilterMask="0xfe3ffb83" density="0.001" nodeId="716" castsShadows="false" receiveShadows="false" nonRenderable="true" distanceBlending="false" materialIds="65"/>
+                    <Shape name="colPart5" translation="0 0.829184 4.28043" rotation="90 -0 0" shapeId="239" compoundChild="true" collisionFilterGroup="0x10004" collisionFilterMask="0xfe3ffb83" density="0.001" nodeId="717" castsShadows="false" receiveShadows="false" nonRenderable="true" distanceBlending="false" materialIds="65"/>
+                    <Shape name="colPart6" translation="0 1.55828 4.39327" rotation="144 -0 0" shapeId="240" compoundChild="true" collisionFilterGroup="0x10004" collisionFilterMask="0xfe3ffb83" density="0.001" nodeId="718" castsShadows="false" receiveShadows="false" nonRenderable="true" distanceBlending="false" materialIds="65"/>
+                  </TransformGroup>
+                  <TransformGroup name="tensionBelts" translation="-0.021 -1.90233 2.36784" nodeId="719">
+                    <Shape name="beltActivationTrigger" translation="0 2.60073 0.292528" shapeId="241" kinematic="true" compound="true" trigger="true" collisionFilterGroup="0x1300000" collisionFilterMask="0x1300000" nodeId="720" castsShadows="true" receiveShadows="true" nonRenderable="true" materialIds="21"/>
+                    <TransformGroup name="startPoint01" translation="1.084 2.19273 1.09178" rotation="0 -90 0" nodeId="721">
+                      <TransformGroup name="tensionBelt01Intersection01" translation="0 0.009 0.053" nodeId="722"/>
+                      <TransformGroup name="tensionBelt01Intersection02" translation="0 0 2.207" nodeId="723"/>
+                      <TransformGroup name="startPoint01End" translation="0 0 2.207" nodeId="724"/>
+                    </TransformGroup>
+                    <TransformGroup name="startPoint02" translation="1.084 2.19273 -0.234712" rotation="0 -90 0" nodeId="725">
+                      <TransformGroup name="tensionBelt01Intersection01" translation="0 0.009 0.053" nodeId="726"/>
+                      <TransformGroup name="tensionBelt01Intersection02" translation="0 0 2.207" nodeId="727"/>
+                      <TransformGroup name="startPoint01End" translation="0 0 2.207" nodeId="728"/>
+                    </TransformGroup>
+                    <TransformGroup name="startPoint03" translation="1.084 2.19273 -1.59449" rotation="-0 -90 0" nodeId="729">
+                      <TransformGroup name="tensionBelt01Intersection01" translation="0 0.009 0.053" nodeId="730"/>
+                      <TransformGroup name="tensionBelt01Intersection02" translation="0 0 2.207" nodeId="731"/>
+                      <TransformGroup name="startPoint01End" translation="0 0 2.207" nodeId="732"/>
+                    </TransformGroup>
+                    <TransformGroup name="startPoint04" translation="1.084 2.19273 -2.68071" rotation="0 -90 0" nodeId="733">
+                      <TransformGroup name="tensionBelt01Intersection01" translation="0 0.00879887 0.053" nodeId="734"/>
+                      <TransformGroup name="tensionBelt01Intersection02" translation="0 0 2.206" nodeId="735"/>
+                      <TransformGroup name="startPoint01End" translation="0 0 2.20626" nodeId="736"/>
+                    </TransformGroup>
+                  </TransformGroup>
+                </Shape>
+              </TransformGroup>
+            </TransformGroup>
+            <TransformGroup name="GroupName" translation="-0.000763489 0.02219 -0.59546" rotation="-90 -0 0" nodeId="737">
+              <Shape name="hydraulic_cylinder_05" shapeId="242" nodeId="738" castsShadows="true" receiveShadows="true" materialIds="5">
+                <Shape name="hydraulic_cylinder_03" shapeId="243" nodeId="739" castsShadows="true" receiveShadows="true" materialIds="5">
+                  <Shape name="hydraulic_cylinder_04" shapeId="244" nodeId="740" castsShadows="true" receiveShadows="true" materialIds="5">
+                    <Shape name="hydraulic_cylinder_02" shapeId="245" nodeId="741" castsShadows="true" receiveShadows="true" materialIds="5">
+                      <Shape name="hydraulic_cylinder_01" shapeId="246" nodeId="742" castsShadows="true" receiveShadows="true" materialIds="5"/>
+                    </Shape>
+                  </Shape>
+                </Shape>
+              </Shape>
+            </TransformGroup>
+            <TransformGroup name="GroupName" translation="-0.001 0.0221599 -1.20489" rotation="-90 -0 0" nodeId="743">
+              <Shape name="hydraulic_cylinder_2_06" shapeId="247" nodeId="744" castsShadows="true" receiveShadows="true" materialIds="5">
+                <Shape name="hydraulic_cylinder_2_05" shapeId="248" nodeId="745" castsShadows="true" receiveShadows="true" materialIds="5">
+                  <Shape name="hydraulic_cylinder_2_07" shapeId="249" nodeId="746" castsShadows="true" receiveShadows="true" materialIds="5">
+                    <Shape name="hydraulic_cylinder_2_08" shapeId="250" nodeId="747" castsShadows="true" receiveShadows="true" materialIds="5">
+                      <Shape name="hydraulic_cylinder_2_09" shapeId="251" nodeId="748" castsShadows="true" receiveShadows="true" materialIds="5"/>
+                    </Shape>
+                  </Shape>
+                </Shape>
+              </Shape>
+            </TransformGroup>
+            <TransformGroup name="Gauche" translation="1.01 0.106557 -0.538" nodeId="749">
+              <TransformGroup name="Droite" translation="-2.02 0 0" nodeId="750">
+                <Shape name="Benne" translation="1.01 0 -1.751" shapeId="204" visibility="false" nodeId="751" castsShadows="true" receiveShadows="true" materialIds="6"/>
+              </TransformGroup>
+            </TransformGroup>
+          </Shape>
+          <Shape name="BarreAntiEncastrement" translation="0 0.615 -2.92939" shapeId="252" nodeId="752" castsShadows="true" receiveShadows="true" materialIds="8">
+            <Shape name="colPart8" translation="0 -0.120871 -0.453" shapeId="253" compoundChild="true" collisionFilterGroup="0x10004" collisionFilterMask="0xfe3ffb83" density="0.001" nodeId="753" castsShadows="false" receiveShadows="false" nonRenderable="true" distanceBlending="false" materialIds="65"/>
+            <TransformGroup name="SIC" translation="0 -0.0722167 -0.453" nodeId="754"/>
+          </Shape>
+          <Shape name="polySurface1777" translation="0.652 0.804626 3.31335" shapeId="254" visibility="false" nodeId="755" castsShadows="true" receiveShadows="true" materialIds="8"/>
+        </TransformGroup>
+        <TransformGroup name="ai" translation="0 0.0222018 -0.194596" nodeId="756">
+          <TransformGroup name="aiCollisionNode" translation="0 0 4.1195" nodeId="757"/>
+        </TransformGroup>
+        <TransformGroup name="exhaustParticle" translation="-0.953334 3.62684 1.8171" rotation="-49.0088 36.903 3.76676" nodeId="758"/>
+        <TransformGroup name="connectionHoses" nodeId="759">
+          <TransformGroup name="airDoubleStorage" translation="-0.242042 0.900738 -3.06874" nodeId="760"/>
+          <TransformGroup name="airDoubleControl" translation="0.274 0.907666 -3.06874" nodeId="761"/>
+          <TransformGroup name="frontElectric" translation="0.257671 1.00958 -3.07788" nodeId="762"/>
+          <TransformGroup name="hydraulic03_out" translation="-0.289 1.0278 -3.07802" rotation="0 -0 -171.537" nodeId="763"/>
+          <TransformGroup name="hydraulic03_in" translation="-0.224476 1.0278 -3.07802" rotation="0 -0 24.5085" nodeId="764"/>
+          <TransformGroup name="hydraulic02_out" translation="-0.289 0.973697 -3.07802" rotation="0 -0 -144.854" nodeId="765"/>
+          <TransformGroup name="hydraulic02_in" translation="-0.228886 0.973697 -3.07802" nodeId="766"/>
+        </TransformGroup>
+        <TransformGroup name="visuals" nodeId="767">
+          <TransformGroup name="Chassis" nodeId="768">
+            <Shape name="Renault_C_6X4:stops_suspension" translation="2.98023e-07 0.96228 0.334477" shapeId="255" nodeId="769" castsShadows="true" receiveShadows="true" materialIds="8"/>
+            <Shape name="cardan_shaft10" translation="-0.0708456 0.669678 -0.436325" shapeId="256" nodeId="770" castsShadows="true" receiveShadows="true" materialIds="8"/>
+            <Shape name="cardan_shaft12" translation="-0.0542488 0.591354 -1.55756" shapeId="257" nodeId="771" castsShadows="true" receiveShadows="true" materialIds="8"/>
+            <Shape name="cardan_shaft13" translation="-0.0238838 0.561462 -1.92249" shapeId="258" nodeId="772" castsShadows="true" receiveShadows="true" materialIds="8"/>
+            <Shape name="cardan_shaft11" translation="-0.0833721 0.621338 -1.19092" shapeId="259" nodeId="773" castsShadows="true" receiveShadows="true" materialIds="8"/>
+            <Shape name="exhaust_pipe1" translation="-0.826996 2.40012 1.70264" shapeId="260" nodeId="774" castsShadows="true" receiveShadows="true" materialIds="8"/>
+            <Shape name="side_panel" translation="0.000671387 0.877853 0.773918" shapeId="261" nodeId="775" castsShadows="true" receiveShadows="true" materialIds="8"/>
+            <Shape name="polySurface1218" translation="0.000497937 0.912533 -3.06501" shapeId="262" nodeId="776" castsShadows="true" receiveShadows="true" materialIds="12"/>
+            <Shape name="tank" translation="-0.806734 0.828211 0.143211" shapeId="263" nodeId="777" castsShadows="true" receiveShadows="true" materialIds="8"/>
+            <Shape name="polySurface1390" translation="-0.698177 0.79158 0.723479" shapeId="264" nodeId="778" castsShadows="true" receiveShadows="true" materialIds="8"/>
+            <Shape name="polySurface1315" translation="0.000665665 0.801603 -2.93486" shapeId="265" nodeId="779" castsShadows="true" receiveShadows="true" materialIds="8"/>
+            <Shape name="polySurface1341" translation="-0.00121588 0.669202 -2.93253" shapeId="266" nodeId="780" castsShadows="true" receiveShadows="true" materialIds="59,12"/>
+            <Shape name="Renault_C_6X4:cardan_shaft07" translation="-0.0703673 0.726166 0.257904" shapeId="267" nodeId="781" castsShadows="true" receiveShadows="true" materialIds="8"/>
+            <Shape name="Renault_C_6X4:cardan_shaft08" translation="-0.0703087 0.781982 0.958862" shapeId="268" nodeId="782" castsShadows="true" receiveShadows="true" materialIds="8"/>
+            <Shape name="battery" translation="0.757202 0.943176 1.38086" shapeId="269" nodeId="783" castsShadows="true" receiveShadows="true" materialIds="8"/>
+            <Shape name="Renault_C_6X4:exhaust_system" translation="-0.708427 0.882034 1.75665" shapeId="270" nodeId="784" castsShadows="true" receiveShadows="true" materialIds="8"/>
+            <Shape name="exhaust_pipe" translation="-0.217606 1.71289 1.79486" shapeId="271" nodeId="785" castsShadows="true" receiveShadows="true" materialIds="8"/>
+            <Shape name="Renault_C_6X4:front_suspension00" translation="0.000488281 0.813599 2.55096" shapeId="272" nodeId="786" castsShadows="true" receiveShadows="true" materialIds="8"/>
+            <Shape name="Renault_C_6X4:Engine_Renault" translation="-0.0263062 1.12546 2.39758" shapeId="273" nodeId="787" castsShadows="true" receiveShadows="true" materialIds="8"/>
+            <Shape name="Renault_C_6X4:cab_suspension01" translation="0 1.22 2.05499" shapeId="274" nodeId="788" castsShadows="true" receiveShadows="true" materialIds="8"/>
+            <Shape name="Renault_C_6X4:Cab_Detail" translation="-0.0045166 1.28241 2.70776" shapeId="275" nodeId="789" castsShadows="true" receiveShadows="true" materialIds="8"/>
+            <Shape name="polySurface1710" translation="0 1.12311 3.58887" shapeId="276" nodeId="790" castsShadows="true" receiveShadows="true" materialIds="8"/>
+            <Shape name="polySurface1377" translation="-1.21987 0.797524 1.34413" shapeId="277" nodeId="791" castsShadows="true" receiveShadows="true" materialIds="8"/>
+            <Shape name="inlet_pipe" translation="0.30317 1.50294 2.43679" shapeId="278" nodeId="792" castsShadows="true" receiveShadows="true" materialIds="8"/>
+            <Shape name="polySurface1222" translation="0.000497758 0.702836 -1.83338" shapeId="279" nodeId="793" castsShadows="true" receiveShadows="true" materialIds="8"/>
+            <Shape name="GardeBoue" translation="0.000665665 0.947601 -1.59103" shapeId="280" nodeId="794" castsShadows="true" receiveShadows="true" materialIds="8"/>
+            <Shape name="polySurface1452" translation="-0.850833 0.808271 0.719393" shapeId="281" nodeId="795" castsShadows="true" receiveShadows="true" materialIds="8"/>
+            <Shape name="bellows" translation="0.657028 0.785672 0.703394" shapeId="282" nodeId="796" castsShadows="true" receiveShadows="true" materialIds="8"/>
+            <Shape name="decalRadiateur" translation="-0.00100708 1.11789 3.72437" shapeId="283" nodeId="797" castsShadows="true" receiveShadows="true" materialIds="12"/>
+            <Shape name="nave_back00" translation="0.000496552 0.535387 -2.30599" shapeId="284" nodeId="798" castsShadows="true" receiveShadows="true" materialIds="8"/>
+            <Shape name="nave_back01" translation="0.000496613 0.535387 -0.935402" shapeId="285" nodeId="799" castsShadows="true" receiveShadows="true" materialIds="8"/>
+            <TransformGroup name="plaque arriere" translation="0.910417 0.591806 -3.03958" rotation="-180 -1.86693e-05 -180" scale="0.9 0.9 1" nodeId="800"/>
+          </TransformGroup>
+        </TransformGroup>
+        <TransformGroup name="dischargeNodes" translation="0 0.113303 0" nodeId="801">
+          <TransformGroup name="dischargeNodeBack" translation="0 1.39604 -4.99382" nodeId="802"/>
+          <TransformGroup name="dischargeNodeLeft" translation="3.06642 1.39604 -0.878199" rotation="0 90 0" nodeId="803"/>
+          <TransformGroup name="dischargeNodeRight" translation="-2.79611 1.39604 -0.878199" rotation="0 90 0" nodeId="804"/>
+        </TransformGroup>
+        <TransformGroup name="simpleIC" nodeId="805">
+          <Shape name="playerTrigger" translation="0 2.195 0.00456249" shapeId="286" kinematic="true" trigger="true" collisionFilterGroup="0x100000" collisionFilterMask="0x100000" nodeId="806" castsShadows="true" receiveShadows="true" nonRenderable="true" materialIds="18"/>
+        </TransformGroup>
+        <TransformGroup name="transform" nodeId="807">
+          <Shape name="exhaust_pipe1" translation="-0.826996 2.40012 1.70264" shapeId="260" nodeId="808" castsShadows="true" receiveShadows="true" materialIds="9"/>
+          <Shape name="polySurface1377" translation="-1.2082 0.822703 1.5269" scale="1 1 0.6" shapeId="277" nodeId="809" castsShadows="true" receiveShadows="true" materialIds="9"/>
+          <Shape name="Renault_C_6X4:Cab_Detail" translation="-0.0045166 1.28241 2.70776" shapeId="275" nodeId="810" castsShadows="true" receiveShadows="true" materialIds="9"/>
+          <Shape name="Renault_C_6X4:cab_suspension01" translation="0 1.22 2.05499" shapeId="274" nodeId="811" castsShadows="true" receiveShadows="true" materialIds="9"/>
+          <Shape name="Renault_C_6X4:Engine_Renault" translation="-0.0263062 1.12546 2.39758" shapeId="273" nodeId="812" castsShadows="true" receiveShadows="true" materialIds="9"/>
+          <Shape name="Renault_C_6X4:front_suspension00" translation="0.000488281 0.813599 2.55096" shapeId="272" nodeId="813" castsShadows="true" receiveShadows="true" materialIds="9"/>
+          <Shape name="Renault_C_6X4:exhaust_system" translation="-0.708427 0.882034 1.78749" scale="1 1 0.6" shapeId="270" nodeId="814" castsShadows="true" receiveShadows="true" materialIds="9"/>
+          <Shape name="decalRadiateur" translation="-0.00100708 1.11789 3.72437" shapeId="283" nodeId="815" castsShadows="true" receiveShadows="true" materialIds="12"/>
+          <Shape name="polySurface1710" translation="0 1.12311 3.58887" shapeId="276" nodeId="816" castsShadows="true" receiveShadows="true" materialIds="9"/>
+        </TransformGroup>
+      </TransformGroup>
+      <TransformGroup name="collisions" translation="0 0.0222018 -0.194596" nodeId="817">
+        <Shape name="colPart7" translation="0 1.85739 3.1311" shapeId="287" compoundChild="true" collisionFilterGroup="0x10004" collisionFilterMask="0xfe3ffb83" density="0.001" nodeId="818" castsShadows="false" receiveShadows="false" nonRenderable="true" distanceBlending="false" materialIds="65"/>
+      </TransformGroup>
+    </Shape>
+    <Camera name="camera" translation="8.5193 9.42314 -0.626055" rotation="133.016 85.8725 180" nodeId="819" fov="60" nearClip="0.1" farClip="10000" orthographicHeight="1"/>
+  </Scene>
+
+  <UserAttributes>
+    <UserAttribute nodeId="361">
+      <Attribute name="currentUVSet" type="string" value="map1"/>
+    </UserAttribute>
+    <UserAttribute nodeId="363">
+      <Attribute name="currentUVSet" type="string" value="map1"/>
+    </UserAttribute>
+    <UserAttribute nodeId="367">
+      <Attribute name="currentUVSet" type="string" value="map1"/>
+    </UserAttribute>
+    <UserAttribute nodeId="370">
+      <Attribute name="currentUVSet" type="string" value="map1"/>
+    </UserAttribute>
+    <UserAttribute nodeId="373">
+      <Attribute name="currentUVSet" type="string" value="map1"/>
+    </UserAttribute>
+    <UserAttribute nodeId="376">
+      <Attribute name="currentUVSet" type="string" value="map1"/>
+    </UserAttribute>
+    <UserAttribute nodeId="379">
+      <Attribute name="currentUVSet" type="string" value="map1"/>
+    </UserAttribute>
+    <UserAttribute nodeId="434">
+      <Attribute name="currentUVSet" type="string" value="UV_0"/>
+    </UserAttribute>
+    <UserAttribute nodeId="435">
+      <Attribute name="currentUVSet" type="string" value="UV_0"/>
+    </UserAttribute>
+    <UserAttribute nodeId="436">
+      <Attribute name="currentUVSet" type="string" value="UV_0"/>
+    </UserAttribute>
+    <UserAttribute nodeId="437">
+      <Attribute name="currentUVSet" type="string" value="UV_0"/>
+    </UserAttribute>
+    <UserAttribute nodeId="438">
+      <Attribute name="currentUVSet" type="string" value="UV_0"/>
+    </UserAttribute>
+    <UserAttribute nodeId="439">
+      <Attribute name="currentUVSet" type="string" value="UV_0"/>
+    </UserAttribute>
+    <UserAttribute nodeId="440">
+      <Attribute name="currentUVSet" type="string" value="UV_0"/>
+    </UserAttribute>
+    <UserAttribute nodeId="441">
+      <Attribute name="currentUVSet" type="string" value="UV_0"/>
+    </UserAttribute>
+    <UserAttribute nodeId="442">
+      <Attribute name="currentUVSet" type="string" value="UV_0"/>
+    </UserAttribute>
+    <UserAttribute nodeId="458">
+      <Attribute name="currentUVSet" type="string" value="UV_0"/>
+    </UserAttribute>
+    <UserAttribute nodeId="459">
+      <Attribute name="currentUVSet" type="string" value="UV_0"/>
+    </UserAttribute>
+    <UserAttribute nodeId="460">
+      <Attribute name="currentUVSet" type="string" value="UV_0"/>
+    </UserAttribute>
+    <UserAttribute nodeId="461">
+      <Attribute name="currentUVSet" type="string" value="UV_0"/>
+    </UserAttribute>
+    <UserAttribute nodeId="462">
+      <Attribute name="currentUVSet" type="string" value="UV_0"/>
+    </UserAttribute>
+    <UserAttribute nodeId="463">
+      <Attribute name="currentUVSet" type="string" value="UV_0"/>
+    </UserAttribute>
+    <UserAttribute nodeId="464">
+      <Attribute name="currentUVSet" type="string" value="UV_0"/>
+    </UserAttribute>
+    <UserAttribute nodeId="465">
+      <Attribute name="currentUVSet" type="string" value="UV_0"/>
+    </UserAttribute>
+    <UserAttribute nodeId="466">
+      <Attribute name="currentUVSet" type="string" value="UV_0"/>
+    </UserAttribute>
+    <UserAttribute nodeId="467">
+      <Attribute name="currentUVSet" type="string" value="UV_0"/>
+    </UserAttribute>
+    <UserAttribute nodeId="468">
+      <Attribute name="currentUVSet" type="string" value="UV_0"/>
+    </UserAttribute>
+    <UserAttribute nodeId="469">
+      <Attribute name="currentUVSet" type="string" value="UV_0"/>
+    </UserAttribute>
+    <UserAttribute nodeId="470">
+      <Attribute name="currentUVSet" type="string" value="UV_0"/>
+    </UserAttribute>
+    <UserAttribute nodeId="471">
+      <Attribute name="currentUVSet" type="string" value="UV_0"/>
+    </UserAttribute>
+    <UserAttribute nodeId="472">
+      <Attribute name="currentUVSet" type="string" value="UV_0"/>
+    </UserAttribute>
+    <UserAttribute nodeId="473">
+      <Attribute name="currentUVSet" type="string" value="UV_0"/>
+    </UserAttribute>
+    <UserAttribute nodeId="474">
+      <Attribute name="currentUVSet" type="string" value="UV_0"/>
+    </UserAttribute>
+    <UserAttribute nodeId="475">
+      <Attribute name="currentUVSet" type="string" value="UV_0"/>
+    </UserAttribute>
+    <UserAttribute nodeId="476">
+      <Attribute name="currentUVSet" type="string" value="UV_0"/>
+    </UserAttribute>
+    <UserAttribute nodeId="477">
+      <Attribute name="currentUVSet" type="string" value="UV_0"/>
+    </UserAttribute>
+    <UserAttribute nodeId="478">
+      <Attribute name="currentUVSet" type="string" value="UV_0"/>
+    </UserAttribute>
+    <UserAttribute nodeId="479">
+      <Attribute name="currentUVSet" type="string" value="UV_0"/>
+    </UserAttribute>
+    <UserAttribute nodeId="480">
+      <Attribute name="currentUVSet" type="string" value="UV_0"/>
+    </UserAttribute>
+    <UserAttribute nodeId="481">
+      <Attribute name="currentUVSet" type="string" value="UV_0"/>
+    </UserAttribute>
+    <UserAttribute nodeId="482">
+      <Attribute name="currentUVSet" type="string" value="UV_0"/>
+    </UserAttribute>
+    <UserAttribute nodeId="483">
+      <Attribute name="currentUVSet" type="string" value="UV_0"/>
+    </UserAttribute>
+    <UserAttribute nodeId="484">
+      <Attribute name="currentUVSet" type="string" value="UV_0"/>
+    </UserAttribute>
+    <UserAttribute nodeId="485">
+      <Attribute name="currentUVSet" type="string" value="UV_0"/>
+    </UserAttribute>
+    <UserAttribute nodeId="486">
+      <Attribute name="currentUVSet" type="string" value="UV_0"/>
+    </UserAttribute>
+    <UserAttribute nodeId="487">
+      <Attribute name="currentUVSet" type="string" value="UV_0"/>
+    </UserAttribute>
+    <UserAttribute nodeId="489">
+      <Attribute name="currentUVSet" type="string" value="UV_0"/>
+    </UserAttribute>
+    <UserAttribute nodeId="490">
+      <Attribute name="currentUVSet" type="string" value="UV_0"/>
+    </UserAttribute>
+    <UserAttribute nodeId="491">
+      <Attribute name="currentUVSet" type="string" value="UV_0"/>
+    </UserAttribute>
+    <UserAttribute nodeId="492">
+      <Attribute name="currentUVSet" type="string" value="UV_0"/>
+    </UserAttribute>
+    <UserAttribute nodeId="493">
+      <Attribute name="currentUVSet" type="string" value="UV_0"/>
+    </UserAttribute>
+    <UserAttribute nodeId="494">
+      <Attribute name="currentUVSet" type="string" value="UV_0"/>
+    </UserAttribute>
+    <UserAttribute nodeId="495">
+      <Attribute name="currentUVSet" type="string" value="UV_0"/>
+    </UserAttribute>
+    <UserAttribute nodeId="496">
+      <Attribute name="currentUVSet" type="string" value="UV_0"/>
+    </UserAttribute>
+    <UserAttribute nodeId="497">
+      <Attribute name="currentUVSet" type="string" value="UV_0"/>
+    </UserAttribute>
+    <UserAttribute nodeId="498">
+      <Attribute name="currentUVSet" type="string" value="UV_0"/>
+    </UserAttribute>
+    <UserAttribute nodeId="499">
+      <Attribute name="currentUVSet" type="string" value="UV_0"/>
+    </UserAttribute>
+    <UserAttribute nodeId="500">
+      <Attribute name="currentUVSet" type="string" value="UV_0"/>
+    </UserAttribute>
+    <UserAttribute nodeId="501">
+      <Attribute name="currentUVSet" type="string" value="UV_0"/>
+    </UserAttribute>
+    <UserAttribute nodeId="502">
+      <Attribute name="currentUVSet" type="string" value="UV_0"/>
+    </UserAttribute>
+    <UserAttribute nodeId="503">
+      <Attribute name="currentUVSet" type="string" value="UV_0"/>
+    </UserAttribute>
+    <UserAttribute nodeId="504">
+      <Attribute name="currentUVSet" type="string" value="UV_0"/>
+    </UserAttribute>
+    <UserAttribute nodeId="505">
+      <Attribute name="currentUVSet" type="string" value="UV_0"/>
+    </UserAttribute>
+    <UserAttribute nodeId="506">
+      <Attribute name="currentUVSet" type="string" value="UV_0"/>
+    </UserAttribute>
+    <UserAttribute nodeId="507">
+      <Attribute name="currentUVSet" type="string" value="UV_0"/>
+    </UserAttribute>
+    <UserAttribute nodeId="508">
+      <Attribute name="currentUVSet" type="string" value="UV_0"/>
+    </UserAttribute>
+    <UserAttribute nodeId="509">
+      <Attribute name="currentUVSet" type="string" value="UV_0"/>
+    </UserAttribute>
+    <UserAttribute nodeId="510">
+      <Attribute name="currentUVSet" type="string" value="UV_0"/>
+    </UserAttribute>
+    <UserAttribute nodeId="511">
+      <Attribute name="currentUVSet" type="string" value="UV_0"/>
+    </UserAttribute>
+    <UserAttribute nodeId="512">
+      <Attribute name="currentUVSet" type="string" value="UV_0"/>
+    </UserAttribute>
+    <UserAttribute nodeId="513">
+      <Attribute name="currentUVSet" type="string" value="UV_0"/>
+    </UserAttribute>
+    <UserAttribute nodeId="514">
+      <Attribute name="currentUVSet" type="string" value="UV_0"/>
+    </UserAttribute>
+    <UserAttribute nodeId="515">
+      <Attribute name="currentUVSet" type="string" value="UV_0"/>
+    </UserAttribute>
+    <UserAttribute nodeId="516">
+      <Attribute name="currentUVSet" type="string" value="UV_0"/>
+    </UserAttribute>
+    <UserAttribute nodeId="517">
+      <Attribute name="currentUVSet" type="string" value="UV_0"/>
+    </UserAttribute>
+    <UserAttribute nodeId="518">
+      <Attribute name="currentUVSet" type="string" value="UV_0"/>
+    </UserAttribute>
+    <UserAttribute nodeId="519">
+      <Attribute name="currentUVSet" type="string" value="UV_0"/>
+    </UserAttribute>
+    <UserAttribute nodeId="520">
+      <Attribute name="currentUVSet" type="string" value="UV_0"/>
+    </UserAttribute>
+    <UserAttribute nodeId="521">
+      <Attribute name="currentUVSet" type="string" value="UV_0"/>
+    </UserAttribute>
+    <UserAttribute nodeId="522">
+      <Attribute name="currentUVSet" type="string" value="UV_0"/>
+    </UserAttribute>
+    <UserAttribute nodeId="523">
+      <Attribute name="currentUVSet" type="string" value="UV_0"/>
+    </UserAttribute>
+    <UserAttribute nodeId="524">
+      <Attribute name="currentUVSet" type="string" value="UV_0"/>
+    </UserAttribute>
+    <UserAttribute nodeId="525">
+      <Attribute name="currentUVSet" type="string" value="UV_0"/>
+    </UserAttribute>
+    <UserAttribute nodeId="526">
+      <Attribute name="currentUVSet" type="string" value="UV_0"/>
+    </UserAttribute>
+    <UserAttribute nodeId="527">
+      <Attribute name="currentUVSet" type="string" value="UV_0"/>
+    </UserAttribute>
+    <UserAttribute nodeId="528">
+      <Attribute name="currentUVSet" type="string" value="UV_0"/>
+    </UserAttribute>
+    <UserAttribute nodeId="529">
+      <Attribute name="currentUVSet" type="string" value="UV_0"/>
+    </UserAttribute>
+    <UserAttribute nodeId="530">
+      <Attribute name="currentUVSet" type="string" value="UV_0"/>
+    </UserAttribute>
+    <UserAttribute nodeId="531">
+      <Attribute name="currentUVSet" type="string" value="UV_0"/>
+    </UserAttribute>
+    <UserAttribute nodeId="532">
+      <Attribute name="currentUVSet" type="string" value="UV_0"/>
+    </UserAttribute>
+    <UserAttribute nodeId="533">
+      <Attribute name="currentUVSet" type="string" value="UV_0"/>
+    </UserAttribute>
+    <UserAttribute nodeId="534">
+      <Attribute name="currentUVSet" type="string" value="UV_0"/>
+    </UserAttribute>
+    <UserAttribute nodeId="535">
+      <Attribute name="currentUVSet" type="string" value="UV_0"/>
+    </UserAttribute>
+    <UserAttribute nodeId="536">
+      <Attribute name="currentUVSet" type="string" value="UV_0"/>
+    </UserAttribute>
+    <UserAttribute nodeId="537">
+      <Attribute name="currentUVSet" type="string" value="UV_0"/>
+    </UserAttribute>
+    <UserAttribute nodeId="538">
+      <Attribute name="currentUVSet" type="string" value="UV_0"/>
+    </UserAttribute>
+    <UserAttribute nodeId="539">
+      <Attribute name="currentUVSet" type="string" value="UV_0"/>
+    </UserAttribute>
+    <UserAttribute nodeId="540">
+      <Attribute name="currentUVSet" type="string" value="UV_0"/>
+    </UserAttribute>
+    <UserAttribute nodeId="541">
+      <Attribute name="currentUVSet" type="string" value="UV_0"/>
+    </UserAttribute>
+    <UserAttribute nodeId="542">
+      <Attribute name="currentUVSet" type="string" value="UV_0"/>
+    </UserAttribute>
+    <UserAttribute nodeId="543">
+      <Attribute name="currentUVSet" type="string" value="UV_0"/>
+    </UserAttribute>
+    <UserAttribute nodeId="544">
+      <Attribute name="currentUVSet" type="string" value="UV_0"/>
+    </UserAttribute>
+    <UserAttribute nodeId="545">
+      <Attribute name="currentUVSet" type="string" value="UV_0"/>
+    </UserAttribute>
+    <UserAttribute nodeId="546">
+      <Attribute name="currentUVSet" type="string" value="UV_0"/>
+    </UserAttribute>
+    <UserAttribute nodeId="547">
+      <Attribute name="currentUVSet" type="string" value="UV_0"/>
+    </UserAttribute>
+    <UserAttribute nodeId="548">
+      <Attribute name="currentUVSet" type="string" value="UV_0"/>
+    </UserAttribute>
+    <UserAttribute nodeId="549">
+      <Attribute name="currentUVSet" type="string" value="UV_0"/>
+    </UserAttribute>
+    <UserAttribute nodeId="550">
+      <Attribute name="currentUVSet" type="string" value="UV_0"/>
+    </UserAttribute>
+    <UserAttribute nodeId="551">
+      <Attribute name="currentUVSet" type="string" value="UV_0"/>
+    </UserAttribute>
+    <UserAttribute nodeId="552">
+      <Attribute name="currentUVSet" type="string" value="UV_0"/>
+    </UserAttribute>
+    <UserAttribute nodeId="553">
+      <Attribute name="currentUVSet" type="string" value="UV_0"/>
+    </UserAttribute>
+    <UserAttribute nodeId="554">
+      <Attribute name="currentUVSet" type="string" value="UV_0"/>
+    </UserAttribute>
+    <UserAttribute nodeId="555">
+      <Attribute name="currentUVSet" type="string" value="UV_0"/>
+    </UserAttribute>
+    <UserAttribute nodeId="556">
+      <Attribute name="currentUVSet" type="string" value="UV_0"/>
+    </UserAttribute>
+    <UserAttribute nodeId="557">
+      <Attribute name="currentUVSet" type="string" value="UV_0"/>
+    </UserAttribute>
+    <UserAttribute nodeId="558">
+      <Attribute name="currentUVSet" type="string" value="UV_0"/>
+    </UserAttribute>
+    <UserAttribute nodeId="559">
+      <Attribute name="currentUVSet" type="string" value="UV_0"/>
+    </UserAttribute>
+    <UserAttribute nodeId="560">
+      <Attribute name="currentUVSet" type="string" value="UV_0"/>
+    </UserAttribute>
+    <UserAttribute nodeId="561">
+      <Attribute name="currentUVSet" type="string" value="UV_0"/>
+    </UserAttribute>
+    <UserAttribute nodeId="562">
+      <Attribute name="currentUVSet" type="string" value="UV_0"/>
+    </UserAttribute>
+    <UserAttribute nodeId="563">
+      <Attribute name="currentUVSet" type="string" value="UV_0"/>
+    </UserAttribute>
+    <UserAttribute nodeId="564">
+      <Attribute name="currentUVSet" type="string" value="UV_0"/>
+    </UserAttribute>
+    <UserAttribute nodeId="565">
+      <Attribute name="currentUVSet" type="string" value="UV_0"/>
+    </UserAttribute>
+    <UserAttribute nodeId="566">
+      <Attribute name="currentUVSet" type="string" value="UV_0"/>
+    </UserAttribute>
+    <UserAttribute nodeId="567">
+      <Attribute name="currentUVSet" type="string" value="UV_0"/>
+    </UserAttribute>
+    <UserAttribute nodeId="568">
+      <Attribute name="currentUVSet" type="string" value="UV_0"/>
+    </UserAttribute>
+    <UserAttribute nodeId="569">
+      <Attribute name="currentUVSet" type="string" value="UV_0"/>
+    </UserAttribute>
+    <UserAttribute nodeId="570">
+      <Attribute name="currentUVSet" type="string" value="UV_0"/>
+    </UserAttribute>
+    <UserAttribute nodeId="571">
+      <Attribute name="currentUVSet" type="string" value="UV_0"/>
+    </UserAttribute>
+    <UserAttribute nodeId="572">
+      <Attribute name="currentUVSet" type="string" value="UV_0"/>
+    </UserAttribute>
+    <UserAttribute nodeId="573">
+      <Attribute name="currentUVSet" type="string" value="UV_0"/>
+    </UserAttribute>
+    <UserAttribute nodeId="575">
+      <Attribute name="currentUVSet" type="string" value="UV_0"/>
+    </UserAttribute>
+    <UserAttribute nodeId="576">
+      <Attribute name="currentUVSet" type="string" value="UV_0"/>
+    </UserAttribute>
+    <UserAttribute nodeId="577">
+      <Attribute name="currentUVSet" type="string" value="UV_0"/>
+    </UserAttribute>
+    <UserAttribute nodeId="578">
+      <Attribute name="currentUVSet" type="string" value="UV_0"/>
+    </UserAttribute>
+    <UserAttribute nodeId="579">
+      <Attribute name="currentUVSet" type="string" value="UV_0"/>
+    </UserAttribute>
+    <UserAttribute nodeId="580">
+      <Attribute name="currentUVSet" type="string" value="UV_0"/>
+    </UserAttribute>
+    <UserAttribute nodeId="581">
+      <Attribute name="currentUVSet" type="string" value="UV_0"/>
+    </UserAttribute>
+    <UserAttribute nodeId="582">
+      <Attribute name="currentUVSet" type="string" value="UV_0"/>
+    </UserAttribute>
+    <UserAttribute nodeId="583">
+      <Attribute name="currentUVSet" type="string" value="UV_0"/>
+    </UserAttribute>
+    <UserAttribute nodeId="584">
+      <Attribute name="currentUVSet" type="string" value="UV_0"/>
+    </UserAttribute>
+    <UserAttribute nodeId="585">
+      <Attribute name="currentUVSet" type="string" value="UV_0"/>
+    </UserAttribute>
+    <UserAttribute nodeId="586">
+      <Attribute name="currentUVSet" type="string" value="UV_0"/>
+    </UserAttribute>
+    <UserAttribute nodeId="587">
+      <Attribute name="currentUVSet" type="string" value="UV_0"/>
+    </UserAttribute>
+    <UserAttribute nodeId="588">
+      <Attribute name="currentUVSet" type="string" value="UV_0"/>
+    </UserAttribute>
+    <UserAttribute nodeId="589">
+      <Attribute name="currentUVSet" type="string" value="UV_0"/>
+    </UserAttribute>
+    <UserAttribute nodeId="591">
+      <Attribute name="currentUVSet" type="string" value="UV_0"/>
+    </UserAttribute>
+    <UserAttribute nodeId="592">
+      <Attribute name="currentUVSet" type="string" value="UV_0"/>
+    </UserAttribute>
+    <UserAttribute nodeId="593">
+      <Attribute name="currentUVSet" type="string" value="UV_0"/>
+    </UserAttribute>
+    <UserAttribute nodeId="594">
+      <Attribute name="currentUVSet" type="string" value="UV_0"/>
+    </UserAttribute>
+    <UserAttribute nodeId="595">
+      <Attribute name="currentUVSet" type="string" value="UV_0"/>
+    </UserAttribute>
+    <UserAttribute nodeId="596">
+      <Attribute name="currentUVSet" type="string" value="UV_0"/>
+    </UserAttribute>
+    <UserAttribute nodeId="597">
+      <Attribute name="currentUVSet" type="string" value="UV_0"/>
+    </UserAttribute>
+    <UserAttribute nodeId="598">
+      <Attribute name="currentUVSet" type="string" value="UV_0"/>
+    </UserAttribute>
+    <UserAttribute nodeId="599">
+      <Attribute name="currentUVSet" type="string" value="UV_0"/>
+    </UserAttribute>
+    <UserAttribute nodeId="600">
+      <Attribute name="currentUVSet" type="string" value="UV_0"/>
+    </UserAttribute>
+    <UserAttribute nodeId="601">
+      <Attribute name="currentUVSet" type="string" value="UV_0"/>
+    </UserAttribute>
+    <UserAttribute nodeId="602">
+      <Attribute name="currentUVSet" type="string" value="UV_0"/>
+    </UserAttribute>
+    <UserAttribute nodeId="603">
+      <Attribute name="currentUVSet" type="string" value="map1"/>
+    </UserAttribute>
+    <UserAttribute nodeId="604">
+      <Attribute name="currentUVSet" type="string" value="map1"/>
+    </UserAttribute>
+    <UserAttribute nodeId="652">
+      <Attribute name="currentUVSet" type="string" value="map1"/>
+    </UserAttribute>
+    <UserAttribute nodeId="675">
+      <Attribute name="currentUVSet" type="string" value="map1"/>
+    </UserAttribute>
+    <UserAttribute nodeId="676">
+      <Attribute name="currentUVSet" type="string" value="map1"/>
+    </UserAttribute>
+    <UserAttribute nodeId="677">
+      <Attribute name="currentUVSet" type="string" value="map1"/>
+    </UserAttribute>
+    <UserAttribute nodeId="679">
+      <Attribute name="currentUVSet" type="string" value="map1"/>
+    </UserAttribute>
+    <UserAttribute nodeId="680">
+      <Attribute name="currentUVSet" type="string" value="map1"/>
+    </UserAttribute>
+    <UserAttribute nodeId="687">
+      <Attribute name="currentUVSet" type="string" value="map1"/>
+    </UserAttribute>
+    <UserAttribute nodeId="688">
+      <Attribute name="currentUVSet" type="string" value="map1"/>
+    </UserAttribute>
+    <UserAttribute nodeId="738">
+      <Attribute name="currentUVSet" type="string" value="map1"/>
+    </UserAttribute>
+    <UserAttribute nodeId="739">
+      <Attribute name="currentUVSet" type="string" value="map1"/>
+    </UserAttribute>
+    <UserAttribute nodeId="740">
+      <Attribute name="currentUVSet" type="string" value="map1"/>
+    </UserAttribute>
+    <UserAttribute nodeId="741">
+      <Attribute name="currentUVSet" type="string" value="map1"/>
+    </UserAttribute>
+    <UserAttribute nodeId="742">
+      <Attribute name="currentUVSet" type="string" value="map1"/>
+    </UserAttribute>
+    <UserAttribute nodeId="744">
+      <Attribute name="currentUVSet" type="string" value="map1"/>
+    </UserAttribute>
+    <UserAttribute nodeId="745">
+      <Attribute name="currentUVSet" type="string" value="map1"/>
+    </UserAttribute>
+    <UserAttribute nodeId="746">
+      <Attribute name="currentUVSet" type="string" value="map1"/>
+    </UserAttribute>
+    <UserAttribute nodeId="747">
+      <Attribute name="currentUVSet" type="string" value="map1"/>
+    </UserAttribute>
+    <UserAttribute nodeId="748">
+      <Attribute name="currentUVSet" type="string" value="map1"/>
+    </UserAttribute>
+    <UserAttribute nodeId="770">
+      <Attribute name="currentUVSet" type="string" value="map1"/>
+    </UserAttribute>
+    <UserAttribute nodeId="771">
+      <Attribute name="currentUVSet" type="string" value="map1"/>
+    </UserAttribute>
+    <UserAttribute nodeId="772">
+      <Attribute name="currentUVSet" type="string" value="map1"/>
+    </UserAttribute>
+    <UserAttribute nodeId="773">
+      <Attribute name="currentUVSet" type="string" value="map1"/>
+    </UserAttribute>
+    <UserAttribute nodeId="774">
+      <Attribute name="currentUVSet" type="string" value="map1"/>
+    </UserAttribute>
+    <UserAttribute nodeId="775">
+      <Attribute name="currentUVSet" type="string" value="map1"/>
+    </UserAttribute>
+    <UserAttribute nodeId="776">
+      <Attribute name="currentUVSet" type="string" value="map1"/>
+    </UserAttribute>
+    <UserAttribute nodeId="777">
+      <Attribute name="currentUVSet" type="string" value="map1"/>
+    </UserAttribute>
+    <UserAttribute nodeId="778">
+      <Attribute name="currentUVSet" type="string" value="map1"/>
+    </UserAttribute>
+    <UserAttribute nodeId="779">
+      <Attribute name="currentUVSet" type="string" value="map1"/>
+    </UserAttribute>
+    <UserAttribute nodeId="780">
+      <Attribute name="currentUVSet" type="string" value="map1"/>
+    </UserAttribute>
+    <UserAttribute nodeId="781">
+      <Attribute name="currentUVSet" type="string" value="map1"/>
+    </UserAttribute>
+    <UserAttribute nodeId="782">
+      <Attribute name="currentUVSet" type="string" value="map1"/>
+    </UserAttribute>
+    <UserAttribute nodeId="783">
+      <Attribute name="currentUVSet" type="string" value="map1"/>
+    </UserAttribute>
+    <UserAttribute nodeId="784">
+      <Attribute name="currentUVSet" type="string" value="map1"/>
+    </UserAttribute>
+    <UserAttribute nodeId="785">
+      <Attribute name="currentUVSet" type="string" value="map1"/>
+    </UserAttribute>
+    <UserAttribute nodeId="786">
+      <Attribute name="currentUVSet" type="string" value="map1"/>
+    </UserAttribute>
+    <UserAttribute nodeId="787">
+      <Attribute name="currentUVSet" type="string" value="map1"/>
+    </UserAttribute>
+    <UserAttribute nodeId="788">
+      <Attribute name="currentUVSet" type="string" value="map1"/>
+    </UserAttribute>
+    <UserAttribute nodeId="789">
+      <Attribute name="currentUVSet" type="string" value="map1"/>
+    </UserAttribute>
+    <UserAttribute nodeId="798">
+      <Attribute name="currentUVSet" type="string" value="map1"/>
+    </UserAttribute>
+    <UserAttribute nodeId="799">
+      <Attribute name="currentUVSet" type="string" value="map1"/>
+    </UserAttribute>
+    <UserAttribute nodeId="808">
+      <Attribute name="currentUVSet" type="string" value="map1"/>
+    </UserAttribute>
+    <UserAttribute nodeId="810">
+      <Attribute name="currentUVSet" type="string" value="map1"/>
+    </UserAttribute>
+    <UserAttribute nodeId="811">
+      <Attribute name="currentUVSet" type="string" value="map1"/>
+    </UserAttribute>
+    <UserAttribute nodeId="812">
+      <Attribute name="currentUVSet" type="string" value="map1"/>
+    </UserAttribute>
+    <UserAttribute nodeId="813">
+      <Attribute name="currentUVSet" type="string" value="map1"/>
+    </UserAttribute>
+    <UserAttribute nodeId="814">
+      <Attribute name="currentUVSet" type="string" value="map1"/>
+    </UserAttribute>
+  </UserAttributes>
+
+</i3D>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<sounds xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../shared/xml/schema/vehicle_sounds.xsd">
+    <motorized>
+        <sounds>
+            <motor template="engineLarge" file="sounds/tgs18500_loop.gls" volumeScale="0.9"/>
+            <motor template="indoorCabinRumble" />
+            <gearbox template="transmissionLarge" file="$data/sounds/vehicles/transmission/truckTransmissionLoop.wav" pitchScale="0.7" volumeScale="0.1"/>
+            <compressedAir template="compressedAir"/>
+            <airCompressorRun template="brakeCompressorLarge" />
+            <airCompressorStop template="compressedAir"/>
+            <airRelease template="truckBrakeRegulatorValve" />
+            <reverseDrive template="reverseBeep02" />
+        </sounds>
+    </motorized>
+
+    <enterable>
+        <sounds>
+            <rain template="rainInVehicle" linkNodeOffset="0.7 2 2.5">
+                <loopSynthesisRpm>
+                    <modifier type="SPEED" value="0.0" modifiedValue="0.0" />
+                    <modifier type="SPEED" value="42.0" modifiedValue="1" />
+                </loopSynthesisRpm>
+                <volume>
+                    <modifier type="SPEED" value="0" modifiedValue="1" />
+                    <modifier type="SPEED" value="25" modifiedValue="1" />
+                    <modifier type="SPEED" value="42" modifiedValue="1.2" />
+                </volume>
+
+                <pitch>
+                    <modifier type="SPEED" value="0" modifiedValue="1" />
+                    <modifier type="SPEED" value="25" modifiedValue="1" />
+                    <modifier type="SPEED" value="42" modifiedValue="1.0" />
+                </pitch>
+            </rain>
+            <hail template="hailInVehicle" linkNodeOffset="0.7 2 2.5" volumeScale="1.5">
+                <loopSynthesisRpm>
+                    <modifier type="SPEED" value="0.0" modifiedValue="0.0" />
+                    <modifier type="SPEED" value="60.0" modifiedValue="1" />
+                </loopSynthesisRpm>
+                <volume>
+                    <modifier type="SPEED" value="0" modifiedValue="1" />
+                    <modifier type="SPEED" value="25" modifiedValue="1" />
+                    <modifier type="SPEED" value="60" modifiedValue="1.2" />
+                </volume>
+
+                <pitch>
+                    <modifier type="SPEED" value="0" modifiedValue="1" />
+                    <modifier type="SPEED" value="25" modifiedValue="1" />
+                    <modifier type="SPEED" value="60" modifiedValue="1.0" />
+                </pitch>
+            </hail>
+        </sounds>
+    </enterable>
+
+    <lights>
+        <sounds>
+            <toggleLights template="switch01"  />
+            <turnLight template="switchTurnlight" volumeScale="3" />
+        </sounds>
+    </lights>
+
+    <attacherJoints>
+        <sounds>
+            <attach template="truckAttach" linkNode="0>" volumeScale="10"/>
+            <detach template="truckDetach" linkNode="0>" volumeScale="10"/>
+        </sounds>
+    </attacherJoints>
+
+    <drivable>
+        <sounds>
+            <waterSplash template="waterSplash01" />
+        </sounds>
+    </drivable>
+
+    <honk>
+        <sound template="honkTruck">
+            <volume indoor="2" outdoor="5" />
+		</sound>
+    </honk>
+</sounds>
