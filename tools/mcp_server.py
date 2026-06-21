@@ -42,6 +42,104 @@ SEARCH_URL = "https://www.fs25.net/?s={query}"
 EXCLUDE_PATTERNS = (".git", "__pycache__", "*.pyc", ".DS_Store", "*.bak", "Thumbs.db", "desktop.ini")
 EXCLUDE_DIRS = {"backups", "validator", ".sisyphus"}
 
+# ── GDN Documentation ─────────────────────────────────────────────────────────
+
+GDN_BASE_URL = "https://gdn.giants-software.com/documentation_scripting_fs25.php"
+GDN_INDEX_PATH = TOOLS_DIR / "fs25-gdn-index.json"
+GDN_INDEX_MAX_AGE = 86400  # 24 hours in seconds
+
+
+def _parse_gdn_sidebar(html: str) -> list[dict]:
+    """Parse the GDN main page sidebar to extract category + first class entries."""
+    categories = []
+    for m in re.finditer(
+        r'href="[^"]*\?version=script&category=(\d+)&class=(\d+)[^"]*"[^>]*>([^<]*)</a>',
+        html
+    ):
+        name = m.group(3).strip()
+        if not name:
+            continue
+        categories.append({
+            "name": name,
+            "category_id": int(m.group(1)),
+            "class_id": int(m.group(2)),
+        })
+    return categories
+
+
+def _parse_category_classes(html: str, category_id: int) -> list[dict]:
+    """Parse class list for a specific category from a category page sidebar."""
+    classes = []
+    for m in re.finditer(
+        r'href="[^"]*\?version=script&category=(\d+)&class=(\d+)[^"]*"[^>]*>([^<]+)</a>',
+        html
+    ):
+        name = m.group(3).strip()
+        cat_id = int(m.group(1))
+        class_id = int(m.group(2))
+        if not name or cat_id != category_id:
+            continue
+        classes.append({"name": name, "class_id": class_id})
+    return classes
+
+
+def _build_gdn_index() -> dict:
+    """Build complete GDN index by crawling main page + all category pages."""
+    main_html = fetch(GDN_BASE_URL + "?version=script")
+    categories = _parse_gdn_sidebar(main_html)
+    if not categories:
+        return {"version": "unknown", "last_updated": 0, "categories": {}}
+
+    index = {"version": "unknown", "last_updated": time.time(), "categories": {}}
+    for cat in categories:
+        cat_id = cat["category_id"]
+        cat_entry = {"id": cat_id, "classes": {}}
+
+        # Fetch the category's first class page to get full class list
+        try:
+            url = f"{GDN_BASE_URL}?version=script&category={cat_id}&class={cat['class_id']}"
+            cat_html = fetch(url)
+            class_list = _parse_category_classes(cat_html, cat_id)
+            for cls in class_list:
+                if cls["name"] != cat["name"]:
+                    cat_entry["classes"][cls["name"]] = {"id": cls["class_id"]}
+        except Exception:
+            # Fallback: at least know the first class from sidebar
+            cat_entry["classes"][cat["name"]] = {"id": cat["class_id"]}
+
+        index["categories"][cat["name"]] = cat_entry
+
+    return index
+
+
+def _load_gdn_index() -> dict:
+    if not GDN_INDEX_PATH.exists():
+        return None
+    try:
+        return json.loads(GDN_INDEX_PATH.read_text(encoding="utf-8"))
+    except Exception:
+        return None
+
+
+def _save_gdn_index(index: dict):
+    GDN_INDEX_PATH.write_text(
+        json.dumps(index, indent=2, ensure_ascii=False) + "\n",
+        encoding="utf-8",
+    )
+
+
+def _ensure_gdn_index() -> dict:
+    index = _load_gdn_index()
+    now = time.time()
+    if index is None or (now - index.get("last_updated", 0)) > GDN_INDEX_MAX_AGE:
+        try:
+            index = _build_gdn_index()
+            _save_gdn_index(index)
+        except Exception as e:
+            if index is None:
+                return {"version": "unknown", "last_updated": 0, "categories": {}}
+    return index
+
 
 # ── Helpers ───────────────────────────────────────────────────────────────────
 
