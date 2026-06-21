@@ -9,6 +9,7 @@ Usage:
     python mcp_server.py        # Start MCP server (stdin/stdout JSON-RPC)
 """
 
+import html as html_mod
 import json
 import os
 import re
@@ -81,6 +82,61 @@ def _parse_category_classes(html: str, category_id: int) -> list[dict]:
             continue
         classes.append({"name": name, "class_id": class_id})
     return classes
+
+
+def _parse_class_page(html: str, class_name: str) -> dict:
+    """Parse a GDN class page into structured documentation."""
+    result = {
+        "name": class_name,
+        "description": "",
+        "functions": [],
+    }
+
+    # Extract class description from <h2 class="className">Name</h2><b>Description</b><blockquote>
+    desc_match = re.search(
+        r'<h2[^>]*class="className"[^>]*>\s*' + re.escape(class_name) + r'\s*</h2>\s*<b>Description</b><blockquote>(.*?)</blockquote>',
+        html, re.DOTALL | re.IGNORECASE
+    )
+    if desc_match:
+        result["description"] = re.sub(r'<[^>]+>', '', desc_match.group(1)).strip()
+
+    # Find main content area: from the class h2 to before the footer
+    content_match = re.search(
+        r'<h2[^>]*class="className"[^>]*>.*?</h2>(.*?)(?=<div\s+id="footer"|<h2[^>]*>)',
+        html, re.DOTALL
+    )
+    if not content_match:
+        return result
+    content = content_match.group(1)
+
+    # Extract function blocks: <h3>funcName</h3> content until next h3 or end
+    func_pattern = re.compile(
+        r'<h3>(.*?)</h3>(.*?)(?=<h3>|<div\s+id="footer"|<h2[^>]*>|$)',
+        re.DOTALL
+    )
+    for m in func_pattern.finditer(content):
+        func_name = m.group(1).strip()
+        func_html = m.group(2).strip()
+        if not func_name:
+            continue
+        func = {"name": func_name, "description": "", "code": ""}
+        # Description
+        desc_m = re.search(r'<b>Description</b><blockquote>(.*?)</blockquote>', func_html, re.DOTALL)
+        if desc_m:
+            func["description"] = re.sub(r'<[^>]+>', '', desc_m.group(1)).strip()
+        # Code block (table format)
+        code_m = re.search(r'<b>Code</b>\s*<table[^>]*class="code-listing-table"[^>]*>(.*?)</table>', func_html, re.DOTALL)
+        if code_m:
+            lines = re.findall(r'<td class="code-listing-code">(.*?)</td>', code_m.group(1), re.DOTALL)
+            code_lines = []
+            for line in lines:
+                clean = re.sub(r'<[^>]+>', '', line)
+                clean = html_mod.unescape(clean).strip()
+                code_lines.append(clean)
+            func["code"] = "\n".join(code_lines)
+        result["functions"].append(func)
+
+    return result
 
 
 def _build_gdn_index() -> dict:
@@ -1129,6 +1185,63 @@ def tool_gdn_search(params: dict) -> dict:
     }
 
 
+def tool_gdn_get_class(params: dict) -> dict:
+    name = params.get("name", "")
+    if not name:
+        return {"error": "name parameter is required"}
+
+    index = _ensure_gdn_index()
+    # Find class in index
+    class_info = None
+    for cat_name, cat_data in index.get("categories", {}).items():
+        for cls_name, cls_data in cat_data.get("classes", {}).items():
+            if cls_name.lower() == name.lower():
+                class_info = cls_data
+                class_info["category"] = cat_name
+                class_info["category_id"] = cat_data["id"]
+                break
+        if class_info:
+            break
+
+    if not class_info:
+        return {"error": f"Class '{name}' not found in GDN index"}
+
+    url = f"{GDN_BASE_URL}?version=script&category={class_info['category_id']}&class={class_info['id']}"
+    try:
+        html = fetch(url)
+    except Exception as e:
+        return {"error": f"Failed to fetch GDN page: {e}"}
+
+    parsed = _parse_class_page(html, name)
+    parsed["url"] = url
+
+    # Format as readable markdown
+    lines = [f"# {parsed['name']}", ""]
+    if parsed["description"]:
+        lines.append(parsed["description"])
+        lines.append("")
+
+    for func in parsed["functions"]:
+        lines.append(f"## {func['name']}")
+        lines.append("")
+        if func["description"]:
+            lines.append(func["description"])
+            lines.append("")
+        if func["code"]:
+            lines.append("```lua")
+            lines.append(func["code"])
+            lines.append("```")
+            lines.append("")
+
+    return {
+        "class": name,
+        "category": class_info["category"],
+        "url": url,
+        "documentation": "\n".join(lines),
+        "functions": [f["name"] for f in parsed["functions"]],
+    }
+
+
 # ── Tool registry ─────────────────────────────────────────────────────────────
 
 TOOLS = {
@@ -1319,6 +1432,18 @@ TOOLS = {
             "required": ["query"],
         },
         "handler": tool_gdn_search,
+    },
+    "gdn_get_class": {
+        "name": "gdn_get_class",
+        "description": "Fetch the full documentation page for a specific GDN FS25 class, including all functions, signatures, and code examples.",
+        "inputSchema": {
+            "type": "object",
+            "properties": {
+                "name": {"type": "string", "description": "Class name (e.g., 'BuyVehicleData', 'VehicleLoadingData')"},
+            },
+            "required": ["name"],
+        },
+        "handler": tool_gdn_get_class,
     },
 }
 
