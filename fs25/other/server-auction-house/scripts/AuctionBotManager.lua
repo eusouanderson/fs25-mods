@@ -197,8 +197,13 @@ function AuctionBotManager.spawnVehicleForPlayer(xmlFilename, playerFarmId, item
         end
         data:setStoreItem(storeItem)
     else
-        AuctionLogger.warning("AuctionBotManager", ">>> Store item NÃO encontrado para XML '%s' — tentando setFilename como fallback (pode falhar silenciosamente se não for veículo)", tostring(xmlFilename))
+        AuctionLogger.warning("AuctionBotManager", ">>> Store item NÃO encontrado para XML '%s' — tentando setFilename como fallback", tostring(xmlFilename))
         data:setFilename(xmlFilename)
+    end
+
+    if not data.isValid then
+        AuctionLogger.error("AuctionBotManager", ">>> FALHA CRÍTICA: VehicleLoadingData inválido (store item não encontrado) para '%s' (XML='%s') — spawn abortado, nenhum callback será disparado!", tostring(itemName), tostring(xmlFilename))
+        return false
     end
 
     data:setPosition(x, y, z)

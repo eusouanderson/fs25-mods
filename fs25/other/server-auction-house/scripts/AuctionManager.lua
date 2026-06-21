@@ -323,11 +323,19 @@ function AuctionManager:resolveAuction(auction)
                 if auction.xmlFilename then
                     AuctionLogger.info("AuctionManager", ">>> SPAWNANDO veículo '%s' (XML=%s) para farmId=%d — itemName do leilão='%s'", auction.itemName, auction.xmlFilename, playerFarmId, auction.itemName)
                     AuctionLogger.info("AuctionManager", ">>> CHAMADA: spawnVehicleForPlayer(xmlFilename='%s', farmId=%d, itemName='%s')", auction.xmlFilename, playerFarmId, auction.itemName)
-                    AuctionBotManager.spawnVehicleForPlayer(auction.xmlFilename, playerFarmId, auction.itemName)
-                    self:broadcastChat(string.format(g_i18n:getText("ah_global_ended", AuctionHouse.modName), auction.highestBidderName, auction.itemName, tostring(auction.currentBid)))
+                    local spawnOk = AuctionBotManager.spawnVehicleForPlayer(auction.xmlFilename, playerFarmId, auction.itemName)
+                    if not spawnOk then
+                        AuctionLogger.error("AuctionManager", ">>> REEMBOLSANDO jogador farmId=%d em %d (spawn falhou para '%s')", playerFarmId, auction.currentBid, auction.itemName)
+                        playerFarm:changeBalance(auction.currentBid, AuctionManager.MONEY_TYPE)
+                        self:broadcastChat(string.format(g_i18n:getText("ah_global_ended", AuctionHouse.modName), auction.highestBidderName, auction.itemName, tostring(auction.currentBid)) .. " (Delivery failed, refunded)")
+                    else
+                        self:broadcastChat(string.format(g_i18n:getText("ah_global_ended", AuctionHouse.modName), auction.highestBidderName, auction.itemName, tostring(auction.currentBid)))
+                    end
                 else
                     AuctionLogger.error("AuctionManager", ">>> ERRO CRÍTICO: jogador venceu leilão de bot mas xmlFilename está nil para item '%s' — dinheiro foi debitado mas veículo não será entregue!", auction.itemName)
-                    self:broadcastChat(string.format(g_i18n:getText("ah_global_ended", AuctionHouse.modName), auction.highestBidderName, auction.itemName, tostring(auction.currentBid)) .. " (Delivery failed: Missing XML)")
+                    AuctionLogger.info("AuctionManager", ">>> REEMBOLSANDO jogador farmId=%d em %d (xmlFilename=nil)", playerFarmId, auction.currentBid)
+                    playerFarm:changeBalance(auction.currentBid, AuctionManager.MONEY_TYPE)
+                    self:broadcastChat(string.format(g_i18n:getText("ah_global_ended", AuctionHouse.modName), auction.highestBidderName, auction.itemName, tostring(auction.currentBid)) .. " (Delivery failed: Missing XML, refunded)")
                 end
             else
                 AuctionLogger.error("AuctionManager", ">>> ERRO CRÍTICO: playerFarm not found para farmId=%d no leilão %d", playerFarmId, auction.id)
