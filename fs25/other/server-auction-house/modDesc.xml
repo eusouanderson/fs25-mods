@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="no" ?>
 <modDesc descVersion="107">
     <author>B.O.B</author>
-    <version>1.2.0.0</version>
+    <version>1.2.1.0</version>
 
     <title>
         <en>Server Auction House</en>
@@ -17,13 +17,15 @@ All data is server-authoritative and persists in the savegame.
 
 Features:
 - Auction your own vehicles to other players
+- Bot system: AI bots create auctions and place bids automatically
 - Real-time bidding with automatic resolution
 - Full multiplayer synchronization
 - Savegame persistence
 - Native GIANTS Engine UI, integrated into the in-game menu
+- Configurable bot settings via in-game menu (server only)
 
 Author: B.O.B
-Version: 1.1.1.0
+Version: 1.2.1.0
 Category: Gameplay / HUD
         ]]>        </en>
         <pt><![CDATA[
@@ -33,13 +35,15 @@ Todos os dados são autoritativos do servidor e persistem no savegame.
 
 Funcionalidades:
 - Leiloe seus próprios veículos para outros jogadores
+- Sistema de bots: bots de IA criam leilões e dão lances automaticamente
 - Lances em tempo real com resolução automática
 - Sincronização completa em multiplayer
 - Persistência no savegame
 - Interface nativa do GIANTS Engine, integrada ao menu do jogo
+- Configuração de bots pelo menu do jogo (apenas servidor)
 
 Autor: B.O.B
-Versão: 1.1.1.0
+Versão: 1.2.1.0
 Categoria: Gameplay / HUD
         ]]>        </pt>
         <br><![CDATA[
@@ -49,13 +53,15 @@ Todos os dados são autoritativos do servidor e persistem no savegame.
 
 Funcionalidades:
 - Leiloe seus próprios veículos para outros jogadores
+- Sistema de bots: bots de IA criam leilões e dão lances automaticamente
 - Lances em tempo real com resolução automática
 - Sincronização completa em multiplayer
 - Persistência no savegame
 - Interface nativa do GIANTS Engine, integrada ao menu do jogo
+- Configuração de bots pelo menu do jogo (apenas servidor)
 
 Autor: B.O.B
-Versão: 1.1.1.0
+Versão: 1.2.1.0
 Categoria: Gameplay / HUD
         ]]>        </br>
         <fr><![CDATA[
@@ -65,13 +71,15 @@ Toutes les données sont autoritaires du serveur et persistent dans la sauvegard
 
 Fonctionnalités:
 - Enchérissez vos propres véhicules à d'autres joueurs
+- Système de bots: les bots IA créent des enchères et placent des offres automatiquement
 - Enchères en temps réel avec résolution automatique
 - Synchronisation multijoueur complète
 - Persistance dans la sauvegarde
 - Interface native du moteur GIANTS, intégrée au menu du jeu
+- Configuration des bots via le menu du jeu (serveur seulement)
 
 Auteur: B.O.B
-Version: 1.1.1.0
+Version: 1.2.1.0
 Catégorie: Gameplay / HUD
         ]]>        </fr>
         <es><![CDATA[
@@ -81,13 +89,15 @@ Todos los datos son autoritativos del servidor y persisten en la partida guardad
 
 Características:
 - Subasta tus propios vehículos a otros jugadores
+- Sistema de bots: los bots de IA crean subastas y pujan automáticamente
 - Pujas en tiempo real con resolución automática
 - Sincronización multijugador completa
 - Persistencia en la partida guardada
 - Interfaz nativa del motor GIANTS, integrada en el menú del juego
+- Configuración de bots desde el menú del juego (solo servidor)
 
 Autor: B.O.B
-Versión: 1.1.1.0
+Versión: 1.2.1.0
 Categoría: Gameplay / HUD
         ]]>        </es>
     </description>

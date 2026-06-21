@@ -11,12 +11,13 @@
 ## 📋 Informações / Information
 
 | 🇧🇷 | 🇺🇸 |
-|---|---|
-| **Versão** | 1.2.0 |
+|---|---|---|
+| **Versão** | 1.2.1 |
 | **Autor** | B.O.B ([github.com/eusouanderson](https://github.com/eusouanderson)) |
 | **Categoria** | 📦 Outros / Other (Gameplay) |
 | **Multiplayer** | ✅ Sincronização completa / Full sync |
 | **Persistência** | Savegame |
+| **Bots IA** | 8 bots com 4 perfis / 8 bots with 4 profiles |
 
 ## 📸 Screenshots
 
@@ -39,6 +40,17 @@ entre os clientes e salvo no savegame.
 - ✅ Persistência no savegame
 - ✅ Interface nativa no estilo GIANTS Engine UI
 - ✅ Abertura por tecla de atalho (L)
+- ✅ **Sistema de bots**: 8 bots com 4 perfis (Conservador, Competitivo, Agressivo, Aleatório)
+- ✅ Configuração de bots pelo menu **Configurações > Server Auction House** (apenas servidor)
+
+### Sistema de Bots
+Os bots criam leilões automaticamente (até 3 simultâneos) e dão lances com base em seus perfis:
+- **Conservador**: lances baixos, raramente disputa
+- **Competitivo**: lances moderados, disputa ativa
+- **Agressivo**: lances altos, guerra de lances
+- **Aleatório**: comportamento imprevisível
+
+Para desligar os bots: **Configurações > Server Auction House > Auction House Bots > OFF**.
 
 ### Como usar
 1. Pressione **L** (configurável em *Opções > Controles*) para abrir a casa de leilões
@@ -46,6 +58,10 @@ entre os clientes e salvo no savegame.
 3. Confirme para publicar o leilão no servidor
 4. Outros jogadores podem dar lances enquanto o leilão estiver ativo
 5. Ao encerrar, o vencedor recebe o veículo e o vendedor recebe o valor
+
+### Itens ganhos de bots
+Ao vencer um leilão de bot, o veículo é spawnado na área de spawn da loja do mapa.
+**Nota:** o spawn diretamente sobre o jogador será implementado em versão futura.
 
 ### Instalação
 1. Baixe o arquivo ZIP abaixo
@@ -68,6 +84,17 @@ is synchronized across clients and persisted in the savegame.
 - ✅ Savegame persistence
 - ✅ Native GIANTS Engine-styled UI
 - ✅ Open with the L key (configurable in *Options > Controls*)
+- ✅ **Bot system**: 8 bots with 4 profiles (Conservative, Competitive, Aggressive, Random)
+- ✅ Bot configuration via **Settings > Server Auction House** (server only)
+
+### Bot System
+Bots automatically create auctions (up to 3 concurrent) and place bids based on their profiles:
+- **Conservative**: low bids, rarely contests
+- **Competitive**: moderate bids, actively contests
+- **Aggressive**: high bids, engages in bidding wars
+- **Random**: unpredictable behavior
+
+To disable bots: **Settings > Server Auction House > Auction House Bots > OFF**.
 
 ### How to use
 1. Press **L** (configurable in *Options > Controls*) to open the auction house
@@ -75,6 +102,10 @@ is synchronized across clients and persisted in the savegame.
 3. Confirm to publish the auction on the server
 4. Other players can place bids while the auction is active
 5. When it ends, the winner receives the vehicle and the seller gets paid
+
+### Items won from bots
+When you win a bot auction, the vehicle spawns at the map's shop spawn area.
+**Note:** spawning directly on the player's location will be implemented in a future version.
 
 ### Installation
 1. Download the ZIP file below
@@ -86,6 +117,11 @@ is synchronized across clients and persisted in the savegame.
 
 ## 📥 Download
 
+**Server Auction House v1.2.1** (recomendado)
+
+[⬇ Baixar / Download](https://github.com/eusouanderson/fs25-mods/releases/tag/server-auction-house-v1.2.1)
+
+---
 **Server Auction House v1.2.0**
 
 [⬇ Baixar / Download](https://github.com/eusouanderson/fs25-mods/releases/tag/server-auction-house-v1.2.0)
@@ -94,16 +130,6 @@ is synchronized across clients and persisted in the savegame.
 **Server Auction House v1.1.0**
 
 [⬇ Baixar / Download](https://github.com/eusouanderson/fs25-mods/releases/tag/server-auction-house-v1.1.0)
-
----
-**Server Auction House v1.0.1**
-
-[⬇ Baixar / Download](https://github.com/eusouanderson/fs25-mods/releases/tag/server-auction-house-v1.0.1)
-
----
-**Server Auction House v1.0.0**
-
-[⬇ Baixar / Download](https://github.com/eusouanderson/fs25-mods/releases/tag/server-auction-house-v1.0.0)
 
 ---
 

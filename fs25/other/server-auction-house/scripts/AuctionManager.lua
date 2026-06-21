@@ -257,6 +257,31 @@ function AuctionManager:placeBid(auctionId, bidderId, bidderName, amount)
     self:broadcastChat(string.format(g_i18n:getText("ah_global_newBid", AuctionHouse.modName), bidderName, tostring(amount), auction.itemName))
 end
 
+-- Server-authoritative: cancel all bot auctions (e.g. when bots are disabled)
+function AuctionManager:cancelBotAuctions()
+    if g_server == nil then
+        return
+    end
+    local before = #self.auctions
+    local cancelled = {}
+    local i = 1
+    while i <= #self.auctions do
+        if self.auctions[i].sellerId < 0 then
+            table.insert(cancelled, self.auctions[i].itemName or "?")
+            table.remove(self.auctions, i)
+        else
+            i = i + 1
+        end
+    end
+    if #cancelled > 0 then
+        AuctionLogger.info("AuctionManager", "cancelBotAuctions: %d leilões cancelados (%s)", #cancelled, table.concat(cancelled, ", "))
+        self:saveToSavegame()
+        AuctionEvent.sendSync(self.auctions)
+        self:notifyListeners()
+        self:broadcastChat("Leilões de bots cancelados (" .. #cancelled .. "): " .. table.concat(cancelled, ", "))
+    end
+end
+
 -- Server-authoritative: cancel an auction (seller only)
 function AuctionManager:cancelAuction(auctionId, requesterId, requesterName)
     if g_server == nil then

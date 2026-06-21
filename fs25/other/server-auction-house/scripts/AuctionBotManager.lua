@@ -6,6 +6,12 @@ AuctionBotManager.TICK_INTERVAL = 8000 -- Check every 8 seconds
 AuctionBotManager.MAX_BOT_AUCTIONS = 3
 AuctionBotManager.CREATE_CHANCE = 0.15 -- 15% chance to create a bot auction if under limit
 
+-- Modo desenvolvedor: força duração máxima de 1 minuto para testar rapidamente
+-- Em produção, mude para false para usar duração aleatória normal (3-15 min)
+AuctionBotManager.DEV_MODE = false
+
+AuctionBotManager._botsPreviouslyEnabled = nil
+
 AuctionBotManager.BOTS = {
     { id = -100, name = "Pedro (Conservador)", profile = "CONSERVATIVE" },
     { id = -101, name = "Lucas (Competitivo)", profile = "COMPETITIVE" },
@@ -263,10 +269,15 @@ function AuctionBotManager.createRandomBotAuction()
     -- Pick a random bot
     local bot = AuctionBotManager.BOTS[math.random(1, #AuctionBotManager.BOTS)]
     
-    -- Random duration between 3 to 15 minutes
-    local durationMins = math.random(3, 15)
+    -- Random duration between 3 to 15 minutes (DEV_MODE: max 1 min)
+    local durationMins
+    if AuctionBotManager.DEV_MODE then
+        durationMins = math.random(1, 1)
+    else
+        durationMins = math.random(3, 15)
+    end
 
-    AuctionLogger.info("AuctionBotManager", "Creating automated auction: bot=%s, item=%s, startingBid=%d, duration=%dmins", bot.name, item.name, startingBid, durationMins)
+    AuctionLogger.info("AuctionBotManager", "Creating automated auction: bot=%s, item=%s, startingBid=%d, duration=%dmins (DEV_MODE=%s)", bot.name, item.name, startingBid, durationMins, tostring(AuctionBotManager.DEV_MODE))
     
     -- Call custom creation wrapper in AuctionManager
     g_auctionManager:createBotAuction(bot.id, bot.name, item.name, item.xmlFilename, startingBid, durationMins, item.price)
@@ -328,9 +339,24 @@ function AuctionBotManager.update(dt)
         return
     end
     
-    if g_currentMission.auctionSettings ~= nil and g_currentMission.auctionSettings.auctionHouseBotsEnabled == false then
+    local botsEnabled = true
+    if g_currentMission.auctionSettings ~= nil then
+        botsEnabled = g_currentMission.auctionSettings.auctionHouseBotsEnabled ~= false
+    end
+    if AuctionBotManager._botsPreviouslyEnabled == nil then
+        AuctionBotManager._botsPreviouslyEnabled = botsEnabled
+    end
+    if not botsEnabled then
+        if AuctionBotManager._botsPreviouslyEnabled then
+            AuctionLogger.info("AuctionBotManager", "Bots desativados — limpando leilões de bots")
+            if g_auctionManager ~= nil then
+                g_auctionManager:cancelBotAuctions()
+            end
+            AuctionBotManager._botsPreviouslyEnabled = false
+        end
         return
     end
+    AuctionBotManager._botsPreviouslyEnabled = true
     AuctionBotManager.tickTimer = AuctionBotManager.tickTimer + dt
     if AuctionBotManager.tickTimer >= AuctionBotManager.TICK_INTERVAL then
         AuctionLogger.info("AuctionBotManager", "=== Bot tick fired (timer=%d >= interval=%d) ===", AuctionBotManager.tickTimer, AuctionBotManager.TICK_INTERVAL)
