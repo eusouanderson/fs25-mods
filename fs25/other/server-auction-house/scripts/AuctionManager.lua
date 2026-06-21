@@ -19,10 +19,31 @@ end
 function AuctionManager:loadFromSavegame()
     AuctionLogger.info("AuctionManager", "Loading from savegame")
     local auctions, nextId = AuctionStorage.load()
-    self.auctions = auctions
+    self.auctions = {}
     self.nextId = nextId
     self.isLoaded = true
-    AuctionLogger.info("AuctionManager", "Loaded " .. #self.auctions .. " auctions, nextId=" .. self.nextId)
+
+    local recovered = 0
+    for _, auction in ipairs(auctions) do
+        if auction.status == "ENDED" then
+            local isOrphanedBotWin = auction.sellerId < 0 and auction.highestBidderId > 0 and auction.currentBid > 0
+            local isVehiclePath = auction.xmlFilename and auction.xmlFilename:find("/vehicles/") ~= nil
+            if isOrphanedBotWin and isVehiclePath then
+                AuctionLogger.info("AuctionManager", ">>> Re-ativando leilão órfão ENDED %d: jogador '%s' venceu bot '%s' pelo '%s' (valor=%d) — será resolvido no próximo update", auction.id, auction.highestBidderName, auction.sellerName, auction.itemName, auction.currentBid)
+                auction.status = "ACTIVE"
+                auction.endTime = 0
+                table.insert(self.auctions, auction)
+                recovered = recovered + 1
+            else
+                AuctionLogger.info("AuctionManager", ">>> Removendo leilão ENDED antigo %d ('%s') sem recuperação necessária (botWin=%s vehiclePath=%s)", auction.id, auction.itemName or "?", tostring(isOrphanedBotWin), tostring(isVehiclePath))
+            end
+        else
+            table.insert(self.auctions, auction)
+        end
+    end
+
+    AuctionLogger.info("AuctionManager", "Loaded %d auctions from savegame (re-activated %d orphaned ENDED)", #self.auctions, recovered)
+    self:saveToSavegame()
 end
 
 function AuctionManager:saveToSavegame()
