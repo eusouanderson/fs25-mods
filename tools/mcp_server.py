@@ -139,6 +139,16 @@ def _parse_class_page(html: str, class_name: str) -> dict:
     return result
 
 
+def _html_to_text(html: str) -> str:
+    text = re.sub(r'<script[^>]*>.*?</script>', '', html, flags=re.DOTALL)
+    text = re.sub(r'<style[^>]*>.*?</style>', '', text, flags=re.DOTALL)
+    text = re.sub(r'</?(?:div|p|tr|li|ol|ul|h[1-6]|blockquote|pre|br)[^>]*>', '\n', text, flags=re.DOTALL)
+    text = re.sub(r'<[^>]+>', '', text)
+    text = re.sub(r'\n\s*\n', '\n\n', text)
+    text = re.sub(r'[ \t]+', ' ', text)
+    return text.strip()
+
+
 def _build_gdn_index() -> dict:
     """Build complete GDN index by crawling main page + all category pages."""
     main_html = fetch(GDN_BASE_URL + "?version=script")
@@ -1242,6 +1252,33 @@ def tool_gdn_get_class(params: dict) -> dict:
     }
 
 
+def tool_gdn_fetch_url(params: dict) -> dict:
+    url = params.get("url", "")
+    if not url:
+        return {"error": "url parameter is required"}
+
+    if url.startswith("?"):
+        url = GDN_BASE_URL + url
+    elif not url.startswith("http"):
+        url = GDN_BASE_URL + "/" + url.lstrip("/")
+
+    try:
+        html = fetch(url)
+    except Exception as e:
+        return {"error": f"Failed to fetch URL: {e}"}
+
+    text = _html_to_text(html)
+    max_chars = 50000
+    if len(text) > max_chars:
+        text = text[:max_chars] + "\n\n[... truncated ...]"
+
+    return {
+        "url": url,
+        "content": text,
+        "char_count": len(text),
+    }
+
+
 # ── Tool registry ─────────────────────────────────────────────────────────────
 
 TOOLS = {
@@ -1444,6 +1481,18 @@ TOOLS = {
             "required": ["name"],
         },
         "handler": tool_gdn_get_class,
+    },
+    "gdn_fetch_url": {
+        "name": "gdn_fetch_url",
+        "description": "Fetch any GDN URL and return its content as formatted text. Useful for exploring documentation pages not covered by other tools.",
+        "inputSchema": {
+            "type": "object",
+            "properties": {
+                "url": {"type": "string", "description": "Full or relative GDN URL (e.g., '?version=script&category=74&class=614')"},
+            },
+            "required": ["url"],
+        },
+        "handler": tool_gdn_fetch_url,
     },
 }
 
