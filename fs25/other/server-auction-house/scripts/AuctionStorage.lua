@@ -40,6 +40,7 @@ function AuctionStorage.load()
         local auction = {
             id                 = getXMLInt(xmlFile, key .. "#id"),
             vehicleId          = getXMLInt(xmlFile, key .. "#vehicleId") or 0,
+            xmlFilename        = getXMLString(xmlFile, key .. "#xmlFilename"),
             itemName           = getXMLString(xmlFile, key .. "#itemName") or "",
             sellerId           = getXMLInt(xmlFile, key .. "#sellerId") or 0,
             sellerName         = getXMLString(xmlFile, key .. "#sellerName") or "",
@@ -50,6 +51,7 @@ function AuctionStorage.load()
             startTime          = getXMLFloat(xmlFile, key .. "#startTime") or 0,
             endTime            = getXMLFloat(xmlFile, key .. "#endTime") or 0,
             status             = getXMLString(xmlFile, key .. "#status") or "ACTIVE",
+            storePrice         = getXMLInt(xmlFile, key .. "#storePrice") or 0,
         }
         table.insert(auctions, auction)
         i = i + 1
@@ -75,6 +77,9 @@ function AuctionStorage.save(auctions, nextId)
         local key = string.format("%s.auction(%d)", SAVE_KEY, i - 1)
         setXMLInt(xmlFile, key .. "#id", auction.id)
         setXMLInt(xmlFile, key .. "#vehicleId", auction.vehicleId or 0)
+        if auction.xmlFilename then
+            setXMLString(xmlFile, key .. "#xmlFilename", auction.xmlFilename)
+        end
         setXMLString(xmlFile, key .. "#itemName", auction.itemName or "")
         setXMLInt(xmlFile, key .. "#sellerId", auction.sellerId or 0)
         setXMLString(xmlFile, key .. "#sellerName", auction.sellerName or "")
@@ -85,6 +90,9 @@ function AuctionStorage.save(auctions, nextId)
         setXMLFloat(xmlFile, key .. "#startTime", auction.startTime or 0)
         setXMLFloat(xmlFile, key .. "#endTime", auction.endTime or 0)
         setXMLString(xmlFile, key .. "#status", auction.status or "ACTIVE")
+        if auction.storePrice then
+            setXMLInt(xmlFile, key .. "#storePrice", auction.storePrice)
+        end
     end
 
     local ok = saveXMLFile(xmlFile, path)

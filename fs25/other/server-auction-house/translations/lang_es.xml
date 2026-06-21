@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<l10n>
+    <elements>
+        <e k="ah_title" v="CASA DE SUBASTAS DEL SERVIDOR" />
+        <e k="ah_createAuction" v="Crear Subasta" />
+        <e k="ah_cancelAuction" v="Cancelar Subasta" />
+        <e k="ah_close" v="Cerrar" />
+        <e k="ah_filterAll" v="Todos" />
+        <e k="ah_filterMine" v="Míos" />
+        <e k="ah_colItem" v="Artículo" />
+        <e k="ah_colCurrentBid" v="Puja Actual" />
+        <e k="ah_colTimeLeft" v="Tiempo Restante" />
+        <e k="ah_colSeller" v="Vendedor" />
+        <e k="ah_empty" v="No hay subastas todavía" />
+        <e k="ah_placeBid" v="Pujar" />
+        <e k="ah_detailNoSelection" v="Seleccione una subasta para ver detalles" />
+        <e k="ah_seller" v="Vendedor:" />
+        <e k="ah_startingBid" v="Puja Inicial:" />
+        <e k="ah_currentBid" v="Puja Actual:" />
+        <e k="ah_highestBidder" v="Mejor Postor:" />
+        <e k="ah_noBidsYet" v="Aún no hay pujas" />
+        <e k="ah_timeLeft" v="Tiempo Restante:" />
+        <e k="ah_statusActive" v="Activo" />
+        <e k="ah_statusEnded" v="Finalizado" />
+        <e k="ah_auctionRequested" v="Solicitud de subasta enviada al servidor" />
+        <e k="ah_cancelRequested" v="Solicitud de cancelación enviada al servidor" />
+        <e k="ah_bidRequested" v="Puja enviada al servidor" />
+        <e k="ah_error_invalidAmount" v="Error: Cantidad de puja inválida" />
+        <e k="ah_error_noVehicle" v="Error: No hay ningún vehículo disponible de su propiedad para subastar." />
+        <e k="ah_error_vehicleInAuction" v="Error: Este vehículo ya está en una subasta." />
+        <e k="ah_error_noAuction" v="Error: No hay ninguna subasta activa en este momento." />
+        <e k="ah_error_selfBid" v="Error: No puede pujar en su propia subasta." />
+        <e k="ah_error_minBid" v="Error: La puja mínima debe ser al menos $" />
+        <e k="ah_error_noFunds" v="Error: Saldo insuficiente en la cuenta de la granja." />
+        <e k="ah_error_notOwner" v="Error: Solo el vendedor puede cancelar esta subasta." />
+        <e k="ah_global_auctionStarted" v="[Subasta] %s inició una subasta de %s por $%s" />
+        <e k="ah_global_newBid" v="[Subasta] Nueva puja más alta de %s por $%s en %s" />
+        <e k="ah_global_cancelled" v="[Subasta] La subasta de %s fue cancelada por el vendedor." />
+        <e k="ah_global_ended" v="[Subasta] ¡Subasta finalizada! %s ganó %s por $%s" />
+        <e k="ah_global_vehicleNotFound" v="[Subasta] Error: Vehículo no encontrado. Venta cancelada." />
+        <e k="ah_global_noBids" v="[Subasta] La subasta de %s terminó sin pujas." />
+        <e k="ah_dialogSelectVehicle" v="Por favor seleccione un vehículo" />
+        <e k="ah_dialogTitle" v="Crear Nueva Subasta" />
+        <e k="ah_dialogVehicleLabel" v="Seleccione el Vehículo:" />
+        <e k="ah_dialogNoVehicles" v="No hay vehículos disponibles para subastar" />
+        <e k="ah_dialogStartingBidLabel" v="Puja Inicial ($):" />
+        <e k="ah_dialogDurationLabel" v="Duración (minutos):" />
+        <e k="ah_dialogCreateBtn" v="Crear" />
+        <e k="input_AUCTION_OPEN" v="Abrir la Casa de Subastas" />
+        <e k="auction_settings_section_title" v="Casa de Subastas del Servidor" />
+        <e k="auction_setting_auctionHouseBotsEnabled" v="Bots de Subasta" />
+        <e k="auction_toolTip_auctionHouseBotsEnabled" v="Si está activado, los bots virtuales pondrán artículos en venta y pujarán en las subastas." />
+    </elements>
+</l10n>

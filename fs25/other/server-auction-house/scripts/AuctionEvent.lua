@@ -114,6 +114,7 @@ end
 function AuctionEvent.writeAuction(streamId, auction)
     streamWriteInt32(streamId, auction.id)
     streamWriteInt32(streamId, auction.vehicleId or 0)
+    streamWriteString(streamId, auction.xmlFilename or "")
     streamWriteString(streamId, auction.itemName or "")
     streamWriteInt32(streamId, auction.sellerId or 0)
     streamWriteString(streamId, auction.sellerName or "")
@@ -124,12 +125,14 @@ function AuctionEvent.writeAuction(streamId, auction)
     streamWriteFloat32(streamId, auction.startTime or 0)
     streamWriteFloat32(streamId, auction.endTime or 0)
     streamWriteString(streamId, auction.status or "ACTIVE")
+    streamWriteInt32(streamId, auction.storePrice or 0)
 end
 
 function AuctionEvent.readAuction(streamId)
     return {
         id                = streamReadInt32(streamId),
         vehicleId         = streamReadInt32(streamId),
+        xmlFilename       = streamReadString(streamId),
         itemName          = streamReadString(streamId),
         sellerId          = streamReadInt32(streamId),
         sellerName        = streamReadString(streamId),
@@ -140,6 +143,7 @@ function AuctionEvent.readAuction(streamId)
         startTime         = streamReadFloat32(streamId),
         endTime           = streamReadFloat32(streamId),
         status            = streamReadString(streamId),
+        storePrice        = streamReadInt32(streamId),
     }
 end
 

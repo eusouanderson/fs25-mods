@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="no" ?>
 <modDesc descVersion="107">
     <author>B.O.B</author>
-    <version>1.1.0.0</version>
+    <version>1.2.0.0</version>
 
     <title>
         <en>Server Auction House</en>
@@ -23,7 +23,7 @@ Features:
 - Native GIANTS Engine UI, integrated into the in-game menu
 
 Author: B.O.B
-Version: 1.1.0.0
+Version: 1.1.1.0
 Category: Gameplay / HUD
         ]]>        </en>
         <pt><![CDATA[
@@ -39,7 +39,7 @@ Funcionalidades:
 - Interface nativa do GIANTS Engine, integrada ao menu do jogo
 
 Autor: B.O.B
-Versão: 1.1.0.0
+Versão: 1.1.1.0
 Categoria: Gameplay / HUD
         ]]>        </pt>
         <br><![CDATA[
@@ -55,16 +55,50 @@ Funcionalidades:
 - Interface nativa do GIANTS Engine, integrada ao menu do jogo
 
 Autor: B.O.B
-Versão: 1.1.0.0
+Versão: 1.1.1.0
 Categoria: Gameplay / HUD
         ]]>        </br>
+        <fr><![CDATA[
+Server Auction House est un système d'enchères multijoueur en temps réel pour Farming Simulator 25.
+Les joueurs peuvent mettre leurs propres véhicules aux enchères et enchérir sur les articles listés par d'autres.
+Toutes les données sont autoritaires du serveur et persistent dans la sauvegarde.
+
+Fonctionnalités:
+- Enchérissez vos propres véhicules à d'autres joueurs
+- Enchères en temps réel avec résolution automatique
+- Synchronisation multijoueur complète
+- Persistance dans la sauvegarde
+- Interface native du moteur GIANTS, intégrée au menu du jeu
+
+Auteur: B.O.B
+Version: 1.1.1.0
+Catégorie: Gameplay / HUD
+        ]]>        </fr>
+        <es><![CDATA[
+Server Auction House es un sistema de subastas multijugador en tiempo real para Farming Simulator 25.
+Los jugadores pueden poner sus propios vehículos en subasta y pujar por artículos listados por otros.
+Todos los datos son autoritativos del servidor y persisten en la partida guardada.
+
+Características:
+- Subasta tus propios vehículos a otros jugadores
+- Pujas en tiempo real con resolución automática
+- Sincronización multijugador completa
+- Persistencia en la partida guardada
+- Interfaz nativa del motor GIANTS, integrada en el menú del juego
+
+Autor: B.O.B
+Versión: 1.1.1.0
+Categoría: Gameplay / HUD
+        ]]>        </es>
     </description>
 
-    <l10n filenamePrefix="translations/lang" defaultLanguage="en" supportedLanguages="en,pt,br">
+    <l10n filenamePrefix="translations/lang" defaultLanguage="en" supportedLanguages="en,pt,br,fr,es">
         <text name="input_AUCTION_OPEN">
             <en>Open Auction House</en>
             <pt>Abrir Leilão do Servidor</pt>
             <br>Abrir Leilão do Servidor</br>
+            <fr>Ouvrir la Maison de Vente</fr>
+            <es>Abrir la Casa de Subastas</es>
         </text>
     </l10n>
 
@@ -83,10 +117,13 @@ Categoria: Gameplay / HUD
         <sourceFile filename="scripts/AuctionLogger.lua" />
         <sourceFile filename="scripts/AuctionStorage.lua" />
         <sourceFile filename="scripts/AuctionEvent.lua" />
+        <sourceFile filename="scripts/AuctionBotManager.lua" />
+        <sourceFile filename="scripts/AuctionVehicleTransferEvent.lua" />
         <sourceFile filename="scripts/AuctionManager.lua" />
         <sourceFile filename="scripts/AuctionUI.lua" />
         <sourceFile filename="scripts/AuctionCreateDialog.lua" />
         <sourceFile filename="scripts/AuctionScreen.lua" />
+        <sourceFile filename="scripts/AuctionSettings.lua" />
         <sourceFile filename="scripts/main.lua" />
     </extraSourceFiles>
 

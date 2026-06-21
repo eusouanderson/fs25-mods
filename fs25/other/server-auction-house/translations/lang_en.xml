@@ -47,5 +47,8 @@
         <e k="ah_dialogDurationLabel" v="Duration (minutes):" />
         <e k="ah_dialogCreateBtn" v="Create" />
         <e k="input_AUCTION_OPEN" v="Open Auction House" />
+        <e k="auction_settings_section_title" v="Server Auction House" />
+        <e k="auction_setting_auctionHouseBotsEnabled" v="Auction Bots" />
+        <e k="auction_toolTip_auctionHouseBotsEnabled" v="If enabled, virtual bots will list items for sale and place bids on auctions." />
     </elements>
 </l10n>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<l10n>
+    <elements>
+        <e k="ah_title" v="MAISON DE VENTE SERVEUR" />
+        <e k="ah_createAuction" v="Créer une Enchère" />
+        <e k="ah_cancelAuction" v="Annuler l'Enchère" />
+        <e k="ah_close" v="Fermer" />
+        <e k="ah_filterAll" v="Tous" />
+        <e k="ah_filterMine" v="Mes" />
+        <e k="ah_colItem" v="Article" />
+        <e k="ah_colCurrentBid" v="Enchère Actuelle" />
+        <e k="ah_colTimeLeft" v="Temps Restant" />
+        <e k="ah_colSeller" v="Vendeur" />
+        <e k="ah_empty" v="Aucune enchère pour le moment" />
+        <e k="ah_placeBid" v="Faire une Offre" />
+        <e k="ah_detailNoSelection" v="Sélectionnez une enchère pour voir les détails" />
+        <e k="ah_seller" v="Vendeur:" />
+        <e k="ah_startingBid" v="Prix de Départ:" />
+        <e k="ah_currentBid" v="Enchère Actuelle:" />
+        <e k="ah_highestBidder" v="Meilleur Offreur:" />
+        <e k="ah_noBidsYet" v="Aucune offre pour le moment" />
+        <e k="ah_timeLeft" v="Temps Restant:" />
+        <e k="ah_statusActive" v="Actif" />
+        <e k="ah_statusEnded" v="Terminé" />
+        <e k="ah_auctionRequested" v="Demande d'enchère envoyée au serveur" />
+        <e k="ah_cancelRequested" v="Demande d'annulation envoyée au serveur" />
+        <e k="ah_bidRequested" v="Offre envoyée au serveur" />
+        <e k="ah_error_invalidAmount" v="Erreur: Montant de l'offre invalide" />
+        <e k="ah_error_noVehicle" v="Erreur: Aucun véhicule disponible de votre propriété à mettre aux enchères." />
+        <e k="ah_error_vehicleInAuction" v="Erreur: Ce véhicule est déjà en enchère." />
+        <e k="ah_error_noAuction" v="Erreur: Aucune enchère active pour le moment." />
+        <e k="ah_error_selfBid" v="Erreur: Vous ne pouvez pas enchérir sur votre propre enchère." />
+        <e k="ah_error_minBid" v="Erreur: L'offre minimale doit être d'au moins $" />
+        <e k="ah_error_noFunds" v="Erreur: Solde insuffisant sur le compte de la ferme." />
+        <e k="ah_error_notOwner" v="Erreur: Seul le vendeur peut annuler cette enchère." />
+        <e k="ah_global_auctionStarted" v="[Enchère] %s a lancé une enchère de %s pour $%s" />
+        <e k="ah_global_newBid" v="[Enchère] Nouvelle meilleure offre de %s de $%s sur %s" />
+        <e k="ah_global_cancelled" v="[Enchère] L'enchère de %s a été annulée par le vendeur." />
+        <e k="ah_global_ended" v="[Enchère] Enchère terminée! %s a remporté %s pour $%s" />
+        <e k="ah_global_vehicleNotFound" v="[Enchère] Erreur: Véhicule introuvable. Vente annulée." />
+        <e k="ah_global_noBids" v="[Enchère] L'enchère de %s s'est terminée sans offre." />
+        <e k="ah_dialogSelectVehicle" v="Veuillez sélectionner un véhicule" />
+        <e k="ah_dialogTitle" v="Créer une Nouvelle Enchère" />
+        <e k="ah_dialogVehicleLabel" v="Sélectionnez le Véhicule:" />
+        <e k="ah_dialogNoVehicles" v="Aucun véhicule disponible à mettre aux enchères" />
+        <e k="ah_dialogStartingBidLabel" v="Prix de Départ ($):" />
+        <e k="ah_dialogDurationLabel" v="Durée (minutes):" />
+        <e k="ah_dialogCreateBtn" v="Créer" />
+        <e k="input_AUCTION_OPEN" v="Ouvrir la Maison de Vente" />
+        <e k="auction_settings_section_title" v="Maison de Vente du Serveur" />
+        <e k="auction_setting_auctionHouseBotsEnabled" v="Bots d'Enchères" />
+        <e k="auction_toolTip_auctionHouseBotsEnabled" v="Si activé, des bots virtuels mettront en vente des articles et enchériront sur les enchères." />
+    </elements>
+</l10n>

@@ -46,6 +46,9 @@
         <e k="ah_dialogStartingBidLabel" v="Lance Inicial ($):" />
         <e k="ah_dialogDurationLabel" v="Duração (minutos):" />
         <e k="ah_dialogCreateBtn" v="Criar" />
-        <e k="input_AUCTION_OPEN" v="Abrir Leilão do Servidor" />
+        <e k="input_AUCTION_OPEN" v="Leilão do Servidor" />
+        <e k="auction_settings_section_title" v="Leilão do Servidor" />
+        <e k="auction_setting_auctionHouseBotsEnabled" v="Bots do Leilão" />
+        <e k="auction_toolTip_auctionHouseBotsEnabled" v="Se ativado, bots virtuais colocarão anúncios de vendas na loja e darão lances." />
     </elements>
 </l10n>

@@ -12,7 +12,7 @@
 
 | 🇧🇷 | 🇺🇸 |
 |---|---|
-| **Versão** | 1.1.0 |
+| **Versão** | 1.2.0 |
 | **Autor** | B.O.B ([github.com/eusouanderson](https://github.com/eusouanderson)) |
 | **Categoria** | 📦 Outros / Other (Gameplay) |
 | **Multiplayer** | ✅ Sincronização completa / Full sync |
@@ -86,6 +86,11 @@ is synchronized across clients and persisted in the savegame.
 
 ## 📥 Download
 
+**Server Auction House v1.2.0**
+
+[⬇ Baixar / Download](https://github.com/eusouanderson/fs25-mods/releases/tag/server-auction-house-v1.2.0)
+
+---
 **Server Auction House v1.1.0**
 
 [⬇ Baixar / Download](https://github.com/eusouanderson/fs25-mods/releases/tag/server-auction-house-v1.1.0)

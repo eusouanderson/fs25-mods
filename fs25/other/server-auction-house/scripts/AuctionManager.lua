@@ -120,6 +120,14 @@ function AuctionManager:createAuction(sellerId, sellerName, vehicleId, startingB
     durationMins = math.floor(durationMins or AuctionManager.MIN_DURATION_MINUTES)
     durationMins = math.max(AuctionManager.MIN_DURATION_MINUTES, math.min(AuctionManager.MAX_DURATION_MINUTES, durationMins))
 
+    local storePrice = startingBid
+    if vehicle ~= nil and vehicle.configFileName ~= nil and g_storeManager ~= nil then
+        local storeItem = g_storeManager:getItemByXMLFilename(vehicle.configFileName)
+        if storeItem ~= nil and storeItem.price ~= nil then
+            storePrice = storeItem.price
+        end
+    end
+
     local missionTime = g_currentMission.time
     local auction = {
         id = self.nextId,
@@ -134,11 +142,51 @@ function AuctionManager:createAuction(sellerId, sellerName, vehicleId, startingB
         startTime = missionTime,
         endTime = missionTime + (durationMins * 60000),
         status = "ACTIVE",
+        storePrice = storePrice,
     }
 
     self.nextId = self.nextId + 1
     table.insert(self.auctions, auction)
     AuctionLogger.info("AuctionManager", "Auction created id=" .. auction.id .. " item=" .. auction.itemName)
+
+    self:saveToSavegame()
+    AuctionEvent.sendSync(self.auctions)
+    self:notifyListeners()
+    self:broadcastChat(string.format(g_i18n:getText("ah_global_auctionStarted", AuctionHouse.modName), sellerName, auction.itemName, tostring(startingBid)))
+end
+
+-- Server-authoritative: create a bot/virtual auction (bypass physical vehicle checks)
+function AuctionManager:createBotAuction(sellerId, sellerName, itemName, xmlFilename, startingBid, durationMins, storePrice)
+    if g_server == nil then
+        return
+    end
+    AuctionLogger.info("AuctionManager", "createBotAuction by=" .. tostring(sellerName) .. " item=" .. tostring(itemName))
+
+    startingBid = math.max(1, math.floor(startingBid or 0))
+    durationMins = math.floor(durationMins or AuctionManager.MIN_DURATION_MINUTES)
+    durationMins = math.max(AuctionManager.MIN_DURATION_MINUTES, math.min(AuctionManager.MAX_DURATION_MINUTES, durationMins))
+
+    local missionTime = g_currentMission.time
+    local auction = {
+        id = self.nextId,
+        vehicleId = 0,
+        xmlFilename = xmlFilename,
+        itemName = itemName,
+        sellerId = sellerId,
+        sellerName = sellerName,
+        startingBid = startingBid,
+        currentBid = startingBid,
+        highestBidderId = 0,
+        highestBidderName = "",
+        startTime = missionTime,
+        endTime = missionTime + (durationMins * 60000),
+        status = "ACTIVE",
+        storePrice = storePrice or startingBid,
+    }
+
+    self.nextId = self.nextId + 1
+    table.insert(self.auctions, auction)
+    AuctionLogger.info("AuctionManager", "Bot Auction created id=" .. auction.id .. " item=" .. auction.itemName)
 
     self:saveToSavegame()
     AuctionEvent.sendSync(self.auctions)
@@ -171,8 +219,9 @@ function AuctionManager:placeBid(auctionId, bidderId, bidderName, amount)
         return
     end
 
+    
     local farm = g_farmManager:getFarmById(bidderId)
-    if farm == nil or farm.money < amount then
+    if not AuctionBotManager.isBotId(bidderId) and (farm == nil or farm.money < amount) then
         self:broadcastChat(g_i18n:getText("ah_error_noFunds", AuctionHouse.modName))
         return
     end
@@ -225,24 +274,92 @@ function AuctionManager:resolveAuction(auction)
     auction.status = "ENDED"
     AuctionLogger.info("AuctionManager", "resolveAuction id=" .. auction.id .. " highestBidderId=" .. tostring(auction.highestBidderId))
 
-    if auction.highestBidderId ~= nil and auction.highestBidderId > 0 then
-        local vehicle = AuctionManager.getVehicleById(auction.vehicleId)
-        if vehicle ~= nil then
-            vehicle:setOwnerFarmId(auction.highestBidderId)
+    local buyerIsBot = AuctionBotManager.isBotId(auction.highestBidderId)
+    local sellerIsBot = AuctionBotManager.isBotId(auction.sellerId)
+    local hasBid = auction.highestBidderId ~= nil and auction.highestBidderId ~= 0
 
-            local buyerFarm = g_farmManager:getFarmById(auction.highestBidderId)
-            local sellerFarm = g_farmManager:getFarmById(auction.sellerId)
+    if hasBid then
+        if buyerIsBot and not sellerIsBot then
+            -- Bot wins player auction: remove vehicle from world, pay seller
+            local vehicle = AuctionManager.getVehicleById(auction.vehicleId)
+            if vehicle ~= nil then
+                if vehicle.getAttachedImplements ~= nil then
+                    local implements = vehicle:getAttachedImplements()
+                    local numImplements = implements ~= nil and #implements or 0
+                    if numImplements > 0 then
+                        for i = numImplements, 1, -1 do
+                            vehicle:detachImplement(1)
+                        end
+                    end
+                end
 
-            if buyerFarm ~= nil then
-                buyerFarm:changeBalance(-auction.currentBid, AuctionManager.MONEY_TYPE)
+                vehicle:delete()
+                AuctionLogger.info("AuctionManager", "resolveAuction: vehicle %d deleted (bot %s won)", auction.vehicleId, auction.highestBidderName)
+
+                local sellerFarm = g_farmManager:getFarmById(auction.sellerId)
+                if sellerFarm ~= nil then
+                    sellerFarm:changeBalance(auction.currentBid, AuctionManager.MONEY_TYPE)
+                    AuctionLogger.info("AuctionManager", "resolveAuction: seller farmId=%d credited with %d", auction.sellerId, auction.currentBid)
+                end
             end
-            if sellerFarm ~= nil then
-                sellerFarm:changeBalance(auction.currentBid, AuctionManager.MONEY_TYPE)
-            end
-
             self:broadcastChat(string.format(g_i18n:getText("ah_global_ended", AuctionHouse.modName), auction.highestBidderName, auction.itemName, tostring(auction.currentBid)))
+
+        elseif not buyerIsBot and sellerIsBot then
+            -- Player wins bot auction: spawn vehicle for player, charge them
+            local playerFarmId = auction.highestBidderId
+            local playerFarm = g_farmManager:getFarmById(playerFarmId)
+
+            if playerFarm ~= nil then
+                playerFarm:changeBalance(-auction.currentBid, AuctionManager.MONEY_TYPE)
+                AuctionLogger.info("AuctionManager", "resolveAuction: player farmId=%d debited with %d", playerFarmId, auction.currentBid)
+
+                if auction.xmlFilename then
+                    AuctionBotManager.spawnVehicleForPlayer(auction.xmlFilename, playerFarmId, auction.itemName)
+                    self:broadcastChat(string.format(g_i18n:getText("ah_global_ended", AuctionHouse.modName), auction.highestBidderName, auction.itemName, tostring(auction.currentBid)))
+                else
+                    AuctionLogger.warning("AuctionManager", "resolveAuction: player won bot auction but xmlFilename missing for %s", auction.itemName)
+                    self:broadcastChat(string.format(g_i18n:getText("ah_global_ended", AuctionHouse.modName), auction.highestBidderName, auction.itemName, tostring(auction.currentBid)) .. " (Delivery failed: Missing XML)")
+                end
+            else
+                AuctionLogger.warning("AuctionManager", "resolveAuction: player farm not found, farmId=%d", playerFarmId)
+                self:broadcastChat(string.format(g_i18n:getText("ah_global_ended", AuctionHouse.modName), auction.highestBidderName, auction.itemName, tostring(auction.currentBid)) .. " (Farm not found)")
+            end
+
         else
-            self:broadcastChat(g_i18n:getText("ah_global_vehicleNotFound", AuctionHouse.modName))
+            -- Player-to-player standard transfer
+            local vehicle = AuctionManager.getVehicleById(auction.vehicleId)
+            if vehicle ~= nil then
+                -- Detach implements before transfer to avoid permission issues
+                if vehicle.getAttachedImplements ~= nil then
+                    local implements = vehicle:getAttachedImplements()
+                    local numImplements = implements ~= nil and #implements or 0
+                    if numImplements > 0 then
+                        for i = numImplements, 1, -1 do
+                            vehicle:detachImplement(1)
+                        end
+                    end
+                end
+
+                vehicle:setOwnerFarmId(auction.highestBidderId, true)
+
+                local buyerFarm = g_farmManager:getFarmById(auction.highestBidderId)
+                local sellerFarm = g_farmManager:getFarmById(auction.sellerId)
+
+                if buyerFarm ~= nil then
+                    buyerFarm:changeBalance(-auction.currentBid, AuctionManager.MONEY_TYPE)
+                end
+                if sellerFarm ~= nil then
+                    sellerFarm:changeBalance(auction.currentBid, AuctionManager.MONEY_TYPE)
+                end
+
+                if g_server ~= nil then
+                    g_server:broadcastEvent(AuctionVehicleTransferEvent.new(vehicle, auction.sellerId, auction.highestBidderId))
+                end
+
+                self:broadcastChat(string.format(g_i18n:getText("ah_global_ended", AuctionHouse.modName), auction.highestBidderName, auction.itemName, tostring(auction.currentBid)))
+            else
+                self:broadcastChat(g_i18n:getText("ah_global_vehicleNotFound", AuctionHouse.modName))
+            end
         end
     else
         self:broadcastChat(string.format(g_i18n:getText("ah_global_noBids", AuctionHouse.modName), auction.itemName))

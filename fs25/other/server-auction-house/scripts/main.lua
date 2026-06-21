@@ -89,6 +89,7 @@ local function loadSavegameData()
     if g_server ~= nil and AuctionHouse.manager ~= nil then
         AuctionLogger.info("main", "Server mode: loading savegame")
         AuctionHouse.manager:loadFromSavegame()
+        if AuctionSettings then AuctionSettings:loadFromXMLFile() end
         AuctionHouse.manager:syncToClients()
         AuctionLogger.info("main", "Savegame loaded and synced to clients")
     end
@@ -122,6 +123,11 @@ local function setupGUI()
     AuctionLogger.info("main", "AuctionCreateDialog GUI loaded: " .. tostring(dialogOk))
 
     AuctionHouse.screen:setCreateAuctionDialog(AuctionHouse.createAuctionDialog)
+
+    if AuctionSettings then
+        AuctionSettings:loadDefaultsIfMissing()
+        AuctionSettings:injectMenu()
+    end
 end
 
 function AuctionHouse.registerInGameMenuPage(frame, pageName, uvs, predicateFunc)
@@ -279,6 +285,9 @@ local function onSaveToXMLFile()
         AuctionLogger.info("main", "Saving to savegame on game save")
         AuctionHouse.manager:saveToSavegame()
     end
+    if AuctionSettings then
+        AuctionSettings:saveToXMLFile()
+    end
 end
 
 local function sendInitialClientState(self, connection, user, farm)
@@ -293,11 +302,18 @@ local function sendInitialClientState(self, connection, user, farm)
     end
     AuctionLogger.info("main", "sendInitialClientState: syncing to new client")
     connection:sendEvent(AuctionEvent.new(AuctionEvent.TYPE_SYNC, AuctionHouse.manager:getAuctions()))
+    
+    if AuctionSettingsEvent ~= nil and g_currentMission and g_currentMission.auctionSettings then
+        connection:sendEvent(AuctionSettingsEvent.new(g_currentMission.auctionSettings))
+    end
 end
 
-local function onUpdate(dt)
+local function onUpdate(_, dt)
     if AuctionHouse.manager then
         AuctionHouse.manager:update(dt)
+    end
+    if g_server ~= nil and AuctionBotManager ~= nil then
+        AuctionBotManager.update(dt)
     end
 end
 
