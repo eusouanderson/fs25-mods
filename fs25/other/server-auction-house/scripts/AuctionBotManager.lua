@@ -179,7 +179,7 @@ function AuctionBotManager.spawnVehicleForPlayer(xmlFilename, playerFarmId, item
         end
     end
 
-    AuctionLogger.info("AuctionBotManager", "Spawning vehicle %s (%s) at position %d, %d, %d for farmId=%d", tostring(itemName), tostring(xmlFilename), x, y, z, playerFarmId)
+    AuctionLogger.info("AuctionBotManager", ">>> INICIANDO SPAWN do veículo '%s' (XML=%s) na posição (%.1f, %.1f, %.1f) para farmId=%d", tostring(itemName), tostring(xmlFilename), x, y, z, playerFarmId)
 
     local data = VehicleLoadingData.new()
     data:setFilename(xmlFilename)
@@ -188,15 +188,24 @@ function AuctionBotManager.spawnVehicleForPlayer(xmlFilename, playerFarmId, item
     data:setOwnerFarmId(playerFarmId)
     data:setPropertyState(VehiclePropertyState.OWNED)
 
+    AuctionLogger.info("AuctionBotManager", ">>> VehicleLoadingData configurado — chamando load() assíncrono para '%s'", tostring(itemName))
+
     data:load(function(callbackTarget, vehicles, loadingState, callbackArgs)
+        AuctionLogger.info("AuctionBotManager", ">>> CALLBACK do load() disparou para '%s': loadingState=%s, #vehicles=%d", tostring(itemName), tostring(loadingState), #vehicles)
         if loadingState == VehicleLoadingState.OK then
             for _, vehicle in ipairs(vehicles) do
+                local vehicleId = vehicle.id or 0
+                local vehicleName = ""
+                if vehicle.getName ~= nil then
+                    vehicleName = vehicle:getName()
+                end
+                AuctionLogger.info("AuctionBotManager", ">>> Adicionando veículo '%s' (id=%d) à física e ao vehicleSystem para farmId=%d", vehicleName, vehicleId, playerFarmId)
                 vehicle:addToPhysics()
                 g_currentMission.vehicleSystem:addVehicle(vehicle)
-                AuctionLogger.info("AuctionBotManager", "Vehicle %s successfully spawned and assigned to farmId %d", tostring(itemName), playerFarmId)
+                AuctionLogger.info("AuctionBotManager", ">>> VEÍCULO ENTREGUE: '%s' (id=%d) spawnado com sucesso para farmId=%d", vehicleName, vehicleId, playerFarmId)
             end
         else
-            AuctionLogger.error("AuctionBotManager", "Failed to spawn vehicle %s (LoadingState=%s)", tostring(itemName), tostring(loadingState))
+            AuctionLogger.error("AuctionBotManager", ">>> FALHA NO SPAWN do veículo '%s' (XML=%s): loadingState=%s", tostring(itemName), tostring(xmlFilename), tostring(loadingState))
         end
     end, nil, nil)
 

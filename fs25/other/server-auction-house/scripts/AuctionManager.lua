@@ -272,7 +272,7 @@ end
 -- Server-authoritative: resolve an expired auction (transfer vehicle + funds)
 function AuctionManager:resolveAuction(auction)
     auction.status = "ENDED"
-    AuctionLogger.info("AuctionManager", "resolveAuction id=" .. auction.id .. " highestBidderId=" .. tostring(auction.highestBidderId))
+    AuctionLogger.info("AuctionManager", "=== LEILÃO ENCERRADO id=%d item='%s' winner=%s(value=%d) seller=%s ===", auction.id, auction.itemName, auction.highestBidderName, auction.currentBid, auction.sellerName)
 
     local buyerIsBot = AuctionBotManager.isBotId(auction.highestBidderId)
     local sellerIsBot = AuctionBotManager.isBotId(auction.sellerId)
@@ -280,6 +280,7 @@ function AuctionManager:resolveAuction(auction)
 
     if hasBid then
         if buyerIsBot and not sellerIsBot then
+            AuctionLogger.info("AuctionManager", ">>> [Bot-credita-Jogador] Bot '%s' venceu leilão do jogador '%s' pelo item '%s' (valor=%d)", auction.highestBidderName, auction.sellerName, auction.itemName, auction.currentBid)
             -- Bot wins player auction: remove vehicle from world, pay seller
             local vehicle = AuctionManager.getVehicleById(auction.vehicleId)
             if vehicle ~= nil then
@@ -287,59 +288,70 @@ function AuctionManager:resolveAuction(auction)
                     local implements = vehicle:getAttachedImplements()
                     local numImplements = implements ~= nil and #implements or 0
                     if numImplements > 0 then
+                        AuctionLogger.info("AuctionManager", ">>> Desacoplando %d implements do veículo %d antes de deletar", numImplements, auction.vehicleId)
                         for i = numImplements, 1, -1 do
                             vehicle:detachImplement(1)
                         end
                     end
                 end
 
+                AuctionLogger.info("AuctionManager", ">>> DELETANDO veículo %d ('%s') do mundo (transferido para bot %s)", auction.vehicleId, auction.itemName, auction.highestBidderName)
                 vehicle:delete()
-                AuctionLogger.info("AuctionManager", "resolveAuction: vehicle %d deleted (bot %s won)", auction.vehicleId, auction.highestBidderName)
 
                 local sellerFarm = g_farmManager:getFarmById(auction.sellerId)
                 if sellerFarm ~= nil then
                     sellerFarm:changeBalance(auction.currentBid, AuctionManager.MONEY_TYPE)
-                    AuctionLogger.info("AuctionManager", "resolveAuction: seller farmId=%d credited with %d", auction.sellerId, auction.currentBid)
+                    AuctionLogger.info("AuctionManager", ">>> CREDITANDO jogador farmId=%d em %d (venda do item '%s')", auction.sellerId, auction.currentBid, auction.itemName)
+                else
+                    AuctionLogger.warning("AuctionManager", ">>> ERRO: sellerFarm not found para farmId=%d", auction.sellerId)
                 end
+            else
+                AuctionLogger.warning("AuctionManager", ">>> ERRO: veículo %d não encontrado no mundo para deletar (já foi removido?)", auction.vehicleId)
             end
             self:broadcastChat(string.format(g_i18n:getText("ah_global_ended", AuctionHouse.modName), auction.highestBidderName, auction.itemName, tostring(auction.currentBid)))
 
         elseif not buyerIsBot and sellerIsBot then
+            AuctionLogger.info("AuctionManager", ">>> [Jogador-ganha-Bot] Jogador '%s' venceu leilão do bot '%s' pelo item '%s' (valor=%d)", auction.highestBidderName, auction.sellerName, auction.itemName, auction.currentBid)
             -- Player wins bot auction: spawn vehicle for player, charge them
             local playerFarmId = auction.highestBidderId
             local playerFarm = g_farmManager:getFarmById(playerFarmId)
 
             if playerFarm ~= nil then
                 playerFarm:changeBalance(-auction.currentBid, AuctionManager.MONEY_TYPE)
-                AuctionLogger.info("AuctionManager", "resolveAuction: player farmId=%d debited with %d", playerFarmId, auction.currentBid)
+                AuctionLogger.info("AuctionManager", ">>> DEBITANDO jogador farmId=%d em %d (compra do item '%s')", playerFarmId, auction.currentBid, auction.itemName)
 
                 if auction.xmlFilename then
+                    AuctionLogger.info("AuctionManager", ">>> SPAWNANDO veículo '%s' (XML=%s) para farmId=%d", auction.itemName, auction.xmlFilename, playerFarmId)
                     AuctionBotManager.spawnVehicleForPlayer(auction.xmlFilename, playerFarmId, auction.itemName)
                     self:broadcastChat(string.format(g_i18n:getText("ah_global_ended", AuctionHouse.modName), auction.highestBidderName, auction.itemName, tostring(auction.currentBid)))
                 else
-                    AuctionLogger.warning("AuctionManager", "resolveAuction: player won bot auction but xmlFilename missing for %s", auction.itemName)
+                    AuctionLogger.error("AuctionManager", ">>> ERRO CRÍTICO: jogador venceu leilão de bot mas xmlFilename está nil para item '%s' — dinheiro foi debitado mas veículo não será entregue!", auction.itemName)
                     self:broadcastChat(string.format(g_i18n:getText("ah_global_ended", AuctionHouse.modName), auction.highestBidderName, auction.itemName, tostring(auction.currentBid)) .. " (Delivery failed: Missing XML)")
                 end
             else
-                AuctionLogger.warning("AuctionManager", "resolveAuction: player farm not found, farmId=%d", playerFarmId)
+                AuctionLogger.error("AuctionManager", ">>> ERRO CRÍTICO: playerFarm not found para farmId=%d no leilão %d", playerFarmId, auction.id)
                 self:broadcastChat(string.format(g_i18n:getText("ah_global_ended", AuctionHouse.modName), auction.highestBidderName, auction.itemName, tostring(auction.currentBid)) .. " (Farm not found)")
             end
 
         else
+            AuctionLogger.info("AuctionManager", ">>> [Jogador-para-Jogador] Jogador '%s' venceu leilão do jogador '%s' pelo item '%s' (valor=%d)", auction.highestBidderName, auction.sellerName, auction.itemName, auction.currentBid)
             -- Player-to-player standard transfer
             local vehicle = AuctionManager.getVehicleById(auction.vehicleId)
             if vehicle ~= nil then
+                AuctionLogger.info("AuctionManager", ">>> Veículo %d ('%s') encontrado no mundo — iniciando transferência", auction.vehicleId, auction.itemName)
                 -- Detach implements before transfer to avoid permission issues
                 if vehicle.getAttachedImplements ~= nil then
                     local implements = vehicle:getAttachedImplements()
                     local numImplements = implements ~= nil and #implements or 0
                     if numImplements > 0 then
+                        AuctionLogger.info("AuctionManager", ">>> Desacoplando %d implements do veículo %d antes da transferência", numImplements, auction.vehicleId)
                         for i = numImplements, 1, -1 do
                             vehicle:detachImplement(1)
                         end
                     end
                 end
 
+                AuctionLogger.info("AuctionManager", ">>> Transferindo propriedade do veículo %d ('%s'): farmId=%d -> farmId=%d", auction.vehicleId, auction.itemName, auction.sellerId, auction.highestBidderId)
                 vehicle:setOwnerFarmId(auction.highestBidderId, true)
 
                 local buyerFarm = g_farmManager:getFarmById(auction.highestBidderId)
@@ -347,21 +359,30 @@ function AuctionManager:resolveAuction(auction)
 
                 if buyerFarm ~= nil then
                     buyerFarm:changeBalance(-auction.currentBid, AuctionManager.MONEY_TYPE)
+                    AuctionLogger.info("AuctionManager", ">>> DEBITANDO comprador farmId=%d em %d", auction.highestBidderId, auction.currentBid)
+                else
+                    AuctionLogger.warning("AuctionManager", ">>> ERRO: buyerFarm not found para farmId=%d", auction.highestBidderId)
                 end
                 if sellerFarm ~= nil then
                     sellerFarm:changeBalance(auction.currentBid, AuctionManager.MONEY_TYPE)
+                    AuctionLogger.info("AuctionManager", ">>> CREDITANDO vendedor farmId=%d em %d", auction.sellerId, auction.currentBid)
+                else
+                    AuctionLogger.warning("AuctionManager", ">>> ERRO: sellerFarm not found para farmId=%d", auction.sellerId)
                 end
 
                 if g_server ~= nil then
+                    AuctionLogger.info("AuctionManager", ">>> Broadcast do AuctionVehicleTransferEvent para todos os clients")
                     g_server:broadcastEvent(AuctionVehicleTransferEvent.new(vehicle, auction.sellerId, auction.highestBidderId))
                 end
 
                 self:broadcastChat(string.format(g_i18n:getText("ah_global_ended", AuctionHouse.modName), auction.highestBidderName, auction.itemName, tostring(auction.currentBid)))
             else
+                AuctionLogger.warning("AuctionManager", ">>> ERRO: veículo %d não encontrado no mundo — transferência impossível", auction.vehicleId)
                 self:broadcastChat(g_i18n:getText("ah_global_vehicleNotFound", AuctionHouse.modName))
             end
         end
     else
+        AuctionLogger.info("AuctionManager", ">>> Leilão %d ('%s') encerrou SEM LANCES — ninguém comprou", auction.id, auction.itemName)
         self:broadcastChat(string.format(g_i18n:getText("ah_global_noBids", AuctionHouse.modName), auction.itemName))
     end
 end
