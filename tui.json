@@ -1,0 +1,10 @@
+{
+  "$schema": "https://opencode.ai/tui.json",
+  "keybinds": {
+    "messages_copy": ["ctrl+shift+c", "<leader>y"],
+    "input_paste": {
+      "key": "ctrl+v",
+      "preventDefault": false
+    }
+  }
+}

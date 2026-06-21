@@ -334,6 +334,10 @@ function AuctionManager:resolveAuction(auction)
                 self:broadcastChat(string.format(g_i18n:getText("ah_global_ended", AuctionHouse.modName), auction.highestBidderName, auction.itemName, tostring(auction.currentBid)) .. " (Farm not found)")
             end
 
+        elseif buyerIsBot and sellerIsBot then
+            AuctionLogger.info("AuctionManager", ">>> [Bot-para-Bot] Bot '%s' venceu leilão do bot '%s' pelo item '%s' (valor=%d) — transferência virtual, sem ação necessária", auction.highestBidderName, auction.sellerName, auction.itemName, auction.currentBid)
+            self:broadcastChat(string.format(g_i18n:getText("ah_global_ended", AuctionHouse.modName), auction.highestBidderName, auction.itemName, tostring(auction.currentBid)))
+
         else
             AuctionLogger.info("AuctionManager", ">>> [Jogador-para-Jogador] Jogador '%s' venceu leilão do jogador '%s' pelo item '%s' (valor=%d)", auction.highestBidderName, auction.sellerName, auction.itemName, auction.currentBid)
             -- Player-to-player standard transfer

@@ -1,0 +1,39 @@
+name: Patreon post on release
+
+# Post-release hook: whenever a GitHub Release is published in this repo
+# (by tools/release_mod.py, tools/build_release.py, or manually via the
+# GitHub UI), mirror it as a Patreon post with the changelog + download link.
+#
+# Required repo secrets (Settings > Secrets and variables > Actions):
+#   PATREON_ACCESS_TOKEN  - creator's Patreon API access token
+#   PATREON_CAMPAIGN_ID   - Patreon campaign id (optional)
+#
+# Idempotent: tools/patreon_sync.py checks the release notes for a
+# "<!-- patreon-post: ... -->" marker before posting, so re-runs (or the
+# direct hook already run by release_mod.py) won't create duplicate posts.
+
+on:
+  release:
+    types: [published]
+
+permissions:
+  contents: write
+
+jobs:
+  patreon-sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Create Patreon post for release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PATREON_ACCESS_TOKEN: ${{ secrets.PATREON_ACCESS_TOKEN }}
+          PATREON_CAMPAIGN_ID: ${{ secrets.PATREON_CAMPAIGN_ID }}
+          RELEASE_TAG: ${{ github.event.release.tag_name }}
+          RELEASE_TITLE: ${{ github.event.release.name }}
+          RELEASE_NOTES: ${{ github.event.release.body }}
+          RELEASE_URL: ${{ github.event.release.html_url }}
+          ASSET_URL: ${{ github.event.release.assets[0].browser_download_url }}
+        run: python3 tools/patreon_sync.py

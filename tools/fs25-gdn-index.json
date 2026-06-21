@@ -1,0 +1,2565 @@
+{
+  "version": "unknown",
+  "last_updated": 1782047890.328252,
+  "categories": {
+    "Activatables": {
+      "id": 2,
+      "classes": {
+        "VehicleBuyingStationActiv...": {
+          "id": 144
+        }
+      }
+    },
+    "AI": {
+      "id": 3,
+      "classes": {
+        "AICollisionTriggerHandler": {
+          "id": 145
+        },
+        "AIDriveStrategy": {
+          "id": 146
+        },
+        "AIDriveStrategyBaler": {
+          "id": 147
+        },
+        "AIDriveStrategyCombine": {
+          "id": 148
+        },
+        "AIDriveStrategyConveyor": {
+          "id": 149
+        },
+        "AIDriveStrategyFieldCours...": {
+          "id": 150
+        },
+        "AIDriveStrategyStonePicke...": {
+          "id": 151
+        },
+        "AIJobTypeManager": {
+          "id": 152
+        },
+        "AISystem": {
+          "id": 153
+        },
+        "HelperManager": {
+          "id": 154
+        },
+        "NavigationSystem": {
+          "id": 155
+        }
+      }
+    },
+    "Animals": {
+      "id": 4,
+      "classes": {
+        "Dog": {
+          "id": 156
+        },
+        "DogPetActivatable": {
+          "id": 157
+        }
+      }
+    },
+    "Animation": {
+      "id": 5,
+      "classes": {
+        "AnimationManager": {
+          "id": 159
+        },
+        "ConditionalAnimation": {
+          "id": 160
+        },
+        "RotationAnimation": {
+          "id": 161
+        },
+        "ScrollingAnimation": {
+          "id": 162
+        },
+        "ShakeAnimation": {
+          "id": 163
+        }
+      }
+    },
+    "Base": {
+      "id": 7,
+      "classes": {
+        "ThreePartOverlay": {
+          "id": 164
+        }
+      }
+    },
+    "Boatyard": {
+      "id": 9,
+      "classes": {
+        "BoatyardActivatable": {
+          "id": 165
+        }
+      }
+    },
+    "Collections": {
+      "id": 13,
+      "classes": {
+        "ListenerList": {
+          "id": 166
+        },
+        "ValueInterpolator": {
+          "id": 167
+        }
+      }
+    },
+    "Components": {
+      "id": 14,
+      "classes": {
+        "AttacherJointTopArm": {
+          "id": 168
+        },
+        "BeaconLight": {
+          "id": 169
+        },
+        "RealLight": {
+          "id": 170
+        },
+        "SharedLight": {
+          "id": 171
+        },
+        "StaticLight": {
+          "id": 172
+        },
+        "StaticLightCompound": {
+          "id": 173
+        },
+        "ToolConnectionHoseMount": {
+          "id": 174
+        }
+      }
+    },
+    "Configurations": {
+      "id": 15,
+      "classes": {
+        "ConfigurationManager": {
+          "id": 175
+        },
+        "ConfigurationUtil": {
+          "id": 176
+        },
+        "PlaceableConfigurationIte...": {
+          "id": 178
+        },
+        "VehicleConfigurationDataS...": {
+          "id": 179
+        },
+        "VehicleConfigurationItem": {
+          "id": 180
+        },
+        "VehicleConfigurationItemC...": {
+          "id": 181
+        },
+        "VehicleConfigurationItemM...": {
+          "id": 182
+        },
+        "VehicleConfigurationItemT...": {
+          "id": 183
+        },
+        "VehicleConfigurationItemV...": {
+          "id": 184
+        },
+        "VehicleConfigurationItemW...": {
+          "id": 185
+        }
+      }
+    },
+    "Contracts": {
+      "id": 17,
+      "classes": {
+        "Field": {
+          "id": 186
+        },
+        "FieldManager": {
+          "id": 187
+        }
+      }
+    },
+    "Data": {
+      "id": 19,
+      "classes": {
+        "PlaceableConfigurationDat...": {
+          "id": 188
+        },
+        "VehicleConfigurationDataA...": {
+          "id": 189
+        },
+        "VehicleConfigurationDataD...": {
+          "id": 190
+        },
+        "VehicleConfigurationDataM...": {
+          "id": 191
+        },
+        "VehicleConfigurationDataO...": {
+          "id": 193
+        },
+        "VehicleConfigurationDataS...": {
+          "id": 194
+        }
+      }
+    },
+    "Debug": {
+      "id": 20,
+      "classes": {
+        "DebugBitVectorMap": {
+          "id": 195
+        },
+        "DebugBox": {
+          "id": 196
+        },
+        "DebugCircle": {
+          "id": 197
+        },
+        "DebugCylinder": {
+          "id": 198
+        },
+        "DebugDensityMap": {
+          "id": 199
+        },
+        "DebugElement": {
+          "id": 200
+        },
+        "DebugFunction": {
+          "id": 201
+        },
+        "DebugGizmo": {
+          "id": 202
+        },
+        "DebugInfoTable": {
+          "id": 203
+        },
+        "DebugLine": {
+          "id": 204
+        },
+        "DebugManager": {
+          "id": 205
+        },
+        "DebugPath": {
+          "id": 206
+        },
+        "DebugPlane": {
+          "id": 207
+        },
+        "DebugPoint": {
+          "id": 208
+        },
+        "DebugPolygon": {
+          "id": 209
+        },
+        "DebugShapeOutline": {
+          "id": 210
+        },
+        "DebugSphere": {
+          "id": 211
+        },
+        "DebugSpline": {
+          "id": 212
+        },
+        "DebugText": {
+          "id": 213
+        },
+        "DebugText3D": {
+          "id": 214
+        },
+        "DebugUtil": {
+          "id": 215
+        },
+        "NoteManager": {
+          "id": 216
+        }
+      }
+    },
+    "Economy": {
+      "id": 24,
+      "classes": {
+        "Farmland": {
+          "id": 217
+        },
+        "FarmlandManager": {
+          "id": 218
+        }
+      }
+    },
+    "Elements": {
+      "id": 26,
+      "classes": {
+        "IngameMapPreviewElement": {
+          "id": 219
+        },
+        "InputGlyphElementUI": {
+          "id": 220
+        },
+        "MultiOptionElement": {
+          "id": 221
+        },
+        "OptionToggleElement": {
+          "id": 222
+        }
+      }
+    },
+    "Errors": {
+      "id": 28,
+      "classes": {
+        "AIMessage": {
+          "id": 223
+        },
+        "AIMessageErrorBlockedByOb...": {
+          "id": 224
+        },
+        "AIMessageErrorCouldNotPre...": {
+          "id": 225
+        },
+        "AIMessageErrorFieldNotOwn...": {
+          "id": 226
+        },
+        "AIMessageErrorFieldNotRea...": {
+          "id": 227
+        },
+        "AIMessageErrorGraintankIs...": {
+          "id": 228
+        },
+        "AIMessageErrorImplementWr...": {
+          "id": 229
+        },
+        "AIMessageErrorLoadingStat...": {
+          "id": 230
+        },
+        "AIMessageErrorNoFieldFoun...": {
+          "id": 231
+        },
+        "AIMessageErrorNoPalletsLo...": {
+          "id": 232
+        },
+        "AIMessageErrorNotReachabl...": {
+          "id": 233
+        },
+        "AIMessageErrorNoValidFill...": {
+          "id": 234
+        },
+        "AIMessageErrorNoVineFound": {
+          "id": 235
+        },
+        "AIMessageErrorOutOfFill": {
+          "id": 236
+        },
+        "AIMessageErrorOutOfFuel": {
+          "id": 237
+        },
+        "AIMessageErrorOutOfMoney": {
+          "id": 238
+        },
+        "AIMessageErrorPalletsFull": {
+          "id": 239
+        },
+        "AIMessageErrorThreshingNo...": {
+          "id": 240
+        },
+        "AIMessageErrorUnknown": {
+          "id": 241
+        },
+        "AIMessageErrorUnloadingSt...": {
+          "id": 243
+        },
+        "AIMessageErrorVehicleBrok...": {
+          "id": 244
+        },
+        "AIMessageErrorVehicleDele...": {
+          "id": 245
+        },
+        "AIMessageErrorVineyardNot...": {
+          "id": 246
+        },
+        "AIMessageErrorWrongSeason": {
+          "id": 247
+        },
+        "AIMessageManager": {
+          "id": 248
+        },
+        "AIMessageSuccessFinishedJ...": {
+          "id": 249
+        },
+        "AIMessageSuccessSiloEmpty": {
+          "id": 250
+        },
+        "AIMessageSuccessStoppedBy...": {
+          "id": 251
+        }
+      }
+    },
+    "Events": {
+      "id": 29,
+      "classes": {
+        "AdditionalFieldBuyInfoEve...": {
+          "id": 252
+        },
+        "AIAutomaticSteeringCourse...": {
+          "id": 253
+        },
+        "AIAutomaticSteeringLineEn...": {
+          "id": 254
+        },
+        "AIAutomaticSteeringReques...": {
+          "id": 255
+        },
+        "AIAutomaticSteeringStateE...": {
+          "id": 256
+        },
+        "AIConveyorBeltSetAngleEve...": {
+          "id": 257
+        },
+        "AIFieldWorkerStateEvent": {
+          "id": 258
+        },
+        "AIJobSkipTaskEvent": {
+          "id": 259
+        },
+        "AIJobStartEvent": {
+          "id": 260
+        },
+        "AIJobStartRequestEvent": {
+          "id": 261
+        },
+        "AIJobStopEvent": {
+          "id": 262
+        },
+        "AIJobVehicleStateEvent": {
+          "id": 263
+        },
+        "AIModeSelectionSettingsEv...": {
+          "id": 264
+        },
+        "AISetModeEvent": {
+          "id": 265
+        },
+        "AITaskStartEvent": {
+          "id": 266
+        },
+        "AITaskStopEvent": {
+          "id": 267
+        },
+        "AIVehicleIsBlockedEvent": {
+          "id": 268
+        },
+        "AnimatedVehicleStartEvent": {
+          "id": 269
+        },
+        "AnimatedVehicleStopEvent": {
+          "id": 270
+        },
+        "AttachableStartDetachEven...": {
+          "id": 271
+        },
+        "BaleLoaderStateEvent": {
+          "id": 272
+        },
+        "BaleOpenEvent": {
+          "id": 273
+        },
+        "BalerAutomaticDropEvent": {
+          "id": 274
+        },
+        "BalerBaleTypeEvent": {
+          "id": 275
+        },
+        "BalerCreateBaleEvent": {
+          "id": 276
+        },
+        "BalerDropFromPlatformEven...": {
+          "id": 277
+        },
+        "BalerSetIsUnloadingBaleEv...": {
+          "id": 278
+        },
+        "BaleUnpackEvent": {
+          "id": 279
+        },
+        "BaleWrapperAutomaticDropE...": {
+          "id": 280
+        },
+        "BaleWrapperDropEvent": {
+          "id": 281
+        },
+        "BaleWrapperStateEvent": {
+          "id": 282
+        },
+        "BunkerSiloCloseEvent": {
+          "id": 283
+        },
+        "BunkerSiloOpenEvent": {
+          "id": 284
+        },
+        "ChainsawCutEvent": {
+          "id": 285
+        },
+        "CombineStrawEnableEvent": {
+          "id": 286
+        },
+        "CraneShovelEvent": {
+          "id": 287
+        },
+        "CropSensorStateEvent": {
+          "id": 288
+        },
+        "EnvironmentalScoreEvent": {
+          "id": 289
+        },
+        "ExtendedSowingMachineRate...": {
+          "id": 290
+        },
+        "ExtendedSprayerAmountEven...": {
+          "id": 291
+        },
+        "ExtendedSprayerDefaultFru...": {
+          "id": 292
+        },
+        "FarmlandStatisticsEvent": {
+          "id": 293
+        },
+        "FarmlandStatisticsResetEv...": {
+          "id": 294
+        },
+        "FenceDeleteSegmentEvent": {
+          "id": 295
+        },
+        "FenceNewSegmentEvent": {
+          "id": 296
+        },
+        "FenceRequestDeleteSegment...": {
+          "id": 297
+        },
+        "FenceSegmentEvent": {
+          "id": 298
+        },
+        "FerryStartEvent": {
+          "id": 299
+        },
+        "FillUnitUnloadedEvent": {
+          "id": 300
+        },
+        "FillUnitUnloadEvent": {
+          "id": 301
+        },
+        "FoldableSetFoldDirectionE...": {
+          "id": 302
+        },
+        "HandsPickUpFailedEvent": {
+          "id": 303
+        },
+        "HandToolSetHolderEvent": {
+          "id": 304
+        },
+        "HonkEvent": {
+          "id": 305
+        },
+        "InlineBaleOpenEvent": {
+          "id": 306
+        },
+        "InlineWrapperPushOffEvent": {
+          "id": 307
+        },
+        "JumpEvent": {
+          "id": 308
+        },
+        "LiftableAxleEvent": {
+          "id": 309
+        },
+        "LocomotiveStateEvent": {
+          "id": 310
+        },
+        "MixerWagonBaleNotAccepted...": {
+          "id": 311
+        },
+        "MountableSetMountTypeEven...": {
+          "id": 312
+        },
+        "MowerToggleWindrowDropEve...": {
+          "id": 313
+        },
+        "PickupSetStateEvent": {
+          "id": 314
+        },
+        "PlaceableFenceAddSegmentE...": {
+          "id": 315
+        },
+        "PlaceableLightsStateEvent": {
+          "id": 316
+        },
+        "PlaceableObjectStorageErr...": {
+          "id": 317
+        },
+        "PlaceableObjectStorageSto...": {
+          "id": 318
+        },
+        "PlaceableObjectStorageUnl...": {
+          "id": 319
+        },
+        "PlaceableRiceFieldEffectS...": {
+          "id": 320
+        },
+        "PlaceableRiceFieldFieldAn...": {
+          "id": 321
+        },
+        "PlaceableRiceFieldFieldEv...": {
+          "id": 322
+        },
+        "PlaceableRiceFieldRemoveF...": {
+          "id": 323
+        },
+        "PlaceableRiceFieldSetTarg...": {
+          "id": 324
+        },
+        "PlaceableRiceFieldStateEv...": {
+          "id": 325
+        },
+        "PlaceableTrainSystemRentE...": {
+          "id": 326
+        },
+        "PlaceableTrainSystemSellE...": {
+          "id": 327
+        },
+        "PlantLimitToFieldEvent": {
+          "id": 328
+        },
+        "PlayerHoldHandToolEvent": {
+          "id": 329
+        },
+        "PlayerSetFarmAnswerEvent": {
+          "id": 330
+        },
+        "PlowLimitToFieldEvent": {
+          "id": 331
+        },
+        "PlowPackerStateEvent": {
+          "id": 332
+        },
+        "PlowRotationCenterEvent": {
+          "id": 333
+        },
+        "PlowRotationEvent": {
+          "id": 334
+        },
+        "PrecisionFarmingSettingsE...": {
+          "id": 335
+        },
+        "PrecisionFarmingSettingsI...": {
+          "id": 336
+        },
+        "ProductionPointOutputMode...": {
+          "id": 337
+        },
+        "ProductionPointProduction...": {
+          "id": 339
+        },
+        "PurchaseSoilMapsEvent": {
+          "id": 340
+        },
+        "ReceivingHopperSetCreateB...": {
+          "id": 341
+        },
+        "RequestEnvironmentalScore...": {
+          "id": 342
+        },
+        "RequestFarmlandStatistics...": {
+          "id": 343
+        },
+        "RequestFieldBuyInfoEvent": {
+          "id": 344
+        },
+        "ResetYieldMapEvent": {
+          "id": 345
+        },
+        "ReverseDrivingSetStateEve...": {
+          "id": 346
+        },
+        "RidgeMarkerSetStateEvent": {
+          "id": 347
+        },
+        "SetCoverStateEvent": {
+          "id": 348
+        },
+        "SetCrabSteeringEvent": {
+          "id": 349
+        },
+        "SetCruiseControlSpeedEven...": {
+          "id": 350
+        },
+        "SetCruiseControlStateEven...": {
+          "id": 351
+        },
+        "SetDischargeStateEvent": {
+          "id": 352
+        },
+        "SetFillUnitCapacityEvent": {
+          "id": 353
+        },
+        "SetFillUnitIsFillingEvent": {
+          "id": 354
+        },
+        "SetPipeDischargeToGroundE...": {
+          "id": 355
+        },
+        "SetPipeStateEvent": {
+          "id": 356
+        },
+        "SetSeedIndexEvent": {
+          "id": 357
+        },
+        "SetTurnedOnEvent": {
+          "id": 358
+        },
+        "SetWorkModeEvent": {
+          "id": 359
+        },
+        "SoilSamplerSendEvent": {
+          "id": 360
+        },
+        "SoilSamplerStartEvent": {
+          "id": 361
+        },
+        "SprayerDoubledAmountEvent": {
+          "id": 362
+        },
+        "TensionBeltsEvent": {
+          "id": 363
+        },
+        "TensionBeltsRefreshEvent": {
+          "id": 364
+        },
+        "TrailerToggleManualDoorEv...": {
+          "id": 365
+        },
+        "TrailerToggleManualTipEve...": {
+          "id": 366
+        },
+        "TrailerToggleTipSideEvent": {
+          "id": 367
+        },
+        "TramlineMapInitialEvent": {
+          "id": 368
+        },
+        "TramlineMapSetEvent": {
+          "id": 369
+        },
+        "TreePlanterCreateTreeEven...": {
+          "id": 370
+        },
+        "TreePlanterLoadPalletEven...": {
+          "id": 371
+        },
+        "TreePlanterTreeTypeEvent": {
+          "id": 372
+        },
+        "VariableWorkWidthStateEve...": {
+          "id": 373
+        },
+        "VehicleAttachEvent": {
+          "id": 374
+        },
+        "VehicleAttachRequestEvent": {
+          "id": 375
+        },
+        "VehicleBrokenEvent": {
+          "id": 376
+        },
+        "VehicleDetachEvent": {
+          "id": 377
+        },
+        "VehicleEnterRequestEvent": {
+          "id": 378
+        },
+        "VehicleEnterResponseEvent": {
+          "id": 379
+        },
+        "VehicleLeaveEvent": {
+          "id": 380
+        },
+        "VehicleLowerImplementEven...": {
+          "id": 381
+        },
+        "VehiclePlayerStyleChanged...": {
+          "id": 382
+        },
+        "VehicleSetBeaconLightEven...": {
+          "id": 383
+        },
+        "VehicleSetIsReconfigurati...": {
+          "id": 384
+        },
+        "VehicleSetLightEvent": {
+          "id": 385
+        },
+        "VehicleSettingsChangeEven...": {
+          "id": 386
+        },
+        "VehicleSetTurnLightEvent": {
+          "id": 387
+        },
+        "WashingStationEvent": {
+          "id": 388
+        },
+        "WaterTrailerSetIsFillingE...": {
+          "id": 389
+        },
+        "WearableRepaintEvent": {
+          "id": 390
+        },
+        "WearableRepairEvent": {
+          "id": 391
+        },
+        "WoodHarvesterCutLengthEve...": {
+          "id": 392
+        },
+        "WoodHarvesterCutTreeEvent": {
+          "id": 393
+        },
+        "WoodHarvesterDropTreeEven...": {
+          "id": 394
+        },
+        "WoodHarvesterHeaderTiltEv...": {
+          "id": 395
+        },
+        "WoodHarvesterOnCutTreeEve...": {
+          "id": 396
+        },
+        "WoodHarvesterOnDelimbTree...": {
+          "id": 397
+        }
+      }
+    },
+    "Extensions": {
+      "id": 30,
+      "classes": {
+        "AIModeHUDExtension": {
+          "id": 398
+        },
+        "BaleCounterHUDExtension": {
+          "id": 399
+        },
+        "BalerStationaryHUDExtensi...": {
+          "id": 400
+        },
+        "CrabSteeringHUDExtension": {
+          "id": 401
+        },
+        "CruiseControlHUDExtension": {
+          "id": 402
+        },
+        "MixerWagonHUDExtension": {
+          "id": 403
+        },
+        "WorkModeHUDExtension": {
+          "id": 404
+        },
+        "YarderTowerHUDExtension": {
+          "id": 405
+        }
+      }
+    },
+    "Farms": {
+      "id": 31,
+      "classes": {
+        "Farm": {
+          "id": 406
+        },
+        "FarmManager": {
+          "id": 407
+        }
+      }
+    },
+    "Ferry": {
+      "id": 33,
+      "classes": {
+        "FerryActivatable": {
+          "id": 408
+        }
+      }
+    },
+    "Field": {
+      "id": 34,
+      "classes": {
+        "AbstractFieldMission": {
+          "id": 409
+        },
+        "FieldState": {
+          "id": 410
+        },
+        "PlowMission": {
+          "id": 411
+        },
+        "SowMission": {
+          "id": 412
+        },
+        "StonePickMission": {
+          "id": 413
+        }
+      }
+    },
+    "FillTypes": {
+      "id": 35,
+      "classes": {
+        "FillTypeDesc": {
+          "id": 414
+        },
+        "FillTypeManager": {
+          "id": 415
+        }
+      }
+    },
+    "Fruits": {
+      "id": 37,
+      "classes": {
+        "FruitTypeDesc": {
+          "id": 416
+        },
+        "FruitTypeManager": {
+          "id": 417
+        }
+      }
+    },
+    "Graphical": {
+      "id": 40,
+      "classes": {
+        "PlayerStyle": {
+          "id": 418
+        },
+        "PlayerStyleConfig": {
+          "id": 419
+        }
+      }
+    },
+    "Graphics": {
+      "id": 41,
+      "classes": {
+        "HumanGraphicsComponent": {
+          "id": 420
+        },
+        "HumanGraphicsComponentSta...": {
+          "id": 421
+        },
+        "HumanModel": {
+          "id": 422
+        },
+        "HumanSounds": {
+          "id": 423
+        }
+      }
+    },
+    "GUI": {
+      "id": 42,
+      "classes": {
+        "AnimalScreen": {
+          "id": 424
+        },
+        "AnimationElement": {
+          "id": 425
+        },
+        "BinaryOptionElement": {
+          "id": 426
+        },
+        "BitmapElement": {
+          "id": 427
+        },
+        "BoxLayoutElement": {
+          "id": 428
+        },
+        "BreadcrumbsElement": {
+          "id": 429
+        },
+        "ButtonElement": {
+          "id": 430
+        },
+        "ButtonOverlay": {
+          "id": 431
+        },
+        "CheckedOptionElement": {
+          "id": 432
+        },
+        "ClearElement": {
+          "id": 433
+        },
+        "ColorPickButtonElement": {
+          "id": 434
+        },
+        "ColorPickerDialog": {
+          "id": 435
+        },
+        "DialogElement": {
+          "id": 436
+        },
+        "DynamicFadedBitmapElement": {
+          "id": 437
+        },
+        "FocusManager": {
+          "id": 438
+        },
+        "FrameElement": {
+          "id": 439
+        },
+        "FrameReferenceElement": {
+          "id": 440
+        },
+        "GlyphButtonOverlay": {
+          "id": 441
+        },
+        "Gui": {
+          "id": 442
+        },
+        "GuiDataSource": {
+          "id": 443
+        },
+        "GuiElement": {
+          "id": 444
+        },
+        "GuiMixin": {
+          "id": 445
+        },
+        "GuiOverlay": {
+          "id": 446
+        },
+        "GuiProfile": {
+          "id": 447
+        },
+        "GuiSoundPlayer": {
+          "id": 448
+        },
+        "GuiTopDownCamera": {
+          "id": 449
+        },
+        "GuiTopDownCursor": {
+          "id": 450
+        },
+        "GuiUtils": {
+          "id": 451
+        },
+        "HUDDisplayElement": {
+          "id": 452
+        },
+        "HUDElement": {
+          "id": 453
+        },
+        "HUDFrameElement": {
+          "id": 454
+        },
+        "HUDPopupMessageMobile": {
+          "id": 455
+        },
+        "HUDSliderElement": {
+          "id": 456
+        },
+        "HUDTextDisplay": {
+          "id": 457
+        },
+        "IndexChangeSubjectMixin": {
+          "id": 458
+        },
+        "IndexStateElement": {
+          "id": 459
+        },
+        "InfoDialog": {
+          "id": 460
+        },
+        "InfoDisplay": {
+          "id": 461
+        },
+        "InfoDisplayBox": {
+          "id": 462
+        },
+        "InfoDisplayKeyValueBox": {
+          "id": 463
+        },
+        "InfoDisplayKeyValueBoxMob...": {
+          "id": 464
+        },
+        "IngameMap": {
+          "id": 465
+        },
+        "IngameMapElement": {
+          "id": 466
+        },
+        "IngameMapMobile": {
+          "id": 467
+        },
+        "InGameMenu": {
+          "id": 468
+        },
+        "InGameMenuAnimalsFrame": {
+          "id": 469
+        },
+        "InGameMenuStatisticsFrame": {
+          "id": 470
+        },
+        "InputGlyphElement": {
+          "id": 471
+        },
+        "ListItemElement": {
+          "id": 472
+        },
+        "MainScreen": {
+          "id": 473
+        },
+        "MapOverlayGenerator": {
+          "id": 474
+        },
+        "MultiOptionDialog": {
+          "id": 475
+        },
+        "MultiTextOptionElement": {
+          "id": 476
+        },
+        "MultiValueTween": {
+          "id": 477
+        },
+        "NavigationMarker": {
+          "id": 478
+        },
+        "OptionSliderElement": {
+          "id": 479
+        },
+        "Overlay": {
+          "id": 480
+        },
+        "OverlayManager": {
+          "id": 481
+        },
+        "PagingElement": {
+          "id": 482
+        },
+        "PictureElement": {
+          "id": 483
+        },
+        "PlatformIconElement": {
+          "id": 484
+        },
+        "PlaySampleMixin": {
+          "id": 485
+        },
+        "RenderElement": {
+          "id": 486
+        },
+        "RoundCornerElement": {
+          "id": 487
+        },
+        "RoundStatusBar": {
+          "id": 488
+        },
+        "SafeFrameElement": {
+          "id": 489
+        },
+        "ScreenElement": {
+          "id": 490
+        },
+        "ScrollingLayoutElement": {
+          "id": 491
+        },
+        "SettingsModel": {
+          "id": 492
+        },
+        "ShopCategoriesFrame": {
+          "id": 493
+        },
+        "ShopItemsFrame": {
+          "id": 494
+        },
+        "SliderElement": {
+          "id": 495
+        },
+        "StatusBar": {
+          "id": 496
+        },
+        "TabbedMenu": {
+          "id": 497
+        },
+        "TabbedMenuFrameElement": {
+          "id": 498
+        },
+        "TabbedMenuWithDetails": {
+          "id": 499
+        },
+        "TableHeaderElement": {
+          "id": 500
+        },
+        "TerrainLayerElement": {
+          "id": 501
+        },
+        "TextBackdropElement": {
+          "id": 502
+        },
+        "TextElement": {
+          "id": 503
+        },
+        "TextInputElement": {
+          "id": 504
+        },
+        "ThreePartBitmapElement": {
+          "id": 505
+        },
+        "TimerElement": {
+          "id": 506
+        },
+        "ToggleButtonElement": {
+          "id": 507
+        },
+        "TourDialog": {
+          "id": 508
+        },
+        "Tween": {
+          "id": 509
+        },
+        "TweenSequence": {
+          "id": 510
+        },
+        "VariableWorkWidthHUDExten...": {
+          "id": 511
+        },
+        "VideoElement": {
+          "id": 512
+        },
+        "WardrobeScreen": {
+          "id": 513
+        },
+        "YesNoDialog": {
+          "id": 514
+        }
+      }
+    },
+    "GuidedTour": {
+      "id": 43,
+      "classes": {
+        "GuidedTourManager": {
+          "id": 515
+        }
+      }
+    },
+    "Handtools": {
+      "id": 44,
+      "classes": {
+        "HandTool": {
+          "id": 516
+        },
+        "HandToolChainsaw": {
+          "id": 517
+        },
+        "HandToolFlashlight": {
+          "id": 518
+        },
+        "HandToolHands": {
+          "id": 519
+        },
+        "HandToolHolder": {
+          "id": 520
+        },
+        "HandToolHolderActivatable": {
+          "id": 521
+        },
+        "HandToolHorseBrush": {
+          "id": 522
+        },
+        "HandToolHPWLance": {
+          "id": 523
+        },
+        "HandToolLoadingData": {
+          "id": 524
+        },
+        "HandToolMotorized": {
+          "id": 525
+        },
+        "HandToolSprayCan": {
+          "id": 526
+        },
+        "HandToolStorable": {
+          "id": 527
+        },
+        "HandToolSystem": {
+          "id": 528
+        },
+        "HandToolTethered": {
+          "id": 529
+        },
+        "HandToolUtil": {
+          "id": 530
+        },
+        "PlayerTargeter": {
+          "id": 531
+        }
+      }
+    },
+    "Hud": {
+      "id": 46,
+      "classes": {
+        "ContextActionDisplay": {
+          "id": 532
+        },
+        "ExtendedCombineHUDExtensi...": {
+          "id": 533
+        },
+        "ExtendedSowingMachineHUDE...": {
+          "id": 534
+        },
+        "ExtendedSprayerHUDExtensi...": {
+          "id": 535
+        },
+        "HUDTextButtonElement": {
+          "id": 536
+        },
+        "IngameMessage": {
+          "id": 537
+        }
+      }
+    },
+    "I3d": {
+      "id": 48,
+      "classes": {
+        "I3DManager": {
+          "id": 538
+        }
+      }
+    },
+    "Input": {
+      "id": 50,
+      "classes": {
+        "InputBinding": {
+          "id": 539
+        }
+      }
+    },
+    "Instances": {
+      "id": 52,
+      "classes": {
+        "WildlifeInstanceSimple": {
+          "id": 540
+        }
+      }
+    },
+    "Jobs": {
+      "id": 53,
+      "classes": {
+        "AIJob": {
+          "id": 541
+        },
+        "AIJobConveyor": {
+          "id": 542
+        },
+        "AIJobDeliver": {
+          "id": 543
+        },
+        "AIJobFieldWork": {
+          "id": 544
+        },
+        "AIJobGoTo": {
+          "id": 545
+        },
+        "AIJobLoadAndDeliver": {
+          "id": 546
+        }
+      }
+    },
+    "Materials": {
+      "id": 56,
+      "classes": {
+        "CharacterLine": {
+          "id": 547
+        },
+        "FontMaterial": {
+          "id": 548
+        },
+        "MaterialManager": {
+          "id": 549
+        },
+        "MaterialUtil": {
+          "id": 550
+        },
+        "MotionPathEffectManager": {
+          "id": 551
+        },
+        "ParticleSystemManager": {
+          "id": 552
+        }
+      }
+    },
+    "Misc": {
+      "id": 57,
+      "classes": {
+        "AbstractManager": {
+          "id": 553
+        },
+        "BaleManager": {
+          "id": 554
+        },
+        "BezierCurve": {
+          "id": 555
+        },
+        "Color": {
+          "id": 556
+        },
+        "ConnectionHoseManager": {
+          "id": 557
+        },
+        "ConsumableManager": {
+          "id": 558
+        },
+        "Logging": {
+          "id": 559
+        },
+        "ProductionChainManager": {
+          "id": 560
+        },
+        "SplitShapeManager": {
+          "id": 561
+        },
+        "SprayTypeManager": {
+          "id": 562
+        },
+        "TensionBeltManager": {
+          "id": 563
+        },
+        "ToolTypeManager": {
+          "id": 564
+        },
+        "TreePlantManager": {
+          "id": 565
+        }
+      }
+    },
+    "Missions": {
+      "id": 58,
+      "classes": {
+        "AbstractMission": {
+          "id": 566
+        },
+        "MissionManager": {
+          "id": 567
+        }
+      }
+    },
+    "Networking": {
+      "id": 60,
+      "classes": {
+        "PlayerLocalNetworkCompone...": {
+          "id": 568
+        },
+        "PlayerNetworkComponent": {
+          "id": 569
+        },
+        "PlayerPositionalInterpola...": {
+          "id": 570
+        },
+        "PlayerRemoteNetworkCompon...": {
+          "id": 571
+        },
+        "PlayerServerNetworkCompon...": {
+          "id": 572
+        }
+      }
+    },
+    "Objects": {
+      "id": 62,
+      "classes": {
+        "AnimatedMapObject": {
+          "id": 573
+        },
+        "AnimatedObject": {
+          "id": 574
+        },
+        "Basketball": {
+          "id": 575
+        },
+        "BunkerSilo": {
+          "id": 576
+        },
+        "DogBall": {
+          "id": 577
+        },
+        "HelpIcons": {
+          "id": 578
+        },
+        "InlineBaleSingle": {
+          "id": 579
+        },
+        "NightlightFlicker": {
+          "id": 580
+        },
+        "PackedBale": {
+          "id": 581
+        },
+        "Rotator": {
+          "id": 582
+        },
+        "SimParticleSystem": {
+          "id": 583
+        },
+        "SunAdmirer": {
+          "id": 584
+        },
+        "TourIconsMobile": {
+          "id": 585
+        },
+        "VehicleSellingPoint": {
+          "id": 586
+        }
+      }
+    },
+    "Parameters": {
+      "id": 64,
+      "classes": {
+        "AIParameter": {
+          "id": 587
+        },
+        "AIParameterFillType": {
+          "id": 588
+        },
+        "AIParameterGroup": {
+          "id": 589
+        },
+        "AIParameterLoadingStation": {
+          "id": 590
+        },
+        "AIParameterLooping": {
+          "id": 591
+        },
+        "AIParameterPosition": {
+          "id": 592
+        },
+        "AIParameterPositionAngle": {
+          "id": 593
+        },
+        "AIParameterUnloadingStati...": {
+          "id": 594
+        },
+        "AIParameterVehicle": {
+          "id": 595
+        }
+      }
+    },
+    "Placeables": {
+      "id": 65,
+      "classes": {
+        "BeehiveSystem": {
+          "id": 596
+        },
+        "Placeable": {
+          "id": 597
+        },
+        "PlaceableHandToolHolders": {
+          "id": 598
+        },
+        "PlaceableLoadingData": {
+          "id": 599
+        },
+        "PlaceableSystem": {
+          "id": 600
+        }
+      }
+    },
+    "Placement": {
+      "id": 66,
+      "classes": {
+        "PalletSpawner": {
+          "id": 601
+        },
+        "PlacementGrid2D": {
+          "id": 602
+        }
+      }
+    },
+    "Player": {
+      "id": 68,
+      "classes": {
+        "PlayerCamera": {
+          "id": 604
+        },
+        "PlayerCCT": {
+          "id": 605
+        },
+        "PlayerInputComponent": {
+          "id": 606
+        },
+        "PlayerMover": {
+          "id": 607
+        },
+        "PlayerSystem": {
+          "id": 608
+        }
+      }
+    },
+    "Rollercoaster": {
+      "id": 69,
+      "classes": {
+        "RollercoasterActivatable": {
+          "id": 609
+        }
+      }
+    },
+    "Ship": {
+      "id": 73,
+      "classes": {
+        "ShipSystem": {
+          "id": 610
+        }
+      }
+    },
+    "Shop": {
+      "id": 74,
+      "classes": {
+        "BrandManager": {
+          "id": 611
+        },
+        "BuyHandToolData": {
+          "id": 612
+        },
+        "BuyPlaceableData": {
+          "id": 613
+        },
+        "BuyVehicleData": {
+          "id": 614
+        },
+        "StoreManager": {
+          "id": 615
+        }
+      }
+    },
+    "Sounds": {
+      "id": 75,
+      "classes": {
+        "ServerSoundManager": {
+          "id": 616
+        },
+        "SoundManager": {
+          "id": 617
+        },
+        "SoundMixer": {
+          "id": 618
+        }
+      }
+    },
+    "Specialization": {
+      "id": 76,
+      "classes": {
+        "SpecializationManager": {
+          "id": 619
+        },
+        "SpecializationUtil": {
+          "id": 620
+        },
+        "TypeManager": {
+          "id": 621
+        }
+      }
+    },
+    "Specializations": {
+      "id": 77,
+      "classes": {
+        "AIAutomaticSteering": {
+          "id": 622
+        },
+        "AIConveyorBelt": {
+          "id": 623
+        },
+        "AIDischargeable": {
+          "id": 624
+        },
+        "AIDrivable": {
+          "id": 625
+        },
+        "AIFieldWorker": {
+          "id": 626
+        },
+        "AIImplement": {
+          "id": 627
+        },
+        "AIJobVehicle": {
+          "id": 628
+        },
+        "AIModeSelection": {
+          "id": 629
+        },
+        "AIVehicle": {
+          "id": 630
+        },
+        "AIVehicleObstacle": {
+          "id": 631
+        },
+        "AnimatedVehicle": {
+          "id": 632
+        },
+        "ArticulatedAxis": {
+          "id": 633
+        },
+        "Attachable": {
+          "id": 634
+        },
+        "AttacherJointControl": {
+          "id": 635
+        },
+        "AttacherJoints": {
+          "id": 636
+        },
+        "AutoLoadable": {
+          "id": 637
+        },
+        "AutoLoader": {
+          "id": 638
+        },
+        "AutoLoaderBales": {
+          "id": 639
+        },
+        "BaleGrab": {
+          "id": 640
+        },
+        "BaleLoader": {
+          "id": 641
+        },
+        "Baler": {
+          "id": 642
+        },
+        "BaleWrapper": {
+          "id": 643
+        },
+        "BaseMaterial": {
+          "id": 644
+        },
+        "BigBag": {
+          "id": 645
+        },
+        "BunkerSiloCompacter": {
+          "id": 646
+        },
+        "BunkerSiloInteractor": {
+          "id": 647
+        },
+        "CCTDrivable": {
+          "id": 648
+        },
+        "ChainRollers": {
+          "id": 649
+        },
+        "Combine": {
+          "id": 650
+        },
+        "ConnectionHoses": {
+          "id": 651
+        },
+        "ConveyorBelt": {
+          "id": 652
+        },
+        "Cover": {
+          "id": 653
+        },
+        "CrabSteering": {
+          "id": 654
+        },
+        "Crawlers": {
+          "id": 655
+        },
+        "CropRowAdjustedNodes": {
+          "id": 656
+        },
+        "CropSensor": {
+          "id": 657
+        },
+        "Cultivator": {
+          "id": 658
+        },
+        "Cutter": {
+          "id": 659
+        },
+        "Cylindered": {
+          "id": 660
+        },
+        "CylinderedFoldable": {
+          "id": 661
+        },
+        "Dashboard": {
+          "id": 662
+        },
+        "Dischargeable": {
+          "id": 663
+        },
+        "Drivable": {
+          "id": 664
+        },
+        "DynamicallyLoadedParts": {
+          "id": 665
+        },
+        "DynamicMountAttacher": {
+          "id": 666
+        },
+        "Enterable": {
+          "id": 667
+        },
+        "ExtendedCombine": {
+          "id": 668
+        },
+        "ExtendedMotorized": {
+          "id": 669
+        },
+        "ExtendedMower": {
+          "id": 670
+        },
+        "ExtendedSowingMachine": {
+          "id": 671
+        },
+        "ExtendedSprayer": {
+          "id": 672
+        },
+        "ExtendedSprayerEffects": {
+          "id": 673
+        },
+        "ExtendedWearable": {
+          "id": 674
+        },
+        "FertilizingCultivator": {
+          "id": 675
+        },
+        "FertilizingSowingMachine": {
+          "id": 676
+        },
+        "FillTriggerVehicle": {
+          "id": 677
+        },
+        "FillUnit": {
+          "id": 678
+        },
+        "FillVolume": {
+          "id": 679
+        },
+        "Foldable": {
+          "id": 680
+        },
+        "FoliageBending": {
+          "id": 681
+        },
+        "ForageWagon": {
+          "id": 682
+        },
+        "FrontloaderAttacher": {
+          "id": 683
+        },
+        "FruitPreparer": {
+          "id": 684
+        },
+        "GroundAdjustedNodes": {
+          "id": 685
+        },
+        "GroundReference": {
+          "id": 686
+        },
+        "HeadlandAnimation": {
+          "id": 687
+        },
+        "Honk": {
+          "id": 688
+        },
+        "HookLiftContainer": {
+          "id": 689
+        },
+        "HookLiftTrailer": {
+          "id": 690
+        },
+        "HydraulicHammer": {
+          "id": 691
+        },
+        "IKChains": {
+          "id": 692
+        },
+        "InlineWrapper": {
+          "id": 693
+        },
+        "JigglingParts": {
+          "id": 694
+        },
+        "Leveler": {
+          "id": 695
+        },
+        "LicensePlates": {
+          "id": 696
+        },
+        "Lights": {
+          "id": 697
+        },
+        "LivestockTrailer": {
+          "id": 698
+        },
+        "Locomotive": {
+          "id": 699
+        },
+        "ManureBarrel": {
+          "id": 700
+        },
+        "ManureSensor": {
+          "id": 701
+        },
+        "MixerWagon": {
+          "id": 702
+        },
+        "Motorbike": {
+          "id": 703
+        },
+        "Motorized": {
+          "id": 704
+        },
+        "Mountable": {
+          "id": 705
+        },
+        "Mower": {
+          "id": 706
+        },
+        "Mulcher": {
+          "id": 707
+        },
+        "MultipleItemPurchase": {
+          "id": 708
+        },
+        "Pallet": {
+          "id": 709
+        },
+        "Pickup": {
+          "id": 710
+        },
+        "Pipe": {
+          "id": 711
+        },
+        "PlaceableAI": {
+          "id": 712
+        },
+        "PlaceableAnimalLoadingTri...": {
+          "id": 713
+        },
+        "PlaceableAnimatedObjects": {
+          "id": 714
+        },
+        "PlaceableBeehive": {
+          "id": 715
+        },
+        "PlaceableBeehivePalletSpa...": {
+          "id": 716
+        },
+        "PlaceableBoatyard": {
+          "id": 717
+        },
+        "PlaceableBunkerSilo": {
+          "id": 718
+        },
+        "PlaceableBuyable": {
+          "id": 719
+        },
+        "PlaceableBuyingStation": {
+          "id": 720
+        },
+        "PlaceableCartridgePlayer": {
+          "id": 721
+        },
+        "PlaceableChargingStation": {
+          "id": 722
+        },
+        "PlaceableClearAreas": {
+          "id": 723
+        },
+        "PlaceableConstructible": {
+          "id": 724
+        },
+        "PlaceableDeletedNodes": {
+          "id": 725
+        },
+        "PlaceableDestructible": {
+          "id": 726
+        },
+        "PlaceableDoghouse": {
+          "id": 727
+        },
+        "PlaceableDynamicallyLoade...": {
+          "id": 728
+        },
+        "PlaceableFactory": {
+          "id": 729
+        },
+        "PlaceableFarmhouse": {
+          "id": 730
+        },
+        "PlaceableFence": {
+          "id": 731
+        },
+        "PlaceableFoliageAreas": {
+          "id": 732
+        },
+        "PlaceableGreenhouse": {
+          "id": 733
+        },
+        "PlaceableHeapSpawner": {
+          "id": 734
+        },
+        "PlaceableHotspots": {
+          "id": 735
+        },
+        "PlaceableHusbandry": {
+          "id": 736
+        },
+        "PlaceableHusbandryAnimals": {
+          "id": 737
+        },
+        "PlaceableHusbandryFeeding...": {
+          "id": 738
+        },
+        "PlaceableHusbandryFence": {
+          "id": 739
+        },
+        "PlaceableHusbandryFood": {
+          "id": 740
+        },
+        "PlaceableHusbandryLiquidM...": {
+          "id": 741
+        },
+        "PlaceableHusbandryMeadow": {
+          "id": 742
+        },
+        "PlaceableHusbandryMilk": {
+          "id": 743
+        },
+        "PlaceableHusbandryPallets": {
+          "id": 744
+        },
+        "PlaceableHusbandryStraw": {
+          "id": 745
+        },
+        "PlaceableHusbandryWater": {
+          "id": 746
+        },
+        "PlaceableIncomePerHour": {
+          "id": 747
+        },
+        "PlaceableIndoorAreas": {
+          "id": 748
+        },
+        "PlaceableInfoTrigger": {
+          "id": 749
+        },
+        "PlaceableLadders": {
+          "id": 750
+        },
+        "PlaceableLeveling": {
+          "id": 751
+        },
+        "PlaceableLights": {
+          "id": 752
+        },
+        "PlaceableManureHeap": {
+          "id": 753
+        },
+        "PlaceableMultiBunkerSilo": {
+          "id": 754
+        },
+        "PlaceableNewFence": {
+          "id": 755
+        },
+        "PlaceableNPCSpot": {
+          "id": 756
+        },
+        "PlaceableObjectStorage": {
+          "id": 757
+        },
+        "PlaceablePalletBuyingStat...": {
+          "id": 758
+        },
+        "PlaceablePlacement": {
+          "id": 759
+        },
+        "PlaceablePointOfInterest": {
+          "id": 760
+        },
+        "PlaceableProductionPoint": {
+          "id": 761
+        },
+        "PlaceableRiceField": {
+          "id": 762
+        },
+        "PlaceableRiceFieldActivat...": {
+          "id": 763
+        },
+        "PlaceableRollercoaster": {
+          "id": 764
+        },
+        "PlaceableSellingStation": {
+          "id": 765
+        },
+        "PlaceableShallowWaterSimu...": {
+          "id": 766
+        },
+        "PlaceableSilo": {
+          "id": 767
+        },
+        "PlaceableSiloExtension": {
+          "id": 768
+        },
+        "PlaceableSolarPanels": {
+          "id": 769
+        },
+        "PlaceableTipOcclusionArea...": {
+          "id": 770
+        },
+        "PlaceableTrainSystem": {
+          "id": 771
+        },
+        "PlaceableTriggerMarkers": {
+          "id": 772
+        },
+        "PlaceableVehicle": {
+          "id": 773
+        },
+        "PlaceableVehicleBuyingSta...": {
+          "id": 774
+        },
+        "PlaceableVine": {
+          "id": 775
+        },
+        "PlaceableWardrobe": {
+          "id": 776
+        },
+        "PlaceableWashingStation": {
+          "id": 777
+        },
+        "PlaceableWeatherStation": {
+          "id": 778
+        },
+        "PlaceableWeighingStation": {
+          "id": 779
+        },
+        "PlaceableWindTurbine": {
+          "id": 780
+        },
+        "PlaceableWorkshop": {
+          "id": 781
+        },
+        "Plow": {
+          "id": 782
+        },
+        "PlowPacker": {
+          "id": 783
+        },
+        "PowerConsumer": {
+          "id": 784
+        },
+        "PowerTakeOffs": {
+          "id": 785
+        },
+        "PrecisionFarmingStatistic": {
+          "id": 786
+        },
+        "ProtectedBundleVehicle": {
+          "id": 787
+        },
+        "RandomlyMovingParts": {
+          "id": 788
+        },
+        "ReceivingHopper": {
+          "id": 789
+        },
+        "ReverseDriving": {
+          "id": 790
+        },
+        "Rideable": {
+          "id": 791
+        },
+        "RidgeMarker": {
+          "id": 792
+        },
+        "Roller": {
+          "id": 793
+        },
+        "Ropes": {
+          "id": 794
+        },
+        "RTKStation": {
+          "id": 795
+        },
+        "SaltSpreader": {
+          "id": 796
+        },
+        "SeedTreater": {
+          "id": 797
+        },
+        "SemiTrailerFront": {
+          "id": 798
+        },
+        "Shovel": {
+          "id": 799
+        },
+        "SlopeCompensation": {
+          "id": 800
+        },
+        "SmartAttachActivatable": {
+          "id": 801
+        },
+        "SoilSampler": {
+          "id": 802
+        },
+        "SowingMachine": {
+          "id": 803
+        },
+        "SpeedRotatingParts": {
+          "id": 804
+        },
+        "SplineVehicle": {
+          "id": 805
+        },
+        "Sprayer": {
+          "id": 806
+        },
+        "StonePicker": {
+          "id": 807
+        },
+        "StrawBlower": {
+          "id": 808
+        },
+        "StumpCutter": {
+          "id": 809
+        },
+        "SupportVehicle": {
+          "id": 810
+        },
+        "Suspensions": {
+          "id": 811
+        },
+        "Tedder": {
+          "id": 812
+        },
+        "TensionBeltObject": {
+          "id": 813
+        },
+        "TensionBelts": {
+          "id": 814
+        },
+        "TestAreas": {
+          "id": 815
+        },
+        "TipOccluder": {
+          "id": 816
+        },
+        "TireTracks": {
+          "id": 817
+        },
+        "Trailer": {
+          "id": 818
+        },
+        "TreePlanter": {
+          "id": 819
+        },
+        "TreeSaplingPallet": {
+          "id": 820
+        },
+        "TreeSaw": {
+          "id": 821
+        },
+        "TurnOnVehicle": {
+          "id": 822
+        },
+        "VariableWorkWidth": {
+          "id": 823
+        },
+        "VehicleSettings": {
+          "id": 824
+        },
+        "VineCutter": {
+          "id": 825
+        },
+        "VinePrepruner": {
+          "id": 826
+        },
+        "Washable": {
+          "id": 827
+        },
+        "WaterTrailer": {
+          "id": 828
+        },
+        "Wearable": {
+          "id": 829
+        },
+        "Weeder": {
+          "id": 830
+        },
+        "WeedSpotSpray": {
+          "id": 831
+        },
+        "Wheels": {
+          "id": 832
+        },
+        "WindBending": {
+          "id": 833
+        },
+        "Windrower": {
+          "id": 834
+        },
+        "Wipers": {
+          "id": 835
+        },
+        "WoodCrusher": {
+          "id": 836
+        },
+        "WoodHarvester": {
+          "id": 837
+        },
+        "WorkArea": {
+          "id": 838
+        },
+        "WorkMode": {
+          "id": 839
+        },
+        "WorkParticles": {
+          "id": 840
+        }
+      }
+    },
+    "StateMachine": {
+      "id": 79,
+      "classes": {
+        "PlayerOnFootStateMachine": {
+          "id": 841
+        },
+        "PlayerStateCrouch": {
+          "id": 842
+        },
+        "PlayerStateFall": {
+          "id": 843
+        },
+        "PlayerStateIdle": {
+          "id": 844
+        },
+        "PlayerStateJump": {
+          "id": 845
+        },
+        "PlayerStateMachine": {
+          "id": 846
+        },
+        "PlayerStateSwim": {
+          "id": 847
+        },
+        "PlayerStateWalk": {
+          "id": 848
+        }
+      }
+    },
+    "Tasks": {
+      "id": 80,
+      "classes": {
+        "AITask": {
+          "id": 849
+        },
+        "AITaskConveyor": {
+          "id": 850
+        },
+        "AITaskDischarge": {
+          "id": 851
+        },
+        "AITaskDriveTo": {
+          "id": 852
+        },
+        "AITaskFieldWork": {
+          "id": 853
+        },
+        "AITaskLoading": {
+          "id": 854
+        },
+        "AITaskWaitForFilling": {
+          "id": 855
+        }
+      }
+    },
+    "Triggers": {
+      "id": 87,
+      "classes": {
+        "AnimalLoadingTrigger": {
+          "id": 856
+        },
+        "BasketTrigger": {
+          "id": 857
+        },
+        "FillTrigger": {
+          "id": 858
+        },
+        "LadderTrigger": {
+          "id": 859
+        },
+        "LoanTrigger": {
+          "id": 860
+        },
+        "ShopTrigger": {
+          "id": 861
+        },
+        "TransportMissionTrigger": {
+          "id": 862
+        }
+      }
+    },
+    "Utils": {
+      "id": 89,
+      "classes": {
+        "BaseStateMachineState": {
+          "id": 863
+        },
+        "BitmapUtil": {
+          "id": 864
+        },
+        "BlurUtil": {
+          "id": 865
+        },
+        "DataGrid": {
+          "id": 866
+        },
+        "DynamicDataGrid": {
+          "id": 867
+        },
+        "Fence": {
+          "id": 868
+        },
+        "FenceGate": {
+          "id": 869
+        },
+        "FenceSegment": {
+          "id": 870
+        },
+        "MapDataGrid": {
+          "id": 871
+        },
+        "MathUtil": {
+          "id": 872
+        },
+        "ObjectChangeUtil": {
+          "id": 873
+        },
+        "ObjectPool": {
+          "id": 874
+        },
+        "StateMachine": {
+          "id": 875
+        },
+        "StoreItemUtil": {
+          "id": 876
+        },
+        "TargetedFunction": {
+          "id": 877
+        }
+      }
+    },
+    "Vehicles": {
+      "id": 90,
+      "classes": {
+        "AIVehicleUtil": {
+          "id": 879
+        },
+        "AnimationValueBool": {
+          "id": 880
+        },
+        "AnimationValueFloat": {
+          "id": 881
+        },
+        "DashboardValueType": {
+          "id": 882
+        },
+        "HandToolHolders": {
+          "id": 883
+        },
+        "LicensePlate": {
+          "id": 884
+        },
+        "LicensePlateManager": {
+          "id": 885
+        },
+        "Vehicle": {
+          "id": 886
+        },
+        "VehicleActionController": {
+          "id": 887
+        },
+        "VehicleActionControllerAc...": {
+          "id": 888
+        },
+        "VehicleCamera": {
+          "id": 889
+        },
+        "VehicleCharacter": {
+          "id": 890
+        },
+        "VehicleLoadingData": {
+          "id": 891
+        },
+        "VehicleMaterial": {
+          "id": 892
+        },
+        "VehicleMaterialManager": {
+          "id": 893
+        },
+        "VehicleMotor": {
+          "id": 894
+        },
+        "VehicleSystem": {
+          "id": 895
+        },
+        "VehicleTeleportEvent": {
+          "id": 896
+        },
+        "WheelsUtil": {
+          "id": 897
+        },
+        "WorkAreaTypeManager": {
+          "id": 898
+        }
+      }
+    },
+    "Weather": {
+      "id": 91,
+      "classes": {
+        "Twister": {
+          "id": 899
+        }
+      }
+    },
+    "Wheels": {
+      "id": 92,
+      "classes": {
+        "Wheel": {
+          "id": 900
+        },
+        "WheelAxle": {
+          "id": 901
+        },
+        "WheelChock": {
+          "id": 902
+        },
+        "WheelDebug": {
+          "id": 903
+        },
+        "WheelDestruction": {
+          "id": 904
+        },
+        "WheelEffects": {
+          "id": 905
+        },
+        "WheelManager": {
+          "id": 906
+        },
+        "WheelPhysics": {
+          "id": 907
+        },
+        "WheelSteering": {
+          "id": 908
+        },
+        "WheelVisual": {
+          "id": 909
+        },
+        "WheelVisualPart": {
+          "id": 910
+        },
+        "WheelVisualPartConnector": {
+          "id": 911
+        },
+        "WheelVisualPartTire": {
+          "id": 912
+        },
+        "WheelXMLObject": {
+          "id": 913
+        }
+      }
+    }
+  }
+}

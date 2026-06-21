@@ -25,6 +25,7 @@ from release_mod import (
     estimate_dir_size,
     get_mod_info,
     mod_display_name,
+    notify_patreon,
     read_version_from_moddesc,
     release_exists,
     run_gh,
@@ -121,6 +122,8 @@ def publish_release(mod_dir: Path, zip_path: Path, version: str, tag: str,
             "--notes", notes,
         ])
         print(f"  ✅  Release: https://github.com/{REPO}/releases/tag/{tag}")
+
+        notify_patreon(tag, f"{mod_slug} v{version}", notes, zip_path.stem, version)
 
         readme = find_readme_in_repo(mod_slug, category)
         if readme:

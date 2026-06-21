@@ -136,7 +136,7 @@ function AuctionBotManager.getRandomStoreItem()
     local validItems = {}
     for _, item in pairs(items) do
         if item.xmlFilename ~= nil and item.price ~= nil and item.price > 1000 and item.name ~= nil then
-            if not item.isPlaceable then
+            if not item.isPlaceable and item.xmlFilename:find("/placeables/") == nil then
                 local cat = item.categoryName or ""
                 if cat ~= "handtools" and cat ~= "placeables" and cat ~= "wood" and cat ~= "objects" and cat ~= "pallets" and cat ~= "bags" and cat ~= "bigbags" and cat ~= "misc" and cat ~= "decoration" and cat ~= "animals" then
                     table.insert(validItems, item)

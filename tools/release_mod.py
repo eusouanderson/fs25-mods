@@ -165,6 +165,34 @@ def release_exists(tag: str) -> bool:
         return False
 
 
+def notify_patreon(tag: str, title: str, notes: str, zip_basename: str, version: str):
+    """Post-release hook: best-effort mirror of the release to Patreon.
+
+    No-op if PATREON_ACCESS_TOKEN isn't set, and never raises -- a Patreon
+    failure must not break the GitHub release pipeline.
+    """
+    try:
+        sys.path.insert(0, str(Path(__file__).resolve().parent))
+        from patreon_sync import create_patreon_post
+    except ImportError as e:
+        print(f"  ℹ   patreon_sync unavailable, skipping: {e}")
+        return None
+
+    release_data = {
+        "tag": tag,
+        "title": title,
+        "notes": notes,
+        "asset_url": f"https://github.com/{REPO}/releases/download/{tag}/{zip_basename}.zip",
+        "release_url": f"https://github.com/{REPO}/releases/tag/{tag}",
+        "repo": REPO,
+    }
+    try:
+        return create_patreon_post(release_data)
+    except Exception as e:
+        print(f"  ⚠   patreon_sync hook failed (release continues): {e}")
+        return None
+
+
 def category_emoji(cat: str) -> str:
     emojis = {
         "trucks": "🚚", "tractors": "🚜", "trailers": "🚛",
@@ -272,6 +300,7 @@ def main():
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog=(
             "Examples:\n"
+            "  python release_mod.py fs25/other/server-auction-house --zip-name FS25_ServerAuctionHouse\n"
             "  python release_mod.py fs25/trucks/kamaz-65116\n"
             "  python release_mod.py fs25/trucks/kamaz-65116 --version 1.0.0\n"
             "  python release_mod.py /path/to/FS25Kamaz65116 --name kamaz-65116 --category trucks\n"
@@ -282,6 +311,8 @@ def main():
     parser.add_argument("--name", help="Mod slug/name (auto-detected from folder)")
     parser.add_argument("--category", choices=CATEGORIES, help="Mod category (auto-detected if path is inside repo)")
     parser.add_argument("--version", "-v", help="Version tag (auto: from modDesc.xml or next patch)")
+    parser.add_argument("--zip-name", help="ZIP filename (without .zip). Default: source folder name. "
+                        "Use e.g. 'FS25_ServerAuctionHouse' so FS25 recognizes the mod on download.")
     parser.add_argument("--dry-run", "-n", action="store_true", help="Preview only")
     parser.add_argument("--no-readme", action="store_true", help="Skip README update")
     parser.add_argument("--overwrite", action="store_true", help="Delete existing release and recreate")
@@ -309,7 +340,14 @@ def main():
 
     tag = f"{mod_slug}-v{version}"
 
-    zip_basename = mod_path.name
+    if args.zip_name:
+        zip_basename = args.zip_name
+    elif mod_path.name.startswith("FS25_") or mod_path.name.startswith("FS22_"):
+        zip_basename = mod_path.name
+    else:
+        print(f"  ⚠   Source folder '{mod_path.name}' doesn't follow FS25 naming (e.g. FS25_ModName).")
+        print(f"       Use --zip-name FS25_YourModName to set the correct ZIP filename.")
+        zip_basename = mod_path.name
 
     print(f"\n{'='*60}")
     emoji = category_emoji(category or "other")
@@ -349,7 +387,7 @@ def main():
             print(f"       Tag:    {tag}")
             print(f"       Title:  {mod_slug} v{version}")
             print(f"       Asset:  {zip_path.name} ({zip_path.stat().st_size / 1024 / 1024:.1f} MB)")
-            print(f"  ℹ   FS25 ready: zip name matches original folder ({zip_basename}.zip)")
+            print(f"  ℹ   FS25 ready: '{zip_basename}.zip' — extract to mods/ folder")
             sys.exit(0)
 
         release_notes = (
@@ -368,6 +406,8 @@ def main():
             "--notes", release_notes,
         ])
         print(f"  ✅  Release: https://github.com/{REPO}/releases/tag/{tag}")
+
+        notify_patreon(tag, f"{mod_slug} v{version}", release_notes, zip_basename, version)
 
         if not args.no_readme:
             readme_path = find_readme_in_repo(mod_slug, category)
