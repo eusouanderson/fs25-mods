@@ -155,6 +155,7 @@ function AuctionBotManager.getRandomStoreItem()
 end
 
 -- Autonomously spawns a vehicle in the world for a player who won a bot auction
+-- Returns true if spawn was initiated, false if setup failed (no refund handled here)
 function AuctionBotManager.spawnVehicleForPlayer(xmlFilename, playerFarmId, itemName)
     local x, y, z = 0, 0, 0
     local ry = 0
@@ -181,8 +182,22 @@ function AuctionBotManager.spawnVehicleForPlayer(xmlFilename, playerFarmId, item
 
     AuctionLogger.info("AuctionBotManager", ">>> INICIANDO SPAWN do veículo '%s' (XML=%s) na posição (%.1f, %.1f, %.1f) para farmId=%d", tostring(itemName), tostring(xmlFilename), x, y, z, playerFarmId)
 
+    -- Validate store item BEFORE creating VehicleLoadingData to avoid silent failure
+    local storeItem = nil
+    if g_storeManager ~= nil then
+        storeItem = g_storeManager:getItemByXMLFilename(xmlFilename)
+    end
+
     local data = VehicleLoadingData.new()
-    data:setFilename(xmlFilename)
+
+    if storeItem ~= nil then
+        AuctionLogger.info("AuctionBotManager", ">>> Store item encontrado: '%s' (price=%d) — usando setStoreItem", tostring(itemName), storeItem.price or 0)
+        data:setStoreItem(storeItem)
+    else
+        AuctionLogger.warning("AuctionBotManager", ">>> Store item NÃO encontrado para XML '%s' — tentando setFilename como fallback", tostring(xmlFilename))
+        data:setFilename(xmlFilename)
+    end
+
     data:setPosition(x, y, z)
     data:setRotation(0, ry, 0)
     data:setOwnerFarmId(playerFarmId)
@@ -193,6 +208,10 @@ function AuctionBotManager.spawnVehicleForPlayer(xmlFilename, playerFarmId, item
     data:load(function(callbackTarget, vehicles, loadingState, callbackArgs)
         AuctionLogger.info("AuctionBotManager", ">>> CALLBACK do load() disparou para '%s': loadingState=%s, #vehicles=%d", tostring(itemName), tostring(loadingState), #vehicles)
         if loadingState == VehicleLoadingState.OK then
+            if #vehicles == 0 then
+                AuctionLogger.error("AuctionBotManager", ">>> FALHA SILENCIOSA: load() retornou OK mas #vehicles=0 para '%s' (XML=%s) — storeItem provalvemente inválido!", tostring(itemName), tostring(xmlFilename))
+                return
+            end
             for _, vehicle in ipairs(vehicles) do
                 local vehicleId = vehicle.id or 0
                 local vehicleName = ""
