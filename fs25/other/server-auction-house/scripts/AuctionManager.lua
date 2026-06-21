@@ -321,7 +321,8 @@ function AuctionManager:resolveAuction(auction)
                 AuctionLogger.info("AuctionManager", ">>> DEBITANDO jogador farmId=%d em %d (compra do item '%s')", playerFarmId, auction.currentBid, auction.itemName)
 
                 if auction.xmlFilename then
-                    AuctionLogger.info("AuctionManager", ">>> SPAWNANDO veículo '%s' (XML=%s) para farmId=%d", auction.itemName, auction.xmlFilename, playerFarmId)
+                    AuctionLogger.info("AuctionManager", ">>> SPAWNANDO veículo '%s' (XML=%s) para farmId=%d — itemName do leilão='%s'", auction.itemName, auction.xmlFilename, playerFarmId, auction.itemName)
+                    AuctionLogger.info("AuctionManager", ">>> CHAMADA: spawnVehicleForPlayer(xmlFilename='%s', farmId=%d, itemName='%s')", auction.xmlFilename, playerFarmId, auction.itemName)
                     AuctionBotManager.spawnVehicleForPlayer(auction.xmlFilename, playerFarmId, auction.itemName)
                     self:broadcastChat(string.format(g_i18n:getText("ah_global_ended", AuctionHouse.modName), auction.highestBidderName, auction.itemName, tostring(auction.currentBid)))
                 else

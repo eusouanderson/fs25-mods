@@ -191,10 +191,13 @@ function AuctionBotManager.spawnVehicleForPlayer(xmlFilename, playerFarmId, item
     local data = VehicleLoadingData.new()
 
     if storeItem ~= nil then
-        AuctionLogger.info("AuctionBotManager", ">>> Store item encontrado: '%s' (price=%d) — usando setStoreItem", tostring(itemName), storeItem.price or 0)
+        AuctionLogger.info("AuctionBotManager", ">>> Store item encontrado para XML='%s': name='%s' storeItem.xmlFilename='%s' (price=%d) — usando setStoreItem", tostring(xmlFilename), tostring(itemName), tostring(storeItem.xmlFilename), storeItem.price or 0)
+        if storeItem.xmlFilename ~= xmlFilename then
+            AuctionLogger.warning("AuctionBotManager", ">>> ATENÇÃO: storeItem.xmlFilename ('%s') DIFERE do xmlFilename solicitado ('%s')!", tostring(storeItem.xmlFilename), tostring(xmlFilename))
+        end
         data:setStoreItem(storeItem)
     else
-        AuctionLogger.warning("AuctionBotManager", ">>> Store item NÃO encontrado para XML '%s' — tentando setFilename como fallback", tostring(xmlFilename))
+        AuctionLogger.warning("AuctionBotManager", ">>> Store item NÃO encontrado para XML '%s' — tentando setFilename como fallback (pode falhar silenciosamente se não for veículo)", tostring(xmlFilename))
         data:setFilename(xmlFilename)
     end
 
@@ -203,7 +206,7 @@ function AuctionBotManager.spawnVehicleForPlayer(xmlFilename, playerFarmId, item
     data:setOwnerFarmId(playerFarmId)
     data:setPropertyState(VehiclePropertyState.OWNED)
 
-    AuctionLogger.info("AuctionBotManager", ">>> VehicleLoadingData configurado — chamando load() assíncrono para '%s'", tostring(itemName))
+    AuctionLogger.info("AuctionBotManager", ">>> VehicleLoadingData configurado — chamando load() assíncrono para '%s' (XML='%s')", tostring(itemName), tostring(xmlFilename))
 
     data:load(function(callbackTarget, vehicles, loadingState, callbackArgs)
         AuctionLogger.info("AuctionBotManager", ">>> CALLBACK do load() disparou para '%s': loadingState=%s, #vehicles=%d", tostring(itemName), tostring(loadingState), #vehicles)
@@ -218,10 +221,17 @@ function AuctionBotManager.spawnVehicleForPlayer(xmlFilename, playerFarmId, item
                 if vehicle.getName ~= nil then
                     vehicleName = vehicle:getName()
                 end
-                AuctionLogger.info("AuctionBotManager", ">>> Adicionando veículo '%s' (id=%d) à física e ao vehicleSystem para farmId=%d", vehicleName, vehicleId, playerFarmId)
+                local configFileName = ""
+                if vehicle.configFileName ~= nil then
+                    configFileName = vehicle.configFileName
+                end
+                AuctionLogger.info("AuctionBotManager", ">>> Veículo carregado: name='%s' id=%d configFileName='%s' farmId=%d", vehicleName, vehicleId, configFileName, playerFarmId)
+                if configFileName ~= xmlFilename then
+                    AuctionLogger.warning("AuctionBotManager", ">>> ATENÇÃO: vehicle.configFileName ('%s') DIFERE do xmlFilename esperado ('%s')!", tostring(configFileName), tostring(xmlFilename))
+                end
                 vehicle:addToPhysics()
                 g_currentMission.vehicleSystem:addVehicle(vehicle)
-                AuctionLogger.info("AuctionBotManager", ">>> VEÍCULO ENTREGUE: '%s' (id=%d) spawnado com sucesso para farmId=%d", vehicleName, vehicleId, playerFarmId)
+                AuctionLogger.info("AuctionBotManager", ">>> VEÍCULO ENTREGUE: '%s' (id=%d) spawnado com sucesso para farmId=%d — XML='%s'", vehicleName, vehicleId, playerFarmId, configFileName)
             end
         else
             AuctionLogger.error("AuctionBotManager", ">>> FALHA NO SPAWN do veículo '%s' (XML=%s): loadingState=%s", tostring(itemName), tostring(xmlFilename), tostring(loadingState))
