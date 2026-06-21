@@ -1100,6 +1100,35 @@ def tool_create_release(params: dict) -> dict:
     }
 
 
+def tool_gdn_search(params: dict) -> dict:
+    query = params.get("query", "")
+    if not query:
+        return {"error": "query parameter is required"}
+
+    index = _ensure_gdn_index()
+    q = query.lower()
+    results = []
+
+    for cat_name, cat_data in index.get("categories", {}).items():
+        for cls_name, cls_data in cat_data.get("classes", {}).items():
+            if q in cls_name.lower() or q in cat_name.lower():
+                url = f"{GDN_BASE_URL}?version=script&category={cat_data['id']}&class={cls_data['id']}"
+                results.append({
+                    "class": cls_name,
+                    "category": cat_name,
+                    "category_id": cat_data["id"],
+                    "class_id": cls_data["id"],
+                    "url": url,
+                })
+
+    results.sort(key=lambda r: (0 if r["class"].lower().startswith(q) else 1, r["class"]))
+    return {
+        "query": query,
+        "total": len(results),
+        "results": results[:20],
+    }
+
+
 # ── Tool registry ─────────────────────────────────────────────────────────────
 
 TOOLS = {
@@ -1279,6 +1308,18 @@ TOOLS = {
         },
         "handler": tool_deploy_mod,
     },
+    "gdn_search": {
+        "name": "gdn_search",
+        "description": "Search the GDN FS25 scripting documentation for classes by name or category.",
+        "inputSchema": {
+            "type": "object",
+            "properties": {
+                "query": {"type": "string", "description": "Class name or category to search for"},
+            },
+            "required": ["query"],
+        },
+        "handler": tool_gdn_search,
+    },
 }
 
 
@@ -1296,7 +1337,7 @@ def handle_request(msg: dict) -> dict | None:
     if method == "initialize":
         return {
             "protocolVersion": "2024-11-05",
-            "capabilities": {"tools": {}},
+            "capabilities": {"tools": {k: {kk: vv for kk, vv in vv.items() if kk != "handler"} for k, vv in TOOLS.items()}},
             "serverInfo": {"name": "fs25-mods-mcp", "version": "2.0.0"},
         }
 
