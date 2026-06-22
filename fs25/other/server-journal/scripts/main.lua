@@ -68,14 +68,11 @@ local function initJournalManager()
 end
 
 local function loadSavegameData()
-
-
-
-    
     JournalLogger.info("main", "loadSavegameData")
     if g_server ~= nil and Journal.manager ~= nil then
         JournalLogger.info("main", "Server mode: loading savegame")
         Journal.manager:loadFromSavegame()
+        if JournalSettings ~= nil then JournalSettings.loadFromXMLFile() end
         Journal.manager:syncToClients()
         JournalLogger.info("main", "Savegame loaded and synced to clients")
     end
@@ -250,6 +247,10 @@ local function loadedMission()
     ok = pcall(function() loadSavegameData() end)
     JournalLogger.info("main", "loadSavegameData ok=" .. tostring(ok))
 
+    if JournalSettings ~= nil then
+        JournalSettings.loadDefaultsIfMissing()
+    end
+
     -- Test translation override
     local testText = ""
     if g_i18n then
@@ -268,6 +269,9 @@ local function onSaveToXMLFile()
         JournalLogger.info("main", "Saving to savegame on game save")
         Journal.manager:saveToSavegame()
     end
+    if JournalSettings ~= nil then
+        JournalSettings.saveToXMLFile()
+    end
 end
 
 local function sendInitialClientState(self, connection, user, farm)
@@ -282,6 +286,9 @@ local function sendInitialClientState(self, connection, user, farm)
     end
     JournalLogger.info("main", "sendInitialClientState: syncing to new client")
     connection:sendEvent(JournalEvent.new(JournalEvent.TYPE_SYNC, Journal.manager:getPosts()))
+    if JournalSettingsEvent ~= nil and g_currentMission and g_currentMission.journalSettings then
+        connection:sendEvent(JournalSettingsEvent.new(g_currentMission.journalSettings))
+    end
 end
 
 local function initJournal()

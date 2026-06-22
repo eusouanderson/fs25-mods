@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="no" ?>
 <modDesc descVersion="107">
     <author>B.O.B</author>
-    <version>1.0.7.0</version>
+    <version>1.0.8.0</version>
     <title>
         <en>Server Journal</en>
         <pt>Jornal do Servidor</pt>
@@ -22,25 +22,25 @@ Features:
 - Native GIANTS Engine UI
 
 Author: B.O.B
-Version: 1.0.6.0
+Version: 1.0.8.0
 Category: Gameplay / HUD
         ]]>        </en>
         <pt><![CDATA[
 Jornal do Servidor é um sistema de mural multiplayer para Farming Simulator 25.
 Jogadores podem visualizar anúncios em tempo real, criar posts para trabalhos, fretes, vendas e RP.
-Todos os dados são autoritativos do servidor e persistem no savegame.
+All data is server-authoritative and persists in the savegame.
 
 Autor: B.O.B
-Versão: 1.0.6.0
+Versão: 1.0.8.0
 Categoria: Gameplay / HUD
         ]]>        </pt>
         <br><![CDATA[
 Jornal do Servidor é um sistema de mural multiplayer para Farming Simulator 25.
 Jogadores podem visualizar anúncios em tempo real, criar posts para trabalhos, fretes, vendas e RP.
-Todos os dados são autoritativos do servidor e persistem no savegame.
+All data is server-authoritative and persists in the savegame.
 
 Autor: B.O.B
-Versão: 1.0.6.0
+Versão: 1.0.8.0
 Categoria: Gameplay / HUD
         ]]>        </br>
     </description>
@@ -67,6 +67,8 @@ Categoria: Gameplay / HUD
         <sourceFile filename="scripts/JournalLogger.lua" />
         <sourceFile filename="scripts/JournalStorage.lua" />
         <sourceFile filename="scripts/JournalEvent.lua" />
+        <sourceFile filename="scripts/JournalSettings.lua" />
+        <sourceFile filename="scripts/JournalSettingsEvent.lua" />
         <sourceFile filename="scripts/JournalManager.lua" />
         <sourceFile filename="scripts/JournalUI.lua" />
         <sourceFile filename="scripts/JournalCreatePostDialog.lua" />

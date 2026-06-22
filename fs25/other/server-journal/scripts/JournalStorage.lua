@@ -47,11 +47,12 @@ function JournalStorage.load()
             category    = getXMLString(xmlFile, key .. "#category") or "job",
             payment     = getXMLInt(xmlFile, key .. "#payment") or 0,
             createdAt   = {
-                day    = getXMLInt(xmlFile, ca .. "#day") or 0,
-                period = getXMLInt(xmlFile, ca .. "#period") or 0,
-                year   = getXMLInt(xmlFile, ca .. "#year") or 1,
-                hour   = getXMLInt(xmlFile, ca .. "#hour") or 0,
-                minute = getXMLInt(xmlFile, ca .. "#minute") or 0,
+                day        = getXMLInt(xmlFile, ca .. "#day") or 0,
+                period     = getXMLInt(xmlFile, ca .. "#period") or 0,
+                year       = getXMLInt(xmlFile, ca .. "#year") or 1,
+                hour       = getXMLInt(xmlFile, ca .. "#hour") or 0,
+                minute     = getXMLInt(xmlFile, ca .. "#minute") or 0,
+                currentDay = getXMLInt(xmlFile, ca .. "#currentDay") or getXMLInt(xmlFile, ca .. "#day") or 0,
             },
         }
         table.insert(posts, post)
@@ -85,11 +86,12 @@ function JournalStorage.save(posts, nextId)
         setXMLInt(xmlFile, key .. "#payment", post.payment)
         local ca = post.createdAt or {}
         local caKey = key .. ".createdAt"
-        setXMLInt(xmlFile, caKey .. "#day",    ca.day or 0)
-        setXMLInt(xmlFile, caKey .. "#period", ca.period or 0)
-        setXMLInt(xmlFile, caKey .. "#year",   ca.year or 1)
-        setXMLInt(xmlFile, caKey .. "#hour",   ca.hour or 0)
-        setXMLInt(xmlFile, caKey .. "#minute", ca.minute or 0)
+        setXMLInt(xmlFile, caKey .. "#day",        ca.day or 0)
+        setXMLInt(xmlFile, caKey .. "#period",     ca.period or 0)
+        setXMLInt(xmlFile, caKey .. "#year",       ca.year or 1)
+        setXMLInt(xmlFile, caKey .. "#hour",       ca.hour or 0)
+        setXMLInt(xmlFile, caKey .. "#minute",     ca.minute or 0)
+        setXMLInt(xmlFile, caKey .. "#currentDay", ca.currentDay or ca.day or 0)
     end
 
     local ok = saveXMLFile(xmlFile, path)

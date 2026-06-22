@@ -59,16 +59,34 @@ function JournalEvent:run(connection)
     if g_server ~= nil and connection ~= nil and not connection:getIsServer() then
         JournalLogger.info("JournalEvent", "Server received from client, validating")
         if self.eventType == JournalEvent.TYPE_CREATE then
+            local authorId = self.postData.authorId
+            local authorName = self.postData.authorName
+            if g_currentMission ~= nil and g_currentMission.userManager ~= nil then
+                local user = g_currentMission.userManager:getUserByConnection(connection)
+                if user ~= nil then
+                    authorId = user.userId or authorId
+                    authorName = user.nickname or authorName
+                end
+            end
             g_journalManager:addPost(
-                self.postData.authorId,
-                self.postData.authorName,
+                authorId,
+                authorName,
                 self.postData.title,
                 self.postData.description,
                 self.postData.category,
                 self.postData.payment
             )
         elseif self.eventType == JournalEvent.TYPE_DELETE then
-            g_journalManager:removePost(self.postData.id)
+            local requesterId = nil
+            local isAdmin = false
+            if g_currentMission ~= nil and g_currentMission.userManager ~= nil then
+                local user = g_currentMission.userManager:getUserByConnection(connection)
+                if user ~= nil then
+                    requesterId = user.userId
+                    isAdmin = g_currentMission:getIsMasterUser(user.userId)
+                end
+            end
+            g_journalManager:removePost(self.postData.id, requesterId, isAdmin)
         end
         return
     end
@@ -100,6 +118,7 @@ function JournalEvent.writePost(streamId, post)
     streamWriteUInt16(streamId, ca.year or 1)
     streamWriteUInt8(streamId, ca.hour or 0)
     streamWriteUInt8(streamId, ca.minute or 0)
+    streamWriteInt32(streamId, ca.currentDay or 0)
 end
 
 function JournalEvent.readPost(streamId)
@@ -117,6 +136,7 @@ function JournalEvent.readPost(streamId)
             year   = streamReadUInt16(streamId),
             hour   = streamReadUInt8(streamId),
             minute = streamReadUInt8(streamId),
+            currentDay = streamReadInt32(streamId),
         },
     }
     JournalLogger.info("JournalEvent", "Read post id=" .. post.id .. " title=" .. post.title)

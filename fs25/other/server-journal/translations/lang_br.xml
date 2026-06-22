@@ -33,5 +33,6 @@
         <e k="journal_deleted" v="Anúncio excluído!" />
         <e k="journal_colPost" v="Anúncio" />
         <e k="journal_empty" v="Nenhum anúncio ainda" />
+        <e k="journal_chat_announcement" v="[Mural] Novo anúncio de %s por %s: '%s'" />
     </elements>
 </l10n>

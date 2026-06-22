@@ -353,7 +353,13 @@ function JournalScreen:showDetail(post)
     end
     if self.detailPayment then
         local payment = post.payment or 0
-        local moneyStr = g_i18n:formatMoney(payment, 0, true, false)
+        local moneyStr = tostring(payment)
+        if g_i18n ~= nil then
+            local ok, formatted = pcall(function() return g_i18n:formatMoney(payment, 0, true, true) end)
+            if ok and formatted then
+                moneyStr = formatted
+            end
+        end
         self.detailPayment:setText(self.i18n:getText("journal_payment", Journal.modName) .. " " .. moneyStr)
         self.detailPayment:setVisible(true)
     end
@@ -432,7 +438,21 @@ function JournalScreen:onListSelectionChanged(list, section, index)
         self.selectedPostIndex = index
         local post = self.filteredPosts[index]
         self:showDetail(post)
-        self.btnDelete.disabled = false
+        
+        local currentUserId = 0
+        if g_currentMission and g_currentMission.player then
+            currentUserId = g_currentMission.player:getId() or 0
+        elseif g_localPlayer then
+            currentUserId = g_localPlayer.farmId or 0
+        end
+
+        local isAdmin = false
+        if g_currentMission ~= nil then
+            isAdmin = g_currentMission:getIsServer() or g_currentMission:getIsMasterUser()
+        end
+
+        local isAuthor = (post.authorId == currentUserId)
+        self.btnDelete.disabled = not (isAuthor or isAdmin)
     else
         self.selectedPostIndex = nil
         self:clearDetail()
@@ -499,6 +519,23 @@ function JournalScreen:onClickDelete()
     if self.selectedPostIndex == nil then return end
     local post = self.filteredPosts[self.selectedPostIndex]
     if post == nil then return end
+
+    local currentUserId = 0
+    if g_currentMission and g_currentMission.player then
+        currentUserId = g_currentMission.player:getId() or 0
+    elseif g_localPlayer then
+        currentUserId = g_localPlayer.farmId or 0
+    end
+
+    local isAdmin = false
+    if g_currentMission ~= nil then
+        isAdmin = g_currentMission:getIsServer() or g_currentMission:getIsMasterUser()
+    end
+
+    if post.authorId ~= currentUserId and not isAdmin then
+        JournalUI.showError("Você não tem permissão para excluir este anúncio.")
+        return
+    end
 
     if Journal.manager == nil then
         JournalLogger.warning("JournalScreen", "Journal.manager nil on delete")

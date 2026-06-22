@@ -33,5 +33,6 @@
         <e k="journal_deleted" v="Post deleted!" />
         <e k="journal_colPost" v="Post" />
         <e k="journal_empty" v="No posts yet" />
+        <e k="journal_chat_announcement" v="[Board] New post under %s by %s: '%s'" />
     </elements>
 </l10n>
