@@ -40,7 +40,7 @@ CATEGORIES = ("trucks", "tractors", "trailers", "maps", "cars", "other")
 USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
 SEARCH_URL = "https://www.fs25.net/?s={query}"
 
-EXCLUDE_PATTERNS = (".git", "__pycache__", "*.pyc", ".DS_Store", "*.bak", "Thumbs.db", "desktop.ini")
+EXCLUDE_PATTERNS = (".git", "__pycache__", "*.pyc", ".DS_Store", "*.bak", "Thumbs.db", "desktop.ini", ".cursorrules", ".geminirules")
 EXCLUDE_DIRS = {"backups", "validator", ".sisyphus"}
 
 # ── GDN Documentation ─────────────────────────────────────────────────────────

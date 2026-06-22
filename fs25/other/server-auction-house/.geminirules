@@ -14,3 +14,6 @@ Whenever you are working on the `FS25_ServerAuctionHouse` mod:
      - Copy the contents from this mods folder to the WSL repository folder.
      - Update version strings in `modDesc.xml` and download links in `README.md` if making a new release.
      - Staged, commit, and push (`git push`) the changes to GitHub.
+
+3. **Release Exclusions**:
+   - Make sure that `.cursorrules` and `.geminirules` are completely excluded from any release ZIP files (they must be in `EXCLUDE_PATTERNS` in `tools/release_mod.py` and `tools/mcp_server.py`) so the distributed mod remains clean.

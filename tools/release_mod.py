@@ -33,6 +33,7 @@ CATEGORIES = ("trucks", "tractors", "trailers", "maps", "cars", "other")
 EXCLUDE_PATTERNS = (
     ".git", "__pycache__", "*.pyc", ".DS_Store",
     "*.bak", "Thumbs.db", "desktop.ini",
+    ".cursorrules", ".geminirules",
 )
 
 # Directories to exclude from the ZIP (dev-only, not needed for the game)
