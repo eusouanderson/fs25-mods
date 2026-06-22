@@ -65,6 +65,9 @@
 
                     <ThreePartBitmap profile="auctionDetailSep" id="detailSep1"/>
 
+                    <!-- Vehicle/item image -->
+                    <Bitmap profile="fs25_vehiclesDetailsImage" id="detailImage" visible="false"/>
+
                     <Text profile="auctionDetailInfo" id="detailSeller"/>
                     <Text profile="auctionDetailInfo" id="detailStarting"/>
                     <Text profile="auctionDetailHighlight" id="detailCurrent"/>

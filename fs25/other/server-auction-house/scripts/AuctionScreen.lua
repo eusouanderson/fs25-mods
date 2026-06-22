@@ -18,6 +18,7 @@ AuctionScreen.CONTROLS = {
     DETAIL_PANEL     = "detailPanel",
     DETAIL_VBOX      = "detailVBox",
     DETAIL_TITLE     = "detailTitle",
+    DETAIL_IMAGE     = "detailImage",
     DETAIL_SELLER    = "detailSeller",
     DETAIL_STARTING  = "detailStarting",
     DETAIL_CURRENT   = "detailCurrent",
@@ -298,6 +299,9 @@ function AuctionScreen:clearDetail()
         self.detailTitle:setText(self.i18n:getText("ah_detailNoSelection", AuctionHouse.modName))
         self.detailTitle:setVisible(true)
     end
+    if self.detailImage then
+        self.detailImage:setVisible(false)
+    end
     if self.detailSeller then self.detailSeller:setText("") end
     if self.detailStarting then self.detailStarting:setText("") end
     if self.detailCurrent then self.detailCurrent:setText("") end
@@ -324,12 +328,58 @@ function AuctionScreen:showDetail(auction)
         self:clearDetail()
         return
     end
-    AuctionLogger.info("AuctionScreen", "showDetail for auction: " .. tostring(auction.itemName))
+    AuctionLogger.info("AuctionScreen", "showDetail: ID=%s, ItemName='%s', Seller='%s', VehicleID=%s, xmlFilename='%s'", tostring(auction.id), tostring(auction.itemName), tostring(auction.sellerName), tostring(auction.vehicleId), tostring(auction.xmlFilename))
 
     if self.detailTitle then
         self.detailTitle:setText(auction.itemName or "")
         self.detailTitle:setVisible(true)
     end
+
+    -- Fallback for older player auctions: resolve XML filename from active vehicle
+    if (auction.xmlFilename == nil or auction.xmlFilename == "") and auction.vehicleId ~= nil and auction.vehicleId ~= 0 then
+        local vehicle = AuctionManager.getVehicleById(auction.vehicleId)
+        if vehicle ~= nil and vehicle.configFileName ~= nil then
+            auction.xmlFilename = vehicle.configFileName
+            AuctionLogger.info("AuctionScreen", "showDetail: resolved xmlFilename '%s' from active vehicleId=%d", auction.xmlFilename, auction.vehicleId)
+        end
+    end
+
+    -- Set the vehicle image/icon
+    local imageShown = false
+    if self.detailImage then
+        if auction.xmlFilename ~= nil and auction.xmlFilename ~= "" then
+            if g_storeManager ~= nil then
+                local storeItem = g_storeManager:getItemByXMLFilename(auction.xmlFilename)
+                if storeItem ~= nil and storeItem.imageFilename ~= nil then
+                    local imgPath = storeItem.imageFilename:gsub("\\", "/")
+                    if imgPath:sub(1, 1) ~= "$" and (imgPath:sub(1, 5):lower() == "data/" or imgPath:sub(1, 6):lower() == "datas/") then
+                        imgPath = "$" .. imgPath
+                    end
+                    if imgPath:sub(-4):lower() == ".png" then
+                        local lowerPath = imgPath:lower()
+                        if lowerPath:sub(1, 6) == "$data/" or lowerPath:sub(1, 7) == "$datas/" then
+                            imgPath = imgPath:sub(1, -5) .. ".dds"
+                        end
+                    end
+                    imgPath = Utils.getFilename(imgPath, AuctionHouse.modDirectory)
+                    AuctionLogger.info("AuctionScreen", "showDetail: setting detailImage filename to '%s'", tostring(imgPath))
+                    self.detailImage:setImageFilename(imgPath)
+                    self.detailImage:setVisible(true)
+                    imageShown = true
+                else
+                    AuctionLogger.warning("AuctionScreen", "showDetail: storeItem or imageFilename not found for XML '%s'", tostring(auction.xmlFilename))
+                    self.detailImage:setVisible(false)
+                end
+            else
+                AuctionLogger.warning("AuctionScreen", "showDetail: g_storeManager is nil")
+                self.detailImage:setVisible(false)
+            end
+        else
+            AuctionLogger.info("AuctionScreen", "showDetail: xmlFilename is missing or empty")
+            self.detailImage:setVisible(false)
+        end
+    end
+
     if self.detailSeller then
         self.detailSeller:setText(self.i18n:getText("ah_seller", AuctionHouse.modName) .. " " .. (auction.sellerName or "?"))
     end

@@ -142,10 +142,14 @@ function AuctionManager:createAuction(sellerId, sellerName, vehicleId, startingB
     durationMins = math.max(AuctionManager.MIN_DURATION_MINUTES, math.min(AuctionManager.MAX_DURATION_MINUTES, durationMins))
 
     local storePrice = startingBid
-    if vehicle ~= nil and vehicle.configFileName ~= nil and g_storeManager ~= nil then
-        local storeItem = g_storeManager:getItemByXMLFilename(vehicle.configFileName)
-        if storeItem ~= nil and storeItem.price ~= nil then
-            storePrice = storeItem.price
+    local xmlFilename = ""
+    if vehicle ~= nil and vehicle.configFileName ~= nil then
+        xmlFilename = vehicle.configFileName
+        if g_storeManager ~= nil then
+            local storeItem = g_storeManager:getItemByXMLFilename(vehicle.configFileName)
+            if storeItem ~= nil and storeItem.price ~= nil then
+                storePrice = storeItem.price
+            end
         end
     end
 
@@ -153,6 +157,7 @@ function AuctionManager:createAuction(sellerId, sellerName, vehicleId, startingB
     local auction = {
         id = self.nextId,
         vehicleId = vehicleId,
+        xmlFilename = xmlFilename,
         itemName = vehicle:getName(),
         sellerId = sellerId,
         sellerName = sellerName,

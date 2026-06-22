@@ -22,6 +22,7 @@ import traceback
 import urllib.error
 import urllib.request
 import zipfile
+import struct
 from pathlib import Path
 from urllib.parse import urlparse, quote
 
@@ -371,7 +372,7 @@ def _ensure_img_libs():
     global np, Image
     if 'np' not in globals() or 'Image' not in globals():
         import numpy as _np
-        from PIL import _Image
+        from PIL import Image as _Image
         globals()['np'] = _np
         globals()['Image'] = _Image
 
@@ -454,7 +455,7 @@ def write_dds(filepath, img_array):
     if img_array.shape[2] == 3:
         img_array = np.concatenate([img_array, np.full((img_array.shape[0], img_array.shape[1], 1), 255, dtype=np.uint8)], axis=2)
     data, w, h, pitch = compress_dxt5(img_array)
-    header = struct.pack("<4sIIIIIIIIIIII11IIII4sIIIIIIIIIII",
+    header = struct.pack("<4s7I11I2I4s5I5I",
                          b"DDS ", 124, 0x00021007, h, w, pitch, 0, 0,
                          0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
                          32, 0x00000004, b"DXT5", 0, 0, 0, 0, 0,

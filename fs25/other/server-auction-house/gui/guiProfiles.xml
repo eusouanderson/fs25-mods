@@ -136,6 +136,12 @@
         <textVerticalAlignment value="middle"/>
     </Profile>
 
+    <Profile name="auctionDetailImage" extends="baseReference" with="anchorTopLeft">
+        <size value="256px 256px"/>
+        <imageColor value="1 1 1 1"/>
+        <color value="1 1 1 1"/>
+    </Profile>
+
     <!-- Bid row -->
     <Profile name="auctionBidRow" extends="emptyPanel" with="anchorTopLeft">
         <size value="528px 60px"/>
