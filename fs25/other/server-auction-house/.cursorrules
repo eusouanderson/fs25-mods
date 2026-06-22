@@ -1,0 +1,16 @@
+# AI Coding Guidelines & Workflow
+
+Whenever you are working on the `FS25_ServerAuctionHouse` mod:
+
+1. **Active Coding**:
+   - Always perform modifications and code editing directly inside this Windows mods directory:
+     `g:\Users\Administrador\Documents\My Games\FarmingSimulator2025\mods\FS25_ServerAuctionHouse`
+   - Do NOT edit files directly inside the WSL repository directory (`/home/bob/fs25-mods/`) for active coding.
+
+2. **Synchronization and Push Workflow**:
+   - When modifications are complete and verified, present them to the user.
+   - **ONLY AFTER THE USER APPROVES the changes**, sync the files to the WSL repository:
+     - Clear `/home/bob/fs25-mods/fs25/other/server-auction-house/` in WSL.
+     - Copy the contents from this mods folder to the WSL repository folder.
+     - Update version strings in `modDesc.xml` and download links in `README.md` if making a new release.
+     - Staged, commit, and push (`git push`) the changes to GitHub.
