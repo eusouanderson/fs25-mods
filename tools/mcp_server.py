@@ -1511,7 +1511,7 @@ def handle_request(msg: dict) -> dict | None:
     if method == "initialize":
         return {
             "protocolVersion": "2024-11-05",
-            "capabilities": {"tools": {k: {kk: vv for kk, vv in vv.items() if kk != "handler"} for k, vv in TOOLS.items()}},
+            "capabilities": {"tools": {}},
             "serverInfo": {"name": "fs25-mods-mcp", "version": "2.0.0"},
         }
 
@@ -1549,7 +1549,7 @@ def main():
             send_message({"jsonrpc": "2.0", "error": {"code": -32700, "message": f"Parse error: {e}"}})
             continue
         result = handle_request(msg)
-        if result is not None:
+        if result is not None and "id" in msg:
             resp = {"jsonrpc": "2.0", "id": msg.get("id")}
             if "error" in result:
                 resp["error"] = result["error"]

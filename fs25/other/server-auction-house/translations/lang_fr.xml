@@ -33,6 +33,7 @@
         <e k="ah_error_minBid" v="Erreur: L'offre minimale doit être d'au moins $" />
         <e k="ah_error_noFunds" v="Erreur: Solde insuffisant sur le compte de la ferme." />
         <e k="ah_error_notOwner" v="Erreur: Seul le vendeur peut annuler cette enchère." />
+        <e k="ah_error_hasBids" v="Erreur: Impossible d'annuler une enchère qui a déjà des offres." />
         <e k="ah_global_auctionStarted" v="[Enchère] %s a lancé une enchère de %s pour $%s" />
         <e k="ah_global_newBid" v="[Enchère] Nouvelle meilleure offre de %s de $%s sur %s" />
         <e k="ah_global_cancelled" v="[Enchère] L'enchère de %s a été annulée par le vendeur." />

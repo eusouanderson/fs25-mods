@@ -33,6 +33,7 @@
         <e k="ah_error_minBid" v="Error: La puja mínima debe ser al menos $" />
         <e k="ah_error_noFunds" v="Error: Saldo insuficiente en la cuenta de la granja." />
         <e k="ah_error_notOwner" v="Error: Solo el vendedor puede cancelar esta subasta." />
+        <e k="ah_error_hasBids" v="Error: No se puede cancelar una subasta que ya tiene ofertas." />
         <e k="ah_global_auctionStarted" v="[Subasta] %s inició una subasta de %s por $%s" />
         <e k="ah_global_newBid" v="[Subasta] Nueva puja más alta de %s por $%s en %s" />
         <e k="ah_global_cancelled" v="[Subasta] La subasta de %s fue cancelada por el vendedor." />

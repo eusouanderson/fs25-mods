@@ -48,6 +48,7 @@ local AuctionHouseI18NTexts = {
     ["ah_error_minBid"] = true,
     ["ah_error_noFunds"] = true,
     ["ah_error_notOwner"] = true,
+    ["ah_error_hasBids"] = true,
     ["ah_global_auctionStarted"] = true,
     ["ah_global_newBid"] = true,
     ["ah_global_cancelled"] = true,

@@ -33,6 +33,7 @@
         <e k="ah_error_minBid" v="Erro: O lance mínimo deve ser pelo menos $" />
         <e k="ah_error_noFunds" v="Erro: Saldo insuficiente na conta da fazenda." />
         <e k="ah_error_notOwner" v="Erro: Somente o vendedor pode cancelar este leilão." />
+        <e k="ah_error_hasBids" v="Erro: Não é possível cancelar um leilão que já possui lances." />
         <e k="ah_global_auctionStarted" v="[Leilão] %s iniciou um leilão de %s por $%s" />
         <e k="ah_global_newBid" v="[Leilão] Novo maior lance de %s no valor de $%s em %s" />
         <e k="ah_global_cancelled" v="[Leilão] O leilão de %s foi cancelado pelo vendedor." />

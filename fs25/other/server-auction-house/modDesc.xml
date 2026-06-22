@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="no" ?>
 <modDesc descVersion="107">
     <author>B.O.B</author>
-    <version>1.2.1.0</version>
+    <version>1.2.2.0</version>
 
     <title>
         <en>Server Auction House</en>
@@ -25,7 +25,7 @@ Features:
 - Configurable bot settings via in-game menu (server only)
 
 Author: B.O.B
-Version: 1.2.1.0
+Version: 1.2.2.0
 Category: Gameplay / HUD
         ]]>        </en>
         <pt><![CDATA[
@@ -43,7 +43,7 @@ Funcionalidades:
 - Configuração de bots pelo menu do jogo (apenas servidor)
 
 Autor: B.O.B
-Versão: 1.2.1.0
+Versão: 1.2.2.0
 Categoria: Gameplay / HUD
         ]]>        </pt>
         <br><![CDATA[
@@ -61,7 +61,7 @@ Funcionalidades:
 - Configuração de bots pelo menu do jogo (apenas servidor)
 
 Autor: B.O.B
-Versão: 1.2.1.0
+Versão: 1.2.2.0
 Categoria: Gameplay / HUD
         ]]>        </br>
         <fr><![CDATA[
@@ -79,7 +79,7 @@ Fonctionnalités:
 - Configuration des bots via le menu du jeu (serveur seulement)
 
 Auteur: B.O.B
-Version: 1.2.1.0
+Version: 1.2.2.0
 Catégorie: Gameplay / HUD
         ]]>        </fr>
         <es><![CDATA[
@@ -97,7 +97,7 @@ Características:
 - Configuración de bots desde el menú del juego (solo servidor)
 
 Autor: B.O.B
-Versión: 1.2.1.0
+Versión: 1.2.2.0
 Categoría: Gameplay / HUD
         ]]>        </es>
     </description>

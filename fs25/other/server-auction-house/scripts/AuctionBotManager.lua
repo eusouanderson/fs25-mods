@@ -13,14 +13,14 @@ AuctionBotManager.DEV_MODE = false
 AuctionBotManager._botsPreviouslyEnabled = nil
 
 AuctionBotManager.BOTS = {
-    { id = -100, name = "Pedro (Conservador)", profile = "CONSERVATIVE" },
-    { id = -101, name = "Lucas (Competitivo)", profile = "COMPETITIVE" },
-    { id = -102, name = "Carlos (Agressivo)", profile = "AGGRESSIVE" },
-    { id = -103, name = "Mateus (Aleatório)", profile = "RANDOM" },
-    { id = -104, name = "Júlia (Conservador)", profile = "CONSERVATIVE" },
-    { id = -105, name = "Fernanda (Competitivo)", profile = "COMPETITIVE" },
-    { id = -106, name = "Bruno (Agressivo)", profile = "AGGRESSIVE" },
-    { id = -107, name = "Amanda (Aleatório)", profile = "RANDOM" },
+    { id = -100, name = "Pedro", profile = "CONSERVATIVE" }, -- Consevador
+    { id = -101, name = "Lucas", profile = "COMPETITIVE" }, -- Competitivo
+    { id = -102, name = "Carlos", profile = "AGGRESSIVE" }, -- Agressivo
+    { id = -103, name = "Mateus", profile = "RANDOM" }, -- Aleatório
+    { id = -104, name = "Júlia", profile = "CONSERVATIVE" }, -- Consevador
+    { id = -105, name = "Fernanda", profile = "COMPETITIVE" }, -- Competitivo
+    { id = -106, name = "Bruno", profile = "AGGRESSIVE" }, -- Agressivo
+    { id = -107, name = "Amanda", profile = "RANDOM" }, -- Aleatório
 }
 
 function AuctionBotManager.isBotId(id)

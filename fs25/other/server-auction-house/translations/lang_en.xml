@@ -33,6 +33,7 @@
         <e k="ah_error_minBid" v="Error: Minimum bid must be at least $" />
         <e k="ah_error_noFunds" v="Error: Insufficient funds in farm account." />
         <e k="ah_error_notOwner" v="Error: Only the seller can cancel this auction." />
+        <e k="ah_error_hasBids" v="Error: Cannot cancel an auction that already has bids." />
         <e k="ah_global_auctionStarted" v="[Auction] %s started an auction of %s for $%s" />
         <e k="ah_global_newBid" v="[Auction] New highest bid by %s of $%s on %s" />
         <e k="ah_global_cancelled" v="[Auction] Auction of %s was cancelled by seller." />

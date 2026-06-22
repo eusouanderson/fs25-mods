@@ -425,7 +425,8 @@ function AuctionScreen:onListSelectionChanged(list, section, index)
         self:showDetail(auction)
 
         local farmId = AuctionUI.getLocalFarmInfo()
-        self.btnCancel.disabled = (auction.sellerId ~= farmId)
+        local hasBid = auction.highestBidderId ~= nil and auction.highestBidderId ~= 0
+        self.btnCancel.disabled = (auction.sellerId ~= farmId) or hasBid
     else
         self.selectedAuctionIndex = nil
         self:clearDetail()

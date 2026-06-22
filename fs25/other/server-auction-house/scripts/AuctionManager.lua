@@ -308,6 +308,12 @@ function AuctionManager:cancelAuction(auctionId, requesterId, requesterName)
         return
     end
 
+    if auction.highestBidderId ~= nil and auction.highestBidderId ~= 0 then
+        self:broadcastChat(g_i18n:getText("ah_error_hasBids", AuctionHouse.modName))
+        AuctionLogger.warning("AuctionManager", "cancelAuction: cannot cancel auction " .. tostring(auctionId) .. " because it already has bids")
+        return
+    end
+
     table.remove(self.auctions, index)
     self:saveToSavegame()
     AuctionEvent.sendSync(self.auctions)
