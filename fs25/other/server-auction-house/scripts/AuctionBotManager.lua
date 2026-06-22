@@ -13,18 +13,27 @@ AuctionBotManager.DEV_MODE = false
 AuctionBotManager._botsPreviouslyEnabled = nil
 
 AuctionBotManager.BOTS = {
-    { id = -100, name = "Pedro", profile = "CONSERVATIVE" }, -- Consevador
-    { id = -101, name = "Lucas", profile = "COMPETITIVE" }, -- Competitivo
-    { id = -102, name = "Carlos", profile = "AGGRESSIVE" }, -- Agressivo
-    { id = -103, name = "Mateus", profile = "RANDOM" }, -- Aleatório
-    { id = -104, name = "Júlia", profile = "CONSERVATIVE" }, -- Consevador
-    { id = -105, name = "Fernanda", profile = "COMPETITIVE" }, -- Competitivo
-    { id = -106, name = "Bruno", profile = "AGGRESSIVE" }, -- Agressivo
-    { id = -107, name = "Amanda", profile = "RANDOM" }, -- Aleatório
+    { id = -100, defaultName = "Pedro", profile = "CONSERVATIVE" }, -- Conservador
+    { id = -101, defaultName = "Lucas", profile = "COMPETITIVE" }, -- Competitivo
+    { id = -102, defaultName = "Carlos", profile = "AGGRESSIVE" }, -- Agressivo
+    { id = -103, defaultName = "Mateus", profile = "RANDOM" }, -- Aleatório
+    { id = -104, defaultName = "Júlia", profile = "CONSERVATIVE" }, -- Conservador
+    { id = -105, defaultName = "Fernanda", profile = "COMPETITIVE" }, -- Competitivo
+    { id = -106, defaultName = "Bruno", profile = "AGGRESSIVE" }, -- Agressivo
+    { id = -107, defaultName = "Amanda", profile = "RANDOM" }, -- Aleatório
 }
 
 function AuctionBotManager.isBotId(id)
     return id ~= nil and id < 0
+end
+
+function AuctionBotManager.getBotName(bot)
+    if bot == nil then return "" end
+    local key = "ah_bot_name_" .. tostring(math.abs(bot.id))
+    if g_i18n ~= nil and g_i18n:hasText(key, AuctionHouse.modName) then
+        return g_i18n:getText(key, AuctionHouse.modName)
+    end
+    return bot.defaultName or "Bot"
 end
 
 -- Generates a stable maximum price valuation for a given bot-auction pair
@@ -268,6 +277,7 @@ function AuctionBotManager.createRandomBotAuction()
     
     -- Pick a random bot
     local bot = AuctionBotManager.BOTS[math.random(1, #AuctionBotManager.BOTS)]
+    local botName = AuctionBotManager.getBotName(bot)
     
     -- Random duration between 3 to 15 minutes (DEV_MODE: max 1 min)
     local durationMins
@@ -277,10 +287,10 @@ function AuctionBotManager.createRandomBotAuction()
         durationMins = math.random(3, 15)
     end
 
-    AuctionLogger.info("AuctionBotManager", "Creating automated auction: bot=%s, item=%s, startingBid=%d, duration=%dmins (DEV_MODE=%s)", bot.name, item.name, startingBid, durationMins, tostring(AuctionBotManager.DEV_MODE))
+    AuctionLogger.info("AuctionBotManager", "Creating automated auction: bot=%s, item=%s, startingBid=%d, duration=%dmins (DEV_MODE=%s)", botName, item.name, startingBid, durationMins, tostring(AuctionBotManager.DEV_MODE))
     
     -- Call custom creation wrapper in AuctionManager
-    g_auctionManager:createBotAuction(bot.id, bot.name, item.name, item.xmlFilename, startingBid, durationMins, item.price)
+    g_auctionManager:createBotAuction(bot.id, botName, item.name, item.xmlFilename, startingBid, durationMins, item.price)
 end
 
 function AuctionBotManager.checkCreateAuction()
@@ -323,8 +333,9 @@ function AuctionBotManager.processBids()
             if AuctionBotManager.shouldBotBid(bot, auction, serverTime) then
                 local bidAmount = AuctionBotManager.calculateBidAmount(bot, auction)
                 if bidAmount ~= nil then
-                    AuctionLogger.info("AuctionBotManager", "Bot %s is placing a bid of %d on auction %d (%s)", bot.name, bidAmount, auction.id, auction.itemName)
-                    g_auctionManager:placeBid(auction.id, bot.id, bot.name, bidAmount)
+                    local botName = AuctionBotManager.getBotName(bot)
+                    AuctionLogger.info("AuctionBotManager", "Bot %s is placing a bid of %d on auction %d (%s)", botName, bidAmount, auction.id, auction.itemName)
+                    g_auctionManager:placeBid(auction.id, bot.id, botName, bidAmount)
                 end
             end
         end

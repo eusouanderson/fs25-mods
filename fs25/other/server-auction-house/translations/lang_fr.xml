@@ -34,6 +34,14 @@
         <e k="ah_error_noFunds" v="Erreur: Solde insuffisant sur le compte de la ferme." />
         <e k="ah_error_notOwner" v="Erreur: Seul le vendeur peut annuler cette enchère." />
         <e k="ah_error_hasBids" v="Erreur: Impossible d'annuler une enchère qui a déjà des offres." />
+        <e k="ah_bot_name_100" v="Pierre" />
+        <e k="ah_bot_name_101" v="Jean" />
+        <e k="ah_bot_name_102" v="Charles" />
+        <e k="ah_bot_name_103" v="Thomas" />
+        <e k="ah_bot_name_104" v="Marie" />
+        <e k="ah_bot_name_105" v="Camille" />
+        <e k="ah_bot_name_106" v="Antoine" />
+        <e k="ah_bot_name_107" v="Chloé" />
         <e k="ah_global_auctionStarted" v="[Enchère] %s a lancé une enchère de %s pour $%s" />
         <e k="ah_global_newBid" v="[Enchère] Nouvelle meilleure offre de %s de $%s sur %s" />
         <e k="ah_global_cancelled" v="[Enchère] L'enchère de %s a été annulée par le vendeur." />

@@ -34,6 +34,14 @@
         <e k="ah_error_noFunds" v="Error: Saldo insuficiente en la cuenta de la granja." />
         <e k="ah_error_notOwner" v="Error: Solo el vendedor puede cancelar esta subasta." />
         <e k="ah_error_hasBids" v="Error: No se puede cancelar una subasta que ya tiene ofertas." />
+        <e k="ah_bot_name_100" v="Alejandro" />
+        <e k="ah_bot_name_101" v="Javier" />
+        <e k="ah_bot_name_102" v="Carlos" />
+        <e k="ah_bot_name_103" v="Mateo" />
+        <e k="ah_bot_name_104" v="Sofía" />
+        <e k="ah_bot_name_105" v="María" />
+        <e k="ah_bot_name_106" v="Diego" />
+        <e k="ah_bot_name_107" v="Elena" />
         <e k="ah_global_auctionStarted" v="[Subasta] %s inició una subasta de %s por $%s" />
         <e k="ah_global_newBid" v="[Subasta] Nueva puja más alta de %s por $%s en %s" />
         <e k="ah_global_cancelled" v="[Subasta] La subasta de %s fue cancelada por el vendedor." />
