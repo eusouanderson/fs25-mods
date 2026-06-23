@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="no" ?>
 <modDesc descVersion="107">
     <author>B.O.B</author>
-    <version>1.0.8.0</version>
+    <version>1.0.9.0</version>
     <title>
         <en>Server Journal</en>
         <pt>Jornal do Servidor</pt>
@@ -22,7 +22,7 @@ Features:
 - Native GIANTS Engine UI
 
 Author: B.O.B
-Version: 1.0.8.0
+Version: 1.0.9.0
 Category: Gameplay / HUD
         ]]>        </en>
         <pt><![CDATA[
@@ -31,7 +31,7 @@ Jogadores podem visualizar anúncios em tempo real, criar posts para trabalhos, 
 All data is server-authoritative and persists in the savegame.
 
 Autor: B.O.B
-Versão: 1.0.8.0
+Versão: 1.0.9.0
 Categoria: Gameplay / HUD
         ]]>        </pt>
         <br><![CDATA[
@@ -40,15 +40,17 @@ Jogadores podem visualizar anúncios em tempo real, criar posts para trabalhos, 
 All data is server-authoritative and persists in the savegame.
 
 Autor: B.O.B
-Versão: 1.0.8.0
+Versão: 1.0.9.0
 Categoria: Gameplay / HUD
         ]]>        </br>
     </description>
-    <l10n filenamePrefix="translations/lang" defaultLanguage="en" supportedLanguages="en,pt,br">
+    <l10n filenamePrefix="translations/lang" defaultLanguage="en" supportedLanguages="en,pt,br,es,fr">
         <text name="input_JOURNAL_OPEN">
             <en>Open Server Journal</en>
             <pt>Abrir Jornal do Servidor</pt>
             <br>Abrir Jornal do Servidor</br>
+            <es>Abrir Diario del Servidor</es>
+            <fr>Ouvrir le Journal du Serveur</fr>
         </text>
     </l10n>
 

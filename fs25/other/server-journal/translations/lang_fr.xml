@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<l10n>
+    <elements>
+        <e k="journal_title" v="JOURNAL DU SERVEUR" />
+        <e k="journal_createPost" v="Créer une Annonce" />
+        <e k="journal_close" v="Fermer" />
+        <e k="journal_filterAll" v="Tous" />
+        <e k="journal_filterJob" v="Travaux" />
+        <e k="journal_filterSale" v="Ventes" />
+        <e k="journal_filterFreight" v="Frets" />
+        <e k="journal_filterRP" v="RP" />
+        <e k="journal_postCreated" v="Annonce créée !" />
+        <e k="journal_postRequested" v="Requête envoyée au serveur" />
+        <e k="journal_by" v="Par :" />
+        <e k="journal_category" v="Catégorie :" />
+        <e k="journal_payment" v="Paiement :" />
+        <e k="journal_posted" v="Publié :" />
+        <e k="journal_description" v="Description :" />
+        <e k="journal_author" v="Auteur :" />
+        <e k="journal_newTitle" v="Titre de l'Annonce" />
+        <e k="journal_newDesc" v="Description de l'annonce..." />
+        <e k="input_JOURNAL_OPEN" v="Ouvrir le Journal du Serveur" />
+        <e k="journal_dialogTitle" v="Créer une Annonce" />
+        <e k="journal_dialogTitleLabel" v="Titre" />
+        <e k="journal_dialogDescLabel" v="Description" />
+        <e k="journal_dialogCatLabel" v="Catégorie" />
+        <e k="journal_dialogPayLabel" v="Paiement" />
+        <e k="journal_dialogCreateBtn" v="Créer" />
+        <e k="journal_dialogRequired" v="Le titre et la description sont obligatoires" />
+        <e k="journal_dialogNotLoaded" v="Dialogue de création non chargé" />
+        <e k="journal_postDelete" v="Supprimer l'Annonce" />
+        <e k="journal_detailNoSelection" v="Sélectionnez une annonce pour voir les détails" />
+        <e k="journal_deleted" v="Annonce supprimée !" />
+        <e k="journal_colPost" v="Annonce" />
+        <e k="journal_empty" v="Aucune annonce pour le moment" />
+        <e k="journal_chat_announcement" v="[Mural] Nouvelle annonce sous %s par %s : '%s'" />
+    </elements>
+</l10n>

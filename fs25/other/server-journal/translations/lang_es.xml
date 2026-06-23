@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<l10n>
+    <elements>
+        <e k="journal_title" v="DIARIO DEL SERVIDOR" />
+        <e k="journal_createPost" v="Crear Anuncio" />
+        <e k="journal_close" v="Cerrar" />
+        <e k="journal_filterAll" v="Todos" />
+        <e k="journal_filterJob" v="Trabajos" />
+        <e k="journal_filterSale" v="Ventas" />
+        <e k="journal_filterFreight" v="Fletes" />
+        <e k="journal_filterRP" v="Rol" />
+        <e k="journal_postCreated" v="¡Anuncio creado!" />
+        <e k="journal_postRequested" v="Petición enviada al servidor" />
+        <e k="journal_by" v="Por:" />
+        <e k="journal_category" v="Categoría:" />
+        <e k="journal_payment" v="Pago:" />
+        <e k="journal_posted" v="Publicado:" />
+        <e k="journal_description" v="Descripción:" />
+        <e k="journal_author" v="Autor:" />
+        <e k="journal_newTitle" v="Título del Anuncio" />
+        <e k="journal_newDesc" v="Descripción del anuncio..." />
+        <e k="input_JOURNAL_OPEN" v="Abrir Diario del Servidor" />
+        <e k="journal_dialogTitle" v="Crear Anuncio" />
+        <e k="journal_dialogTitleLabel" v="Título" />
+        <e k="journal_dialogDescLabel" v="Descripción" />
+        <e k="journal_dialogCatLabel" v="Categoría" />
+        <e k="journal_dialogPayLabel" v="Pago" />
+        <e k="journal_dialogCreateBtn" v="Crear" />
+        <e k="journal_dialogRequired" v="El título y la descripción son obligatorios" />
+        <e k="journal_dialogNotLoaded" v="Diálogo de creación no cargado" />
+        <e k="journal_postDelete" v="Eliminar Anuncio" />
+        <e k="journal_detailNoSelection" v="Selecciona un anuncio para ver detalles" />
+        <e k="journal_deleted" v="¡Anuncio eliminado!" />
+        <e k="journal_colPost" v="Anuncio" />
+        <e k="journal_empty" v="No hay anuncios todavía" />
+        <e k="journal_chat_announcement" v="[Mural] Nuevo anuncio en %s por %s: '%s'" />
+    </elements>
+</l10n>
