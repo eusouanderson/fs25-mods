@@ -92,6 +92,11 @@ everything is synchronized across clients and persisted in the savegame.
 
 ## 📥 Download
 
+**Server Journal v1.1.1**
+
+[⬇ Baixar / Download](https://github.com/eusouanderson/fs25-mods/releases/tag/server-journal-v1.1.1)
+
+---
 **Server Journal v1.1.0**
 
 [⬇ Baixar / Download](https://github.com/eusouanderson/fs25-mods/releases/tag/server-journal-v1.1.0)
