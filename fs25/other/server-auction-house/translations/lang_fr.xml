@@ -59,5 +59,9 @@
         <e k="auction_settings_section_title" v="Maison de Vente du Serveur" />
         <e k="auction_setting_auctionHouseBotsEnabled" v="Bots d'Enchères" />
         <e k="auction_toolTip_auctionHouseBotsEnabled" v="Si activé, des bots virtuels mettront en vente des articles et enchériront sur les enchères." />
+        <e k="ah_filterHistory" v="Historique" />
+        <e k="ah_status" v="Statut:" />
+        <e k="ah_status_sold" v="Vendu" />
+        <e k="ah_status_no_bids" v="Sans Offre" />
     </elements>
 </l10n>

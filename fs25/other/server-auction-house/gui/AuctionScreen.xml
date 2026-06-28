@@ -18,6 +18,9 @@
             <Button profile="auctionFilterBtn" id="filterBtns[2]" text="$l10n_ah_filterMine" onClick="onClickFilterMine">
                 <ThreePartBitmap profile="fs25_subCategorySelectorTabbedTabBg" name="background"/>
             </Button>
+            <Button profile="auctionFilterBtn" id="filterBtns[3]" text="$l10n_ah_filterHistory" onClick="onClickFilterHistory">
+                <ThreePartBitmap profile="fs25_subCategorySelectorTabbedTabBg" name="background"/>
+            </Button>
         </BoxLayout>
 
         <ThreePartBitmap profile="fs25_lineSeparatorTopHighlighted" position="-63px -57px" size="100% 2dp"/>

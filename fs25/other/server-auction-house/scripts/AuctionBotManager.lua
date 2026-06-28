@@ -8,7 +8,7 @@ AuctionBotManager.CREATE_CHANCE = 0.15 -- 15% chance to create a bot auction if 
 
 -- Modo desenvolvedor: força duração máxima de 1 minuto para testar rapidamente
 -- Em produção, mude para false para usar duração aleatória normal (3-15 min)
-AuctionBotManager.DEV_MODE = false
+AuctionBotManager.DEV_MODE = true
 
 AuctionBotManager._botsPreviouslyEnabled = nil
 
@@ -21,6 +21,7 @@ AuctionBotManager.BOTS = {
     { id = -105, defaultName = "Fernanda", profile = "COMPETITIVE" }, -- Competitivo
     { id = -106, defaultName = "Bruno", profile = "AGGRESSIVE" }, -- Agressivo
     { id = -107, defaultName = "Amanda", profile = "RANDOM" }, -- Aleatório
+    { id = -108, defaultName = "Anderson", profile = "BRAIN" }, -- CEREBRO
 }
 
 function AuctionBotManager.isBotId(id)
@@ -200,7 +201,7 @@ function AuctionBotManager.spawnVehicleForPlayer(xmlFilename, playerFarmId, item
     -- Validate store item BEFORE creating VehicleLoadingData to avoid silent failure
     local storeItem = nil
     if g_storeManager ~= nil then
-        storeItem = g_storeManager:getItemByXMLFilename(xmlFilename)
+        storeItem = AuctionManager.getStoreItemByXMLFilename(xmlFilename)
     end
 
     local data = VehicleLoadingData.new()

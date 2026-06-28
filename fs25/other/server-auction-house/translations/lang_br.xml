@@ -59,5 +59,9 @@
         <e k="auction_settings_section_title" v="Leilão do Servidor" />
         <e k="auction_setting_auctionHouseBotsEnabled" v="Bots do Leilão" />
         <e k="auction_toolTip_auctionHouseBotsEnabled" v="Se ativado, bots virtuais colocarão anúncios de vendas na loja e darão lances." />
+        <e k="ah_filterHistory" v="Histórico" />
+        <e k="ah_status" v="Status:" />
+        <e k="ah_status_sold" v="Vendido" />
+        <e k="ah_status_no_bids" v="Sem Lances" />
     </elements>
 </l10n>

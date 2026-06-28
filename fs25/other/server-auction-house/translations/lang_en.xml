@@ -59,5 +59,9 @@
         <e k="auction_settings_section_title" v="Server Auction House" />
         <e k="auction_setting_auctionHouseBotsEnabled" v="Auction Bots" />
         <e k="auction_toolTip_auctionHouseBotsEnabled" v="If enabled, virtual bots will list items for sale and place bids on auctions." />
+        <e k="ah_filterHistory" v="History" />
+        <e k="ah_status" v="Status:" />
+        <e k="ah_status_sold" v="Sold" />
+        <e k="ah_status_no_bids" v="No Bids" />
     </elements>
 </l10n>

@@ -59,5 +59,9 @@
         <e k="auction_settings_section_title" v="Casa de Subastas del Servidor" />
         <e k="auction_setting_auctionHouseBotsEnabled" v="Bots de Subasta" />
         <e k="auction_toolTip_auctionHouseBotsEnabled" v="Si está activado, los bots virtuales pondrán artículos en venta y pujarán en las subastas." />
+        <e k="ah_filterHistory" v="Historial" />
+        <e k="ah_status" v="Estado:" />
+        <e k="ah_status_sold" v="Vendido" />
+        <e k="ah_status_no_bids" v="Sin Ofertas" />
     </elements>
 </l10n>

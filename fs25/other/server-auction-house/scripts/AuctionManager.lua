@@ -16,6 +16,30 @@ function AuctionManager:init()
     AuctionLogger.info("AuctionManager", "Initialized")
 end
 
+function AuctionManager:capHistorySize()
+    local endedAuctions = {}
+    for _, a in ipairs(self.auctions) do
+        if a.status == "ENDED" then
+            table.insert(endedAuctions, a)
+        end
+    end
+
+    if #endedAuctions > 30 then
+        table.sort(endedAuctions, function(a, b) return a.id < b.id end)
+        local toRemoveCount = #endedAuctions - 30
+        for i = 1, toRemoveCount do
+            local removeId = endedAuctions[i].id
+            for j, a in ipairs(self.auctions) do
+                if a.id == removeId then
+                    table.remove(self.auctions, j)
+                    break
+                end
+            end
+        end
+        AuctionLogger.info("AuctionManager", "Capped ended auctions history size (removed %d old ended auctions)", toRemoveCount)
+    end
+end
+
 function AuctionManager:loadFromSavegame()
     AuctionLogger.info("AuctionManager", "Loading from savegame")
     local auctions, nextId = AuctionStorage.load()
@@ -35,7 +59,7 @@ function AuctionManager:loadFromSavegame()
                 table.insert(self.auctions, auction)
                 recovered = recovered + 1
             else
-                AuctionLogger.info("AuctionManager", ">>> Removendo leilão ENDED antigo %d ('%s') sem recuperação necessária (botWin=%s vehiclePath=%s)", auction.id, auction.itemName or "?", tostring(isOrphanedBotWin), tostring(isVehiclePath))
+                table.insert(self.auctions, auction)
             end
         else
             table.insert(self.auctions, auction)
@@ -43,6 +67,7 @@ function AuctionManager:loadFromSavegame()
     end
 
     AuctionLogger.info("AuctionManager", "Loaded %d auctions from savegame (re-activated %d orphaned ENDED)", #self.auctions, recovered)
+    self:capHistorySize()
     self:saveToSavegame()
 end
 
@@ -106,6 +131,75 @@ function AuctionManager.getVehicleById(vehicleId)
     return nil
 end
 
+function AuctionManager.getStoreItemByXMLFilename(xmlFilename)
+    if xmlFilename == nil or xmlFilename == "" then
+        return nil
+    end
+
+    if g_storeManager == nil then
+        return nil
+    end
+
+    -- 1. Try direct lookup first
+    local item = g_storeManager:getItemByXMLFilename(xmlFilename)
+    if item ~= nil then
+        return item
+    end
+
+    -- 2. Try lowercased direct lookup (in case of case mismatch)
+    local cleanPath = xmlFilename:gsub("\\", "/"):lower()
+    item = g_storeManager.xmlFilenameToItem[cleanPath]
+    if item ~= nil then
+        return item
+    end
+
+    -- 3. Check for DLC (pdlc) absolute paths
+    local pdlcIndex = cleanPath:find("/pdlc/")
+    if pdlcIndex ~= nil then
+        local originalPdlcIndex = xmlFilename:gsub("\\", "/"):lower():find("/pdlc/")
+        local pdlcPath = "$" .. xmlFilename:sub(originalPdlcIndex + 1)
+        item = g_storeManager:getItemByXMLFilename(pdlcPath)
+        if item ~= nil then
+            return item
+        end
+        item = g_storeManager.xmlFilenameToItem[pdlcPath:lower()]
+        if item ~= nil then
+            return item
+        end
+    end
+
+    -- 4. Check for mod absolute/relative paths
+    local modsIndex = cleanPath:find("/mods/")
+    if modsIndex ~= nil then
+        local originalModsIndex = xmlFilename:gsub("\\", "/"):lower():find("/mods/")
+        local modSubPath = xmlFilename:sub(originalModsIndex + 6)
+        local modSubPathLower = modSubPath:lower()
+        for _, storeItem in pairs(g_storeManager:getItems()) do
+            if storeItem.xmlFilename ~= nil then
+                local storePath = storeItem.xmlFilename:gsub("\\", "/"):lower()
+                if storePath:sub(-#modSubPathLower) == modSubPathLower then
+                    return storeItem
+                end
+            end
+        end
+    end
+
+    -- 5. Fallback: match by the trailing relative path (e.g. "vehicles/brand/model/model.xml")
+    local tail = cleanPath:match("([^/]+/[^/]+)$")
+    if tail ~= nil then
+        for _, storeItem in pairs(g_storeManager:getItems()) do
+            if storeItem.xmlFilename ~= nil then
+                local storePath = storeItem.xmlFilename:gsub("\\", "/"):lower()
+                if storePath:sub(-#tail) == tail then
+                    return storeItem
+                end
+            end
+        end
+    end
+
+    return nil
+end
+
 function AuctionManager:broadcastChat(message)
     if g_currentMission ~= nil then
         g_currentMission:addChatMessage(message, AuctionManager.CHAT_SENDER, 0)
@@ -146,7 +240,7 @@ function AuctionManager:createAuction(sellerId, sellerName, vehicleId, startingB
     if vehicle ~= nil and vehicle.configFileName ~= nil then
         xmlFilename = vehicle.configFileName
         if g_storeManager ~= nil then
-            local storeItem = g_storeManager:getItemByXMLFilename(vehicle.configFileName)
+            local storeItem = AuctionManager.getStoreItemByXMLFilename(vehicle.configFileName)
             if storeItem ~= nil and storeItem.price ~= nil then
                 storePrice = storeItem.price
             end
@@ -468,21 +562,16 @@ function AuctionManager:update(dt)
 
     local serverTime = g_currentMission.time
     local hasChanges = false
-    local toRemove = {}
 
     for i, auction in ipairs(self.auctions) do
         if auction.status == "ACTIVE" and serverTime >= auction.endTime then
             self:resolveAuction(auction)
-            table.insert(toRemove, i)
             hasChanges = true
         end
     end
 
-    for i = #toRemove, 1, -1 do
-        table.remove(self.auctions, toRemove[i])
-    end
-
     if hasChanges then
+        self:capHistorySize()
         self:saveToSavegame()
         AuctionEvent.sendSync(self.auctions)
         self:notifyListeners()

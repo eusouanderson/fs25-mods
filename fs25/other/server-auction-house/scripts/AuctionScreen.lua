@@ -7,6 +7,7 @@ local AuctionScreen_mt = Class(AuctionScreen, TabbedMenuFrameElement)
 AuctionScreen.FILTER = {
     ALL  = 1,
     MINE = 2,
+    HISTORY = 3,
 }
 
 AuctionScreen.CONTROLS = {
@@ -160,7 +161,7 @@ function AuctionScreen:onFrameOpen()
 
     -- Setup filter paging
     if self.filterPaging then
-        local filterKeys = { "ah_filterAll", "ah_filterMine" }
+        local filterKeys = { "ah_filterAll", "ah_filterMine", "ah_filterHistory" }
         local texts = {}
         for _, key in ipairs(filterKeys) do
             table.insert(texts, self.i18n:getText(key, AuctionHouse.modName))
@@ -210,6 +211,13 @@ function AuctionScreen:onClickFilterMine()
     AuctionLogger.info("AuctionScreen", "filter set to MINE")
 end
 
+function AuctionScreen:onClickFilterHistory()
+    self.currentFilter = AuctionScreen.FILTER.HISTORY
+    if self.filterPaging then self.filterPaging:setState(AuctionScreen.FILTER.HISTORY, true) end
+    self:refreshAuctionList()
+    AuctionLogger.info("AuctionScreen", "filter set to HISTORY")
+end
+
 function AuctionScreen:onClickFilterPaging()
     if self.filterPaging then
         self.currentFilter = self.filterPaging:getState()
@@ -231,17 +239,30 @@ function AuctionScreen:loadAuctions()
 end
 
 function AuctionScreen:getFilteredAuctions()
+    local farmId = AuctionUI.getLocalFarmInfo()
+    local filtered = {}
+    
     if self.currentFilter == AuctionScreen.FILTER.MINE then
-        local farmId = AuctionUI.getLocalFarmInfo()
-        local filtered = {}
         for _, auction in ipairs(self.auctions) do
-            if auction.sellerId == farmId then
+            if auction.status == "ACTIVE" and auction.sellerId == farmId then
                 table.insert(filtered, auction)
             end
         end
-        return filtered
+    elseif self.currentFilter == AuctionScreen.FILTER.HISTORY then
+        for _, auction in ipairs(self.auctions) do
+            if auction.status == "ENDED" then
+                table.insert(filtered, auction)
+            end
+        end
+    else -- FILTER_ALL
+        for _, auction in ipairs(self.auctions) do
+            if auction.status == "ACTIVE" then
+                table.insert(filtered, auction)
+            end
+        end
     end
-    return self.auctions
+    
+    return filtered
 end
 
 -- List refresh
@@ -315,12 +336,16 @@ end
 
 function AuctionScreen:updateDetailTime(auction)
     if self.detailTime == nil or auction == nil then return end
-    local missionTime = 0
-    if g_currentMission ~= nil then
-        missionTime = g_currentMission.time or 0
+    if auction.status == "ENDED" then
+        self.detailTime:setText(self.i18n:getText("ah_status", AuctionHouse.modName) .. " " .. (self.i18n:getText("ah_statusEnded", AuctionHouse.modName) or "Finalizado"))
+    else
+        local missionTime = 0
+        if g_currentMission ~= nil then
+            missionTime = g_currentMission.time or 0
+        end
+        local timeLeft = AuctionUI.formatTimeLeft(auction.endTime, missionTime)
+        self.detailTime:setText(self.i18n:getText("ah_timeLeft", AuctionHouse.modName) .. " " .. timeLeft)
     end
-    local timeLeft = AuctionUI.formatTimeLeft(auction.endTime, missionTime)
-    self.detailTime:setText(self.i18n:getText("ah_timeLeft", AuctionHouse.modName) .. " " .. timeLeft)
 end
 
 function AuctionScreen:showDetail(auction)
@@ -349,7 +374,7 @@ function AuctionScreen:showDetail(auction)
     if self.detailImage then
         if auction.xmlFilename ~= nil and auction.xmlFilename ~= "" then
             if g_storeManager ~= nil then
-                local storeItem = g_storeManager:getItemByXMLFilename(auction.xmlFilename)
+                local storeItem = AuctionManager.getStoreItemByXMLFilename(auction.xmlFilename)
                 if storeItem ~= nil and storeItem.imageFilename ~= nil then
                     local imgPath = storeItem.imageFilename:gsub("\\", "/")
                     if imgPath:sub(1, 1) ~= "$" and (imgPath:sub(1, 5):lower() == "data/" or imgPath:sub(1, 6):lower() == "datas/") then
@@ -401,9 +426,10 @@ function AuctionScreen:showDetail(auction)
 
     local farmId = AuctionUI.getLocalFarmInfo()
     local isOwnAuction = (auction.sellerId == farmId)
+    local canBid = not isOwnAuction and auction.status == "ACTIVE"
 
     if self.bidRow then
-        self.bidRow:setVisible(not isOwnAuction)
+        self.bidRow:setVisible(canBid)
     end
     if self.bidInput then
         self.bidInput:setText(tostring((auction.currentBid or 0) + AuctionManager.MIN_BID_INCREMENT))
@@ -452,11 +478,19 @@ function AuctionScreen:populateCellForItemInSection(list, section, index, cell)
 
     local cellTime = cell:getDescendantByName("cellTime")
     if cellTime then
-        local missionTime = 0
-        if g_currentMission ~= nil then
-            missionTime = g_currentMission.time or 0
+        if auction.status == "ENDED" then
+            if auction.highestBidderId ~= nil and auction.highestBidderId ~= 0 then
+                cellTime:setText(self.i18n:getText("ah_status_sold", AuctionHouse.modName) or "Vendido")
+            else
+                cellTime:setText(self.i18n:getText("ah_status_no_bids", AuctionHouse.modName) or "Sem Lances")
+            end
+        else
+            local missionTime = 0
+            if g_currentMission ~= nil then
+                missionTime = g_currentMission.time or 0
+            end
+            cellTime:setText(AuctionUI.formatTimeLeft(auction.endTime, missionTime))
         end
-        cellTime:setText(AuctionUI.formatTimeLeft(auction.endTime, missionTime))
     end
 
     local cellSeller = cell:getDescendantByName("cellSeller")
@@ -476,7 +510,7 @@ function AuctionScreen:onListSelectionChanged(list, section, index)
 
         local farmId = AuctionUI.getLocalFarmInfo()
         local hasBid = auction.highestBidderId ~= nil and auction.highestBidderId ~= 0
-        self.btnCancel.disabled = (auction.sellerId ~= farmId) or hasBid
+        self.btnCancel.disabled = (auction.sellerId ~= farmId) or hasBid or (auction.status == "ENDED")
     else
         self.selectedAuctionIndex = nil
         self:clearDetail()
