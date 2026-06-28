@@ -167,7 +167,7 @@ function Journal.registerInGameMenuPage(frame, pageName, uvs, predicateFunc)
         JournalLogger.info("main", "  page registered")
     end
 
-    local iconFileName = Utils.getFilename('images/icon_Journal.dds', Journal.modDirectory)
+    local iconFileName = Utils.getFilename('icon_JournalTab.png', Journal.modDirectory)
     JournalLogger.info("main", "  icon path: " .. tostring(iconFileName) .. " exists: " .. tostring(fileExists(iconFileName)))
 
     if g_inGameMenu.addPageTab then
@@ -192,20 +192,20 @@ function Journal.registerInGameMenuPage(frame, pageName, uvs, predicateFunc)
         JournalLogger.info("main", "  tab list rebuilt")
     end
 
-    -- Replace custom DDS tab icon with standard game slice for correct selected-state rendering
-    if g_inGameMenu.pageTabs and g_inGameMenu.pageTabs[g_inGameMenu[pageName]] then
-        local tab = g_inGameMenu.pageTabs[g_inGameMenu[pageName]]
-        tab.iconFilename = nil
-        tab.iconUVs = nil
-        tab.iconSliceId = "gui.icon_ingameMenu_contracts"
-        JournalLogger.info("main", "  tab icon replaced with game slice")
-        if g_inGameMenu.rebuildTabList then
-            g_inGameMenu:rebuildTabList()
-            JournalLogger.info("main", "  tab list rebuilt after icon swap")
-        end
-    else
-        JournalLogger.warning("main", "  could not find pageTabs entry for icon swap")
-    end
+    -- Standard game slice replacement is disabled to allow custom icon_JournalTab.png rendering
+    -- if g_inGameMenu.pageTabs and g_inGameMenu.pageTabs[g_inGameMenu[pageName]] then
+    --     local tab = g_inGameMenu.pageTabs[g_inGameMenu[pageName]]
+    --     tab.iconFilename = nil
+    --     tab.iconUVs = nil
+    --     tab.iconSliceId = "gui.icon_ingameMenu_contracts"
+    --     JournalLogger.info("main", "  tab icon replaced with game slice")
+    --     if g_inGameMenu.rebuildTabList then
+    --         g_inGameMenu:rebuildTabList()
+    --         JournalLogger.info("main", "  tab list rebuilt after icon swap")
+    --     end
+    -- else
+    --     JournalLogger.warning("main", "  could not find pageTabs entry for icon swap")
+    -- end
 
     JournalLogger.info("main", "registerInGameMenuPage complete for " .. pageName)
 end
