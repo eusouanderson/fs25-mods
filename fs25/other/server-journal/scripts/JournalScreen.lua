@@ -151,10 +151,12 @@ function JournalScreen:onFrameOpen()
     JournalLogger.info("JournalScreen", "onFrameOpen")
     JournalScreen:superClass().onFrameOpen(self)
 
-    -- Set icon using standard game slice for correct selected-state rendering
+    -- Set icon using custom icon_JournalTab.png
     if self.headerIcon then
-        self.headerIcon:setImageSlice(nil, "gui.icon_ingameMenu_contracts")
-        JournalLogger.info("JournalScreen", "header icon set via game slice")
+        local iconPath = Utils.getFilename("icon_JournalTab.png", Journal.modDirectory)
+        self.headerIcon:setImageFilename(iconPath)
+        self.headerIcon:setImageUVs(nil, 0, 0, 0, 1, 1, 0, 1, 1)
+        JournalLogger.info("JournalScreen", "header icon set to custom " .. tostring(iconPath))
     end
 
     -- Setup filter paging

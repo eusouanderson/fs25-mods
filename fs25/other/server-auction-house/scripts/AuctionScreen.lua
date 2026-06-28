@@ -153,10 +153,12 @@ function AuctionScreen:onFrameOpen()
     AuctionLogger.info("AuctionScreen", "onFrameOpen")
     AuctionScreen:superClass().onFrameOpen(self)
 
-    -- Set icon using standard game slice for correct selected-state rendering
+    -- Set icon using custom icon_AuctionTab.png
     if self.headerIcon then
-        self.headerIcon:setImageSlice(nil, "gui.icon_ingameMenu_finances")
-        AuctionLogger.info("AuctionScreen", "header icon set via game slice")
+        local iconPath = Utils.getFilename("icon_AuctionTab.png", AuctionHouse.modDirectory)
+        self.headerIcon:setImageFilename(iconPath)
+        self.headerIcon:setImageUVs(nil, 0, 0, 0, 1, 1, 0, 1, 1)
+        AuctionLogger.info("AuctionScreen", "header icon set to custom " .. tostring(iconPath))
     end
 
     -- Setup filter paging
