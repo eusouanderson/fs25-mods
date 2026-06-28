@@ -4,6 +4,11 @@
 
 ## 📥 Download
 
+**Server Auction House v1.3.3**
+
+[⬇ Baixar / Download](https://github.com/eusouanderson/fs25-mods/releases/tag/server-auction-house-v1.3.3)
+
+---
 **Server Auction House v1.3.2**
 
 [⬇ Baixar / Download](https://github.com/eusouanderson/fs25-mods/releases/tag/server-auction-house-v1.3.2)
