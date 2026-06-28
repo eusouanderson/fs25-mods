@@ -8,7 +8,7 @@ AuctionBotManager.CREATE_CHANCE = 0.15 -- 15% chance to create a bot auction if 
 
 -- Modo desenvolvedor: força duração máxima de 1 minuto para testar rapidamente
 -- Em produção, mude para false para usar duração aleatória normal (3-15 min)
-AuctionBotManager.DEV_MODE = true
+AuctionBotManager.DEV_MODE = false
 
 AuctionBotManager._botsPreviouslyEnabled = nil
 
@@ -21,7 +21,9 @@ AuctionBotManager.BOTS = {
     { id = -105, defaultName = "Fernanda", profile = "COMPETITIVE" }, -- Competitivo
     { id = -106, defaultName = "Bruno", profile = "AGGRESSIVE" }, -- Agressivo
     { id = -107, defaultName = "Amanda", profile = "RANDOM" }, -- Aleatório
-    { id = -108, defaultName = "Anderson", profile = "BRAIN" }, -- CEREBRO
+    { id = -108, defaultName = "Anderson", profile = "BRAIN" }, -- Inteligente
+
+    
 }
 
 function AuctionBotManager.isBotId(id)
@@ -52,6 +54,16 @@ function AuctionBotManager.getBotLimit(bot, auction)
         multiplier = 0.95 + math.random() * 0.30 -- 95% to 125% of store value
     elseif bot.profile == "RANDOM" then
         multiplier = 0.40 + math.random() * 0.75 -- 40% to 115% of store value
+    elseif bot.profile == "BRAIN" then
+        -- 5% chance of being "pranks" (bids up to 50% above store value)
+        -- 95% chance of being smart (e.g. bids up to 85% of store value, buy cheap)
+        local isPranks = math.random() <= 0.05
+        if isPranks then
+            multiplier = 1.00 + math.random() * 0.50 -- 100% to 150% of store value
+            AuctionLogger.info("AuctionBotManager", ">>> [BRAIN-BOT-PRANKS] Bot '%s' is playing pranks on auction %d! Multiplier=%f", bot.defaultName or "Bot", auction.id, multiplier)
+        else
+            multiplier = 0.70 + math.random() * 0.15 -- 70% to 85% of store value
+        end
     end
     
     -- Reset seed to avoid affecting game mechanics
@@ -92,6 +104,30 @@ function AuctionBotManager.shouldBotBid(bot, auction, serverTime)
         end
     elseif bot.profile == "RANDOM" then
         chance = math.random() * 0.40 -- Unpredictable chance up to 40%
+    elseif bot.profile == "BRAIN" then
+        -- Determine stably if in pranks mode
+        local seed = bot.id + auction.id
+        math.randomseed(seed)
+        local isPranks = math.random() <= 0.05
+        if g_currentMission ~= nil then
+            math.randomseed(g_currentMission.time or 1)
+        end
+
+        if isPranks then
+            -- Pranks is very active and pushes the bid up aggressively
+            if timeLeft < 45000 then
+                chance = 0.70
+            else
+                chance = 0.35
+            end
+        else
+            -- Smart bot behaves strategically (snipes at the end, patient otherwise)
+            if timeLeft < 20000 then
+                chance = 0.50
+            else
+                chance = 0.15
+            end
+        end
     end
     
     return math.random() < chance
@@ -117,6 +153,26 @@ function AuctionBotManager.calculateBidAmount(bot, auction)
         end
     elseif bot.profile == "RANDOM" then
         extra = math.random(0, 5) * 1000
+    elseif bot.profile == "BRAIN" then
+        -- Determine stably if in pranks mode
+        local seed = bot.id + auction.id
+        math.randomseed(seed)
+        local isPranks = math.random() <= 0.05
+        if g_currentMission ~= nil then
+            math.randomseed(g_currentMission.time or 1)
+        end
+
+        if isPranks then
+            -- Bids extra to raise stakes
+            if math.random() < 0.60 then
+                extra = math.random(2, 6) * 1000
+            end
+        else
+            -- Smart bot bids minimally to avoid overpaying
+            if math.random() < 0.10 then
+                extra = math.random(1, 2) * 500
+            end
+        end
     end
     
     local amount = minRequired + extra
