@@ -198,7 +198,7 @@ function AuctionHouse.registerInGameMenuPage(frame, pageName, uvs, predicateFunc
         AuctionLogger.info("main", "  page registered")
     end
 
-    local iconFileName = Utils.getFilename('images/icon_AuctionHouse.dds', AuctionHouse.modDirectory)
+    local iconFileName = Utils.getFilename('icon_AuctionTab.png', AuctionHouse.modDirectory)
     AuctionLogger.info("main", "  icon path: " .. tostring(iconFileName) .. " exists: " .. tostring(fileExists(iconFileName)))
 
     if g_inGameMenu.addPageTab then
@@ -223,20 +223,20 @@ function AuctionHouse.registerInGameMenuPage(frame, pageName, uvs, predicateFunc
         AuctionLogger.info("main", "  tab list rebuilt")
     end
 
-    -- Replace custom DDS tab icon with standard game slice for correct selected-state rendering
-    if g_inGameMenu.pageTabs and g_inGameMenu.pageTabs[g_inGameMenu[pageName]] then
-        local tab = g_inGameMenu.pageTabs[g_inGameMenu[pageName]]
-        tab.iconFilename = nil
-        tab.iconUVs = nil
-        tab.iconSliceId = "gui.icon_ingameMenu_finances"
-        AuctionLogger.info("main", "  tab icon replaced with game slice")
-        if g_inGameMenu.rebuildTabList then
-            g_inGameMenu:rebuildTabList()
-            AuctionLogger.info("main", "  tab list rebuilt after icon swap")
-        end
-    else
-        AuctionLogger.warning("main", "  could not find pageTabs entry for icon swap")
-    end
+    -- Standard game slice replacement is disabled to allow custom icon_AuctionTab.png rendering
+    -- if g_inGameMenu.pageTabs and g_inGameMenu.pageTabs[g_inGameMenu[pageName]] then
+    --     local tab = g_inGameMenu.pageTabs[g_inGameMenu[pageName]]
+    --     tab.iconFilename = nil
+    --     tab.iconUVs = nil
+    --     tab.iconSliceId = "gui.icon_ingameMenu_finances"
+    --     AuctionLogger.info("main", "  tab icon replaced with game slice")
+    --     if g_inGameMenu.rebuildTabList then
+    --         g_inGameMenu:rebuildTabList()
+    --         AuctionLogger.info("main", "  tab list rebuilt after icon swap")
+    --     end
+    -- else
+    --     AuctionLogger.warning("main", "  could not find pageTabs entry for icon swap")
+    -- end
 
     AuctionLogger.info("main", "registerInGameMenuPage complete for " .. pageName)
 end
